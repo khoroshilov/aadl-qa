@@ -1,0 +1,20 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p class=\"ExampleText\" style=\"page-break-after: avoid;\">\n\t<b><span lang=\"EN-US\">property set<\/span><\/b><span lang=\"EN-US\"> mine <b>is<\/b><\/span><\/p>\n<p class=\"ExampleText\" style=\"page-break-after: avoid;\">\n\t<span lang=\"EN-US\">&nbsp; Length_Unit : <b>type units <\/b>( mm, cm =&gt; mm * 10, <\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m =&gt; cm * 100, km =&gt; m * 1000 );<\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp; OnOff : <b>type aadlboolean<\/b>;<\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp;&nbsp;-- This type declaration references a separately declared units type<\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp; Car_Length : <b>type aadlreal <\/b>1.5 m .. 4.5 m <b>units<\/b> mine::Length_Unit ; <\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp; -- This type declaration defines the units in place<\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp; Speed_Range : <b>type range of aadlreal<\/b> 0.0 kph .. 250.0 kph <b>units<\/b> ( kph );<\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp; Position : <b>type record <\/b>(<\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X: <b>aadlinteger<\/b>;<\/span><\/p>\n<p class=\"ExampleText\">\n\t<span lang=\"EN-US\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Y: <b>aadlinteger<\/b>; );<\/span><\/p>\n<p class=\"ExampleText\">\n\t<b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\"> mine;<\/span><\/p>\n&nbsp;"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "1d953575-1e63-4683-9507-cf916f3dbba2"
+}

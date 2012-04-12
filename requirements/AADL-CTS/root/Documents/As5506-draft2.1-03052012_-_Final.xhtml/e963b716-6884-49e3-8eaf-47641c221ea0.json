@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">property\nset<\/span><\/b><span lang=\"EN-US\"> mine <b>is<\/b><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\">  Length_Unit\n: <b>type units <\/b>( mm, cm =&gt; mm * 10, <\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">                           m =&gt; cm *\n100, km =&gt; m * 1000 );<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">  OnOff : <b>type aadlboolean<\/b>;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">  -- This type declaration references a\nseparately declared units type<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">  Car_Length : <b>type aadlreal <\/b>1.5 m\n.. 4.5 m <b>units<\/b> mine::Length_Unit ; <\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">  -- This type declaration defines the\nunits in place<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">  Speed_Range : <b>type range of aadlreal<\/b>\n0.0 kph .. 250.0 kph <b>units<\/b> ( kph );<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">  Position : <b>type record <\/b>(<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">       X: <b>aadlinteger<\/b>;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">       Y: <b>aadlinteger<\/b>; );<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\"> mine;<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "23ea74c5-d244-42bb-8bff-e686fed3b48c"
+}

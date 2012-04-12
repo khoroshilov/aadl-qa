@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">package\n<\/span><\/b><span lang=\"EN-US\">AnnexExample<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">public<\/span><\/b><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">with <\/span><\/b><span lang=\"EN-US\">Sampling;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">thread<\/span><\/b><span lang=\"EN-US\"> Collect_Samples <\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><b><span lang=\"EN-US\">features<\/span><\/b><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">   Input_Sample : <b>in data\nport <\/b>Sampling::Sample;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">   Output_Average : <b>out data\nport <\/b>Sampling::Sample;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><b><span lang=\"EN-US\">annex <\/span><\/b><span lang=\"EN-US\">Error_Model<b>\n{**<\/b><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">   Model =&gt;<b> <\/b>Transient_Fault_Model;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">   <\/span><\/b><span lang=\"EN-US\">Occurrence =&gt;<b> <\/b>poisson 10e-4 <b>applies to<\/b>\nTransient_Fault;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">**}<\/span><\/b><span lang=\"EN-US\">;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\"> Collect_Samples;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">end <\/span><\/b><span lang=\"EN-US\">AnnexExample;<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "166f9743-31ff-4e95-9a4b-d5254c3e9f98"
+}

@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">package\nAircraft::Cockpit <\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><b><span lang=\"EN-US\">public<\/span><\/b><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">   <b>with<\/b>\nAvionics::DataTypes, Safety_Properties;<\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">   AirData <b>renames\ndata<\/b> Avionics::DataTypes::AirData;<\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">   <b>system <\/b>MFD<\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">   <b>features<\/b><\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">      Airdata: <b>in\ndata port <\/b>AirData;<\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">   <b>properties<\/b><\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">     \nSafety_Properties::Safety_Criticality =&gt; high;<\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">   <b>end<\/b> MFD;<\/span><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span class=\"CODE\"><span lang=\"EN-US\">end Aircraft::Cockpit;<\/span><\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "6a178bc7-f0a7-44fe-8395-54c355d1c0ed"
+}

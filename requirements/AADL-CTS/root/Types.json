@@ -1,0 +1,8 @@
+{
+    "attributes": {"_type": {
+        "key": "_type",
+        "type": "STRING",
+        "value": "NodeType"
+    }},
+    "uuid": "c7863263-1046-42dc-88a8-9eaf845d7539"
+}

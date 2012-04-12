@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\">-- a\nthread that gets input partway into execution and sends output<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\">-- before\ncompletion.<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><b><span lang=\"EN-US\">thread<\/span><\/b><span lang=\"EN-US\"> TightLoop <\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><b><span lang=\"EN-US\">features<\/span><\/b><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">   sensor: <b>in data<\/b> <b>port<\/b> <\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">      {Input_Time =&gt; ((Time=&gt;<\/span><span lang=\"EN-US\">Start;Offset=&gt;10 us .. 15 us;));}<\/span><span lang=\"EN-US\"> ;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">   actuator:<b> out data port<\/b> <\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">      {Output_Time =&gt; ((Time=&gt;<\/span><span lang=\"EN-US\">Completion;Offset=&gt;10 us .. 11 us;));}<\/span><span lang=\"EN-US\"> ;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\">\nTightLoop;<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "d93bbc67-e170-4637-a26b-0659b22f7958"
+}

@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">subprogram group<\/span><\/b><span lang=\"EN-US\"> mathlib<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">features<\/span><\/b><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">   matrixMultiply: <b>provides subprogram access<\/b> ;<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">   matrixAdd: <b>provides subprogram access<\/b> ;<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">   vectorAdd: <b>requires subprogram access <\/b>;<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\"> mathlib;<\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "a5c3bc52-f52b-43a7-948a-527d3dd92a0d"
+}

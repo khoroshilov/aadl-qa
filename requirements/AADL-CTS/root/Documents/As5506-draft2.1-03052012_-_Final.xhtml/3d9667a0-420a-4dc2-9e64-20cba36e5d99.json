@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">thread<\/span><\/b><span lang=\"EN-US\"> Prime_Reporter <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">features<\/span><\/b><span lang=\"EN-US\"> <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">  Received_Prime : <b>in event data port<\/b> Base_Types::Integer;<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">properties<\/span><\/b><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">  Dispatch_Protocol =&gt; Timed; <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\"> Prime_Reporter; <br />\n<br />\n<b>thread<\/b> Prime_Reporter_One <b>extends<\/b> Prime_Reporter <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">features<\/span><\/b><span lang=\"EN-US\"> <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">  Received_Prime : <b>refined to in event data port<\/b> Base_Types::Integer <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    {Compute_Entrypoint =&gt; \"Primes.On_Received_Prime_One\";};<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    -- function called on message-based dispatch <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">properties<\/span><\/b><span lang=\"EN-US\"> <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">  Period =&gt; 9 Sec; -- timeout period<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">  Priority =&gt; 45;<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">  Compute_Entrypoint =&gt; \"Primes.Report_One\";   <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">  -- function called in case of timeout <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\"> Prime_Reporter_One;<\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "4759fcd6-e8aa-441c-9a7f-d0d6e04e0582"
+}

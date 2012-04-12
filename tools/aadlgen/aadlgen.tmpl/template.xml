@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<report start="custom.ftl" id="com.unitesk.requality.reports.aadl-out" name="AADL-export">
+    <template source="custom.ftl" location="reqdb.txt"/>
+</report>
+

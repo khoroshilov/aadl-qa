@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\">-- added\nto Property Set mine from previous example<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\">Value_Type:\n<b>type enumeration <\/b>( estimate, benchmark, measured );<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\">Rotation_Units:\n<b>type units <\/b>( rpm );<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">  Position : <b>type record <\/b>(<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">       X: <b>aadlinteger<\/b>;<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\"><span lang=\"EN-US\">       Y: <b>aadlinteger<\/b>; );<\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"ExampleText\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\">GPS_Position\n: mine::Position <b>applies to<\/b> ( system );<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "7209b5be-0b2c-449e-8574-f17e7551c738"
+}

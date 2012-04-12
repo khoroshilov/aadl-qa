@@ -1,0 +1,20 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\"><strong>package<\/strong> Aircraft::Cockpit <\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><b><span lang=\"EN-US\">public<\/span><\/b><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">&nbsp;&nbsp; <b>with<\/b> Avionics::DataTypes, Safety_Properties;<\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">&nbsp;&nbsp; AirData <b>renames data<\/b> Avionics::DataTypes::AirData;<\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">&nbsp;&nbsp; <b>system <\/b>MFD<\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">&nbsp;&nbsp; <b>features<\/b><\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Airdata: <b>in data port <\/b>AirData;<\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">&nbsp;&nbsp; <b>properties<\/b><\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Safety_Properties::Safety_Criticality =&gt; high;<\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">&nbsp;&nbsp; <b>end<\/b> MFD;<\/span><\/span><\/p>\n<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span class=\"CODE\"><span lang=\"EN-US\">end Aircraft::Cockpit;<\/span><\/span><\/p>\n"
+        },
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": ["/Documents/As5506-draft2.1-03052012_-_Final.xhtml/8c7e6d02-4da8-49ce-b3ab-312b049ec082"]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "6ee2d2aa-c95f-46a2-8146-b734bfd91b5a"
+}
