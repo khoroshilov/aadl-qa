@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">name_visibility_declaration ::= <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">        import_declaration |<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">        alias_declaration <\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "5c12f021-418b-4237-a109-a2f64fe3ca80"
+}

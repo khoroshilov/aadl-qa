@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">feature_group_classifier_declaration ::= <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">        feature_group_type | feature_group_type_extension<\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "c3e48ec0-f68c-4dbf-ac6e-90b0fb47a25a"
+}

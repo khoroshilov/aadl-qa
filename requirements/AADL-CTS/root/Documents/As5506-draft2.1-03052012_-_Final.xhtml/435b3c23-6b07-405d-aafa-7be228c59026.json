@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">import_declaration ::= <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">       <b>with <\/b>( package_name | <i>property_set<\/i>_identifier )<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">            { <b>,<\/b> ( package_name | <i>property_set<\/i>_identifier ) }<sup>* <\/sup><b>; <\/b><\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "74fed75c-9955-45e7-a323-1c8314574151"
+}

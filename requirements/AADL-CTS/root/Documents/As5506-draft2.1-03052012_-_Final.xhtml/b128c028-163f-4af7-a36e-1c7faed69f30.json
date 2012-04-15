@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(L1)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">The defining<i> <\/i>identifier following the\nreserved word <b>end<\/b> must be identical to the defining identifier that\nappears after the component category reserved word.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "758f906f-6db6-48b1-9cee-3a7096f28f2c"
+}

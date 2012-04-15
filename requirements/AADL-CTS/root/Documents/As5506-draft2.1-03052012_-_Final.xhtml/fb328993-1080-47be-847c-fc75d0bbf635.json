@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\" style=\"page-break-after: avoid;\"><a name=\"Library\"><span lang=\"EN-US\">package_spec ::= <\/span><\/a><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    <b>package<\/b> <i>defining<\/i>_package_name <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">     ( <b>public<\/b> package_declarations [ <b>private<\/b> package_declarations ]<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">       | <b>private<\/b> package_declarations )<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    [ <b>properties<\/b> ( { basic_property_association }<sup>+ <\/sup> |                <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">      none_statement ) ]<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\"> <i>defining<\/i>_package_name ;<\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "052d46b2-af50-4b13-be78-8893a0078ceb"
+}

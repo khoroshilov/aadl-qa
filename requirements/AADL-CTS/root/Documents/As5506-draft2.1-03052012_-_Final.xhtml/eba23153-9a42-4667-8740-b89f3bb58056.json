@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"MsoHeader\"><span lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">package_declarations\n::= <\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"MsoHeader\"><span lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">    { name_visibility_declaration\n}* { AADL_declaration }*<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "54a58535-de80-4f0e-bcdf-887b5485b5c7"
+}

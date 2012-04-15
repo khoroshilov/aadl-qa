@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">AADL_declaration ::= <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    classifier_declaration <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    | annex_library <\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "07ee0d82-b058-410b-8b95-3d514ad62e00"
+}

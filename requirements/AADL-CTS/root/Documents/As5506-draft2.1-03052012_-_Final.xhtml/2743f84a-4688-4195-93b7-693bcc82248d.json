@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"FR\">component_classifier_declaration ::= <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"FR\">    component_type | component_type_extension | <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"FR\">    component_implementation | component_implementation_extension<\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "027df385-c3c2-4b97-9b1a-a00e024b0c22"
+}

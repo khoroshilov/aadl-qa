@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">alias_declaration ::= <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    ( <i>defining_<\/i>identifier <b>renames package <\/b>package<i>_<\/i>name <b>; <\/b>) |<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    ( [ <i>defining<\/i>_identifier ] <b>renames <\/b><\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">      ( component_category unique_component_type_reference | <\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">      <b>feature group <\/b>unique_feature_group_type_reference ) <b>; <\/b>) |<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">    ( <b>renames<\/b> package_name::<b>all ; <\/b>)<\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "bf00a222-14e3-4f0e-959d-c35e1a2ca8fc"
+}

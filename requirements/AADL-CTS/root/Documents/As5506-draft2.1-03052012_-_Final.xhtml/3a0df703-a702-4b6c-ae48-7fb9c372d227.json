@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "none_statement ::= <b xmlns=\"http://www.w3.org/1999/xhtml\">none ;<\/b>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "7c7ebb69-5a3c-484f-8929-c9be16e5eb9d"
+}
