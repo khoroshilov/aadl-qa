@@ -50,11 +50,13 @@ my $TDIR;
 my $TNAME;
 my $TREQ;
 my @TLOCS;
+my %ATTRS;
 my $TEST;
 my $testcnt = 0;
 
-sub generate_test($$) {
+sub generate_test($$$) {
 my $LOCATIONS = shift;
+my $ATTRIBUTES = shift;
 my $CODE = shift;
 
   system("mkdir -p $TDIR");
@@ -62,7 +64,7 @@ my $CODE = shift;
   print FILE "$TEST";
   close(FILE);
   #system("html2text $TDIR/$TNAME.html > $TDIR/$TNAME.aadl");
-  system("sed -e 's/<[^>]*>//g' -e 's/&gt;/>/g' -e 's/&gt;/</g' -e 's/&[lr]dquo;/\"/g'  -e 's/&[a-z]*;//g' $TDIR/$TNAME.html > $TDIR/$TNAME.aadl");
+  system("sed -e 's/<[^>]*>//g' -e 's/&gt;/>/g' -e 's/&gt;/</g' -e 's/&nbsp;/ /g' -e 's/&[lr]dquo;/\"/g' -e 's/&[a-z]*;//g' $TDIR/$TNAME.html > $TDIR/$TNAME.aadl");
   system("rm $TDIR/$TNAME.html");
   open(FILE, ">", "$TDIR/MANIFEST.TC");
   print FILE "REQ=$TREQ\n";
@@ -71,7 +73,13 @@ my $CODE = shift;
 #    print FILE "LOCATION$i=$location\n";
 #    $i++;
 #  }
-  print FILE "EXPECTED_RESULT=VALID\n";
+  if (!defined($ATTRIBUTES->{'EXPECTED_RESULT'})) {
+    print FILE "EXPECTED_RESULT=VALID\n";
+  }
+  foreach my $key (keys %$ATTRIBUTES) {
+    next if ($key =~ m/^_.*/);
+    print FILE "$key=$ATTRIBUTES->{$key}\n";
+  }
   close(FILE);
   $testcnt++;
 }
@@ -104,21 +112,28 @@ close(FILE);
 if (open (SOURCE_FILE, "<", $reqdb)) {
   while (<SOURCE_FILE>) {
     if (m/---id:\s*\/Requirements\/(.*)\/([^\/\s]*)[\s]*$/) {
-      if (defined($TEST)) {
-        generate_test(\@TLOCS,$TEST);
+      if (defined($TNAME) && defined($TEST)) {
+        generate_test(\@TLOCS,\%ATTRS,$TEST);
       }
-      $TDIR  = "$gensrc/$1";
+      $TDIR  = "$gensrc/$1/$2";
       $TNAME = $2;
       $TREQ = "/Requirements/$1/$2";
       @TLOCS = ();
+      %ATTRS = ();
       $TEST = "";
     } elsif (m/--location:\s*\/Documents\/([^\s]*)[\s]*$/) {
       push @TLOCS, "$1";
+    } elsif (m/--attr\[([^\]]*)\]:\s*([^\s]*)[\s]*$/) {
+      $ATTRS{$1} = $2;
+    } elsif (m/--attr\[([^\]]*)\]:\s*/) {
+      $ATTRS{$1} = "";
     } else {
       $TEST = $TEST."$_";
     }
   }
   close(SOURCE_FILE);
 }
-generate_test(\@TLOCS,$TEST);
+if (defined($TNAME)) {
+  generate_test(\@TLOCS,\%ATTRS,$TEST);
+}
 print "\n$testcnt tests successfully generated!\n";

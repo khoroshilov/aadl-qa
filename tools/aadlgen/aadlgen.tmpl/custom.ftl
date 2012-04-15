@@ -22,16 +22,23 @@
     </#list>
     <#local locationsList = node.getParent().getAttributeValue("_locations","")/>
     <#if node.getType() == "TestPurpose">
-<#assign qid  = node.getQualifiedId()>
-<#assign desc = node.description>
-    <#if first == 0>
-    </#if>
+      <#assign status  = node.getAttributeValue("_status","")>
+      <#if (status == "complete") || (status == "verified")>
+        <#assign qid  = node.getQualifiedId()>
+        <#assign desc = node.description>
 ---id:   ${qid}
-    <#list locationsList as location>
+        <#list locationsList as location>
 --location:  ${location}
-    </#list>
+        </#list>
+        <#local attributes = node.getAttributeKeys()/>
+        <#list attributes as attr>
+          <#if (attr[0] != '_')>
+          <#local value = node.getAttributeValue(attr,"")/>
+--attr[${attr}]: ${value}
+          </#if>
+        </#list>
 ${desc}
-<#assign first  = 0>
+      </#if>
     </#if>
     <#if (hasChild!0) != 0>
         <#list childrenList as child>
@@ -39,5 +46,4 @@ ${desc}
         </#list>
     </#if>
 </#macro>
-<#assign first  = 1>
 <@showreq rootReq/>
