@@ -1,0 +1,25 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); \">\n\t<p>\n\t\t<b><span lang=\"EN-US\">package&nbsp;<\/span><\/b>package_spec<br />\n\t\t<b>private<\/b><br />\n\t\t<b>&nbsp; data<\/b>&nbsp;Bool_Type<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end&nbsp;<\/span><\/b><span lang=\"EN-US\">Bool_Type;<\/span><br />\n\t\t<b>end&nbsp;<\/b>package_spec;<\/p>\n<\/div>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "359fdd00-e24e-49cf-a5ff-83592f30ae78"
+}

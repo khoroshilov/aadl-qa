@@ -1,0 +1,25 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t\t<p class=\"ExampleText\" style=\"page-break-after: avoid; \">\n\t\t\t<b><span lang=\"EN-US\">package&nbsp;<\/span><\/b><span lang=\"EN-US\">package_spec<\/span><br />\n\t\t\t<b><span lang=\"EN-US\">private<\/span><\/b><br />\n\t\t\t<b><span lang=\"EN-US\">&nbsp; data<\/span><\/b><span lang=\"EN-US\">&nbsp;Bool_Type<\/span><br />\n\t\t\t<b><span lang=\"EN-US\">&nbsp; end&nbsp;<\/span><\/b><span lang=\"EN-US\">Bool_Type;<\/span><br />\n\t\t\t<b><span lang=\"EN-US\">properties<\/span><\/b><br />\n\t\t\t&nbsp; <strong>none<\/strong>;<br />\n\t\t\t<b><span lang=\"EN-US\">end&nbsp;<\/span><\/b><span lang=\"EN-US\">package_spec<\/span><span lang=\"EN-US\">;<\/span><\/p>\n\t<\/div>\n<\/div>\n&nbsp;"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "1f63c856-e668-4b7c-9f36-6deee0cd1a30"
+}

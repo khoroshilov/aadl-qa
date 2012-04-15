@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "The defining identifier following the reserved word end must be identical to the defining identifier following reserved words feature group."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "e3534317-6647-46ad-9fcc-07f495ba3876"
+}

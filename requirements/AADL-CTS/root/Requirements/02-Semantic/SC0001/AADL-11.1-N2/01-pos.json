@@ -1,0 +1,25 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; \">\n\t<p>\n\t\t<strong>property set<\/strong>&nbsp;MyProp&nbsp;<strong>is<\/strong><br />\n\t\t&nbsp; Access_Rights3 :&nbsp;<strong>type enumeration<\/strong>&nbsp;(read_only2, write_only2, read_write2);<br />\n\t\t&nbsp; Pckg_Access_Right1 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to<\/strong>&nbsp;(<strong>package<\/strong>);<br />\n\t\t<strong>end<\/strong>&nbsp;MyProp;<\/p>\n<\/div>\n<p>\n\t&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "f14a1b3a-0029-4bbb-9a7e-2fb68b74761a"
+}

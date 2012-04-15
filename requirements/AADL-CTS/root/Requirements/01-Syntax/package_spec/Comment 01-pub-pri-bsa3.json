@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\tNegative test cases are not complete, positive are good enough.<\/p>\n"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Comment"
+        }
+    },
+    "uuid": "e7b6886e-a649-4316-83ea-2c061dbf2afa"
+}

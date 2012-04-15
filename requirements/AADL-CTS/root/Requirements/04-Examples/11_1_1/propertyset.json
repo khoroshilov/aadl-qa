@@ -10,6 +10,11 @@
             "type": "STRING",
             "value": ""
         },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
         "_type": {
             "key": "_type",
             "type": "STRING",

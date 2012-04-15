@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t\t<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t\t\t<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t\t\t\t<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t\t\t\t\t<p class=\"ExampleText\" style=\"page-break-after: avoid; \">\n\t\t\t\t\t\t<strong>property set<\/strong>&nbsp;MyProp&nbsp;<strong>is<\/strong><br />\n\t\t\t\t\t\t&nbsp; Access_Rights3 :&nbsp;<strong>type enumeration<\/strong>&nbsp;(read_only2, write_only2, read_write2);<br />\n\t\t\t\t\t\t&nbsp; Pckg_Access_Right1 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to<\/strong>&nbsp;(<strong>package<\/strong>);<br />\n\t\t\t\t\t\t&nbsp; Pckg_Access_Right2 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to<\/strong>&nbsp;(<strong>package<\/strong>);<br />\n\t\t\t\t\t\t<strong>end<\/strong>&nbsp;MyProp;<\/p>\n\t\t\t\t\t<p class=\"ExampleText\" style=\"page-break-after: avoid; \">\n\t\t\t\t\t\t<b><span lang=\"EN-US\">package&nbsp;<\/span><\/b><span lang=\"EN-US\">package_spec<\/span><br />\n\t\t\t\t\t\t<strong>properties<\/strong><br />\n\t\t\t\t\t\t&nbsp; &nbsp;MyProp::Pckg_Access_Right1 =&gt; read_only2;<br />\n\t\t\t\t\t\t&nbsp; &nbsp;MyProp::Pckg_Access_Right2 =&gt; write_only2;<br />\n\t\t\t\t\t\t<span lang=\"EN-US\"><strong><b><span lang=\"EN-US\"><b><span lang=\"EN-US\">public<\/span><\/b><\/span><\/b><\/strong><br />\n\t\t\t\t\t\t<span lang=\"EN-US\"><b><span lang=\"EN-US\">&nbsp; with<\/span><\/b><span lang=\"EN-US\">&nbsp;MyProp;<\/span><br />\n\t\t\t\t\t\t&nbsp;&nbsp;<strong>data<\/strong>&nbsp;Bool_Type<\/span><br />\n\t\t\t\t\t\t<span lang=\"EN-US\">&nbsp;&nbsp;<strong>end<\/strong>&nbsp;Bool_Type;<\/span><\/span><br />\n\t\t\t\t\t\t<b><span lang=\"EN-US\"><strong><b><span lang=\"EN-US\">private<\/span><\/b><\/strong><\/span><\/b><br />\n\t\t\t\t\t\t<b><span lang=\"EN-US\">&nbsp; data<\/span><\/b><span lang=\"EN-US\">&nbsp;Priv_Bool_Type<\/span><br />\n\t\t\t\t\t\t<b><span lang=\"EN-US\">&nbsp; end&nbsp;Priv_<\/span><\/b><span lang=\"EN-US\">Bool_Type;<\/span><br />\n\t\t\t\t\t\t<span lang=\"EN-US\"><strong>end<\/strong>&nbsp;package_spec<\/span><span lang=\"EN-US\">;<\/span><\/p>\n\t\t\t\t<\/div>\n\t\t\t<\/div>\n\t\t<\/div>\n\t<\/div>\n<\/div>\n<p>\n\t&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "5d806e5a-b6f3-4839-b9ad-ed5bc9f971dd"
+}
