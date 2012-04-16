@@ -212,7 +212,7 @@ sub process_test_case_result {
   push @test_groups, "$tool";
   
   foreach my $tg (@test_groups) {
-    if (!defined($stats_tests_total{$test_group})) {
+    if (!defined($stats_tests_total{$tg})) {
       $self->process_test_group_start($tg);
     }
   }
@@ -550,6 +550,17 @@ sub generate_reqreport {
   system("$reqreport $self->{'reqproject'} $self->{'reqbase'} $reqcoverage_file_name $REPORTDIR");
 }
 
+#----------------------------------------------------------------------
+sub print_summary {
+  my ($self) = @_;
+
+  print "--SUMMARY--\n";
+  foreach my $test_group (sort keys %stats_tests_total) {
+    if ($test_group =~ m/^([^:]*)$/) {
+      print "$1: $stats_tests_passed{$test_group} PASSED, $stats_tests_failed{$test_group} FAILED\n";
+    }
+  }
+}
 
 #----------------------------------------------------------------------
 sub generate_report {
@@ -561,6 +572,7 @@ sub generate_report {
   $self->generate_statistics($REPORTDIR);
   $self->generate_reqcoverage($REPORTDIR);
   $self->generate_reqreport($REPORTDIR);
+  $self->print_summary();
 }
 
 #-----------------------------------------------------------------------
