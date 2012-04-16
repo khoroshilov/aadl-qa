@@ -74,10 +74,10 @@ sub print_supported_tools() {
 #----------------------------------------------------------------------
 sub print_usage() {
   print <<USAGE;
-  aadl-qa.pl run <tool> - Run all tests the <tool> and generate report
-  aadl-qa.pl gensrc     - Generate AADL tests from other sources
-  aadl-qa.pl clean      - Remove all generates files
-  aadl-qa.pl --help     - Print this message
+  aadl-qa.pl run <tools> - Run all tests for <tools> and generate report
+  aadl-qa.pl gensrc      - Generate AADL tests from other sources
+  aadl-qa.pl clean       - Remove all generates files
+  aadl-qa.pl --help      - Print this message
   
   The list of tools supported:  
 USAGE
