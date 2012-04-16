@@ -51,14 +51,23 @@ sub get_description {
 
 #----------------------------------------------------------------------
 # Do common preparation steps.
-sub prepend_common_aadlfiles($$) {
+sub prepend_common_aadlfiles($$$) {
   my $manifest  = shift(@_);
+  my $basepath  = shift(@_);
   my $aadlfiles = shift(@_);
   if (defined($manifest->{'INCLUDE_FILES'})) {
-    $aadlfiles = "$manifest->{'INCLUDE_FILES'} $aadlfiles";
+    foreach my $aadlfile (split " \t", $manifest->{'INCLUDE_FILES'}) {
+      if (!($aadlfile =~ m/^\//)) {
+        $aadlfile = $basepath."/".$aadlfile;
+      }
+      $aadlfiles = "$aadlfile $aadlfiles";
+    }
   }
   if (defined($manifest->{'INCLUDE'})) {
     foreach my $include (split " \t", $manifest->{'INCLUDE'}) {
+      if (!($include =~ m/^\//)) {
+        $include = $basepath."/".$include;
+      }
       $aadlfiles = "$include/*.aadl $aadlfiles";
     }
   }
@@ -70,10 +79,10 @@ sub prepare_run {
   my ($self,$test_case) = @_;
   # Calculate all aadl files required
   my $aadlfiles = "$test_case->{'path'}/*.aadl";
-  $aadlfiles = prepend_common_aadlfiles($test_case->{'manifest'},$aadlfiles);
+  $aadlfiles = prepend_common_aadlfiles($test_case->{'manifest'},$test_case->{'path'},$aadlfiles);
   my $parent = $test_case->{'parent'};
   while(defined($parent)) {
-    $aadlfiles = prepend_common_aadlfiles($parent->{'manifest'},$aadlfiles);
+    $aadlfiles = prepend_common_aadlfiles($parent->{'manifest'},$parent->{'path'},$aadlfiles);
     $parent= $parent->{'parent'};
   }
   $self->{'aadlfiles'} = $aadlfiles;
