@@ -1,0 +1,25 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<div style=\"color: rgb(34, 34, 34); font-family: Arial, Verdana, sans-serif; font-size: 12px;\">\n\t<strong>package<\/strong> FileSystem<br />\n\t<strong>public<\/strong><br />\n\t<strong>&nbsp;&nbsp;<strong>data<\/strong><\/strong>&nbsp;Directory<br />\n\t<strong>&nbsp;&nbsp;<strong>end<\/strong><\/strong>&nbsp;Directory;<br />\n\t<strong>&nbsp;&nbsp;<strong>data<\/strong><\/strong>&nbsp;<strong>implementation<\/strong> Directory.hashed<br />\n\t<strong>&nbsp;&nbsp;<strong>end<\/strong><\/strong>&nbsp;Directory.hashed;<br />\n\t<strong>end<\/strong> FileSystem;<br />\n\t<br />\n\t<strong>package<\/strong> App<br />\n\t<strong>public<\/strong><br />\n\t&nbsp;&nbsp;<strong>data<\/strong> result_type<br />\n\t&nbsp;&nbsp;<strong>end<\/strong> &nbsp;result_type;<br />\n\t&nbsp;&nbsp;<strong>data<\/strong> Distance<br />\n\t&nbsp;&nbsp;<strong>end<\/strong> &nbsp;Distance;<br />\n\t<strong>end<\/strong> App;<br />\n\t<br />\n\t<b>package&nbsp;<\/b>TypeExample<br />\n\t<b>public<\/b><br />\n\t&nbsp; <strong>with<\/strong> FileSystem;<br />\n\t&nbsp; <strong>with<\/strong> App;<br />\n\t&nbsp; <b>system<\/b>&nbsp;File_System<br />\n\t<b>&nbsp; &nbsp; features<\/b><br />\n\t&nbsp; &nbsp; &nbsp; -- access to a data component<br />\n\t<b>&nbsp; &nbsp; &nbsp;&nbsp;<\/b>root:&nbsp;<b>requires&nbsp;<\/b><b>data access&nbsp;<\/b>FileSystem::Directory.hashed;<br />\n\t<b>&nbsp; end<\/b>&nbsp;File_System;<br />\n\t<br />\n\t<b>&nbsp; process<\/b>&nbsp;Application<br />\n\t<b>&nbsp; &nbsp; features<\/b><br />\n\t&nbsp; &nbsp; &nbsp; -- a data out port<br />\n\t&nbsp; &nbsp; &nbsp; result:&nbsp;<b>out data port<\/b>&nbsp;App::result_type;<br />\n\t&nbsp; &nbsp; &nbsp; home:&nbsp;<b>requires<\/b>&nbsp;<b>data access&nbsp;<\/b>FileSystem::Directory.hashed;<br />\n\t<b>&nbsp; end<\/b>&nbsp;Application;<br />\n\t<br />\n\t<b>&nbsp; thread<\/b>&nbsp;Calculate<br />\n\t<b>&nbsp; &nbsp; prototypes<\/b><br />\n\t&nbsp; &nbsp; &nbsp; -- A data type to be used as type for the input and result port<br />\n\t&nbsp; &nbsp; &nbsp; data_type:&nbsp;<b>data<\/b>;<br />\n\t<b>&nbsp; &nbsp; features<\/b><br />\n\t&nbsp; &nbsp; &nbsp; input:&nbsp;<b>in data port&nbsp;<\/b>data_type;<br />\n\t&nbsp; &nbsp; &nbsp; result:&nbsp;<b>out data port&nbsp;<\/b>data_type;<br />\n\t&nbsp;&nbsp;<b>end<\/b>&nbsp;Calculate;<br />\n\t<br />\n\t<b>&nbsp; thread<\/b>&nbsp;Compute_Distance&nbsp;<b>extends<\/b>&nbsp;Calculate (data_type =&gt;&nbsp;<b>data&nbsp;<\/b>App::Distance)<br />\n\t<b>&nbsp; end<\/b>&nbsp;Compute_Distance;<br />\n\t<b>end&nbsp;<\/b>TypeExample;<\/div>\n<p>\n\t&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "e465af8d-3826-459c-ac99-1f2c431d8721"
+}
