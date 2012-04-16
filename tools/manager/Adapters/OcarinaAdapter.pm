@@ -34,6 +34,9 @@ sub do_run {
   my $code = system("ocarina -aadlv2 $self->{'aadlfiles'} >$test_case->{'LOGDIR'}/log.txt 2>&1");
   $result{'RESULT'} = ($code eq 0) ? "VALID" : "INVALID";
   $result{'LOG'} = `cat $test_case->{'LOGDIR'}/log.txt`;
+  if ($result{'LOG'} =~ m/Execution terminated by unhandled exception/) {
+    $self->register_failure($test_case,\%result,"Segmentation fault");
+  }
   return \%result;
 }
 

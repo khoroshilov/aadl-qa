@@ -104,7 +104,9 @@ sub register_failure {
 sub post_run {
   my ($self,$test_case,$result) = @_;
   # Check expected results
-  $result->{'_VERDICT'} = "PASS";
+  if (!defined($result->{'_VERDICT'})) {
+    $result->{'_VERDICT'} = "PASS";
+  }
   my $manifest = $test_case->{'manifest'};
   foreach my $key ( keys %$manifest ) {
     if ($key =~ m/^EXPECTED_([a-zA-Z0-9_]*$)_OPT/) {
