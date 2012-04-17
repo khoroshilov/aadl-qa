@@ -64,7 +64,7 @@ my $CODE = shift;
   print FILE "$TEST";
   close(FILE);
   #system("html2text $TDIR/$TNAME.html > $TDIR/$TNAME.aadl");
-  system("sed -e 's/<[^>]*>//g' -e 's/&gt;/>/g' -e 's/&gt;/</g' -e 's/&nbsp;/ /g' -e 's/&[lr]dquo;/\"/g' -e 's/&[a-z]*;//g' $TDIR/$TNAME.html > $TDIR/$TNAME.aadl");
+  system("sed -e 's/<[^>]*>//g' -e 's/&gt;/>/g' -e 's/&gt;/</g' -e 's/&nbsp;/ /g' -e 's/&quot;/\"/g' -e 's/&[lr][ad]quo;/\"/g' -e 's/&[a-z]*;//g' $TDIR/$TNAME.html > $TDIR/$TNAME.aadl");
   system("rm $TDIR/$TNAME.html");
   open(FILE, ">", "$TDIR/MANIFEST.TC");
   print FILE "REQ=$TREQ\n";
