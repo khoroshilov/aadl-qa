@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "extinput: port input -&gt; MyProcess.input\n<div>\n\t- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ Connection_Pattern =&gt; One_To_All; };<\/div>\n<div>\n\t+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ Connection_Pattern =&gt; ((One_To_All)); };<\/div>\n<div>\n\ttovoter: port MyProcess.output -&gt; MyVoter.input<\/div>\n<div>\n\t- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ Connection_Pattern =&gt; One_To_One; };<br />\n\t+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ Connection_Pattern =&gt; ((One_To_One)); };<\/div>\n&nbsp;"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Comment"
+        }
+    },
+    "uuid": "227a4801-b4e4-418f-9a7c-fd31643c17e8"
+}

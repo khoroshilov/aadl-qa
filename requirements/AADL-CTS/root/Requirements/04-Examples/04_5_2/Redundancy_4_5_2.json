@@ -1,0 +1,25 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<div style=\"font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t<p class=\"ExampleText\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t<b><span lang=\"EN-US\">package<\/span><\/b><span lang=\"EN-US\">&nbsp;Redundancy<\/span><br />\n\t\t<b><span lang=\"EN-US\">public<\/span><\/b><br />\n\t\t&nbsp; <b>abstract<\/b>&nbsp;Triple<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; &nbsp; features<\/span><\/b><br />\n\t\t&nbsp; &nbsp; &nbsp; input:<b>&nbsp;in<\/b>&nbsp;<b>data port<\/b>;<br />\n\t\t&nbsp; &nbsp; &nbsp; output:&nbsp;<b>out data port<\/b>;<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;Triple;<\/span><br />\n\t\t<br />\n\t\t&nbsp; <b>abstract implementation<\/b>&nbsp;Triple.impl<br />\n\t\t&nbsp; &nbsp;&nbsp;<b>subcomponents<\/b><br />\n\t\t&nbsp; &nbsp; &nbsp; MyProcess:<b>&nbsp;abstract&nbsp;<\/b>Calculate [3];<br />\n\t\t&nbsp; &nbsp; &nbsp; MyVoter:&nbsp;<b>abstract<\/b>&nbsp;Voter;<br />\n\t\t&nbsp; &nbsp;&nbsp;<b>connections<\/b><br />\n\t\t&nbsp; &nbsp; &nbsp;<b>&nbsp;<\/b>extinput:&nbsp;<b>port<\/b>&nbsp;input -&gt; MyProcess.input<br />\n\t\t&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ Connection_Pattern =&gt; ((One_To_All)); };<br />\n\t\t&nbsp; &nbsp; &nbsp;<b>&nbsp;<\/b>tovoter:&nbsp;<b>port<\/b>&nbsp;MyProcess.output -&gt; MyVoter.input<br />\n\t\t&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ Connection_Pattern =&gt; ((One_To_One)); };<br />\n\t\t&nbsp; &nbsp; &nbsp;<b>&nbsp;<\/b>extoutput:&nbsp;<b>port<\/b>&nbsp;MyVoter.output -&gt; output;<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;Triple.impl;<\/span><br />\n\t\t<br />\n\t\t&nbsp; <b>abstract<\/b>&nbsp;Calculate<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; &nbsp; features<\/span><\/b><br />\n\t\t&nbsp; &nbsp; &nbsp; input:<b>&nbsp;in<\/b>&nbsp;<b>data port<\/b>;<br />\n\t\t&nbsp; &nbsp; &nbsp; output:&nbsp;<b>out data port<\/b>;<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;Calculate;<br />\n\t\t<br />\n\t\t&nbsp; <b>abstract<\/b>&nbsp;Voter<\/span><br />\n\t\t<b><span lang=\"EN-US\">&nbsp; &nbsp; features<\/span><\/b><br />\n\t\t&nbsp; &nbsp; &nbsp; input:<b>&nbsp;in<\/b>&nbsp;<b>data port&nbsp;<\/b>[3];<br />\n\t\t&nbsp; &nbsp; &nbsp; output:&nbsp;<b>out data port<\/b>;<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;Voter;<\/span><br />\n\t\t<b><span lang=\"EN-US\">end<\/span><\/b><span lang=\"EN-US\">&nbsp;Redundancy;<\/span><\/p>\n<\/div>\n<p>\n\t&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "16b6b6d0-41be-420e-8cb2-d13410b3ba50"
+}
