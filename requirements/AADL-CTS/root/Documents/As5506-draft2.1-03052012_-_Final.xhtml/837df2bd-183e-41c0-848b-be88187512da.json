@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<pre xmlns=\"http://www.w3.org/1999/xhtml\" style=\"margin-left: 31.5pt; page-break-after: avoid;\"><span lang=\"EN-US\">identifier ::= identifier_letter {[underline] letter_or_digit}*<\/span><\/pre><pre xmlns=\"http://www.w3.org/1999/xhtml\" style=\"margin-left: 31.5pt;\"><span lang=\"EN-US\">letter_or_digit ::= identifier_letter | digit<\/span><\/pre>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "8c1540a0-c0be-44c8-bfff-96dbc6289ea9"
+}
