@@ -1,0 +1,25 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<div style=\"font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n\t<p class=\"ExampleText\" style=\"font-family: Arial, Verdana, sans-serif; \" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t<code><b><span lang=\"EN-US\">package&nbsp;<\/span><\/b><span lang=\"EN-US\">CarSystem<\/span><\/code><br />\n\t\t<b><span lang=\"EN-US\">public<\/span><\/b><br />\n\t\t<b><span lang=\"EN-US\">&nbsp; bus&nbsp;<\/span><\/b><span lang=\"EN-US\">Manifold<\/span><br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end&nbsp;<\/span><\/b><span lang=\"EN-US\">Manifold;<\/span><br />\n\t\t<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; abstract<\/span><\/b><span lang=\"EN-US\">&nbsp;car<\/span><br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;car;<\/span><br />\n\t\t<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; abstract implementation<\/span><\/b><span lang=\"EN-US\">&nbsp;car.generic<\/span><br />\n\t\t<b><span lang=\"EN-US\">&nbsp; subcomponents<\/span><\/b><br />\n\t\t&nbsp; &nbsp; PowerTrain:&nbsp;<b>abstract<\/b>&nbsp;power_train;<br />\n\t\t&nbsp; &nbsp; ExhaustSystem:&nbsp;<b>abstract<\/b>&nbsp;exhaust_system;<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;car.generic;<\/span><br />\n\t\t<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; abstract<\/span><\/b><span lang=\"EN-US\">&nbsp;power_train<\/span><br />\n\t\t<b><span lang=\"EN-US\">&nbsp; features<\/span><\/b><br />\n\t\t&nbsp; &nbsp; exhaustoutput:&nbsp;<b>requires bus access<\/b>&nbsp;Manifold;<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;power_train;<\/span><br />\n\t\t<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; abstract<\/span><\/b><span lang=\"EN-US\">&nbsp;exhaust_system<\/span><br />\n\t\t<b><span lang=\"EN-US\">&nbsp; features<\/span><\/b><br />\n\t\t&nbsp; &nbsp; exhaustManifold:&nbsp;<b>provides bus access<\/b>&nbsp;Manifold;<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;exhaust_system;<\/span><br />\n\t\t<br />\n\t\t&nbsp; -- runtime architecture<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; system<\/span><\/b><span lang=\"EN-US\">&nbsp;carRT&nbsp;<b>extends<\/b>&nbsp;car<\/span><br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;carRT;<\/span><br />\n\t\t<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; system implementation<\/span><\/b><span lang=\"EN-US\">&nbsp;carRT.impl<\/span><br />\n\t\t&nbsp; &nbsp;&nbsp;<b>extends<\/b>&nbsp;car.generic<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; subcomponents<\/span><\/b><br />\n\t\t&nbsp; &nbsp; PowerTrain&nbsp;:&nbsp;<b>refined to system<\/b>&nbsp;power_train;<br />\n\t\t&nbsp; &nbsp; ExhaustSystem&nbsp;:&nbsp;<b>refined to system<\/b>&nbsp;exhaust_system;<br />\n\t\t<b><span lang=\"EN-US\">&nbsp; end<\/span><\/b><span lang=\"EN-US\">&nbsp;carRT.impl;<\/span><br />\n\t\t<b><span lang=\"EN-US\">end&nbsp;<\/span><\/b><span lang=\"EN-US\">CarSystem;<\/span><\/p>\n<\/div>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "62a00577-52be-463c-9acd-88d96a24fe19"
+}
