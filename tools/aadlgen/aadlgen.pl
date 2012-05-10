@@ -29,9 +29,25 @@ my $gensrc     = shift;
 sub usage {
   print "Usage: aadlgen.pl <requality_project> <output_dir>\n";
 }
+
+if (! defined ($reqproject))
+{
+  usage();
+  print STDERR "Project not defined not found\n";
+  exit 1;
+}
+
+if (! defined ($gensrc))
+{
+  usage();
+  print STDERR "Gensrc not defined not found\n";
+  exit 1;
+}
+
+
 if (! -d "$reqproject/root/Requirements") {
   usage();
-  print "<requality_project> in '$reqproject' not found\n";
+  print STDERR "<requality_project> in '$reqproject' not found\n";
   exit 1;
 }
 
