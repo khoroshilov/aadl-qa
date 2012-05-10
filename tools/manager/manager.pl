@@ -139,7 +139,16 @@ sub load_reporter {
 sub load_test_cases($$) {
   my $tspath = shift(@_);
   my $parent = shift(@_);
-  my @test_cases_list = `find $tspath -name MANIFEST.TC | sort`;
+  my @test_cases_list;
+
+  if ( -d $tspath)
+  {
+      @test_cases_list = `find $tspath -name MANIFEST.TC | sort` or die "fail to find tests";
+  }
+  else
+  {
+   print STDERR "[WARNING] Incorrect PATH when loading test cases\n";
+  }
   my %test_cases = ();
   foreach my $tcmanifest ( @test_cases_list ) {
     $tcmanifest =~ m/$tspath(.*)\/MANIFEST.TC/;
@@ -172,7 +181,17 @@ sub is_leaf_test_suite($$) {
 sub load_test_suites($$) {
   my $test_suites = shift(@_);
   my $tspath = shift(@_);
-  my @test_suites_list = `find $tspath -name MANIFEST.TS | sort`;
+  my @test_suites_list;
+
+  if ( -d $tspath)
+  {
+      @test_suites_list = `find $tspath -name MANIFEST.TS | sort`;
+  }
+  else
+  {
+   print STDERR "[WARNING] Incorrect PATH when loading test suites\n";
+  }
+
   foreach my $tsmanifest ( @test_suites_list ) {
     $tsmanifest =~ m/$tspath(.*)\/MANIFEST.TS/;
     my $test_suite = $1;
