@@ -29,10 +29,36 @@ our @ISA = qw(ToolAdapter); # Inherit ToolAdapter
 sub do_run {
   my ($self,$test_case) = @_;
   my %result = ();
-  print "OcarinaAdapter->do_run($test_case->{'name'}):\n";
-  system("echo ocarina $self->{'aadlfiles'}");
-  my $code = system("ocarina -aadlv2 $self->{'aadlfiles'} >$test_case->{'LOGDIR'}/log.txt 2>&1");
-  $result{'RESULT'} = ($code eq 0) ? "VALID" : "INVALID";
+  my $cmd;
+  my $code;
+  my $expected;
+
+  $expected = "";
+
+  print "[Ocarina] EXECUTING TEST $test_case->{'name'}: ";
+
+  $cmd = "ocarina -aadlv2 $self->{'aadlfiles'} >$test_case->{'LOGDIR'}/log.txt 2>&1";
+  $code = system($cmd);
+  if ($code == 0)
+  {
+      $result{'RESULT'} = "VALID";
+  }
+  else
+  {
+      $result{'RESULT'} = "INVALID";
+  }
+
+  $expected = $test_case->{'manifest'}{'EXPECTED_RESULT'};
+
+  if ($expected eq  $result{'RESULT'})
+  {
+      print "- OK\n";
+  }
+  else
+  {
+      print "- ERROR (result=".$result{'RESULT'}." ; expected=".$expected.")\n";
+  }
+
   $result{'LOG'} = `cat $test_case->{'LOGDIR'}/log.txt`;
   if ($result{'LOG'} =~ m/Execution terminated by unhandled exception/) {
     $self->register_failure($test_case,\%result,"Segmentation fault");

@@ -539,12 +539,14 @@ sub generate_reqcoverage {
 #----------------------------------------------------------------------
 sub generate_reqreport {
   my ($self,$REPORTDIR) = @_;
+  my $requality_dir;
   my $reqcoverage_file_name = "$REPORTDIR/reqcoverage";
   my $requality = `which requality`;
-  $requality =~ m/(.*)\/bin\/requality\s*$/;
+  ($requality_dir)  = ($requality =~ m/(.*)\/bin(\/)+requality\s*$/);
   my $reqreport = "$1/reqreport/reqreport.pl";
   if (! -e $reqreport) {
-    print "WARNING: reqreport.pl not found";
+    print STDERR "WARNING: reqreport.pl not found ($reqreport) $requality $requality_dir\n";
+    return;
   }
   
   system("$reqreport $self->{'reqproject'} $self->{'reqbase'} $reqcoverage_file_name $REPORTDIR");
