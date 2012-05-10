@@ -32,12 +32,25 @@ sub do_run {
   my $cmd;
   my $code;
   my $expected;
+  my $components_file;
+
+   $components_file = "";
+
+  $components_file = `ocarina-config --prefix`;
+  chomp ($components_file);
+  $components_file .= "/share/ocarina/AADLv2/ocarina_components.aadl";
+
 
   $expected = "";
 
+  if (! -f $components_file)
+  {
+   $components_file = "";
+  }
+
   print "[Ocarina] EXECUTING TEST $test_case->{'name'}: ";
 
-  $cmd = "ocarina -aadlv2 $self->{'aadlfiles'} >$test_case->{'LOGDIR'}/log.txt 2>&1";
+  $cmd = "ocarina -aadlv2 -f $self->{'aadlfiles'} ". $components_file . " >$test_case->{'LOGDIR'}/log.txt 2>&1";
   $code = system($cmd);
   if ($code == 0)
   {
