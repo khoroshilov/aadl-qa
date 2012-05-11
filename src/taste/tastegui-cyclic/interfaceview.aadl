@@ -1,0 +1,67 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      mycyclic: SYSTEM interfaceview::IV::mycyclic.others
+        { Taste::Coordinates => "631 166 1215 761"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::mycyclic
+  ---------------------------------------------------
+
+  SYSTEM mycyclic
+    FEATURES
+      activator_obj134 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj134.others
+        { Taste::Coordinates => "631 301 631 301";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END mycyclic;
+
+  SYSTEM IMPLEMENTATION mycyclic.others
+    SUBCOMPONENTS
+      activator_obj134_impl : SUBPROGRAM interfaceview::FV::activator_obj134.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj134_impl  -> activator_obj134;
+  END mycyclic.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj134
+  END activator_obj134;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj134.others
+  END activator_obj134.others;
+
+END interfaceview::FV;
+

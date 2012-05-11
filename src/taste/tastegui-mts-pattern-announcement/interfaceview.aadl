@@ -1,0 +1,197 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      node1: SYSTEM interfaceview::IV::node1.others
+        { Taste::Coordinates => "626 187 970 503"; };
+      node2: SYSTEM interfaceview::IV::node2.others
+        { Taste::Coordinates => "1103 193 1326 284"; };
+      node3: SYSTEM interfaceview::IV::node3.others
+        { Taste::Coordinates => "1102 297 1325 388"; };
+      node4: SYSTEM interfaceview::IV::node4.others
+        { Taste::Coordinates => "1098 400 1321 491"; };
+    CONNECTIONS
+      obj384 : SUBPROGRAM ACCESS node2.recv1_obj119  -> node1.obj285_obj98 
+        { Taste::Coordinates => "970 281 1029 281 1029 232 1103 232"; };
+      obj4329 : SUBPROGRAM ACCESS node3.recv2_obj3996  -> node1.obj4254_obj4254 
+        { Taste::Coordinates => "970 335 1044 335 1044 336 1102 336"; };
+      obj4482 : SUBPROGRAM ACCESS node4.recv3_obj4041  -> node1.obj4390_obj4390 
+        { Taste::Coordinates => "970 384 1041 384 1041 439 1098 439"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::node1
+  ---------------------------------------------------
+
+  SYSTEM node1
+    FEATURES
+      activator_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj75.others
+        { Taste::Coordinates => "626 317 626 317";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj285_obj98 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv1_obj119.others 
+        { Taste::Coordinates => "970 281 970 281";
+          Taste::RCMoperationKind => sporadic;};
+      obj4254_obj4254 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv2_obj3996.others 
+        { Taste::Coordinates => "970 335 970 335";
+          Taste::RCMoperationKind => sporadic;};
+      obj4390_obj4390 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv3_obj4041.others 
+        { Taste::Coordinates => "970 384 970 384";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END node1;
+
+  SYSTEM IMPLEMENTATION node1.others
+    SUBCOMPONENTS
+      activator_obj75_impl : SUBPROGRAM interfaceview::FV::activator_obj75.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj75_impl  -> activator_obj75;
+  END node1.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::node2
+  ---------------------------------------------------
+
+  SYSTEM node2
+    FEATURES
+      recv1_obj119 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recv1_obj119.others
+        { Taste::Coordinates => "1103 232 1103 232";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END node2;
+
+  SYSTEM IMPLEMENTATION node2.others
+    SUBCOMPONENTS
+      recv1_obj119_impl : SUBPROGRAM interfaceview::FV::recv1_obj119.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS recv1_obj119_impl  -> recv1_obj119;
+  END node2.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::node3
+  ---------------------------------------------------
+
+  SYSTEM node3
+    FEATURES
+      recv2_obj3996 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recv2_obj3996.others
+        { Taste::Coordinates => "1102 336 1102 336";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END node3;
+
+  SYSTEM IMPLEMENTATION node3.others
+    SUBCOMPONENTS
+      recv2_obj3996_impl : SUBPROGRAM interfaceview::FV::recv2_obj3996.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS recv2_obj3996_impl  -> recv2_obj3996;
+  END node3.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::node4
+  ---------------------------------------------------
+
+  SYSTEM node4
+    FEATURES
+      recv3_obj4041 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recv3_obj4041.others
+        { Taste::Coordinates => "1098 439 1098 439";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END node4;
+
+  SYSTEM IMPLEMENTATION node4.others
+    SUBCOMPONENTS
+      recv3_obj4041_impl : SUBPROGRAM interfaceview::FV::recv3_obj4041.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS recv3_obj4041_impl  -> recv3_obj4041;
+  END node4.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj75
+  END activator_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj75.others
+  END activator_obj75.others;
+
+  SUBPROGRAM recv1_obj119
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END recv1_obj119;
+
+  SUBPROGRAM IMPLEMENTATION recv1_obj119.others
+  END recv1_obj119.others;
+
+  SUBPROGRAM recv2_obj3996
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END recv2_obj3996;
+
+  SUBPROGRAM IMPLEMENTATION recv2_obj3996.others
+  END recv2_obj3996.others;
+
+  SUBPROGRAM recv3_obj4041
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END recv3_obj4041;
+
+  SUBPROGRAM IMPLEMENTATION recv3_obj4041.others
+  END recv3_obj4041.others;
+
+END interfaceview::FV;
+

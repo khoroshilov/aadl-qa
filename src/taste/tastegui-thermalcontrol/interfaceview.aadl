@@ -1,0 +1,828 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+WITH interfaceview::IV::ThermalControl;
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      ThermalControlHouseKeeper: SYSTEM interfaceview::IV::ThermalControl::ThermalControlHouseKeeper.others
+        { Taste::Coordinates => "468 41 763 138"; };
+      ThermalControlRegulator: SYSTEM interfaceview::IV::ThermalControl::ThermalControlRegulator.others
+        { Taste::Coordinates => "379 156 541 226"; };
+      ThermalControlUtilities: SYSTEM interfaceview::IV::ThermalControl::ThermalControlUtilities.others
+        { Taste::Coordinates => "630 146 752 198"; };
+      ThermalControlLineCoarseRegulator: SYSTEM interfaceview::IV::ThermalControl::ThermalControlLineCoarseRegulator.others
+        { Taste::Coordinates => "671 213 794 276"; };
+      ThermalControlLineFineRegulator: SYSTEM interfaceview::IV::ThermalControl::ThermalControlLineFineRegulator.others
+        { Taste::Coordinates => "691 296 830 360"; };
+      ThermalControlFaultDetector: SYSTEM interfaceview::IV::ThermalControl::ThermalControlFaultDetector.others
+        { Taste::Coordinates => "375 245 628 300"; };
+      ManagerGUI: SYSTEM interfaceview::IV::ManagerGUI.others
+        { Taste::Coordinates => "4 20 134 406"; };
+      GUIHelper: SYSTEM interfaceview::IV::GUIHelper.others
+        { Taste::Coordinates => "170 17 330 347"; };
+      ThermalLineManagerStub: SYSTEM interfaceview::IV::ThermalLineManagerStub.others
+        { Taste::Coordinates => "282 464 619 520"; };
+    CONNECTIONS
+      obj1447 : SUBPROGRAM ACCESS ThermalControlUtilities.computelinetemperature_obj600  -> ThermalControlHouseKeeper.computelinetemperature_obj497 
+        { Taste::Coordinates => "756 138 756 182 752 182"; };
+      obj2736 : SUBPROGRAM ACCESS ThermalLineManagerStub.getpilotingtemperature_obj344  -> ThermalControlHouseKeeper.getpilotingtemperature_obj507 
+        { Taste::Coordinates => "763 85 895 85 895 461 479 461 479 464"; };
+      obj1163 : SUBPROGRAM ACCESS ThermalControlLineFineRegulator.dolinefineregulation_obj670  -> ThermalControlRegulator.dolinefineregulation_obj539 
+        { Taste::Coordinates => "488 226 488 304 691 304"; };
+      obj1054 : SUBPROGRAM ACCESS ThermalControlLineCoarseRegulator.dolinecoarseregulation_obj625  -> ThermalControlRegulator.dolinecoarseregulation_obj549 
+        { Taste::Coordinates => "541 194 606 194 606 224 671 224"; };
+      obj1236 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.getregulationparameters_obj471  -> ThermalControlRegulator.getregulationparameters_obj559 
+        { Taste::Coordinates => "541 182 592 182 592 138"; };
+      obj6507 : SUBPROGRAM ACCESS GUIHelper.reportfaultin_obj241  -> ThermalControlRegulator.reportfaultin_obj569 
+        { Taste::Coordinates => "379 206 354 206 354 307 330 307"; };
+      obj6984 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.getthermalmode_obj431  -> ThermalControlRegulator.getthermalmode_obj579 
+        { Taste::Coordinates => "379 186 376 186 376 129 468 129"; };
+      obj6748 : SUBPROGRAM ACCESS ThermalLineManagerStub.controlheater_obj358  -> ThermalControlLineCoarseRegulator.controlheater_obj639 
+        { Taste::Coordinates => "671 244 645 244 645 496 619 496"; };
+      obj1538 : SUBPROGRAM ACCESS ThermalControlUtilities.computelinetemperature_obj600  -> ThermalControlLineCoarseRegulator.computelinetemperature_obj649 
+        { Taste::Coordinates => "794 264 797 264 797 182 752 182"; };
+      obj4159 : SUBPROGRAM ACCESS ThermalLineManagerStub.getpilotingtemperature_obj344  -> ThermalControlLineFineRegulator.getpilotingtemperature_obj684 
+        { Taste::Coordinates => "691 326 479 326 479 464"; };
+      obj1271 : SUBPROGRAM ACCESS ThermalLineManagerStub.controlheater_obj358  -> ThermalControlLineFineRegulator.controlheater_obj694 
+        { Taste::Coordinates => "691 344 655 344 655 496 619 496"; };
+      obj1668 : SUBPROGRAM ACCESS ThermalControlUtilities.computelinetemperature_obj600  -> ThermalControlLineFineRegulator.computelinetemperature_obj704 
+        { Taste::Coordinates => "830 339 833 339 833 182 752 182"; };
+      obj3362 : SUBPROGRAM ACCESS GUIHelper.reportfaultin_obj241  -> ThermalControlFaultDetector.reportfaultin_obj736 
+        { Taste::Coordinates => "375 290 352 290 352 307 330 307"; };
+      obj1336 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.getregulationparameters_obj471  -> ThermalControlFaultDetector.getregulationparameters_obj746 
+        { Taste::Coordinates => "587 245 587 191 587 191 587 138"; };
+      obj2620 : SUBPROGRAM ACCESS ThermalLineManagerStub.getpilotingtemperature_obj344  -> ThermalControlFaultDetector.getpilotingtemperature_obj756 
+        { Taste::Coordinates => "375 256 340 256 340 436 473 436 473 464"; };
+      obj4842 : SUBPROGRAM ACCESS GUIHelper.startthermalcontrolapp_obj181  -> ManagerGUI.StartThermalControlApp_obj120 
+        { Taste::Coordinates => "134 323 152 323 152 285 170 285"; };
+      obj5618 : SUBPROGRAM ACCESS GUIHelper.stopthermalcontrolapp_obj193  -> ManagerGUI.StopThermalControlApp_obj130 
+        { Taste::Coordinates => "134 263 152 263 152 240 170 240"; };
+      obj5848 : SUBPROGRAM ACCESS GUIHelper.gethousekeeping_obj205  -> ManagerGUI.gethousekeeping_obj140 
+        { Taste::Coordinates => "134 216 152 216 152 218 170 218"; };
+      obj7036 : SUBPROGRAM ACCESS GUIHelper.changertargettemperature_obj217  -> ManagerGUI.changertargettemperature_obj150 
+        { Taste::Coordinates => "134 184 152 184 152 185 170 185"; };
+      obj7266 : SUBPROGRAM ACCESS GUIHelper.changethermallineparameters_obj229  -> ManagerGUI.changethermallineParameters_obj160 
+        { Taste::Coordinates => "134 76 152 76 152 59 170 59"; };
+      obj10444 : SUBPROGRAM ACCESS ManagerGUI.DisplayHouseKeeping_obj109  -> GUIHelper.displayhousekeeping_obj253 
+        { Taste::Coordinates => "199 347 199 364 134 364"; };
+      obj2846 : SUBPROGRAM ACCESS ManagerGUI.ReportFault_obj86  -> GUIHelper.reportfault_obj263 
+        { Taste::Coordinates => "279 347 279 389 134 389"; };
+      obj6621 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.changemode_obj392  -> GUIHelper.changemode_obj273 
+        { Taste::Coordinates => "330 59 398 59 398 63 468 63"; };
+      obj6773 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.getheatingchannel_obj405  -> GUIHelper.getheatingchannel_obj283 
+        { Taste::Coordinates => "330 72 398 72 398 78 468 78"; };
+      obj7059 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.getacquiredtemperatures_obj418  -> GUIHelper.getacquiredtemperatures_obj293 
+        { Taste::Coordinates => "330 84 398 84 398 91 468 91"; };
+      obj7898 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.modifythermalline_obj444  -> GUIHelper.modifythermalline_obj303 
+        { Taste::Coordinates => "330 100 399 100 399 105 468 105"; };
+      obj8342 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.modifytargettemperature_obj457  -> GUIHelper.modifytargettemperature_obj313 
+        { Taste::Coordinates => "330 112 399 112 399 116 468 116"; };
+      obj1287 : SUBPROGRAM ACCESS ThermalControlHouseKeeper.gettargettemperatures_obj484  -> GUIHelper.gettargettemperatures_obj323 
+        { Taste::Coordinates => "330 49 399 49 399 53 468 53"; };
+      obj1076 : SUBPROGRAM ACCESS ManagerGUI.DisplayHeaterControl_obj98  -> ThermalLineManagerStub.displayheatercontrol_obj371 
+        { Taste::Coordinates => "282 500 104 500 104 406"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ManagerGUI
+  ---------------------------------------------------
+
+  SYSTEM ManagerGUI
+    FEATURES
+      ReportFault_obj86 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::ReportFault_obj86.others
+        { Taste::Coordinates => "134 389";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 500 us;
+          Taste::Deadline => 0 us;
+          Taste::Importance => MEDIUM ;};
+      DisplayHeaterControl_obj98 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::DisplayHeaterControl_obj98.others
+        { Taste::Coordinates => "98 406";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      DisplayHouseKeeping_obj109 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::DisplayHouseKeeping_obj109.others
+        { Taste::Coordinates => "134 364";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      StartThermalControlApp_obj120 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::startthermalcontrolapp_obj181.others 
+        { Taste::Coordinates => "134 323";
+          Taste::RCMoperationKind => sporadic;};
+      StopThermalControlApp_obj130 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::stopthermalcontrolapp_obj193.others 
+        { Taste::Coordinates => "134 263";
+          Taste::RCMoperationKind => sporadic;};
+      gethousekeeping_obj140 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::gethousekeeping_obj205.others 
+        { Taste::Coordinates => "134 216";
+          Taste::RCMoperationKind => sporadic;};
+      changertargettemperature_obj150 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::changertargettemperature_obj217.others 
+        { Taste::Coordinates => "134 184";
+          Taste::RCMoperationKind => sporadic;};
+      changethermallineParameters_obj160 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::changethermallineparameters_obj229.others 
+        { Taste::Coordinates => "134 76";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => GUI;
+      Taste::Instance_Name => "ManagerGUI";
+  END ManagerGUI;
+
+  SYSTEM IMPLEMENTATION ManagerGUI.others
+    SUBCOMPONENTS
+      ReportFault_obj86_impl : SUBPROGRAM interfaceview::FV::ReportFault_obj86.others
+        { Compute_Execution_Time => 0us..0us ;};
+      DisplayHeaterControl_obj98_impl : SUBPROGRAM interfaceview::FV::DisplayHeaterControl_obj98.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      DisplayHouseKeeping_obj109_impl : SUBPROGRAM interfaceview::FV::DisplayHouseKeeping_obj109.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS ReportFault_obj86_impl  -> ReportFault_obj86;
+      SUBPROGRAM ACCESS DisplayHeaterControl_obj98_impl  -> DisplayHeaterControl_obj98;
+      SUBPROGRAM ACCESS DisplayHouseKeeping_obj109_impl  -> DisplayHouseKeeping_obj109;
+  END ManagerGUI.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::GUIHelper
+  ---------------------------------------------------
+
+  SYSTEM GUIHelper
+    FEATURES
+      startthermalcontrolapp_obj181 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::startthermalcontrolapp_obj181.others
+        { Taste::Coordinates => "170 285";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      stopthermalcontrolapp_obj193 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::stopthermalcontrolapp_obj193.others
+        { Taste::Coordinates => "170 240";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      gethousekeeping_obj205 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::gethousekeeping_obj205.others
+        { Taste::Coordinates => "170 218";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      changertargettemperature_obj217 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::changertargettemperature_obj217.others
+        { Taste::Coordinates => "170 185";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      changethermallineparameters_obj229 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::changethermallineparameters_obj229.others
+        { Taste::Coordinates => "170 59";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      reportfaultin_obj241 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::reportfaultin_obj241.others
+        { Taste::Coordinates => "330 307";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      displayhousekeeping_obj253 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::DisplayHouseKeeping_obj109.others 
+        { Taste::Coordinates => "199 347";
+          Taste::RCMoperationKind => sporadic;};
+      reportfault_obj263 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::ReportFault_obj86.others 
+        { Taste::Coordinates => "279 347";
+          Taste::RCMoperationKind => sporadic;};
+      changemode_obj273 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::changemode_obj392.others 
+        { Taste::Coordinates => "330 57";
+          Taste::RCMoperationKind => protected;};
+      getheatingchannel_obj283 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::getheatingchannel_obj405.others 
+        { Taste::Coordinates => "330 70";
+          Taste::RCMoperationKind => protected;};
+      getacquiredtemperatures_obj293 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::getacquiredtemperatures_obj418.others 
+        { Taste::Coordinates => "330 82";
+          Taste::RCMoperationKind => protected;};
+      modifythermalline_obj303 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::modifythermalline_obj444.others 
+        { Taste::Coordinates => "330 94";
+          Taste::RCMoperationKind => protected;};
+      modifytargettemperature_obj313 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::modifytargettemperature_obj457.others 
+        { Taste::Coordinates => "330 106";
+          Taste::RCMoperationKind => protected;};
+      gettargettemperatures_obj323 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::gettargettemperatures_obj484.others 
+        { Taste::Coordinates => "330 43";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "ManagerGUIHelper";
+  END GUIHelper;
+
+  SYSTEM IMPLEMENTATION GUIHelper.others
+    SUBCOMPONENTS
+      startthermalcontrolapp_obj181_impl : SUBPROGRAM interfaceview::FV::startthermalcontrolapp_obj181.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      stopthermalcontrolapp_obj193_impl : SUBPROGRAM interfaceview::FV::stopthermalcontrolapp_obj193.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      gethousekeeping_obj205_impl : SUBPROGRAM interfaceview::FV::gethousekeeping_obj205.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      changertargettemperature_obj217_impl : SUBPROGRAM interfaceview::FV::changertargettemperature_obj217.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      changethermallineparameters_obj229_impl : SUBPROGRAM interfaceview::FV::changethermallineparameters_obj229.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      reportfaultin_obj241_impl : SUBPROGRAM interfaceview::FV::reportfaultin_obj241.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS startthermalcontrolapp_obj181_impl  -> startthermalcontrolapp_obj181;
+      SUBPROGRAM ACCESS stopthermalcontrolapp_obj193_impl  -> stopthermalcontrolapp_obj193;
+      SUBPROGRAM ACCESS gethousekeeping_obj205_impl  -> gethousekeeping_obj205;
+      SUBPROGRAM ACCESS changertargettemperature_obj217_impl  -> changertargettemperature_obj217;
+      SUBPROGRAM ACCESS changethermallineparameters_obj229_impl  -> changethermallineparameters_obj229;
+      SUBPROGRAM ACCESS reportfaultin_obj241_impl  -> reportfaultin_obj241;
+  END GUIHelper.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ThermalLineManagerStub
+  ---------------------------------------------------
+
+  SYSTEM ThermalLineManagerStub
+    FEATURES
+      getpilotingtemperature_obj344 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::getpilotingtemperature_obj344.others
+        { Taste::Coordinates => "473 464";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      controlheater_obj358 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::controlheater_obj358.others
+        { Taste::Coordinates => "619 490";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      displayheatercontrol_obj371 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::DisplayHeaterControl_obj98.others 
+        { Taste::Coordinates => "282 494";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "ThermalLineManagerStub";
+  END ThermalLineManagerStub;
+
+  SYSTEM IMPLEMENTATION ThermalLineManagerStub.others
+    SUBCOMPONENTS
+      getpilotingtemperature_obj344_impl : SUBPROGRAM interfaceview::FV::getpilotingtemperature_obj344.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      controlheater_obj358_impl : SUBPROGRAM interfaceview::FV::controlheater_obj358.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS getpilotingtemperature_obj344_impl  -> getpilotingtemperature_obj344;
+      SUBPROGRAM ACCESS controlheater_obj358_impl  -> controlheater_obj358;
+  END ThermalLineManagerStub.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 1200 900";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::IV::ThermalControl
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ThermalControl::ThermalControlHouseKeeper
+  ---------------------------------------------------
+
+  SYSTEM ThermalControlHouseKeeper
+    FEATURES
+      changemode_obj392 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::changemode_obj392.others
+        { Taste::Coordinates => "468 61";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      getheatingchannel_obj405 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::getheatingchannel_obj405.others
+        { Taste::Coordinates => "468 76";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      getacquiredtemperatures_obj418 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::getacquiredtemperatures_obj418.others
+        { Taste::Coordinates => "468 89";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      getthermalmode_obj431 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::getthermalmode_obj431.others
+        { Taste::Coordinates => "468 124";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      modifythermalline_obj444 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::modifythermalline_obj444.others
+        { Taste::Coordinates => "468 100";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      modifytargettemperature_obj457 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::modifytargettemperature_obj457.others
+        { Taste::Coordinates => "468 111";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      getregulationparameters_obj471 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::getregulationparameters_obj471.others
+        { Taste::Coordinates => "587 138";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      gettargettemperatures_obj484 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::gettargettemperatures_obj484.others
+        { Taste::Coordinates => "468 48";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      computelinetemperature_obj497 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::computelinetemperature_obj600.others 
+        { Taste::Coordinates => "751 138";
+          Taste::RCMoperationKind => protected;};
+      getpilotingtemperature_obj507 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::getpilotingtemperature_obj344.others 
+        { Taste::Coordinates => "763 80";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "ThermalControlHouseKeeper";
+  END ThermalControlHouseKeeper;
+
+  SYSTEM IMPLEMENTATION ThermalControlHouseKeeper.others
+    SUBCOMPONENTS
+      changemode_obj392_impl : SUBPROGRAM interfaceview::FV::changemode_obj392.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      getheatingchannel_obj405_impl : SUBPROGRAM interfaceview::FV::getheatingchannel_obj405.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      getacquiredtemperatures_obj418_impl : SUBPROGRAM interfaceview::FV::getacquiredtemperatures_obj418.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      getthermalmode_obj431_impl : SUBPROGRAM interfaceview::FV::getthermalmode_obj431.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      modifythermalline_obj444_impl : SUBPROGRAM interfaceview::FV::modifythermalline_obj444.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      modifytargettemperature_obj457_impl : SUBPROGRAM interfaceview::FV::modifytargettemperature_obj457.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      getregulationparameters_obj471_impl : SUBPROGRAM interfaceview::FV::getregulationparameters_obj471.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      gettargettemperatures_obj484_impl : SUBPROGRAM interfaceview::FV::gettargettemperatures_obj484.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS changemode_obj392_impl  -> changemode_obj392;
+      SUBPROGRAM ACCESS getheatingchannel_obj405_impl  -> getheatingchannel_obj405;
+      SUBPROGRAM ACCESS getacquiredtemperatures_obj418_impl  -> getacquiredtemperatures_obj418;
+      SUBPROGRAM ACCESS getthermalmode_obj431_impl  -> getthermalmode_obj431;
+      SUBPROGRAM ACCESS modifythermalline_obj444_impl  -> modifythermalline_obj444;
+      SUBPROGRAM ACCESS modifytargettemperature_obj457_impl  -> modifytargettemperature_obj457;
+      SUBPROGRAM ACCESS getregulationparameters_obj471_impl  -> getregulationparameters_obj471;
+      SUBPROGRAM ACCESS gettargettemperatures_obj484_impl  -> gettargettemperatures_obj484;
+  END ThermalControlHouseKeeper.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ThermalControl::ThermalControlRegulator
+  ---------------------------------------------------
+
+  SYSTEM ThermalControlRegulator
+    FEATURES
+      regulatetemperature_obj528 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::regulatetemperature_obj528.others
+        { Taste::Coordinates => "541 205";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      dolinefineregulation_obj539 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::dolinefineregulation_obj670.others 
+        { Taste::Coordinates => "483 226";
+          Taste::RCMoperationKind => protected;};
+      dolinecoarseregulation_obj549 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::dolinecoarseregulation_obj625.others 
+        { Taste::Coordinates => "541 189";
+          Taste::RCMoperationKind => protected;};
+      getregulationparameters_obj559 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::getregulationparameters_obj471.others 
+        { Taste::Coordinates => "541 177";
+          Taste::RCMoperationKind => protected;};
+      reportfaultin_obj569 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::reportfaultin_obj241.others 
+        { Taste::Coordinates => "379 206";
+          Taste::RCMoperationKind => sporadic;};
+      getthermalmode_obj579 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::getthermalmode_obj431.others 
+        { Taste::Coordinates => "379 181";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "ThermalControlRegulator";
+  END ThermalControlRegulator;
+
+  SYSTEM IMPLEMENTATION ThermalControlRegulator.others
+    SUBCOMPONENTS
+      regulatetemperature_obj528_impl : SUBPROGRAM interfaceview::FV::regulatetemperature_obj528.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS regulatetemperature_obj528_impl  -> regulatetemperature_obj528;
+  END ThermalControlRegulator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ThermalControl::ThermalControlUtilities
+  ---------------------------------------------------
+
+  SYSTEM ThermalControlUtilities
+    FEATURES
+      computelinetemperature_obj600 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::computelinetemperature_obj600.others
+        { Taste::Coordinates => "752 177";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "ThermalControlUtilities";
+  END ThermalControlUtilities;
+
+  SYSTEM IMPLEMENTATION ThermalControlUtilities.others
+    SUBCOMPONENTS
+      computelinetemperature_obj600_impl : SUBPROGRAM interfaceview::FV::computelinetemperature_obj600.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS computelinetemperature_obj600_impl  -> computelinetemperature_obj600;
+  END ThermalControlUtilities.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ThermalControl::ThermalControlLineCoarseRegulator
+  ---------------------------------------------------
+
+  SYSTEM ThermalControlLineCoarseRegulator
+    FEATURES
+      dolinecoarseregulation_obj625 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::dolinecoarseregulation_obj625.others
+        { Taste::Coordinates => "671 219";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      controlheater_obj639 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::controlheater_obj358.others 
+        { Taste::Coordinates => "671 239";
+          Taste::RCMoperationKind => protected;};
+      computelinetemperature_obj649 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::computelinetemperature_obj600.others 
+        { Taste::Coordinates => "794 259";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "ThermalControlLineCoarseRegulator";
+  END ThermalControlLineCoarseRegulator;
+
+  SYSTEM IMPLEMENTATION ThermalControlLineCoarseRegulator.others
+    SUBCOMPONENTS
+      dolinecoarseregulation_obj625_impl : SUBPROGRAM interfaceview::FV::dolinecoarseregulation_obj625.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS dolinecoarseregulation_obj625_impl  -> dolinecoarseregulation_obj625;
+  END ThermalControlLineCoarseRegulator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ThermalControl::ThermalControlLineFineRegulator
+  ---------------------------------------------------
+
+  SYSTEM ThermalControlLineFineRegulator
+    FEATURES
+      dolinefineregulation_obj670 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::dolinefineregulation_obj670.others
+        { Taste::Coordinates => "691 299";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      getpilotingtemperature_obj684 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::getpilotingtemperature_obj344.others 
+        { Taste::Coordinates => "691 321";
+          Taste::RCMoperationKind => protected;};
+      controlheater_obj694 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::controlheater_obj358.others 
+        { Taste::Coordinates => "691 339";
+          Taste::RCMoperationKind => protected;};
+      computelinetemperature_obj704 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::computelinetemperature_obj600.others 
+        { Taste::Coordinates => "830 334";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "ThermalControlLineFineRegulator";
+  END ThermalControlLineFineRegulator;
+
+  SYSTEM IMPLEMENTATION ThermalControlLineFineRegulator.others
+    SUBCOMPONENTS
+      dolinefineregulation_obj670_impl : SUBPROGRAM interfaceview::FV::dolinefineregulation_obj670.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS dolinefineregulation_obj670_impl  -> dolinefineregulation_obj670;
+  END ThermalControlLineFineRegulator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ThermalControl::ThermalControlFaultDetector
+  ---------------------------------------------------
+
+  SYSTEM ThermalControlFaultDetector
+    FEATURES
+      performfaultdetection_obj725 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::performfaultdetection_obj725.others
+        { Taste::Coordinates => "375 279";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      reportfaultin_obj736 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::reportfaultin_obj241.others 
+        { Taste::Coordinates => "375 290";
+          Taste::RCMoperationKind => sporadic;};
+      getregulationparameters_obj746 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::getregulationparameters_obj471.others 
+        { Taste::Coordinates => "587 245";
+          Taste::RCMoperationKind => protected;};
+      getpilotingtemperature_obj756 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::getpilotingtemperature_obj344.others 
+        { Taste::Coordinates => "375 256";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "ThermalControlFaultDetector";
+  END ThermalControlFaultDetector;
+
+  SYSTEM IMPLEMENTATION ThermalControlFaultDetector.others
+    SUBCOMPONENTS
+      performfaultdetection_obj725_impl : SUBPROGRAM interfaceview::FV::performfaultdetection_obj725.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS performfaultdetection_obj725_impl  -> performfaultdetection_obj725;
+  END ThermalControlFaultDetector.others;
+
+PROPERTIES
+  Taste::Coordinates => "354 37 989 373";
+END interfaceview::IV::ThermalControl;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM changemode_obj392
+    FEATURES
+      thermalControl : IN PARAMETER DataView::ThermalControl_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END changemode_obj392;
+
+  SUBPROGRAM IMPLEMENTATION changemode_obj392.others
+  END changemode_obj392.others;
+
+  SUBPROGRAM getheatingchannel_obj405
+    FEATURES
+      heatingChannelList : OUT PARAMETER DataView::HeatingChannelList_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END getheatingchannel_obj405;
+
+  SUBPROGRAM IMPLEMENTATION getheatingchannel_obj405.others
+  END getheatingchannel_obj405.others;
+
+  SUBPROGRAM getacquiredtemperatures_obj418
+    FEATURES
+      acquiredTemperatureList : OUT PARAMETER DataView::AcquiredTemperatureList_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END getacquiredtemperatures_obj418;
+
+  SUBPROGRAM IMPLEMENTATION getacquiredtemperatures_obj418.others
+  END getacquiredtemperatures_obj418.others;
+
+  SUBPROGRAM getthermalmode_obj431
+    FEATURES
+      thermalMode : OUT PARAMETER DataView::ThermalMode_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END getthermalmode_obj431;
+
+  SUBPROGRAM IMPLEMENTATION getthermalmode_obj431.others
+  END getthermalmode_obj431.others;
+
+  SUBPROGRAM modifythermalline_obj444
+    FEATURES
+      thermalLineParameters : IN PARAMETER DataView::ThermalLineParameter_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END modifythermalline_obj444;
+
+  SUBPROGRAM IMPLEMENTATION modifythermalline_obj444.others
+  END modifythermalline_obj444.others;
+
+  SUBPROGRAM modifytargettemperature_obj457
+    FEATURES
+      lineID : IN PARAMETER DataView::LineID_T
+        { Taste::encoding => NATIVE; };
+      targettemperature : IN PARAMETER DataView::TargetTemperature_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END modifytargettemperature_obj457;
+
+  SUBPROGRAM IMPLEMENTATION modifytargettemperature_obj457.others
+  END modifytargettemperature_obj457.others;
+
+  SUBPROGRAM getregulationparameters_obj471
+    FEATURES
+      regulationParameters : OUT PARAMETER DataView::RegulationParameters_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END getregulationparameters_obj471;
+
+  SUBPROGRAM IMPLEMENTATION getregulationparameters_obj471.others
+  END getregulationparameters_obj471.others;
+
+  SUBPROGRAM gettargettemperatures_obj484
+    FEATURES
+      targetTemperatureList : OUT PARAMETER DataView::TargetTemperatureList_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END gettargettemperatures_obj484;
+
+  SUBPROGRAM IMPLEMENTATION gettargettemperatures_obj484.others
+  END gettargettemperatures_obj484.others;
+
+  SUBPROGRAM regulatetemperature_obj528
+  END regulatetemperature_obj528;
+
+  SUBPROGRAM IMPLEMENTATION regulatetemperature_obj528.others
+  END regulatetemperature_obj528.others;
+
+  SUBPROGRAM computelinetemperature_obj600
+    FEATURES
+      pilotingTemperature : IN PARAMETER DataView::PilotingTemperature_T
+        { Taste::encoding => NATIVE; };
+      linetemperature : OUT PARAMETER DataView::TemperatureInCelcius_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END computelinetemperature_obj600;
+
+  SUBPROGRAM IMPLEMENTATION computelinetemperature_obj600.others
+  END computelinetemperature_obj600.others;
+
+  SUBPROGRAM dolinecoarseregulation_obj625
+    FEATURES
+      thermalLineParameters : IN PARAMETER DataView::ThermalLineParameter_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+      pMax : IN PARAMETER DataView::PowerInWatts_T
+        { Taste::encoding => NATIVE; };
+  END dolinecoarseregulation_obj625;
+
+  SUBPROGRAM IMPLEMENTATION dolinecoarseregulation_obj625.others
+  END dolinecoarseregulation_obj625.others;
+
+  SUBPROGRAM dolinefineregulation_obj670
+    FEATURES
+      thermalLineParameters : IN PARAMETER DataView::ThermalLineParameter_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+      pMax : IN PARAMETER DataView::PowerInWatts_T
+        { Taste::encoding => NATIVE; };
+  END dolinefineregulation_obj670;
+
+  SUBPROGRAM IMPLEMENTATION dolinefineregulation_obj670.others
+  END dolinefineregulation_obj670.others;
+
+  SUBPROGRAM performfaultdetection_obj725
+  END performfaultdetection_obj725;
+
+  SUBPROGRAM IMPLEMENTATION performfaultdetection_obj725.others
+  END performfaultdetection_obj725.others;
+
+  SUBPROGRAM ReportFault_obj86
+    FEATURES
+      fault : IN PARAMETER DataView::Fault_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END ReportFault_obj86;
+
+  SUBPROGRAM IMPLEMENTATION ReportFault_obj86.others
+  END ReportFault_obj86.others;
+
+  SUBPROGRAM DisplayHeaterControl_obj98
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END DisplayHeaterControl_obj98;
+
+  SUBPROGRAM IMPLEMENTATION DisplayHeaterControl_obj98.others
+  END DisplayHeaterControl_obj98.others;
+
+  SUBPROGRAM DisplayHouseKeeping_obj109
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END DisplayHouseKeeping_obj109;
+
+  SUBPROGRAM IMPLEMENTATION DisplayHouseKeeping_obj109.others
+  END DisplayHouseKeeping_obj109.others;
+
+  SUBPROGRAM startthermalcontrolapp_obj181
+    FEATURES
+      numberOfLines : IN PARAMETER DataView::NbLines_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END startthermalcontrolapp_obj181;
+
+  SUBPROGRAM IMPLEMENTATION startthermalcontrolapp_obj181.others
+  END startthermalcontrolapp_obj181.others;
+
+  SUBPROGRAM stopthermalcontrolapp_obj193
+    FEATURES
+      numberOfLines : IN PARAMETER DataView::NbLines_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END stopthermalcontrolapp_obj193;
+
+  SUBPROGRAM IMPLEMENTATION stopthermalcontrolapp_obj193.others
+  END stopthermalcontrolapp_obj193.others;
+
+  SUBPROGRAM gethousekeeping_obj205
+    FEATURES
+      numberOfLines : IN PARAMETER DataView::NbLines_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END gethousekeeping_obj205;
+
+  SUBPROGRAM IMPLEMENTATION gethousekeeping_obj205.others
+  END gethousekeeping_obj205.others;
+
+  SUBPROGRAM changertargettemperature_obj217
+    FEATURES
+      lineTargetTemperature : IN PARAMETER DataView::LineTargetTemperature_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END changertargettemperature_obj217;
+
+  SUBPROGRAM IMPLEMENTATION changertargettemperature_obj217.others
+  END changertargettemperature_obj217.others;
+
+  SUBPROGRAM changethermallineparameters_obj229
+    FEATURES
+      thermalLineParameters : IN PARAMETER DataView::ThermalLineParameter_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END changethermallineparameters_obj229;
+
+  SUBPROGRAM IMPLEMENTATION changethermallineparameters_obj229.others
+  END changethermallineparameters_obj229.others;
+
+  SUBPROGRAM reportfaultin_obj241
+    FEATURES
+      fault : IN PARAMETER DataView::Fault_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END reportfaultin_obj241;
+
+  SUBPROGRAM IMPLEMENTATION reportfaultin_obj241.others
+  END reportfaultin_obj241.others;
+
+  SUBPROGRAM getpilotingtemperature_obj344
+    FEATURES
+      pilotingTemperature : OUT PARAMETER DataView::PilotingTemperature_T
+        { Taste::encoding => NATIVE; };
+      lineID : IN PARAMETER DataView::LineID_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END getpilotingtemperature_obj344;
+
+  SUBPROGRAM IMPLEMENTATION getpilotingtemperature_obj344.others
+  END getpilotingtemperature_obj344.others;
+
+  SUBPROGRAM controlheater_obj358
+    FEATURES
+      heaterControl : IN PARAMETER DataView::HeaterControl_T
+        { Taste::encoding => NATIVE; };
+      result : OUT PARAMETER DataView::Result_T
+        { Taste::encoding => NATIVE; };
+  END controlheater_obj358;
+
+  SUBPROGRAM IMPLEMENTATION controlheater_obj358.others
+  END controlheater_obj358.others;
+
+END interfaceview::FV;
+

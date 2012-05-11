@@ -1,0 +1,344 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      graphical_control: SYSTEM interfaceview::IV::graphical_control.others
+        { Taste::Coordinates => "94 104 1084 397"; };
+      simulink_wrapper: SYSTEM interfaceview::IV::simulink_wrapper.others
+        { Taste::Coordinates => "87 576 1088 842"; };
+      gpca_core: SYSTEM interfaceview::IV::gpca_core.others
+        { Taste::Coordinates => "1200 586 1643 876"; };
+      gpca_device: SYSTEM interfaceview::IV::gpca_device.others
+        { Taste::Coordinates => "91 1034 928 1364"; };
+    CONNECTIONS
+      obj897 : SUBPROGRAM ACCESS simulink_wrapper.gui_events_obj120  -> graphical_control.obj838_obj99 
+        { Taste::Coordinates => "228 397 228 465 228 465 228 576"; };
+      obj1208 : SUBPROGRAM ACCESS graphical_control.receive_gpca_state_obj75  -> simulink_wrapper.obj1156_obj179 
+        { Taste::Coordinates => "461 576 461 485 461 485 461 397"; };
+      obj2345 : SUBPROGRAM ACCESS graphical_control.alarm_status_obj87  -> simulink_wrapper.obj2293_obj189 
+        { Taste::Coordinates => "885 576 885 485 885 485 885 397"; };
+      obj3027 : SUBPROGRAM ACCESS gpca_device.infusion_control_obj263  -> simulink_wrapper.obj2958_obj199 
+        { Taste::Coordinates => "318 842 318 936 318 936 318 1034"; };
+      obj3246 : SUBPROGRAM ACCESS gpca_device.infusion_program_obj274  -> simulink_wrapper.obj3173_obj209 
+        { Taste::Coordinates => "682 842 682 936 677 936 677 1034"; };
+      obj1014 : SUBPROGRAM ACCESS gpca_core.recvdata_obj240  -> simulink_wrapper.obj956_obj219 
+        { Taste::Coordinates => "1088 669 1145 669 1145 778 1200 778"; };
+      obj693 : SUBPROGRAM ACCESS simulink_wrapper.infusion_fault_obj132  -> gpca_device.obj612_obj286 
+        { Taste::Coordinates => "191 1034 191 936 191 936 191 842"; };
+      obj795 : SUBPROGRAM ACCESS simulink_wrapper.hardware_fault_obj144  -> gpca_device.obj746_obj296 
+        { Taste::Coordinates => "482 1034 482 936 482 936 482 842"; };
+      obj895 : SUBPROGRAM ACCESS simulink_wrapper.infusion_state_obj156  -> gpca_device.obj824_obj306 
+        { Taste::Coordinates => "836 1034 836 936 831 936 831 842"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::graphical_control
+  ---------------------------------------------------
+
+  SYSTEM graphical_control
+    FEATURES
+      receive_gpca_state_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_gpca_state_obj75.others
+        { Taste::Coordinates => "461 397";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      alarm_status_obj87 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::alarm_status_obj87.others
+        { Taste::Coordinates => "885 397";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      obj838_obj99 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::gui_events_obj120.others 
+        { Taste::Coordinates => "228 397";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => GUI;
+      Taste::Instance_Name => "Function0";
+  END graphical_control;
+
+  SYSTEM IMPLEMENTATION graphical_control.others
+    SUBCOMPONENTS
+      receive_gpca_state_obj75_impl : SUBPROGRAM interfaceview::FV::receive_gpca_state_obj75.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+      alarm_status_obj87_impl : SUBPROGRAM interfaceview::FV::alarm_status_obj87.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_gpca_state_obj75_impl  -> receive_gpca_state_obj75;
+      SUBPROGRAM ACCESS alarm_status_obj87_impl  -> alarm_status_obj87;
+  END graphical_control.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::simulink_wrapper
+  ---------------------------------------------------
+
+  SYSTEM simulink_wrapper
+    FEATURES
+      gui_events_obj120 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::gui_events_obj120.others
+        { Taste::Coordinates => "228 576";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      infusion_fault_obj132 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::infusion_fault_obj132.others
+        { Taste::Coordinates => "191 842";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      hardware_fault_obj144 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::hardware_fault_obj144.others
+        { Taste::Coordinates => "482 842";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      infusion_state_obj156 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::infusion_state_obj156.others
+        { Taste::Coordinates => "831 842";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      activator_obj168 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj168.others
+        { Taste::Coordinates => "696 576";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1156_obj179 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_gpca_state_obj75.others 
+        { Taste::Coordinates => "461 576";
+          Taste::RCMoperationKind => sporadic;};
+      obj2293_obj189 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::alarm_status_obj87.others 
+        { Taste::Coordinates => "885 576";
+          Taste::RCMoperationKind => sporadic;};
+      obj2958_obj199 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::infusion_control_obj263.others 
+        { Taste::Coordinates => "318 842";
+          Taste::RCMoperationKind => sporadic;};
+      obj3173_obj209 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::infusion_program_obj274.others 
+        { Taste::Coordinates => "682 842";
+          Taste::RCMoperationKind => sporadic;};
+      obj956_obj219 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recvdata_obj240.others 
+        { Taste::Coordinates => "1088 669";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END simulink_wrapper;
+
+  SYSTEM IMPLEMENTATION simulink_wrapper.others
+    SUBCOMPONENTS
+      gui_events_obj120_impl : SUBPROGRAM interfaceview::FV::gui_events_obj120.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+      infusion_fault_obj132_impl : SUBPROGRAM interfaceview::FV::infusion_fault_obj132.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+      hardware_fault_obj144_impl : SUBPROGRAM interfaceview::FV::hardware_fault_obj144.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+      infusion_state_obj156_impl : SUBPROGRAM interfaceview::FV::infusion_state_obj156.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+      activator_obj168_impl : SUBPROGRAM interfaceview::FV::activator_obj168.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS gui_events_obj120_impl  -> gui_events_obj120;
+      SUBPROGRAM ACCESS infusion_fault_obj132_impl  -> infusion_fault_obj132;
+      SUBPROGRAM ACCESS hardware_fault_obj144_impl  -> hardware_fault_obj144;
+      SUBPROGRAM ACCESS infusion_state_obj156_impl  -> infusion_state_obj156;
+      SUBPROGRAM ACCESS activator_obj168_impl  -> activator_obj168;
+  END simulink_wrapper.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::gpca_core
+  ---------------------------------------------------
+
+  SYSTEM gpca_core
+    FEATURES
+      recvdata_obj240 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recvdata_obj240.others
+        { Taste::Coordinates => "1200 778";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function2";
+  END gpca_core;
+
+  SYSTEM IMPLEMENTATION gpca_core.others
+    SUBCOMPONENTS
+      recvdata_obj240_impl : SUBPROGRAM interfaceview::FV::recvdata_obj240.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS recvdata_obj240_impl  -> recvdata_obj240;
+  END gpca_core.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::gpca_device
+  ---------------------------------------------------
+
+  SYSTEM gpca_device
+    FEATURES
+      infusion_control_obj263 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::infusion_control_obj263.others
+        { Taste::Coordinates => "318 1034";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      infusion_program_obj274 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::infusion_program_obj274.others
+        { Taste::Coordinates => "677 1034";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      obj612_obj286 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::infusion_fault_obj132.others 
+        { Taste::Coordinates => "191 1034";
+          Taste::RCMoperationKind => sporadic;};
+      obj746_obj296 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::hardware_fault_obj144.others 
+        { Taste::Coordinates => "482 1034";
+          Taste::RCMoperationKind => sporadic;};
+      obj824_obj306 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::infusion_state_obj156.others 
+        { Taste::Coordinates => "836 1034";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function3";
+  END gpca_device;
+
+  SYSTEM IMPLEMENTATION gpca_device.others
+    SUBCOMPONENTS
+      infusion_control_obj263_impl : SUBPROGRAM interfaceview::FV::infusion_control_obj263.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+      infusion_program_obj274_impl : SUBPROGRAM interfaceview::FV::infusion_program_obj274.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS infusion_control_obj263_impl  -> infusion_control_obj263;
+      SUBPROGRAM ACCESS infusion_program_obj274_impl  -> infusion_program_obj274;
+  END gpca_device.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM receive_gpca_state_obj75
+    FEATURES
+      current_state : IN PARAMETER DataView::State_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_gpca_state_obj75;
+
+  SUBPROGRAM IMPLEMENTATION receive_gpca_state_obj75.others
+  END receive_gpca_state_obj75.others;
+
+  SUBPROGRAM alarm_status_obj87
+    FEATURES
+      alarmvalue : IN PARAMETER DataView::Boolean_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END alarm_status_obj87;
+
+  SUBPROGRAM IMPLEMENTATION alarm_status_obj87.others
+  END alarm_status_obj87.others;
+
+  SUBPROGRAM gui_events_obj120
+    FEATURES
+      events : IN PARAMETER DataView::User_Input_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END gui_events_obj120;
+
+  SUBPROGRAM IMPLEMENTATION gui_events_obj120.others
+  END gui_events_obj120.others;
+
+  SUBPROGRAM infusion_fault_obj132
+    FEATURES
+      val : IN PARAMETER DataView::Boolean_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END infusion_fault_obj132;
+
+  SUBPROGRAM IMPLEMENTATION infusion_fault_obj132.others
+  END infusion_fault_obj132.others;
+
+  SUBPROGRAM hardware_fault_obj144
+    FEATURES
+      val : IN PARAMETER DataView::Boolean_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END hardware_fault_obj144;
+
+  SUBPROGRAM IMPLEMENTATION hardware_fault_obj144.others
+  END hardware_fault_obj144.others;
+
+  SUBPROGRAM infusion_state_obj156
+    FEATURES
+      val : IN PARAMETER DataView::Infusion_State_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END infusion_state_obj156;
+
+  SUBPROGRAM IMPLEMENTATION infusion_state_obj156.others
+  END infusion_state_obj156.others;
+
+  SUBPROGRAM activator_obj168
+  END activator_obj168;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj168.others
+  END activator_obj168.others;
+
+  SUBPROGRAM recvdata_obj240
+    FEATURES
+      val : IN PARAMETER DataView::User_Input_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END recvdata_obj240;
+
+  SUBPROGRAM IMPLEMENTATION recvdata_obj240.others
+  END recvdata_obj240.others;
+
+  SUBPROGRAM infusion_control_obj263
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END infusion_control_obj263;
+
+  SUBPROGRAM IMPLEMENTATION infusion_control_obj263.others
+  END infusion_control_obj263.others;
+
+  SUBPROGRAM infusion_program_obj274
+    FEATURES
+      val : IN PARAMETER DataView::Boolean_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END infusion_program_obj274;
+
+  SUBPROGRAM IMPLEMENTATION infusion_program_obj274.others
+  END infusion_program_obj274.others;
+
+END interfaceview::FV;
+

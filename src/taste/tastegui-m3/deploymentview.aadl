@@ -1,0 +1,2151 @@
+PACKAGE deploymentview::DV
+PUBLIC
+WITH Deployment;
+WITH Taste;
+
+WITH interfaceview::IV;
+WITH interfaceview::IV::Channel_1;
+WITH interfaceview::IV::Channel_2;
+WITH interfaceview::IV::Channel_3;
+WITH interfaceview::IV::Channel_4;
+WITH interfaceview::IV::Channel_5;
+WITH interfaceview::IV::Acquisition;
+WITH interfaceview::IV::GUI;
+WITH interfaceview::IV::Channel_6;
+
+WITH ocarina_processors_x86;
+ 
+---------------------------------------------------
+-- TASTE Deployement View 
+---------------------------------------------------
+
+  ----------------------
+  -- ProcessorBoards --
+  ----------------------
+
+  SYSTEM myboard_obj102
+  END myboard_obj102;
+
+  PROCESS mainpart_obj122
+  END mainpart_obj122;
+
+  PROCESS IMPLEMENTATION mainpart_obj122.others
+  END mainpart_obj122.others;
+
+  MEMORY mem_obj132
+  END mem_obj132;
+
+  MEMORY IMPLEMENTATION mem_obj132.others
+  END mem_obj132.others;
+
+  SYSTEM IMPLEMENTATION myboard_obj102.others
+    SUBCOMPONENTS
+      mainpart_obj122 : PROCESS mainpart_obj122.others
+        { Taste::Coordinates => "180 270 3497 2816";
+           Deployment::Port_Number => 0;};
+      Correlators_1_obj588 : SYSTEM interfaceview::IV::Channel_1::Correlators_1
+        { Taste::Coordinates => "210 347 1134 445" ;};
+      Tracking_Loops_1_obj1600 : SYSTEM interfaceview::IV::Channel_1::Tracking_Loops_1
+        { Taste::Coordinates => "2565 333 3373 423" ;};
+      Channel_1_Ctrl_Cmd_obj1680 : SYSTEM interfaceview::IV::Channel_1::Channel_1_Ctrl_Cmd
+        { Taste::Coordinates => "2600 1110 3348 1216" ;};
+      Data_Demodulation_1_obj1745 : SYSTEM interfaceview::IV::Channel_1::Data_Demodulation_1
+        { Taste::Coordinates => "220 1097 1145 1190" ;};
+      PseudoRange_Measurements_1_obj1880 : SYSTEM interfaceview::IV::Channel_1::PseudoRange_Measurements_1
+        { Taste::Coordinates => "1276 346 2368 449" ;};
+      Correlators_2_obj1945 : SYSTEM interfaceview::IV::Channel_2::Correlators_2
+        { Taste::Coordinates => "211 463 1141 562" ;};
+      Tracking_Loops_2_obj2052 : SYSTEM interfaceview::IV::Channel_2::Tracking_Loops_2
+        { Taste::Coordinates => "2569 452 3375 551" ;};
+      Channel_2_Ctrl_Cmd_obj2166 : SYSTEM interfaceview::IV::Channel_2::Channel_2_Ctrl_Cmd
+        { Taste::Coordinates => "2596 1253 3352 1352" ;};
+      Data_Demodulation_2_obj2382 : SYSTEM interfaceview::IV::Channel_2::Data_Demodulation_2
+        { Taste::Coordinates => "217 1215 1149 1299" ;};
+      PseudoRange_Measurements_2_obj2467 : SYSTEM interfaceview::IV::Channel_2::PseudoRange_Measurements_2
+        { Taste::Coordinates => "1276 475 2368 562" ;};
+      Correlators_3_obj4296 : SYSTEM interfaceview::IV::Channel_3::Correlators_3
+        { Taste::Coordinates => "210 581 1130 675" ;};
+      Tracking_Loops_3_obj4484 : SYSTEM interfaceview::IV::Channel_3::Tracking_Loops_3
+        { Taste::Coordinates => "2565 569 3365 668" ;};
+      Channel_3_Ctrl_Cmd_obj4639 : SYSTEM interfaceview::IV::Channel_3::Channel_3_Ctrl_Cmd
+        { Taste::Coordinates => "2600 1388 3355 1472" ;};
+      Data_Demodulation_3_obj4807 : SYSTEM interfaceview::IV::Channel_3::Data_Demodulation_3
+        { Taste::Coordinates => "211 1321 1153 1424" ;};
+      PseudoRange_Measurements_3_obj4923 : SYSTEM interfaceview::IV::Channel_3::PseudoRange_Measurements_3
+        { Taste::Coordinates => "1269 581 2361 679" ;};
+      Correlators_4_obj4980 : SYSTEM interfaceview::IV::Channel_4::Correlators_4
+        { Taste::Coordinates => "209 697 1118 788" ;};
+      Tracking_Loops_4_obj5088 : SYSTEM interfaceview::IV::Channel_4::Tracking_Loops_4
+        { Taste::Coordinates => "2569 708 3373 821" ;};
+      Data_Demodulation_4_obj6669 : SYSTEM interfaceview::IV::Channel_4::Data_Demodulation_4
+        { Taste::Coordinates => "211 1445 1161 1588" ;};
+      Channel_4_Ctrl_Cmd_obj6772 : SYSTEM interfaceview::IV::Channel_4::Channel_4_Ctrl_Cmd
+        { Taste::Coordinates => "2589 1505 3363 1611" ;};
+      Channel_5_Ctrl_Cmd_obj6833 : SYSTEM interfaceview::IV::Channel_5::Channel_5_Ctrl_Cmd
+        { Taste::Coordinates => "2596 1640 3356 1731" ;};
+      Channel_6_Ctrl_Cmd_obj7011 : SYSTEM interfaceview::IV::Channel_6::Channel_6_Ctrl_Cmd
+        { Taste::Coordinates => "2596 1764 3356 1859" ;};
+      Data_Demodulation_5_obj7272 : SYSTEM interfaceview::IV::Channel_5::Data_Demodulation_5
+        { Taste::Coordinates => "218 1628 1145 1723" ;};
+      Correlators_5_obj7370 : SYSTEM interfaceview::IV::Channel_5::Correlators_5
+        { Taste::Coordinates => "217 807 1119 905" ;};
+      Correlators_6_obj7523 : SYSTEM interfaceview::IV::Channel_6::Correlators_6
+        { Taste::Coordinates => "232 924 1123 1026" ;};
+      Data_Demodulation_6_obj7780 : SYSTEM interfaceview::IV::Channel_6::Data_Demodulation_6
+        { Taste::Coordinates => "233 1745 1153 1858" ;};
+      PseudoRange_Measurements_4_obj7884 : SYSTEM interfaceview::IV::Channel_4::PseudoRange_Measurements_4
+        { Taste::Coordinates => "1273 693 2365 807" ;};
+      PseudoRange_Measurements_5_obj8058 : SYSTEM interfaceview::IV::Channel_5::PseudoRange_Measurements_5
+        { Taste::Coordinates => "1280 829 2380 920" ;};
+      PseudoRange_Measurements_6_obj8287 : SYSTEM interfaceview::IV::Channel_6::PseudoRange_Measurements_6
+        { Taste::Coordinates => "1280 938 2358 1044" ;};
+      Tracking_Loops_5_obj8460 : SYSTEM interfaceview::IV::Channel_5::Tracking_Loops_5
+        { Taste::Coordinates => "2573 840 3384 942" ;};
+      Tracking_Loops_6_obj8696 : SYSTEM interfaceview::IV::Channel_6::Tracking_Loops_6
+        { Taste::Coordinates => "2577 960 3377 1051" ;};
+      Main_Ctrl_Cmd_obj9370 : SYSTEM interfaceview::IV::Main_Ctrl_Cmd
+        { Taste::Coordinates => "1369 1226 2314 1308" ;};
+      PVT_obj9431 : SYSTEM interfaceview::IV::PVT
+        { Taste::Coordinates => "1361 1338 1762 1482" ;};
+      TabData_obj9483 : SYSTEM interfaceview::IV::Acquisition::TabData
+        { Taste::Coordinates => "1346 1641 1759 1778" ;};
+      Butterfly_obj9535 : SYSTEM interfaceview::IV::Acquisition::Butterfly
+        { Taste::Coordinates => "1872 1320 2310 1478" ;};
+      FFT_obj9582 : SYSTEM interfaceview::IV::Acquisition::FFT
+        { Taste::Coordinates => "1822 1645 2299 1778" ;};
+      Integrator_obj9652 : SYSTEM interfaceview::IV::Acquisition::Integrator
+        { Taste::Coordinates => "1338 1795 2310 1873" ;};
+      Correlator_obj9699 : SYSTEM interfaceview::IV::Acquisition::Correlator
+        { Taste::Coordinates => "1831 1509 2302 1617" ;};
+      CorrMult_obj9748 : SYSTEM interfaceview::IV::Acquisition::CorrMult
+        { Taste::Coordinates => "1358 1504 1762 1624" ;};
+      Acquisition_Ctrl_Cmd_obj11195 : SYSTEM interfaceview::IV::Acquisition::Acquisition_Ctrl_Cmd
+        { Taste::Coordinates => "1367 1098 2314 1207" ;};
+      GPS_Receiver_GUI_obj12350 : SYSTEM interfaceview::IV::GUI::GPS_Receiver_GUI
+        { Taste::Coordinates => "2070 1973 3367 2144" ;};
+      TM_TC_Simulation_GUI_obj12422 : SYSTEM interfaceview::IV::GUI::TM_TC_Simulation_GUI
+        { Taste::Coordinates => "234 1981 1948 2165" ;};
+      cpunative_obj112 : PROCESSOR ocarina_processors_x86::x86.native
+        { Taste::Coordinates => "133 185 3529 2857"; };
+      mem_obj132 : MEMORY mem_obj132.others
+        { Taste::Coordinates => "2962 2903 3542 3025"; };
+
+    PROPERTIES
+      -- Connexion des CPUs aux process/drivers
+      Actual_Processor_Binding => (reference (cpunative_obj112)) applies to mainpart_obj122;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Correlators_1_obj588;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Tracking_Loops_1_obj1600;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Channel_1_Ctrl_Cmd_obj1680;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Data_Demodulation_1_obj1745;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO PseudoRange_Measurements_1_obj1880;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Correlators_2_obj1945;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Tracking_Loops_2_obj2052;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Channel_2_Ctrl_Cmd_obj2166;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Data_Demodulation_2_obj2382;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO PseudoRange_Measurements_2_obj2467;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Correlators_3_obj4296;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Tracking_Loops_3_obj4484;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Channel_3_Ctrl_Cmd_obj4639;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Data_Demodulation_3_obj4807;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO PseudoRange_Measurements_3_obj4923;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Correlators_4_obj4980;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Tracking_Loops_4_obj5088;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Data_Demodulation_4_obj6669;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Channel_4_Ctrl_Cmd_obj6772;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Channel_5_Ctrl_Cmd_obj6833;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Channel_6_Ctrl_Cmd_obj7011;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Data_Demodulation_5_obj7272;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Correlators_5_obj7370;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Correlators_6_obj7523;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Data_Demodulation_6_obj7780;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO PseudoRange_Measurements_4_obj7884;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO PseudoRange_Measurements_5_obj8058;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO PseudoRange_Measurements_6_obj8287;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Tracking_Loops_5_obj8460;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Tracking_Loops_6_obj8696;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Main_Ctrl_Cmd_obj9370;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO PVT_obj9431;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO TabData_obj9483;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Butterfly_obj9535;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO FFT_obj9582;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Integrator_obj9652;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Correlator_obj9699;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO CorrMult_obj9748;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO Acquisition_Ctrl_Cmd_obj11195;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO GPS_Receiver_GUI_obj12350;
+      Taste::APLC_Binding => (reference(mainpart_obj122)) APPLIES TO TM_TC_Simulation_GUI_obj12422;
+      Actual_Memory_Binding => (reference (mem_obj132)) applies to mainpart_obj122;
+  END myboard_obj102.others;
+
+  --------------
+  -- Devices--
+  --------------
+
+  -----------
+  -- Buses --
+  -----------
+
+  -----------------
+  -- Root System --
+  -----------------
+
+  SYSTEM deploymentview
+  END deploymentview;
+
+  SYSTEM IMPLEMENTATION deploymentview.others
+    SUBCOMPONENTS
+      --  The processor boards
+      myboard_obj102 : SYSTEM myboard_obj102.others
+        { Taste::Coordinates => "95 91 3580 3091"; };
+      --  The devices
+      --  The buses
+      --  The IV systems
+        Part_B_obj614 : SYSTEM interfaceview::IV::interfaceview.others;
+  END deploymentview.others;
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 5000 4000";
+  Taste::interfaceView => "interface.aadl";
+
+END deploymentview::DV;
+ 
+
+
+---------------------------------------
+-- copied aadl libraries
+-- TASTE requirement
+-- Do not edit below this line
+---------------------------------------
+
+package ocarina_drivers_exarm_ni_6071e_analog 
+ 
+public 
+ 
+with Base_Types; 
+ 
+subprogram spg_init 
+properties 
+   Source_Language   => C; 
+   Source_Name       => "__po_hi_c_driver_exarm_ni_6071e_analog_init"; 
+end spg_init; 
+ 
+ 
+subprogram spg_poller 
+features 
+   data1  : out parameter Base_Types::Float_64; 
+   data2  : out parameter Base_Types::Float_64; 
+   data3  : out parameter Base_Types::Float_64; 
+   data4  : out parameter Base_Types::Float_64; 
+   data5  : out parameter Base_Types::Float_64; 
+   data6  : out parameter Base_Types::Float_64; 
+   data7  : out parameter Base_Types::Float_64; 
+   data8  : out parameter Base_Types::Float_64; 
+   data9  : out parameter Base_Types::Float_64; 
+   data10 : out parameter Base_Types::Float_64; 
+   data11 : out parameter Base_Types::Float_64; 
+   data12 : out parameter Base_Types::Float_64; 
+   data13 : out parameter Base_Types::Float_64; 
+   data14 : out parameter Base_Types::Float_64; 
+   data15 : out parameter Base_Types::Float_64; 
+   data16 : out parameter Base_Types::Float_64; 
+properties 
+   Source_Language   => C; 
+   Source_Name       => "__po_hi_c_driver_exarm_ni_6071e_analog_poller"; 
+end spg_poller; 
+ 
+ 
+thread thr_poller 
+features 
+   data1  : out data port Base_Types::Float_64; 
+   data2  : out data port Base_Types::Float_64; 
+   data3  : out data port Base_Types::Float_64; 
+   data4  : out data port Base_Types::Float_64; 
+   data5  : out data port Base_Types::Float_64; 
+   data6  : out data port Base_Types::Float_64; 
+   data7  : out data port Base_Types::Float_64; 
+   data8  : out data port Base_Types::Float_64; 
+   data9  : out data port Base_Types::Float_64; 
+   data10 : out data port Base_Types::Float_64; 
+   data11 : out data port Base_Types::Float_64; 
+   data12 : out data port Base_Types::Float_64; 
+   data13 : out data port Base_Types::Float_64; 
+   data14 : out data port Base_Types::Float_64; 
+   data15 : out data port Base_Types::Float_64; 
+   data16 : out data port Base_Types::Float_64; 
+end thr_poller; 
+ 
+thread implementation thr_poller.i 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_poller; 
+	}; 
+connections 
+   parameter pspg.data1 -> data1;    
+   parameter pspg.data2 -> data2;    
+   parameter pspg.data3 -> data3;    
+   parameter pspg.data4 -> data4;    
+   parameter pspg.data5 -> data5;    
+   parameter pspg.data6 -> data6;    
+   parameter pspg.data7 -> data7;    
+   parameter pspg.data8 -> data8;    
+   parameter pspg.data9 -> data9;    
+   parameter pspg.data10 -> data10;    
+   parameter pspg.data11 -> data11;    
+   parameter pspg.data12 -> data12;    
+   parameter pspg.data13 -> data13;    
+   parameter pspg.data14 -> data14;    
+   parameter pspg.data15 -> data15;    
+   parameter pspg.data16 -> data16;  
+properties 
+   Period => 100 ms; 
+   Dispatch_Protocol => Periodic; 
+end thr_poller.i; 
+ 
+ 
+abstract driver 
+features 
+   data1  : out data port Base_Types::Float_64; 
+   data2  : out data port Base_Types::Float_64; 
+   data3  : out data port Base_Types::Float_64; 
+   data4  : out data port Base_Types::Float_64; 
+   data5  : out data port Base_Types::Float_64; 
+   data6  : out data port Base_Types::Float_64; 
+   data7  : out data port Base_Types::Float_64; 
+   data8  : out data port Base_Types::Float_64; 
+   data9  : out data port Base_Types::Float_64; 
+   data10 : out data port Base_Types::Float_64; 
+   data11 : out data port Base_Types::Float_64; 
+   data12 : out data port Base_Types::Float_64; 
+   data13 : out data port Base_Types::Float_64; 
+   data14 : out data port Base_Types::Float_64; 
+   data15 : out data port Base_Types::Float_64; 
+   data16 : out data port Base_Types::Float_64; 
+end driver; 
+ 
+abstract implementation driver.i 
+subcomponents 
+   ni6071e_analog_poller : thread thr_poller.i; 
+connections 
+   port ni6071e_analog_poller.data1 -> data1;    
+   port ni6071e_analog_poller.data2 -> data2;    
+   port ni6071e_analog_poller.data3 -> data3;    
+   port ni6071e_analog_poller.data4 -> data4;    
+   port ni6071e_analog_poller.data5 -> data5;    
+   port ni6071e_analog_poller.data6 -> data6;    
+   port ni6071e_analog_poller.data7 -> data7;    
+   port ni6071e_analog_poller.data8 -> data8;    
+   port ni6071e_analog_poller.data9 -> data9;    
+   port ni6071e_analog_poller.data10 -> data10;    
+   port ni6071e_analog_poller.data11 -> data11;    
+   port ni6071e_analog_poller.data12 -> data12;    
+   port ni6071e_analog_poller.data13 -> data13;    
+   port ni6071e_analog_poller.data14 -> data14;    
+   port ni6071e_analog_poller.data15 -> data15;    
+   port ni6071e_analog_poller.data16 -> data16;  
+end driver.i; 
+ 
+end ocarina_drivers_exarm_ni_6071e_analog;
+
+
+package ocarina_processors_leon 
+ 
+public 
+ 
+with Deployment; 
+with Cheddar_Properties; 
+ 
+processor leon 
+end leon; 
+ 
+processor implementation leon.rtems 
+properties 
+   Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol); 
+   Priority_Range => 0 .. 255; 
+   Cheddar_Properties::Scheduler_Quantum => 0 Ms; 
+   Cheddar_Properties::Preemptive_Scheduler => true; 
+   Deployment::Execution_Platform => LEON_RTEMS; 
+end leon.rtems; 
+ 
+processor implementation leon.ork 
+properties 
+   Deployment::Execution_Platform => LEON_ORK; 
+end leon.ork; 
+ 
+end ocarina_processors_leon;
+
+
+package ocarina_drivers_ip_asn1 
+ 
+public 
+ 
+subprogram spg_sockets_init 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_sockets_asn1_init"; 
+end spg_sockets_init; 
+ 
+ 
+thread eth_linux_poller 
+end eth_linux_poller; 
+ 
+thread implementation eth_linux_poller.asn1 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_eth_linux_poller_asn1; 
+	}; 
+properties 
+   Period => 1000ms; 
+   Dispatch_Protocol => Periodic; 
+end eth_linux_poller.asn1; 
+ 
+ 
+subprogram spg_eth_linux_poller_asn1 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_sockets_asn1_poller"; 
+end spg_eth_linux_poller_asn1; 
+ 
+ 
+subprogram spg_eth_linux_sender_asn1 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_sockets_asn1_send"; 
+end spg_eth_linux_sender_asn1; 
+ 
+ 
+abstract sockets_impl 
+end sockets_impl; 
+ 
+ 
+abstract implementation sockets_impl.asn1 
+subcomponents 
+--   receiver : thread       eth_linux_poller.asn1; 
+   sender   : subprogram   spg_eth_linux_sender_asn1; 
+end sockets_impl.asn1; 
+ 
+end ocarina_drivers_ip_asn1;
+
+
+package ocarina_drivers_exarm_ni_6071e_digital 
+ 
+public 
+ 
+with Base_Types; 
+ 
+subprogram spg_init 
+properties 
+   Source_Language   => C; 
+   Source_Name       => "__po_hi_c_driver_exarm_ni_6071e_digital_init"; 
+end spg_init; 
+ 
+ 
+subprogram spg_poller 
+features 
+   data1 : out parameter Base_Types::Unsigned_32; 
+   data2 : out parameter Base_Types::Unsigned_32; 
+properties 
+   Source_Language   => C; 
+   Source_Name       => "__po_hi_c_driver_exarm_ni_6071e_digital_poller"; 
+end spg_poller; 
+ 
+ 
+thread thr_poller 
+features 
+   data1 : out data port Base_Types::Unsigned_32; 
+   data2 : out data port Base_Types::Unsigned_32; 
+end thr_poller; 
+ 
+thread implementation thr_poller.i 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_poller; 
+	}; 
+connections 
+   parameter pspg.data1 -> data1;    
+   parameter pspg.data2 -> data2;    
+properties 
+   Period => 100 ms; 
+   Dispatch_Protocol => Periodic; 
+end thr_poller.i; 
+ 
+ 
+abstract driver 
+features 
+   data1 : out data port Base_Types::Unsigned_32; 
+   data2 : out data port Base_Types::Unsigned_32; 
+end driver; 
+ 
+abstract implementation driver.i 
+subcomponents 
+   ni6071e_digital_poller : thread thr_poller.i; 
+connections 
+   port ni6071e_digital_poller.data1 -> data1;  
+   port ni6071e_digital_poller.data2 -> data2;  
+end driver.i; 
+ 
+end ocarina_drivers_exarm_ni_6071e_digital;
+
+
+package TCP_IP_Protocol 
+ 
+-- This package models a TCP/IP based protocol layer for the 
+-- PolyORB-HI/Ada AADL runtime. It defines the subprograms and threads 
+-- to be integrated with the runtime low level interface. 
+-- 
+-- To configure this interface, you should use the 
+-- Deployment::Configuration property with the following format:  
+--     "ip <ipv4_addresse> <ipv4_port>" 
+-- 
+-- e.g. 
+-- 
+--     netif : device TCP_IP_Protocol::TCP_IP_Device 
+--            {Deployment::Configuration => "ip 192.168.0.10 45678";}: 
+ 
+public 
+ 
+   with Generic_Native; 
+ 
+   ------------ 
+   -- DEVICE -- 
+   ------------ 
+ 
+   -- The main entrypoint for this package is this device, it relies 
+   -- on the 'Implement_As' feature that defines its full 
+   -- specification. 
+ 
+   device TCP_IP_Device 
+   features 
+      Ethernet_Wire : requires bus access Generic_Native::Generic_Bus.impl; 
+      -- Connection to the remote node     
+ 
+   end TCP_IP_Device; 
+ 
+   device implementation TCP_IP_Device.impl 
+   properties 
+      Implemented_As =>  
+         classifier (TCP_IP_Protocol::Driver_TCP_IP_Protocol.impl); 
+      Initialize_Entrypoint => classifier (TCP_IP_Protocol::Initialize); 
+   end TCP_IP_Device.impl; 
+ 
+   ------------ 
+   -- DRIVER -- 
+   ------------ 
+ 
+   -- In AADLv2, we can model the actual implementation of a driver 
+   -- using an abstract component. 
+ 
+   abstract Driver_TCP_IP_Protocol 
+   end Driver_TCP_IP_Protocol; 
+ 
+   abstract implementation Driver_TCP_IP_Protocol.impl 
+   subcomponents 
+      receiver : thread Driver_TCP_IP_Protocol_thread_receiver.impl; 
+   end Driver_TCP_IP_Protocol.impl; 
+ 
+   ------------- 
+   -- THREADS -- 
+   ------------- 
+ 
+   -- This thread handles the execution logic of the protocol 
+   -- stack. It relies on the previous subprograms to receive 
+   -- messages. 
+ 
+   thread Driver_TCP_IP_Protocol_thread_receiver 
+       
+      -- This thread is dispatched when an event is detected on the 
+      -- real hardware. It then calls receive to handle the incoming 
+      -- event. 
+ 
+   properties 
+      -- Initialize_Entrypoint  
+      --    => classifier (TCP_IP_Protocol::Initialize_Receiver); 
+      Dispatch_Protocol => Background; 
+   end Driver_TCP_IP_Protocol_thread_receiver; 
+ 
+   thread implementation Driver_TCP_IP_Protocol_thread_receiver.impl 
+   calls  
+      call1 : { pspg : subprogram receive; }; 
+   end Driver_TCP_IP_Protocol_thread_receiver.impl; 
+ 
+   ----------------- 
+   -- SUBPROGRAMS -- 
+   ----------------- 
+ 
+   -- These subprograms model the high-level view of the TCP/IP 
+   -- protocol stack. They define an API used by the stack to send and 
+   -- receive data, and perform node's initialisation. 
+ 
+   subprogram Initialize 
+ 
+     -- Initialize the different internal resources for managing 
+     -- connections on a node. This subprogram has no formal visible 
+     -- parameters, but relies on well-known data structures and 
+     -- variables to configure the stack. 
+ 
+   properties 
+      Source_Name => "POlyORB_HI_Drivers_Native_TCP_IP.Initialize"; 
+      Source_Language => Ada; 
+   end Initialize; 
+ 
+   ------------- 
+ 
+   subprogram Initialize_Receiver 
+ 
+     -- Initialize the receiver thread 
+ 
+   properties 
+      Source_Name => "POlyORB_HI_Drivers_Native_TCP_IP.Initialize_Receiver"; 
+      Source_Language => Ada; 
+   end Initialize_Receiver; 
+ 
+   ------------- 
+ 
+   subprogram Receive 
+ 
+      -- Receive data and dispatch them to the receiving entity. This 
+      -- program and its sibling (send) share a common protocol, not 
+      -- defined in the AADL model. 
+ 
+   properties 
+      Source_Name => "POlyORB_HI_Drivers_Native_TCP_IP.Receive"; 
+      Source_Language => Ada; 
+   end Receive; 
+ 
+   ------------- 
+ 
+   subprogram Send 
+ 
+      -- Send data to a remote node. This program and its sibling 
+      -- (receive) share a common protocol, not defined in the AADL 
+      -- model. 
+ 
+   properties 
+      Source_Name => "POlyORB_HI_Drivers_Native_TCP_IP.Send"; 
+      Source_Language => Ada; 
+   end Send; 
+ 
+end TCP_IP_Protocol;
+
+
+package GRUART 
+ 
+-- This package models a UART-based protocol layer for the 
+-- PolyORB-HI/Ada AADL runtime, based on the GRUART chipset from 
+-- AEROFlex Gaisler. It defines the subprograms and threads to be 
+-- integrated with the runtime low level interface. 
+-- 
+-- To configure this interface, you should use the 
+-- Deployment::Configuration property with the following format:  
+--     "serial DEVICE BAUDS DATA_BITS PARITY STOP_BIT" 
+-- 
+-- e.g. 
+-- 
+--     uart : device GRUART::GRUART_Device 
+--            {Deployment::Configuration => "serial /dev/ttyS0 9600 8 N 1" 
+--  
+ 
+public 
+ 
+   with Generic_Bus; 
+ 
+   ------------ 
+   -- DEVICE -- 
+   ------------ 
+ 
+   -- The main entrypoint for this package is this device, it relies 
+   -- on the 'Implement_As' feature that defines its full 
+   -- specification. 
+ 
+   device GRUART_Device 
+   features 
+      DB9_Wire : requires bus access Generic_Bus::GenericBus.impl; 
+      -- Connection to the remote node     
+ 
+   end GRUART_Device; 
+ 
+   device implementation GRUART_Device.impl 
+   properties 
+      Implemented_As =>  
+         classifier (GRUART::Driver_GRUART_Protocol.impl); 
+      Initialize_Entrypoint => classifier (GRUART::Initialize); 
+   end GRUART_Device.impl; 
+ 
+   ------------ 
+   -- DRIVER -- 
+   ------------ 
+ 
+   -- In AADLv2, we can model the actual implementation of a driver 
+   -- using an abstract component. 
+ 
+   abstract Driver_GRUART_Protocol 
+   end Driver_GRUART_Protocol; 
+ 
+   abstract implementation Driver_GRUART_Protocol.impl 
+   subcomponents 
+      receiver : thread Driver_GRUART_Protocol_thread_receiver.impl; 
+   end Driver_GRUART_Protocol.impl; 
+ 
+   ------------- 
+   -- THREADS -- 
+   ------------- 
+ 
+   -- This thread handles the execution logic of the protocol 
+   -- stack. It relies on the previous subprograms to receive 
+   -- messages. 
+ 
+   thread Driver_GRUART_Protocol_thread_receiver 
+       
+      -- This thread is dispatched when an event is detected on the 
+      -- real hardware. It then calls receive to handle the incoming 
+      -- event. 
+ 
+   properties 
+      Dispatch_Protocol => Background; 
+      Priority          => 10; 
+      source_stack_size => 200 KByte; 
+   end Driver_GRUART_Protocol_thread_receiver; 
+ 
+   thread implementation Driver_GRUART_Protocol_thread_receiver.impl 
+   calls  
+      call1 : { pspg : subprogram receive; }; 
+   end Driver_GRUART_Protocol_thread_receiver.impl; 
+ 
+   ----------------- 
+   -- SUBPROGRAMS -- 
+   ----------------- 
+ 
+   -- These subprograms model the high-level view of the SpaceWire 
+   -- protocol stack. They define an API used by the stack to send and 
+   -- receive data, and perform node's initialisation. 
+ 
+   subprogram Initialize 
+ 
+     -- Initialize the different internal resources for managing 
+     -- connections on a node. This subprogram has no formal visible 
+     -- parameters, but relies on well-known data structures and 
+     -- variables to configure the stack. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_GRUART.Initialize"; 
+      Source_Language => Ada; 
+   end Initialize; 
+ 
+   ------------- 
+ 
+   subprogram Receive 
+ 
+      -- Receive data and dispatch them to the receiving entity. This 
+      -- program and its sibling (send) share a common protocol, not 
+      -- defined in the AADL model. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_GRUART.Receive"; 
+      Source_Language => Ada; 
+   end Receive; 
+ 
+   ------------- 
+ 
+   subprogram Send 
+ 
+      -- Send data to a remote node. This program and its sibling 
+      -- (receive) share a common protocol, not defined in the AADL 
+      -- model. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_GRUART.Send"; 
+      Source_Language => Ada; 
+   end Send; 
+ 
+end GRUART;
+
+
+package ocarina_drivers_udp_exarm 
+ 
+public 
+ 
+with Data_Model; 
+with Base_Types; 
+ 
+data protocol 
+properties 
+   Data_Model::Data_Representation => Struct; 
+end protocol; 
+ 
+data implementation protocol.robot 
+subcomponents 
+   cmd   : data Base_Types::Unsigned_32; 
+   pktid : data Base_Types::Unsigned_32; 
+   X1    : data Base_Types::Float_32; 
+   X2    : data Base_Types::Float_32; 
+   X3    : data Base_Types::Float_32; 
+   Y1    : data Base_Types::Float_32; 
+   Y2    : data Base_Types::Float_32; 
+   Y3    : data Base_Types::Float_32; 
+   Z1    : data Base_Types::Float_32; 
+   Z2    : data Base_Types::Float_32; 
+   Z3    : data Base_Types::Float_32; 
+   P1    : data Base_Types::Float_32; 
+   P2    : data Base_Types::Float_32; 
+   P3    : data Base_Types::Float_32; 
+   J1    : data Base_Types::Float_32; 
+   J2    : data Base_Types::Float_32; 
+   J3    : data Base_Types::Float_32; 
+   J4    : data Base_Types::Float_32; 
+   J5    : data Base_Types::Float_32; 
+   J6    : data Base_Types::Float_32; 
+   J7    : data Base_Types::Float_32; 
+   Elbow : data Base_Types::Float_32; 
+end protocol.robot; 
+ 
+ 
+data implementation protocol.vr 
+subcomponents 
+   J1    : data Base_Types::Float_64; 
+   J2    : data Base_Types::Float_64; 
+   J3    : data Base_Types::Float_64; 
+   J4    : data Base_Types::Float_64; 
+   J5    : data Base_Types::Float_64; 
+   J6    : data Base_Types::Float_64; 
+   J7    : data Base_Types::Float_64; 
+   J8    : data Base_Types::Float_64; 
+   J9    : data Base_Types::Float_64; 
+   J10    : data Base_Types::Float_64; 
+   J11    : data Base_Types::Float_64; 
+   J12    : data Base_Types::Float_64; 
+   J13    : data Base_Types::Float_64; 
+   J14    : data Base_Types::Float_64; 
+   J15    : data Base_Types::Float_64; 
+   J16    : data Base_Types::Float_64; 
+   P1    : data Base_Types::Float_64; 
+   P2    : data Base_Types::Float_64; 
+   P3    : data Base_Types::Float_64; 
+   X1    : data Base_Types::Float_64; 
+   X2    : data Base_Types::Float_64; 
+   X3    : data Base_Types::Float_64; 
+   Y1    : data Base_Types::Float_64; 
+   Y2    : data Base_Types::Float_64; 
+   Y3    : data Base_Types::Float_64; 
+   Z1    : data Base_Types::Float_64; 
+   Z2    : data Base_Types::Float_64; 
+   Z3    : data Base_Types::Float_64; 
+end protocol.vr; 
+ 
+ 
+subprogram init 
+properties 
+   Source_Language   => C; 
+   Source_Name       => "__po_hi_driver_exarm_init"; 
+end init; 
+ 
+subprogram spg_sender 
+properties 
+   Source_Language   => C; 
+   Source_Name       => "__po_hi_driver_exarm_send"; 
+end spg_sender; 
+ 
+abstract driver 
+end driver; 
+ 
+abstract implementation driver.i 
+subcomponents 
+   sender : subprogram spg_sender; 
+end driver.i; 
+ 
+end ocarina_drivers_udp_exarm;
+
+
+package ocarina_types 
+ 
+public 
+ 
+with Data_Model; 
+ 
+data integer 
+end integer; 
+ 
+data implementation integer.i 
+properties 
+   Data_Model::Data_Representation => integer; 
+end integer.i; 
+ 
+data float 
+end float; 
+ 
+data implementation float.i 
+properties 
+   Data_Model::Data_Representation => float; 
+end float.i; 
+ 
+data boolean 
+end boolean; 
+ 
+data implementation boolean.i 
+properties 
+   Data_Model::Data_Representation => boolean; 
+end boolean.i; 
+ 
+end ocarina_types;
+
+
+package ocarina_drivers_rtems_ne2000 
+ 
+public 
+ 
+subprogram init 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_rtems_ne2000_init"; 
+end init; 
+ 
+thread poller 
+end poller; 
+ 
+thread implementation poller.i 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_poller; 
+	}; 
+properties 
+   Period => 1000ms; 
+   Dispatch_Protocol => Periodic; 
+end poller.i; 
+ 
+ 
+subprogram spg_poller 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_rtems_ne2000_poller"; 
+end spg_poller; 
+ 
+ 
+subprogram spg_sender 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_sockets_send"; 
+end spg_sender; 
+ 
+ 
+abstract driver 
+end driver; 
+ 
+ 
+abstract implementation driver.i 
+subcomponents 
+--  receiver : thread       eth_sockets_ne2000_rtems_poller.i; 
+   sender   : subprogram   spg_sender; 
+end driver.i; 
+ 
+end ocarina_drivers_rtems_ne2000;
+
+
+package ocarina_buses 
+ 
+public 
+ 
+bus generic_bus 
+end generic_bus; 
+ 
+bus implementation generic_bus.i 
+end generic_bus.i; 
+ 
+bus dummy_bus 
+end dummy_bus; 
+ 
+bus implementation dummy_bus.i 
+end dummy_bus.i; 
+ 
+bus ip 
+end ip; 
+ 
+bus implementation ip.pohic 
+end ip.pohic; 
+ 
+bus implementation ip.i 
+subcomponents 
+   asn      : virtual bus asn1.i; 
+   pohic    : virtual bus pohi.c; 
+   pohiada  : virtual bus pohi.ada; 
+end ip.i; 
+ 
+bus implementation ip.pohiada 
+end ip.pohiada; 
+ 
+bus spacewire 
+end spacewire; 
+ 
+bus implementation spacewire.generic 
+end spacewire.generic; 
+ 
+bus serial 
+end serial; 
+ 
+bus implementation serial.generic 
+end serial.generic; 
+ 
+ 
+---------------------- 
+--  Virtual buses  -- 
+---------------------- 
+ 
+virtual bus raw 
+end raw; 
+ 
+virtual bus implementation raw.i 
+end raw.i; 
+ 
+virtual bus asn1 
+end asn1; 
+ 
+virtual bus implementation asn1.i 
+end asn1.i; 
+ 
+virtual bus pohi 
+end pohi; 
+ 
+virtual bus implementation pohi.c 
+end pohi.c; 
+ 
+virtual bus implementation pohi.ada 
+end pohi.ada; 
+ 
+end ocarina_buses;
+
+
+package ocarina_processors_x86 
+ 
+public 
+ 
+with Deployment; 
+ 
+processor x86 
+properties 
+   Scheduling_Protocol => (RATE_MONOTONIC_PROTOCOL); 
+   Deployment::Execution_Platform => Native; 
+end x86; 
+ 
+processor implementation x86.linux 
+properties 
+   Deployment::Execution_Platform => Native; 
+end x86.linux; 
+ 
+processor implementation x86.linux32 
+properties 
+   Deployment::Execution_Platform => Linux32; 
+end x86.linux32; 
+ 
+processor implementation x86.linux64 
+properties 
+   Deployment::Execution_Platform => Linux64; 
+end x86.linux64; 
+ 
+processor implementation x86.native 
+properties 
+   Deployment::Execution_Platform => Native; 
+end x86.native; 
+ 
+processor implementation x86.native_compcert 
+properties 
+   Deployment::Execution_Platform => Native_Compcert; 
+end x86.native_compcert; 
+ 
+processor implementation x86.rtems 
+properties 
+   Deployment::Execution_Platform => X86_RTEMS; 
+end x86.rtems; 
+ 
+processor implementation x86.linuxtaste 
+properties 
+   Deployment::Execution_Platform => X86_LINUXTASTE; 
+end x86.linuxtaste; 
+ 
+end ocarina_processors_x86;
+
+
+package Generic_Native 
+ 
+-- This package models a generic native platform with one generic bus.  
+-- 
+-- Native platforms are GNU/Linux variants, MacOS X, Solaris, Windows, 
+-- ... 
+ 
+public 
+  with Deployment; 
+ 
+  --------------- 
+  -- PROCESSOR -- 
+  --------------- 
+ 
+  -- Generic_Processor is the basic description of a processor with 
+  -- one bus to connect an ethernet adapter. This ethernet adapter is 
+  -- used through the TCP_IP_Device defined in TCP_IP_Protocol 
+  -- package. 
+ 
+  processor Generic_Processor 
+  features 
+    eth0_tcp_ip : requires bus access Generic_Bus.impl; 
+    -- One ethernet card, connected to the processor. It is assumed 
+    -- later that it is used through a TCP/IP stack 
+ 
+  end Generic_Processor; 
+ 
+  processor implementation Generic_Processor.impl 
+  properties 
+    Deployment::Execution_Platform => Native; 
+    Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol); 
+    Priority_Range => 0 .. 255; 
+  end Generic_Processor.impl; 
+ 
+  ------------ 
+  -- MEMORY -- 
+  ------------ 
+ 
+  memory Memory_Segment 
+  end Memory_Segment; 
+ 
+  memory implementation Memory_Segment.impl 
+  end Memory_Segment.impl; 
+ 
+  --------- 
+  -- BUS -- 
+  --------- 
+ 
+  -- Generic bus to model connections between processors and 
+  -- devices. It is not used by the code generation process, so it is 
+  -- made fully generic. 
+ 
+  bus Generic_Bus 
+  end Generic_Bus; 
+ 
+  bus implementation Generic_Bus.impl 
+  end Generic_Bus.impl; 
+ 
+end Generic_Native;package GR_CPCI_X4CV 
+ 
+-- This package models the GR-Rasta GR-CPCI-XC4V LEON Compact-PCI 
+-- Development board by AEROFlex Gaisler. 
+ 
+public 
+  with Deployment; 
+  with Generic_Bus; 
+   
+  --------------- 
+  -- PROCESSOR -- 
+  --------------- 
+ 
+  -- The Rasta board has one LEON2 processor, 3 SpW cores and several 
+  -- UARTS.   
+  --  
+  -- SpaceWire cores and UARTS are connected to separate bus, of type 
+  -- Generic_Bus.impl. 
+ 
+  processor LEON2 
+  features 
+    spw_core_1 : requires bus access Generic_Bus::GenericBus.impl; 
+    spw_core_2 : requires bus access Generic_Bus::GenericBus.impl; 
+    spw_core_3 : requires bus access Generic_Bus::GenericBus.impl; 
+    -- Three SpaceWire cores 
+ 
+    -- XXX Add UARTS 
+  end LEON2; 
+ 
+  processor implementation LEON2.impl 
+  properties 
+    Deployment::Execution_Platform => LEON_ORK;  -- for using GNATforLEON 
+ 
+    -- Information on the scheduler used by GNATforLEON 
+ 
+    Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol); 
+    Priority_Range => 0 .. 255; 
+  end LEON2.impl; 
+ 
+  ------------ 
+  -- MEMORY -- 
+  ------------ 
+ 
+  memory Memory_Segment 
+  end Memory_Segment; 
+ 
+  memory implementation Memory_Segment.impl 
+  end Memory_Segment.impl; 
+ 
+end GR_CPCI_X4CV; 
+package GRSPW 
+ 
+-- This package models a SpaceWire-based protocol layer for the 
+-- PolyORB-HI/Ada AADL runtime, based on the GRSPW chipset from 
+-- AEROFlex Gaisler. It defines the subprograms and threads to be 
+-- integrated with the runtime low level interface. 
+-- 
+-- To configure this interface, you should use the 
+-- Deployment::Configuration property with the following format:  
+--     "spacewire Sender_Core_id Receiver_Core_Id" 
+-- 
+-- e.g. 
+-- 
+--     spw : device GRSPW::GRSPW_Device 
+--            {Deployment::Configuration => "spacewire 1 2"}; 
+--  
+ 
+public 
+ 
+   with GR_CPCI_X4CV; 
+   with Generic_Bus; 
+ 
+   ------------ 
+   -- DEVICE -- 
+   ------------ 
+ 
+   -- The main entrypoint for this package is this device, it relies 
+   -- on the 'Implement_As' feature that defines its full 
+   -- specification. 
+ 
+   device GRSPW_Device 
+   features 
+      LVDS_Wire : requires bus access Generic_Bus::GenericBus.impl; 
+      -- Connection to the remote node     
+ 
+   end GRSPW_Device; 
+ 
+   device implementation GRSPW_Device.impl 
+   properties 
+      Implemented_As =>  
+         classifier (GRSPW::Driver_GRSPW_Protocol.impl); 
+      Initialize_Entrypoint => classifier (GRSPW::Initialize); 
+   end GRSPW_Device.impl; 
+ 
+   ------------ 
+   -- DRIVER -- 
+   ------------ 
+ 
+   -- In AADLv2, we can model the actual implementation of a driver 
+   -- using an abstract component. 
+ 
+   abstract Driver_GRSPW_Protocol 
+   end Driver_GRSPW_Protocol; 
+ 
+   abstract implementation Driver_GRSPW_Protocol.impl 
+   subcomponents 
+      receiver : thread Driver_GRSPW_Protocol_thread_receiver.impl; 
+   end Driver_GRSPW_Protocol.impl; 
+ 
+   ------------- 
+   -- THREADS -- 
+   ------------- 
+ 
+   -- This thread handles the execution logic of the protocol 
+   -- stack. It relies on the previous subprograms to receive 
+   -- messages. 
+ 
+   thread Driver_GRSPW_Protocol_thread_receiver 
+       
+      -- This thread is dispatched when an event is detected on the 
+      -- real hardware. It then calls receive to handle the incoming 
+      -- event. 
+ 
+   properties 
+      Dispatch_Protocol => Background; 
+      Priority          => 12; 
+   end Driver_GRSPW_Protocol_thread_receiver; 
+ 
+   thread implementation Driver_GRSPW_Protocol_thread_receiver.impl 
+   calls  
+      call1 : { pspg : subprogram receive; }; 
+   end Driver_GRSPW_Protocol_thread_receiver.impl; 
+ 
+   ----------------- 
+   -- SUBPROGRAMS -- 
+   ----------------- 
+ 
+   -- These subprograms model the high-level view of the SpaceWire 
+   -- protocol stack. They define an API used by the stack to send and 
+   -- receive data, and perform node's initialisation. 
+ 
+   subprogram Initialize 
+ 
+     -- Initialize the different internal resources for managing 
+     -- connections on a node. This subprogram has no formal visible 
+     -- parameters, but relies on well-known data structures and 
+     -- variables to configure the stack. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_GRSPW.Initialize"; 
+      Source_Language => Ada; 
+   end Initialize; 
+ 
+   ------------- 
+ 
+   subprogram Receive 
+ 
+      -- Receive data and dispatch them to the receiving entity. This 
+      -- program and its sibling (send) share a common protocol, not 
+      -- defined in the AADL model. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_GRSPW.Receive"; 
+      Source_Language => Ada; 
+   end Receive; 
+ 
+   ------------- 
+ 
+   subprogram Send 
+ 
+      -- Send data to a remote node. This program and its sibling 
+      -- (receive) share a common protocol, not defined in the AADL 
+      -- model. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_GRSPW.Send"; 
+      Source_Language => Ada; 
+   end Send; 
+ 
+end GRSPW;
+
+
+package Generic_Bus 
+public 
+ 
+  --------- 
+  -- BUS -- 
+  --------- 
+ 
+  -- Generic bus to model connections between processors and 
+  -- devices. It is not used by the code generation process, so it is 
+  -- made fully generic. 
+ 
+  bus GenericBus 
+  end GenericBus; 
+ 
+  bus implementation GenericBus.impl 
+  end GenericBus.impl; 
+ 
+end Generic_Bus;
+
+
+package ocarina_drivers_rasta_serial 
+ 
+public 
+ 
+with ocarina_buses; 
+ 
+subprogram spg_serial_poller_rasta 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_serial_rasta_poller"; 
+end spg_serial_poller_rasta; 
+ 
+ 
+subprogram spg_serial_sender_rasta 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_serial_rasta_sender"; 
+end spg_serial_sender_rasta; 
+ 
+ 
+ 
+ 
+subprogram spg_serial_init_rasta 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_serial_rasta_init"; 
+end spg_serial_init_rasta; 
+ 
+ 
+thread serial_poller 
+end serial_poller; 
+ 
+ 
+thread implementation serial_poller.rasta 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_serial_poller_rasta; 
+	}; 
+properties 
+   Period => 1000ms; 
+   Dispatch_Protocol => Periodic; 
+end serial_poller.rasta; 
+ 
+abstract serial_driver 
+end serial_driver; 
+ 
+abstract implementation serial_driver.rasta 
+subcomponents 
+   receiver_rasta_serial : thread serial_poller.rasta; 
+   sender                : subprogram spg_serial_sender_rasta; 
+end serial_driver.rasta; 
+ 
+end ocarina_drivers_rasta_serial;
+
+
+package ocarina_drivers 
+public 
+ 
+  with deployment; 
+   
+  with ocarina_buses; 
+   
+  with Data_Model; 
+  with Base_Types; 
+   
+  with ocarina_drivers_rasta_1553; 
+  with ocarina_drivers_rasta_serial; 
+  with ocarina_drivers_rasta_spacewire; 
+  with ocarina_drivers_rtems_ne2000; 
+   
+  with ocarina_drivers_udp_exarm; 
+  with ocarina_drivers_serial; 
+   
+  with ocarina_drivers_ip_asn1; 
+  with ocarina_drivers_ip_pohic; 
+   
+  with ocarina_drivers_exarm_ni_6071e_analog; 
+  with ocarina_drivers_exarm_ni_6071e_digital; 
+   
+  with ocarina_drivers_generic_keyboard; 
+   
+  with GRUART; 
+  with GRSPW; 
+  with TCP_IP_Protocol; 
+ 
+  -------------- 
+  -- Keyboard -- 
+  -------------- 
+   
+  device generic_keyboard 
+  features 
+    key_pressed  : out data port Base_Types::Character; 
+  properties 
+    Deployment::Driver_Name    => "generic_keyboard"; 
+    Device_Driver              => classifier (ocarina_drivers_generic_keyboard::generic_keyboard_driver.i); 
+    Initialize_Entrypoint      => classifier (ocarina_drivers_generic_keyboard::spg_generic_keyboard_init); 
+  end generic_keyboard; 
+   
+  device implementation generic_keyboard.linux 
+  end generic_keyboard.linux; 
+ 
+  ---------------- 
+  -- RASTA 1553 -- 
+  ---------------- 
+   
+  device rasta_1553 
+  end rasta_1553; 
+   
+  device implementation rasta_1553.terminal 
+  properties 
+    Deployment::Driver_Name    => "1553_rasta"; 
+    Device_Driver              => classifier (ocarina_drivers_rasta_1553::if1553_driver.rasta_terminal); 
+    Initialize_Entrypoint      => classifier (ocarina_drivers_rasta_1553::spg_1553_init_rasta_terminal); 
+    Provided_Virtual_Bus_Class => (classifier (ocarina_buses::pohi.c)); 
+  end rasta_1553.terminal; 
+   
+  device implementation rasta_1553.controller_sender_only 
+  properties 
+    Deployment::Driver_Name    => "1553_rasta"; 
+    Device_Driver              => classifier (ocarina_drivers_rasta_1553::if1553_driver.rasta_controller_sender_only); 
+    Initialize_Entrypoint      => classifier (ocarina_drivers_rasta_1553::spg_1553_init_rasta_controller); 
+    Provided_Virtual_Bus_Class => (classifier (ocarina_buses::pohi.c)); 
+  end rasta_1553.controller_sender_only; 
+   
+  ------------------ 
+  -- RASTA SERIAL -- 
+  ------------------ 
+   
+  device rasta_serial 
+  features 
+    serialaccess : requires bus access ocarina_buses::serial.generic; 
+  end rasta_serial; 
+   
+  device implementation rasta_serial.raw 
+  properties 
+    Deployment::Driver_Name    => "serial_rasta"; 
+    Device_Driver              => classifier (ocarina_drivers_rasta_serial::serial_driver.rasta); 
+    Initialize_Entrypoint      => classifier (ocarina_drivers_rasta_serial::spg_serial_init_rasta); 
+    Provided_Virtual_Bus_Class => (classifier (ocarina_buses::raw.i)); 
+  end rasta_serial.raw; 
+ 
+  device implementation rasta_serial.pohiada 
+  properties 
+    Deployment::Driver_Name    => "serial_rasta"; 
+    Implemented_As =>  classifier (GRUART::Driver_GRUART_Protocol.impl); 
+    Initialize_Entrypoint => classifier (GRUART::Initialize); 
+    Provided_Virtual_Bus_Class => (classifier (ocarina_buses::raw.i)); 
+  end rasta_serial.pohiada; 
+ 
+  --------------------- 
+  -- RASTA SPACEWIRE -- 
+  --------------------- 
+ 
+  device rasta_spacewire 
+  features 
+    spwaccess : requires bus access ocarina_buses::spacewire.generic; 
+  end rasta_spacewire; 
+   
+  device implementation rasta_spacewire.pohic 
+  properties 
+    Deployment::Driver_Name       => "spacewire_rasta"; 
+    Device_Driver                 => classifier (ocarina_drivers_rasta_spacewire::spacewire_driver.rasta); 
+    Initialize_Entrypoint         => classifier (ocarina_drivers_rasta_spacewire::spg_spacewire_init_rasta); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c)); 
+  end rasta_spacewire.pohic; 
+ 
+  device implementation rasta_spacewire.pohiada 
+  properties 
+    Deployment::Driver_Name       => "spacewire_rasta"; 
+    Implemented_As =>  classifier (GRSPW::Driver_GRSPW_Protocol.impl); 
+    Initialize_Entrypoint => classifier (GRSPW::Initialize); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c)); 
+  end rasta_spacewire.pohiada; 
+ 
+  --------------------------- 
+  -- Generic serial driver -- 
+  --------------------------- 
+ 
+  device generic_serial 
+  features 
+    serialaccess : requires bus access ocarina_buses::serial.generic; 
+  end generic_serial; 
+   
+  device implementation generic_serial.raw 
+  properties 
+    Deployment::Driver_Name       => "serial_linux"; 
+    Device_Driver                 => classifier (ocarina_drivers_serial::serial_driver.linux); 
+    Initialize_Entrypoint         => classifier (ocarina_drivers_serial::spg_serial_init_linux); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::raw.i)); 
+  end generic_serial.raw; 
+ 
+  device implementation generic_serial.raw_sender 
+  properties 
+    Deployment::Driver_Name       => "serial_linux_sender"; 
+    Device_Driver                 => classifier (ocarina_drivers_serial::serial_driver.linux_sender); 
+    Initialize_Entrypoint         => classifier (ocarina_drivers_serial::spg_serial_init_linux_sender); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::raw.i)); 
+  end generic_serial.raw_sender; 
+   
+  device implementation generic_serial.raw_receiver 
+  properties 
+    Deployment::Driver_Name       => "serial_linux_receiver"; 
+    Device_Driver                 => classifier (ocarina_drivers_serial::serial_driver.linux_receiver); 
+    Initialize_Entrypoint         => classifier (ocarina_drivers_serial::spg_serial_init_linux_receiver); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::raw.i)); 
+  end generic_serial.raw_receiver; 
+ 
+  ------------------------------- 
+  -- Generic sockets/ip driver -- 
+  ------------------------------- 
+ 
+  device generic_sockets_ip 
+  features 
+    thebus : requires bus access ocarina_buses::ip.i; 
+  end generic_sockets_ip; 
+   
+  device implementation generic_sockets_ip.pohic_old 
+  properties 
+    Deployment::Driver_Name       => "sockets"; 
+    Device_Driver                 => classifier (ocarina_drivers_ip_pohic::sockets_impl.i); 
+    Initialize_Entrypoint         => classifier (ocarina_drivers_ip_pohic::spg_sockets_init); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c)); 
+  end generic_sockets_ip.pohic_old; 
+ 
+  device implementation generic_sockets_ip.pohic 
+  properties 
+    Deployment::Driver_Name       => "socketsnew"; 
+    Device_Driver                 => classifier (ocarina_drivers_ip_pohic::sockets_impl.inew); 
+    Initialize_Entrypoint         => classifier (ocarina_drivers_ip_pohic::spg_sockets_init); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c)); 
+  end generic_sockets_ip.pohic; 
+ 
+  device implementation generic_sockets_ip.pohiada 
+  properties 
+    Deployment::Driver_Name       => "socketsnew"; 
+    Implemented_As => classifier (TCP_IP_Protocol::Driver_TCP_IP_Protocol.impl); 
+    Initialize_Entrypoint => classifier (TCP_IP_Protocol::Initialize); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c)); 
+  end generic_sockets_ip.pohiada; 
+   
+  device implementation generic_sockets_ip.asn1 
+  properties 
+    Deployment::Driver_Name       => "sockets_asn1"; 
+    Device_Driver                 => classifier (ocarina_drivers_ip_asn1::sockets_impl.asn1); 
+    Initialize_Entrypoint         => classifier (ocarina_drivers_ip_asn1::spg_sockets_init); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::asn1.i)); 
+  end generic_sockets_ip.asn1; 
+   
+  ------------------ 
+  -- RTEMS NE2000 -- 
+  ------------------ 
+ 
+  device rtems_ne2000 
+  features 
+    thebus : requires bus access ocarina_buses::ip.i; 
+  end rtems_ne2000; 
+   
+  device implementation rtems_ne2000.ip_pohic 
+  properties 
+    Deployment::Driver_Name       => "rtems_ne2000_sockets"; 
+    Device_Driver                 => classifier (ocarina_drivers_rtems_ne2000::driver.i); 
+    Initialize_Entrypoint         => classifier (ocarina_drivers_rtems_ne2000::init); 
+    Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c)); 
+  end rtems_ne2000.ip_pohic; 
+ 
+  ------------------------------------------ 
+  --            Exarm UDP driver          -- 
+  ------------------------------------------ 
+  --  This driver is used to communicate  -- 
+  --  with the exarm robot and also       -- 
+  --  the Matlab simulator.               -- 
+  ------------------------------------------ 
+   
+  device exarm_ip 
+  features 
+    thebus : requires bus access ocarina_buses::ip.i; 
+  end exarm_ip; 
+   
+  device implementation exarm_ip.vr_udp 
+  properties 
+    Deployment::Driver_Name    => "exarm"; 
+    Device_Driver              => classifier (ocarina_drivers_udp_exarm::driver.i); 
+    Initialize_Entrypoint      => classifier (ocarina_drivers_udp_exarm::init); 
+  end exarm_ip.vr_udp; 
+   
+  data exarm_protocol_data 
+  end exarm_protocol_data; 
+   
+  data implementation exarm_protocol_data.vr extends ocarina_drivers_udp_exarm::protocol.vr 
+  properties 
+    Data_Model::Data_Representation => Struct; 
+  end exarm_protocol_data.vr; 
+   
+  data implementation exarm_protocol_data.robot extends ocarina_drivers_udp_exarm::protocol.robot 
+  properties 
+    Data_Model::Data_Representation => Struct; 
+  end exarm_protocol_data.robot; 
+ 
+  --------------------------------------- 
+  --   Devices for the Exo skeleton    -- 
+  --  National Instruments PCI-6071E   -- 
+  --------------------------------------- 
+  --  This device is used to make data -- 
+  --  acquisition of the EXARM robot.  -- 
+  --------------------------------------- 
+   
+  device exarm_ni_6071e_analog 
+  features 
+    data1  : out data port Base_Types::Float_64; 
+    data2  : out data port Base_Types::Float_64; 
+    data3  : out data port Base_Types::Float_64; 
+    data4  : out data port Base_Types::Float_64; 
+    data5  : out data port Base_Types::Float_64; 
+    data6  : out data port Base_Types::Float_64; 
+    data7  : out data port Base_Types::Float_64; 
+    data8  : out data port Base_Types::Float_64; 
+    data9  : out data port Base_Types::Float_64; 
+    data10 : out data port Base_Types::Float_64; 
+    data11 : out data port Base_Types::Float_64; 
+    data12 : out data port Base_Types::Float_64; 
+    data13 : out data port Base_Types::Float_64; 
+    data14 : out data port Base_Types::Float_64; 
+    data15 : out data port Base_Types::Float_64; 
+    data16 : out data port Base_Types::Float_64; 
+  end exarm_ni_6071e_analog; 
+ 
+  device implementation exarm_ni_6071e_analog.i 
+  properties 
+    Deployment::Driver_Name    => "exarm_ni_6071e_analog"; 
+    Device_Driver              => classifier (ocarina_drivers_exarm_ni_6071e_analog::driver.i); 
+    Initialize_Entrypoint      => classifier (ocarina_drivers_exarm_ni_6071e_analog::spg_init); 
+  end exarm_ni_6071e_analog.i; 
+ 
+  device exarm_ni_6071e_digital 
+  features 
+    data1  : out data port Base_Types::Unsigned_8; 
+    data2  : out data port Base_Types::Unsigned_8; 
+  end exarm_ni_6071e_digital; 
+ 
+  device implementation exarm_ni_6071e_digital.i 
+  properties 
+    Deployment::Driver_Name    => "exarm_ni_6071e_digital"; 
+    Device_Driver              => classifier (ocarina_drivers_exarm_ni_6071e_digital::driver.i); 
+    Initialize_Entrypoint      => classifier (ocarina_drivers_exarm_ni_6071e_digital::spg_init); 
+  end exarm_ni_6071e_digital.i; 
+ 
+end ocarina_drivers;
+
+
+package ocarina_drivers_serial 
+ 
+public 
+ 
+ 
+subprogram spg_serial_poller_linux 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_serial_linux_poller"; 
+end spg_serial_poller_linux; 
+ 
+ 
+subprogram spg_serial_sender_linux 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_serial_linux_sender"; 
+end spg_serial_sender_linux; 
+ 
+ 
+subprogram spg_serial_init_linux 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_serial_linux_init"; 
+end spg_serial_init_linux; 
+ 
+subprogram spg_serial_init_linux_sender 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_serial_linux_init_sender"; 
+end spg_serial_init_linux_sender; 
+ 
+subprogram spg_serial_init_linux_receiver 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_serial_linux_init_receiver"; 
+end spg_serial_init_linux_receiver; 
+ 
+ 
+ 
+ 
+thread serial_poller 
+end serial_poller; 
+ 
+thread implementation serial_poller.linux 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_serial_poller_linux; 
+	}; 
+properties 
+   Period => 1000ms; 
+   Dispatch_Protocol => Periodic; 
+end serial_poller.linux; 
+ 
+ 
+abstract serial_driver 
+end serial_driver; 
+ 
+abstract implementation serial_driver.linux 
+subcomponents 
+   serial_linux_receiver : thread serial_poller.linux; 
+   sender                : subprogram spg_serial_sender_linux; 
+end serial_driver.linux; 
+ 
+abstract implementation serial_driver.linux_sender 
+subcomponents 
+   sender                : subprogram spg_serial_sender_linux; 
+end serial_driver.linux_sender; 
+ 
+ 
+abstract implementation serial_driver.linux_receiver 
+subcomponents 
+   serial_linux_receiver : thread serial_poller.linux; 
+end serial_driver.linux_receiver; 
+ 
+end ocarina_drivers_serial;
+
+
+package ocarina_drivers_ip_pohic 
+ 
+public 
+ 
+ 
+subprogram spg_sockets_init 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_sockets_init"; 
+end spg_sockets_init; 
+ 
+ 
+thread eth_linux_poller 
+end eth_linux_poller; 
+ 
+thread implementation eth_linux_poller.i 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_eth_linux_poller_i; 
+	}; 
+properties 
+   Period => 1000ms; 
+   Dispatch_Protocol => Periodic; 
+end eth_linux_poller.i; 
+ 
+ 
+subprogram spg_eth_linux_poller_i 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_sockets_receiver_task"; 
+end spg_eth_linux_poller_i; 
+ 
+ 
+subprogram spg_eth_linux_sender 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_sockets_send"; 
+end spg_eth_linux_sender; 
+ 
+subprogram implementation spg_eth_linux_sender.i 
+end spg_eth_linux_sender.i; 
+ 
+ 
+abstract sockets_impl 
+end sockets_impl; 
+ 
+ 
+abstract implementation sockets_impl.i 
+subcomponents 
+   sockets_linux_receiver : thread       eth_linux_poller.i; 
+   sender                 : subprogram   spg_eth_linux_sender.i; 
+end sockets_impl.i; 
+ 
+abstract implementation sockets_impl.inew 
+subcomponents 
+--   receiver : thread       eth_linux_poller.i; 
+   sender   : subprogram   spg_eth_linux_sender.i; 
+end sockets_impl.inew; 
+ 
+ 
+ 
+end ocarina_drivers_ip_pohic;
+
+
+package ocarina_drivers_generic_keyboard 
+ 
+public 
+ 
+with Base_Types; 
+ 
+subprogram spg_generic_keyboard_init 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_generic_keyboard_init"; 
+end spg_generic_keyboard_init; 
+ 
+ 
+thread keyboard_poller 
+features 
+   key_pressed : out data port Base_Types::Integer; 
+end keyboard_poller; 
+ 
+thread implementation keyboard_poller.i 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_generic_keyboard_poller; 
+	}; 
+connections 
+   parameter pspg.key_pressed -> key_pressed; 
+properties 
+   Period => 100ms; 
+   Dispatch_Protocol => Periodic; 
+end keyboard_poller.i; 
+ 
+ 
+subprogram spg_generic_keyboard_poller 
+features 
+   key_pressed : out parameter Base_Types::Integer; 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_driver_generic_keyboard_poller"; 
+end spg_generic_keyboard_poller; 
+ 
+abstract generic_keyboard_driver 
+features 
+   key_pressed : out data port Base_Types::Integer; 
+end generic_keyboard_driver; 
+ 
+ 
+abstract implementation generic_keyboard_driver.i 
+subcomponents 
+   keyboard_receiver : thread       keyboard_poller.i; 
+connections 
+   port keyboard_receiver.key_pressed -> key_pressed; 
+end generic_keyboard_driver.i; 
+ 
+ 
+end ocarina_drivers_generic_keyboard;
+
+
+package Native_UART 
+ 
+-- This package models a UART protocol layer for the PolyORB-HI/Ada 
+-- AADL runtime. It defines the subprograms and threads to be 
+-- integrated with the runtime low level interface. 
+-- 
+-- To configure this interface, you should use the 
+-- Deployment::Configuration property with the following format:  
+--     "serial DEVICE BAUDS DATA_BITS PARITY STOP_BIT" 
+-- 
+-- e.g. 
+-- 
+--     uart : device GRUART::GRUART_Device 
+--            {Deployment::Configuration => "serial /dev/ttyS0 9600 8 N 1" 
+--  
+ 
+public 
+ 
+   with Generic_Bus; 
+ 
+   ------------ 
+   -- DEVICE -- 
+   ------------ 
+ 
+   -- The main entrypoint for this package is this device, it relies 
+   -- on the 'Implement_As' feature that defines its full 
+   -- specification. 
+ 
+   device Native_UART_Device 
+   features 
+      DB9_Wire : requires bus access Generic_Bus::GenericBus.impl; 
+      -- Connection to the remote node     
+ 
+   end Native_UART_Device; 
+ 
+   device implementation Native_UART_Device.impl 
+   properties 
+      Implemented_As =>  
+         classifier (Native_UART::Driver_Native_UART_Protocol.impl); 
+      Initialize_Entrypoint => classifier (Native_UART::Initialize); 
+   end Native_UART_Device.impl; 
+ 
+   ------------ 
+   -- DRIVER -- 
+   ------------ 
+ 
+   -- In AADLv2, we can model the actual implementation of a driver 
+   -- using an abstract component. 
+ 
+   abstract Driver_Native_UART_Protocol 
+   end Driver_Native_UART_Protocol; 
+ 
+   abstract implementation Driver_Native_UART_Protocol.impl 
+   subcomponents 
+      receiver : thread Driver_Native_UART_Protocol_thread_receiver.impl; 
+   end Driver_Native_UART_Protocol.impl; 
+ 
+   ------------- 
+   -- THREADS -- 
+   ------------- 
+ 
+   -- This thread handles the execution logic of the protocol 
+   -- stack. It relies on the previous subprograms to receive 
+   -- messages. 
+ 
+   thread Driver_Native_UART_Protocol_thread_receiver 
+       
+      -- This thread is dispatched when an event is detected on the 
+      -- real hardware. It then calls receive to handle the incoming 
+      -- event. 
+ 
+   properties 
+      Dispatch_Protocol => Background; 
+      Priority          => 10; 
+      source_stack_size => 200 KByte; 
+   end Driver_Native_UART_Protocol_thread_receiver; 
+ 
+   thread implementation Driver_Native_UART_Protocol_thread_receiver.impl 
+   calls  
+      call1 : { pspg : subprogram receive; }; 
+   end Driver_Native_UART_Protocol_thread_receiver.impl; 
+ 
+   ----------------- 
+   -- SUBPROGRAMS -- 
+   ----------------- 
+ 
+   -- These subprograms model the high-level view of the SpaceWire 
+   -- protocol stack. They define an API used by the stack to send and 
+   -- receive data, and perform node's initialisation. 
+ 
+   subprogram Initialize 
+ 
+     -- Initialize the different internal resources for managing 
+     -- connections on a node. This subprogram has no formal visible 
+     -- parameters, but relies on well-known data structures and 
+     -- variables to configure the stack. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_Native_UART.Initialize"; 
+      Source_Language => Ada; 
+   end Initialize; 
+ 
+   ------------- 
+ 
+   subprogram Receive 
+ 
+      -- Receive data and dispatch them to the receiving entity. This 
+      -- program and its sibling (send) share a common protocol, not 
+      -- defined in the AADL model. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_Native_UART.Receive"; 
+      Source_Language => Ada; 
+   end Receive; 
+ 
+   ------------- 
+ 
+   subprogram Send 
+ 
+      -- Send data to a remote node. This program and its sibling 
+      -- (receive) share a common protocol, not defined in the AADL 
+      -- model. 
+ 
+   properties 
+      Source_Name => "PolyORB_HI_Drivers_Native_UART.Send"; 
+      Source_Language => Ada; 
+   end Send; 
+ 
+end Native_UART;
+
+
+package ocarina_drivers_rasta_spacewire 
+ 
+public 
+ 
+with ocarina_buses; 
+ 
+subprogram spg_spacewire_poller_rasta 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_spacewire_rasta_poller"; 
+end spg_spacewire_poller_rasta; 
+ 
+subprogram spg_spacewire_sender_rasta 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_spacewire_rasta_sender"; 
+end spg_spacewire_sender_rasta; 
+ 
+subprogram spg_spacewire_init_rasta 
+properties 
+	Source_Language => C; 
+	Source_Name => "__po_hi_c_driver_spacewire_rasta_init"; 
+end spg_spacewire_init_rasta; 
+ 
+ 
+thread spacewire_poller 
+end spacewire_poller; 
+ 
+thread implementation spacewire_poller.rasta 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_spacewire_poller_rasta; 
+	}; 
+properties 
+   Period => 1000ms; 
+   Dispatch_Protocol => Periodic; 
+end spacewire_poller.rasta; 
+ 
+ 
+abstract spacewire_driver 
+end spacewire_driver; 
+ 
+abstract implementation spacewire_driver.rasta 
+subcomponents 
+   receiver_rasta_spacewire : thread spacewire_poller.rasta; 
+   sender                   : subprogram spg_spacewire_sender_rasta; 
+end spacewire_driver.rasta; 
+ 
+end ocarina_drivers_rasta_spacewire;
+
+
+package ocarina_drivers_rasta_1553 
+ 
+public 
+ 
+subprogram spg_1553_controller_rasta 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_c_driver_1553_rasta_controller"; 
+end spg_1553_controller_rasta; 
+ 
+subprogram spg_1553_poller_rasta_terminal 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_c_driver_1553_rasta_terminal_poller"; 
+end spg_1553_poller_rasta_terminal; 
+ 
+subprogram spg_1553_sender_rasta_controller 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_c_driver_1553_rasta_sender_controller"; 
+end spg_1553_sender_rasta_controller; 
+ 
+subprogram spg_1553_sender_rasta_terminal 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_c_driver_1553_rasta_sender_terminal"; 
+end spg_1553_sender_rasta_terminal; 
+ 
+ 
+subprogram spg_1553_init_rasta_controller 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_c_driver_1553_rasta_init_controller"; 
+end spg_1553_init_rasta_controller; 
+ 
+ 
+subprogram spg_1553_init_rasta_terminal 
+properties 
+	Source_Language   => C; 
+	Source_Name       => "__po_hi_c_driver_1553_rasta_init_terminal"; 
+end spg_1553_init_rasta_terminal; 
+ 
+ 
+ 
+thread if1553_poller 
+end if1553_poller; 
+ 
+thread implementation if1553_poller.rasta_terminal 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_1553_poller_rasta_terminal; 
+	}; 
+properties 
+   Period => 2000ms; 
+   Dispatch_Protocol => Periodic; 
+end if1553_poller.rasta_terminal; 
+ 
+thread if1553_controller 
+end if1553_controller; 
+ 
+thread implementation if1553_controller.rasta 
+calls 
+	mycall : { 
+	  pspg : subprogram spg_1553_controller_rasta; 
+	}; 
+properties 
+   Period => 4000ms; 
+   Dispatch_Protocol => Periodic; 
+end if1553_controller.rasta; 
+ 
+ 
+ 
+abstract if1553_driver 
+end if1553_driver; 
+ 
+abstract implementation if1553_driver.rasta_terminal 
+subcomponents 
+   receiver_rasta_1553 : thread       if1553_poller.rasta_terminal; 
+   sender              : subprogram   spg_1553_sender_rasta_terminal; 
+end if1553_driver.rasta_terminal; 
+ 
+abstract implementation if1553_driver.rasta_controller_sender_only 
+subcomponents 
+--   controller  : thread       if1553_controller.rasta; 
+--   This thread (controller) should be a poller thread that 
+--   gives orders to the terminal nodes to send/receive data. 
+--   It should also specify the communication policy (when a terminal 
+--   is authorized to send/receive data). 
+ 
+--   We don't specify poller and receiver since this controller 
+--   is just a node that sends data to a single other node. 
+ 
+   sender      : subprogram   spg_1553_sender_rasta_controller; 
+end if1553_driver.rasta_controller_sender_only; 
+ 
+ 
+end ocarina_drivers_rasta_1553;
+
+

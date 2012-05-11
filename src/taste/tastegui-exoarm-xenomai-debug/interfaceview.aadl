@@ -1,0 +1,112 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+WITH interfaceview::IV::Exoskeleton;
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      arm: SYSTEM interfaceview::IV::Exoskeleton::arm.others
+        { Taste::Coordinates => "90 103 118 126"; };
+      digital_arm_control: SYSTEM interfaceview::IV::Exoskeleton::digital_arm_control.others
+        { Taste::Coordinates => "91 73 118 99"; };
+  END interfaceview.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 297 210";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::IV::Exoskeleton
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Exoskeleton::arm
+  ---------------------------------------------------
+
+  SYSTEM arm
+    FEATURES
+      poll_acquisition_board_obj86 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::poll_acquisition_board_obj86.others
+        { Taste::Coordinates => "104 103";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 2 ms;
+          Taste::Deadline => 2 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "arm";
+  END arm;
+
+  SYSTEM IMPLEMENTATION arm.others
+    SUBCOMPONENTS
+      poll_acquisition_board_obj86_impl : SUBPROGRAM interfaceview::FV::poll_acquisition_board_obj86.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS poll_acquisition_board_obj86_impl  -> poll_acquisition_board_obj86;
+  END arm.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Exoskeleton::digital_arm_control
+  ---------------------------------------------------
+
+  SYSTEM digital_arm_control
+    FEATURES
+      poll_digital_board_obj108 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::poll_digital_board_obj108.others
+        { Taste::Coordinates => "103 73";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "digital_arm_control";
+  END digital_arm_control;
+
+  SYSTEM IMPLEMENTATION digital_arm_control.others
+    SUBCOMPONENTS
+      poll_digital_board_obj108_impl : SUBPROGRAM interfaceview::FV::poll_digital_board_obj108.others
+        { Compute_Execution_Time => 0ms..2ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS poll_digital_board_obj108_impl  -> poll_digital_board_obj108;
+  END digital_arm_control.others;
+
+PROPERTIES
+  Taste::Coordinates => "86 69 124 142";
+END interfaceview::IV::Exoskeleton;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM poll_acquisition_board_obj86
+  END poll_acquisition_board_obj86;
+
+  SUBPROGRAM IMPLEMENTATION poll_acquisition_board_obj86.others
+  END poll_acquisition_board_obj86.others;
+
+  SUBPROGRAM poll_digital_board_obj108
+  END poll_digital_board_obj108;
+
+  SUBPROGRAM IMPLEMENTATION poll_digital_board_obj108.others
+  END poll_digital_board_obj108.others;
+
+END interfaceview::FV;
+

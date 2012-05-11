@@ -1,0 +1,203 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      activator: SYSTEM interfaceview::IV::activator.others
+        { Taste::Coordinates => "471 613 1066 1026"; };
+      dspace_connector: SYSTEM interfaceview::IV::dspace_connector.others
+        { Taste::Coordinates => "1793 196 2402 605"; };
+      router: SYSTEM interfaceview::IV::router.others
+        { Taste::Coordinates => "448 215 1059 527"; };
+    CONNECTIONS
+      obj1326 : SUBPROGRAM ACCESS router.recv_obj144  -> activator.obj1280_obj86 
+        { Taste::Coordinates => "826 613 826 570 744 570 744 527"; };
+      obj1253 : SUBPROGRAM ACCESS dspace_connector.recv_obj109  -> router.obj1133_obj156 
+        { Taste::Coordinates => "1059 323 1423 323 1423 280 1793 280"; };
+      obj1123 : SUBPROGRAM ACCESS dspace_connector.recv2_obj121  -> router.obj1024_obj166 
+        { Taste::Coordinates => "1059 431 1423 431 1423 467 1793 467"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::activator
+  ---------------------------------------------------
+
+  SYSTEM activator
+    FEATURES
+      activate_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activate_obj75.others
+        { Taste::Coordinates => "630 1026";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 2000 ms;
+          Taste::Deadline => 2000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1280_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv_obj144.others 
+        { Taste::Coordinates => "826 613";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END activator;
+
+  SYSTEM IMPLEMENTATION activator.others
+    SUBCOMPONENTS
+      activate_obj75_impl : SUBPROGRAM interfaceview::FV::activate_obj75.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activate_obj75_impl  -> activate_obj75;
+  END activator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::dspace_connector
+  ---------------------------------------------------
+
+  SYSTEM dspace_connector
+    FEATURES
+      recv_obj109 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recv_obj109.others
+        { Taste::Coordinates => "1793 280";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      recv2_obj121 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recv2_obj121.others
+        { Taste::Coordinates => "1793 467";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      poller_obj535 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::poller_obj535.others
+        { Taste::Coordinates => "2201 605";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "Function1";
+  END dspace_connector;
+
+  SYSTEM IMPLEMENTATION dspace_connector.others
+    SUBCOMPONENTS
+      conf_obj97 : DATA DataView::DSpace_Configuration 
+        { Taste::FS_Default_Value => "{remote-ip ""192.168.1.200"", remote-port 1234, local-port 1234}"; };
+      recv_obj109_impl : SUBPROGRAM interfaceview::FV::recv_obj109.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+      recv2_obj121_impl : SUBPROGRAM interfaceview::FV::recv2_obj121.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      poller_obj535_impl : SUBPROGRAM interfaceview::FV::poller_obj535.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      DATA ACCESS conf_obj97 -> recv_obj109_impl.conf_obj97;
+      SUBPROGRAM ACCESS recv_obj109_impl  -> recv_obj109;
+      DATA ACCESS conf_obj97 -> recv2_obj121_impl.conf_obj97;
+      SUBPROGRAM ACCESS recv2_obj121_impl  -> recv2_obj121;
+      DATA ACCESS conf_obj97 -> poller_obj535_impl.conf_obj97;
+      SUBPROGRAM ACCESS poller_obj535_impl  -> poller_obj535;
+  END dspace_connector.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::router
+  ---------------------------------------------------
+
+  SYSTEM router
+    FEATURES
+      recv_obj144 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recv_obj144.others
+        { Taste::Coordinates => "744 527";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1133_obj156 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv_obj109.others 
+        { Taste::Coordinates => "1059 323";
+          Taste::RCMoperationKind => sporadic;};
+      obj1024_obj166 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv2_obj121.others 
+        { Taste::Coordinates => "1059 431";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END router;
+
+  SYSTEM IMPLEMENTATION router.others
+    SUBCOMPONENTS
+      recv_obj144_impl : SUBPROGRAM interfaceview::FV::recv_obj144.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS recv_obj144_impl  -> recv_obj144;
+  END router.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activate_obj75
+  END activate_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activate_obj75.others
+  END activate_obj75.others;
+
+  SUBPROGRAM recv_obj109
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => UPER; };
+      conf_obj97 : REQUIRES DATA ACCESS DataView::DSpace_Configuration;
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END recv_obj109;
+
+  SUBPROGRAM IMPLEMENTATION recv_obj109.others
+  END recv_obj109.others;
+
+  SUBPROGRAM recv2_obj121
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => UPER; };
+      conf_obj97 : REQUIRES DATA ACCESS DataView::DSpace_Configuration;
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END recv2_obj121;
+
+  SUBPROGRAM IMPLEMENTATION recv2_obj121.others
+  END recv2_obj121.others;
+
+  SUBPROGRAM poller_obj535
+    FEATURES
+      conf_obj97 : REQUIRES DATA ACCESS DataView::DSpace_Configuration;
+  END poller_obj535;
+
+  SUBPROGRAM IMPLEMENTATION poller_obj535.others
+  END poller_obj535.others;
+
+  SUBPROGRAM recv_obj144
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END recv_obj144;
+
+  SUBPROGRAM IMPLEMENTATION recv_obj144.others
+  END recv_obj144.others;
+
+END interfaceview::FV;
+

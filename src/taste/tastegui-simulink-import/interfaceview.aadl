@@ -1,0 +1,151 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      sender: SYSTEM interfaceview::IV::sender.others
+        { Taste::Coordinates => "255 323 940 914"; };
+      receiver: SYSTEM interfaceview::IV::receiver.others
+        { Taste::Coordinates => "1369 588 2050 1193"; };
+      printer: SYSTEM interfaceview::IV::printer.others
+        { Taste::Coordinates => "261 1022 950 1571"; };
+    CONNECTIONS
+      obj352 : SUBPROGRAM ACCESS receiver.recv_obj107  -> sender.obj289_obj86 
+        { Taste::Coordinates => "940 616 1155 616 1155 870 1369 870"; };
+      obj2239 : SUBPROGRAM ACCESS receiver.recv_obj107  -> printer.obj2167_obj143 
+        { Taste::Coordinates => "950 1255 1095 1255 1095 870 1369 870"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::sender
+  ---------------------------------------------------
+
+  SYSTEM sender
+    FEATURES
+      activate_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activate_obj75.others
+        { Taste::Coordinates => "255 628 255 628";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj289_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv_obj107.others 
+        { Taste::Coordinates => "940 616 940 616";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "sender";
+  END sender;
+
+  SYSTEM IMPLEMENTATION sender.others
+    SUBCOMPONENTS
+      activate_obj75_impl : SUBPROGRAM interfaceview::FV::activate_obj75.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activate_obj75_impl  -> activate_obj75;
+  END sender.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::receiver
+  ---------------------------------------------------
+
+  SYSTEM receiver
+    FEATURES
+      recv_obj107 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recv_obj107.others
+        { Taste::Coordinates => "1369 870 1369 870";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Simulink;
+      Taste::Instance_Name => "receiver";
+  END receiver;
+
+  SYSTEM IMPLEMENTATION receiver.others
+    SUBCOMPONENTS
+      recv_obj107_impl : SUBPROGRAM interfaceview::FV::recv_obj107.others
+        { Compute_Execution_Time => 0ms..500ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS recv_obj107_impl  -> recv_obj107;
+  END receiver.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::printer
+  ---------------------------------------------------
+
+  SYSTEM printer
+    FEATURES
+      activ_obj132 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activ_obj132.others
+        { Taste::Coordinates => "261 1250";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj2167_obj143 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv_obj107.others 
+        { Taste::Coordinates => "950 1255";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function3";
+  END printer;
+
+  SYSTEM IMPLEMENTATION printer.others
+    SUBCOMPONENTS
+      activ_obj132_impl : SUBPROGRAM interfaceview::FV::activ_obj132.others
+        { Compute_Execution_Time => 0ms..50ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activ_obj132_impl  -> activ_obj132;
+  END printer.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activate_obj75
+  END activate_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activate_obj75.others
+  END activate_obj75.others;
+
+  SUBPROGRAM recv_obj107
+    FEATURES
+      valin : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+      valout : OUT PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+      newvalue : IN PARAMETER DataView::My_Boolean
+        { Taste::encoding => NATIVE; };
+  END recv_obj107;
+
+  SUBPROGRAM IMPLEMENTATION recv_obj107.others
+  END recv_obj107.others;
+
+  SUBPROGRAM activ_obj132
+  END activ_obj132;
+
+  SUBPROGRAM IMPLEMENTATION activ_obj132.others
+  END activ_obj132.others;
+
+END interfaceview::FV;
+

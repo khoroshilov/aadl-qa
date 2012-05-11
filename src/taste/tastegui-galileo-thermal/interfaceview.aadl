@@ -1,0 +1,321 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      Ground: SYSTEM interfaceview::IV::Ground.others
+        { Taste::Coordinates => "41 115 671 532"; };
+      Thermal_Model_Control: SYSTEM interfaceview::IV::Thermal_Model_Control.others
+        { Taste::Coordinates => "1852 114 2493 655"; };
+      Thermal_Fdir: SYSTEM interfaceview::IV::Thermal_Fdir.others
+        { Taste::Coordinates => "1850 733 2516 1098"; };
+      Thermal_Orchestrator: SYSTEM interfaceview::IV::Thermal_Orchestrator.others
+        { Taste::Coordinates => "972 110 1610 1107"; };
+      Spacecraft: SYSTEM interfaceview::IV::Spacecraft.others
+        { Taste::Coordinates => "44 607 668 1097"; };
+    CONNECTIONS
+      obj741 : SUBPROGRAM ACCESS Thermal_Orchestrator.receive_ground_obj168  -> Ground.send_values_obj87 
+        { Taste::Coordinates => "671 210 823 210 823 210 972 210"; };
+      obj975 : SUBPROGRAM ACCESS Thermal_Orchestrator.receive_faults_outputs_obj192  -> Thermal_Fdir.send_output_obj147 
+        { Taste::Coordinates => "1850 1052 1728 1052 1728 1049 1610 1049"; };
+      obj1587 : SUBPROGRAM ACCESS Thermal_Fdir.fdir_activator_obj135  -> Thermal_Orchestrator.obj1483_obj215 
+        { Taste::Coordinates => "1610 821 1728 821 1728 821 1850 821"; };
+      obj1188 : SUBPROGRAM ACCESS Ground.results_obj75  -> Thermal_Orchestrator.send_ground_outputs_obj225 
+        { Taste::Coordinates => "972 413 825 413 825 413 671 413"; };
+      obj1119 : SUBPROGRAM ACCESS Spacecraft.results_obj266  -> Thermal_Orchestrator.send_spacecraft_outputs_obj235 
+        { Taste::Coordinates => "972 990 820 990 820 991 668 991"; };
+      obj991 : SUBPROGRAM ACCESS Thermal_Model_Control.th_model_control_activator_obj108  -> Thermal_Orchestrator.obj932_obj245 
+        { Taste::Coordinates => "1610 515 1731 515 1731 515 1852 515"; };
+      obj963 : SUBPROGRAM ACCESS Thermal_Orchestrator.receive_spacecraft_obj180  -> Spacecraft.obj900_obj278 
+        { Taste::Coordinates => "668 754 845 754 845 754 972 754"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Ground
+  ---------------------------------------------------
+
+  SYSTEM Ground
+    FEATURES
+      results_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::results_obj75.others
+        { Taste::Coordinates => "671 413";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      send_values_obj87 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_ground_obj168.others 
+        { Taste::Coordinates => "671 210";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => GUI;
+      Taste::Instance_Name => "Ground";
+  END Ground;
+
+  SYSTEM IMPLEMENTATION Ground.others
+    SUBCOMPONENTS
+      results_obj75_impl : SUBPROGRAM interfaceview::FV::results_obj75.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS results_obj75_impl  -> results_obj75;
+  END Ground.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Thermal_Model_Control
+  ---------------------------------------------------
+
+  SYSTEM Thermal_Model_Control
+    FEATURES
+      th_model_control_activator_obj108 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::th_model_control_activator_obj108.others
+        { Taste::Coordinates => "1852 515";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Simulink;
+      Taste::Instance_Name => "Function2";
+  END Thermal_Model_Control;
+
+  SYSTEM IMPLEMENTATION Thermal_Model_Control.others
+    SUBCOMPONENTS
+      th_model_control_activator_obj108_impl : SUBPROGRAM interfaceview::FV::th_model_control_activator_obj108.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS th_model_control_activator_obj108_impl  -> th_model_control_activator_obj108;
+  END Thermal_Model_Control.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Thermal_Fdir
+  ---------------------------------------------------
+
+  SYSTEM Thermal_Fdir
+    FEATURES
+      fdir_activator_obj135 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::fdir_activator_obj135.others
+        { Taste::Coordinates => "1850 821";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      send_output_obj147 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_faults_outputs_obj192.others 
+        { Taste::Coordinates => "1850 1052";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => RTDS;
+      Taste::Instance_Name => "Thermal_Fdir";
+  END Thermal_Fdir;
+
+  SYSTEM IMPLEMENTATION Thermal_Fdir.others
+    SUBCOMPONENTS
+      fdir_activator_obj135_impl : SUBPROGRAM interfaceview::FV::fdir_activator_obj135.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS fdir_activator_obj135_impl  -> fdir_activator_obj135;
+  END Thermal_Fdir.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Thermal_Orchestrator
+  ---------------------------------------------------
+
+  SYSTEM Thermal_Orchestrator
+    FEATURES
+      receive_ground_obj168 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_ground_obj168.others
+        { Taste::Coordinates => "972 210";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      receive_spacecraft_obj180 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_spacecraft_obj180.others
+        { Taste::Coordinates => "972 754";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      receive_faults_outputs_obj192 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_faults_outputs_obj192.others
+        { Taste::Coordinates => "1610 1049";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      orchestrator_activator_obj204 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::orchestrator_activator_obj204.others
+        { Taste::Coordinates => "972 880";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1483_obj215 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::fdir_activator_obj135.others 
+        { Taste::Coordinates => "1610 821";
+          Taste::RCMoperationKind => sporadic;};
+      send_ground_outputs_obj225 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::results_obj75.others 
+        { Taste::Coordinates => "972 413";
+          Taste::RCMoperationKind => sporadic;};
+      send_spacecraft_outputs_obj235 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::results_obj266.others 
+        { Taste::Coordinates => "972 990";
+          Taste::RCMoperationKind => sporadic;};
+      obj932_obj245 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::th_model_control_activator_obj108.others 
+        { Taste::Coordinates => "1610 515";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Thermal_Orchestrator";
+  END Thermal_Orchestrator;
+
+  SYSTEM IMPLEMENTATION Thermal_Orchestrator.others
+    SUBCOMPONENTS
+      receive_ground_obj168_impl : SUBPROGRAM interfaceview::FV::receive_ground_obj168.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      receive_spacecraft_obj180_impl : SUBPROGRAM interfaceview::FV::receive_spacecraft_obj180.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      receive_faults_outputs_obj192_impl : SUBPROGRAM interfaceview::FV::receive_faults_outputs_obj192.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      orchestrator_activator_obj204_impl : SUBPROGRAM interfaceview::FV::orchestrator_activator_obj204.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_ground_obj168_impl  -> receive_ground_obj168;
+      SUBPROGRAM ACCESS receive_spacecraft_obj180_impl  -> receive_spacecraft_obj180;
+      SUBPROGRAM ACCESS receive_faults_outputs_obj192_impl  -> receive_faults_outputs_obj192;
+      SUBPROGRAM ACCESS orchestrator_activator_obj204_impl  -> orchestrator_activator_obj204;
+  END Thermal_Orchestrator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Spacecraft
+  ---------------------------------------------------
+
+  SYSTEM Spacecraft
+    FEATURES
+      results_obj266 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::results_obj266.others
+        { Taste::Coordinates => "668 991";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      obj900_obj278 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_spacecraft_obj180.others 
+        { Taste::Coordinates => "668 754";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => GUI;
+      Taste::Instance_Name => "Spacecraft";
+  END Spacecraft;
+
+  SYSTEM IMPLEMENTATION Spacecraft.others
+    SUBCOMPONENTS
+      results_obj266_impl : SUBPROGRAM interfaceview::FV::results_obj266.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS results_obj266_impl  -> results_obj266;
+  END Spacecraft.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM results_obj75
+    FEATURES
+      input : IN PARAMETER DataView::Thermal_2_Ground
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END results_obj75;
+
+  SUBPROGRAM IMPLEMENTATION results_obj75.others
+  END results_obj75.others;
+
+  SUBPROGRAM th_model_control_activator_obj108
+    FEATURES
+      input_model : IN PARAMETER DataView::SpaceCraft_2_ThermalModel
+        { Taste::encoding => NATIVE; };
+      input_control : IN PARAMETER DataView::SpaceCraft_2_ThermalControl
+        { Taste::encoding => NATIVE; };
+      input_ground : IN PARAMETER DataView::Ground_2_ThermalControl
+        { Taste::encoding => NATIVE; };
+      output_fault : OUT PARAMETER DataView::ThermalControl_2_ThermalFault
+        { Taste::encoding => NATIVE; };
+      input_faults : IN PARAMETER DataView::ThermalFault_2_ThermalControl
+        { Taste::encoding => NATIVE; };
+  END th_model_control_activator_obj108;
+
+  SUBPROGRAM IMPLEMENTATION th_model_control_activator_obj108.others
+  END th_model_control_activator_obj108.others;
+
+  SUBPROGRAM fdir_activator_obj135
+    FEATURES
+      input_control : IN PARAMETER DataView::ThermalControl_2_ThermalFault
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END fdir_activator_obj135;
+
+  SUBPROGRAM IMPLEMENTATION fdir_activator_obj135.others
+  END fdir_activator_obj135.others;
+
+  SUBPROGRAM receive_ground_obj168
+    FEATURES
+      input : IN PARAMETER DataView::Ground_2_Thermal
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_ground_obj168;
+
+  SUBPROGRAM IMPLEMENTATION receive_ground_obj168.others
+  END receive_ground_obj168.others;
+
+  SUBPROGRAM receive_spacecraft_obj180
+    FEATURES
+      input : IN PARAMETER DataView::SpaceCraft_2_Thermal
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_spacecraft_obj180;
+
+  SUBPROGRAM IMPLEMENTATION receive_spacecraft_obj180.others
+  END receive_spacecraft_obj180.others;
+
+  SUBPROGRAM receive_faults_outputs_obj192
+    FEATURES
+      input : IN PARAMETER DataView::ThermalFault_Outputs
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_faults_outputs_obj192;
+
+  SUBPROGRAM IMPLEMENTATION receive_faults_outputs_obj192.others
+  END receive_faults_outputs_obj192.others;
+
+  SUBPROGRAM orchestrator_activator_obj204
+  END orchestrator_activator_obj204;
+
+  SUBPROGRAM IMPLEMENTATION orchestrator_activator_obj204.others
+  END orchestrator_activator_obj204.others;
+
+  SUBPROGRAM results_obj266
+    FEATURES
+      input : IN PARAMETER DataView::Thermal_2_SpaceCraft
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END results_obj266;
+
+  SUBPROGRAM IMPLEMENTATION results_obj266.others
+  END results_obj266.others;
+
+END interfaceview::FV;
+

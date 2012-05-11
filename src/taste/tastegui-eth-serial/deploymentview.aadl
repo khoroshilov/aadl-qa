@@ -1,0 +1,1295 @@
+PACKAGE deploymentview::DV
+PUBLIC
+WITH Deployment;
+WITH Taste;
+
+WITH interfaceview::IV;
+
+WITH ocarina_buses;
+ 
+---------------------------------------------------
+-- TASTE Deployement View 
+---------------------------------------------------
+
+  ----------------------
+  -- ProcessorBoards --
+  ----------------------
+
+  SYSTEM linux_commander_obj80
+    FEATURES
+      obj160_obj220 : requires bus access 
+        { Taste::Coordinates => "72 77 74 79"; };
+      obj422_obj431 : requires bus access 
+        { Taste::Coordinates => "70 134 72 136"; };
+  END linux_commander_obj80;
+
+  PROCESSOR linuxnative_obj100
+    PROPERTIES
+      Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol);
+  END linuxnative_obj100;
+
+  PROCESS mypart_obj120
+  END mypart_obj120;
+
+  MEMORY ram_obj140
+  END ram_obj140;
+
+  DEVICE ethernetdrv_obj160
+    FEATURES
+      obj220 : requires bus access 
+        { Taste::Coordinates => "72 77 74 79"; };
+  END ethernetdrv_obj160;
+
+  DEVICE fpga_controller_obj422
+    FEATURES
+      obj431 : requires bus access 
+        { Taste::Coordinates => "70 134 72 136"; };
+  END fpga_controller_obj422;
+
+  SYSTEM IMPLEMENTATION linux_commander_obj80.others
+    SUBCOMPONENTS
+      mypart_obj120 : PROCESS mypart_obj120
+        { Taste::Coordinates => "66 31 214 72";
+           Deployment::Port_Number => 0;};
+      pinger_obj358 : SYSTEM interfaceview::IV::pinger
+        { Taste::Coordinates => "72 43 208 68" ;};
+      linuxnative_obj100 : PROCESSOR linuxnative_obj100
+        { Taste::Coordinates => "62 20 221 75"; };
+      ram_obj140 : MEMORY ram_obj140
+        { Taste::Coordinates => "59 103 219 121"; };
+      ethernetdrv_obj160 : DEVICE ethernetdrv_obj160
+        { Taste::Coordinates => "61 79 220 93";
+          Deployment::Configuration => "";};
+      fpga_controller_obj422 : DEVICE fpga_controller_obj422
+        { Taste::Coordinates => "59 136 219 151";
+          Deployment::Configuration => "";};
+
+    PROPERTIES
+      -- Connexion des CPUs aux process/drivers
+      Actual_Processor_Binding => (reference (linuxnative_obj100)) applies to mypart_obj120;
+      Taste::APLC_Binding => (reference(mypart_obj120)) APPLIES TO pinger_obj358;
+      Actual_Processor_Binding => (reference (linuxnative_obj100)) applies to ethernetdrv_obj160;
+      Actual_Processor_Binding => (reference (linuxnative_obj100)) applies to fpga_controller_obj422;
+      Actual_Memory_Binding => (reference (ram_obj140)) applies to mypart_obj120;
+  END linux_commander_obj80.others;
+
+  SYSTEM linux_receiver_obj90
+    FEATURES
+      obj170_obj229 : requires bus access 
+        { Taste::Coordinates => "394 95 396 97"; };
+  END linux_receiver_obj90;
+
+  PROCESSOR linuxnative_obj110
+    PROPERTIES
+      Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol);
+  END linuxnative_obj110;
+
+  PROCESS mypart_obj130
+  END mypart_obj130;
+
+  MEMORY ram_obj150
+  END ram_obj150;
+
+  DEVICE ethernetdrv_obj170
+    FEATURES
+      obj229 : requires bus access 
+        { Taste::Coordinates => "394 95 396 97"; };
+  END ethernetdrv_obj170;
+
+  SYSTEM IMPLEMENTATION linux_receiver_obj90.others
+    SUBCOMPONENTS
+      mypart_obj130 : PROCESS mypart_obj130
+        { Taste::Coordinates => "388 43 520 87";
+           Deployment::Port_Number => 0;};
+      pingee_native_obj200 : SYSTEM interfaceview::IV::pingee_native
+        { Taste::Coordinates => "393 54 515 83" ;};
+      linuxnative_obj110 : PROCESSOR linuxnative_obj110
+        { Taste::Coordinates => "383 30 525 91"; };
+      ram_obj150 : MEMORY ram_obj150
+        { Taste::Coordinates => "383 126 524 152"; };
+      ethernetdrv_obj170 : DEVICE ethernetdrv_obj170
+        { Taste::Coordinates => "383 97 524 116";
+          Deployment::Configuration => "";};
+
+    PROPERTIES
+      -- Connexion des CPUs aux process/drivers
+      Actual_Processor_Binding => (reference (linuxnative_obj110)) applies to mypart_obj130;
+      Taste::APLC_Binding => (reference(mypart_obj130)) APPLIES TO pingee_native_obj200;
+      Actual_Processor_Binding => (reference (linuxnative_obj110)) applies to ethernetdrv_obj170;
+      Actual_Memory_Binding => (reference (ram_obj150)) applies to mypart_obj130;
+  END linux_receiver_obj90.others;
+
+  --------------
+  -- Devices--
+  --------------
+
+  DEVICE fpga_obj190
+    FEATURES
+      obj238 : requires bus access 
+        { Taste::Coordinates => "67 176 69 178"; };
+  END fpga_obj190;
+
+  -----------
+  -- Buses --
+  -----------
+
+  -----------------
+  -- Root System --
+  -----------------
+
+  SYSTEM deploymentview
+  END deploymentview;
+
+  SYSTEM IMPLEMENTATION deploymentview.others
+    SUBCOMPONENTS
+      --  The processor boards
+      linux_commander_obj80 : SYSTEM linux_commander_obj80.others
+        { Taste::Coordinates => "56 11 224 160"; };
+      linux_receiver_obj90 : SYSTEM linux_receiver_obj90.others
+        { Taste::Coordinates => "369 14 535 162"; };
+      --  The devices
+      fpga_obj190 : DEVICE fpga_obj190
+        { Taste::Coordinates => "55 178 248 224";
+          Deployment::Configuration => "";};
+      pingee_device_obj210 : SYSTEM interfaceview::IV::pingee_device
+        { Taste::Coordinates => "63 188 239 218" ; };
+      --  The buses
+      ethernet_obj180 : BUS ocarina_buses::ip.i
+        { Taste::Coordinates => "231 46 330 74";};
+      --  The IV systems
+        interfaceview_obj251 : SYSTEM interfaceview::IV::interfaceview.others;
+
+    PROPERTIES
+      --  The function bindings
+      Taste::APLC_Binding => (reference(fpga_obj190)) APPLIES TO pingee_device_obj210;
+
+
+  END deploymentview.others;
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 594 420";
+  Taste::interfaceView => "../../../../../tmp/CHYCkA7f3y/interface5NAKw.aadl";
+
+END deploymentview::DV;
+ 
+
+
+---------------------------------------
+-- copied aadl libraries
+-- TASTE requirement
+-- Do not edit below this line
+---------------------------------------
+
+package ocarina_drivers_exarm_ni_6071e_digital  
+  
+public  
+  
+with Base_Types;  
+  
+subprogram spg_init  
+properties  
+   Source_Language   => C;  
+   Source_Name       => "__po_hi_c_driver_exarm_ni_6071e_digital_init";  
+end spg_init;  
+  
+  
+subprogram spg_poller  
+features  
+   data1 : out parameter Base_Types::Unsigned_32;  
+   data2 : out parameter Base_Types::Unsigned_32;  
+properties  
+   Source_Language   => C;  
+   Source_Name       => "__po_hi_c_driver_exarm_ni_6071e_digital_poller";  
+end spg_poller;  
+  
+  
+thread thr_poller  
+features  
+   data1 : out data port Base_Types::Unsigned_32;  
+   data2 : out data port Base_Types::Unsigned_32;  
+end thr_poller;  
+  
+thread implementation thr_poller.i  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_poller;  
+	};  
+connections  
+   parameter pspg.data1 -> data1;     
+   parameter pspg.data2 -> data2;     
+properties  
+   Period => 100 ms;  
+   Dispatch_Protocol => Periodic;  
+end thr_poller.i;  
+  
+  
+abstract driver  
+features  
+   data1 : out data port Base_Types::Unsigned_32;  
+   data2 : out data port Base_Types::Unsigned_32;  
+end driver;  
+  
+abstract implementation driver.i  
+subcomponents  
+   ni6071e_digital_poller : thread thr_poller.i;  
+connections  
+   port ni6071e_digital_poller.data1 -> data1;   
+   port ni6071e_digital_poller.data2 -> data2;   
+end driver.i;  
+  
+end ocarina_drivers_exarm_ni_6071e_digital;
+
+
+package ocarina_buses  
+  
+public  
+  
+bus generic_bus  
+end generic_bus;  
+  
+bus ip  
+end ip;  
+  
+bus implementation ip.pohic  
+end ip.pohic;  
+  
+bus implementation ip.i  
+subcomponents  
+   asn      : virtual bus asn1.i;  
+   pohic    : virtual bus pohi.c;  
+   pohiada  : virtual bus pohi.ada;  
+end ip.i;  
+  
+bus implementation ip.pohiada  
+end ip.pohiada;  
+  
+bus spacewire  
+end spacewire;  
+  
+bus implementation spacewire.pohic  
+end spacewire.pohic;  
+  
+  
+----------------------  
+--  Virtual buses  --  
+----------------------  
+  
+virtual bus raw  
+end raw;  
+  
+virtual bus implementation raw.i  
+end raw.i;  
+  
+virtual bus asn1  
+end asn1;  
+  
+virtual bus implementation asn1.i  
+end asn1.i;  
+  
+virtual bus pohi  
+end pohi;  
+  
+virtual bus implementation pohi.c  
+end pohi.c;  
+  
+virtual bus implementation pohi.ada  
+end pohi.ada;  
+  
+end ocarina_buses;
+
+
+package ocarina_drivers_keyboard  
+  
+public  
+  
+  
+subprogram spg_poller_generic  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_kbd_poller";  
+end spg_poller_generic;  
+  
+  
+subprogram spg_sender_generic  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_kbd_send";  
+end spg_sender_generic;  
+  
+  
+subprogram spg_init_generic  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_kbd_init";  
+end spg_init_generic;  
+  
+  
+thread poller  
+end poller;  
+  
+thread implementation poller.generic  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_poller_generic;  
+	};  
+properties  
+   Period => 100ms;  
+   Dispatch_Protocol => Periodic;  
+end poller.generic;  
+  
+  
+abstract driver  
+end driver;  
+  
+abstract implementation driver.generic  
+subcomponents  
+   receiver : thread poller.generic;  
+   sender   : subprogram spg_sender_generic;  
+end driver.generic;  
+  
+end ocarina_drivers_keyboard;
+
+
+package ocarina_drivers_exarm_ni_6071e_analog  
+  
+public  
+  
+with Base_Types;  
+  
+subprogram spg_init  
+properties  
+   Source_Language   => C;  
+   Source_Name       => "__po_hi_c_driver_exarm_ni_6071e_analog_init";  
+end spg_init;  
+  
+  
+subprogram spg_poller  
+features  
+   data1  : out parameter Base_Types::Float_64;  
+   data2  : out parameter Base_Types::Float_64;  
+   data3  : out parameter Base_Types::Float_64;  
+   data4  : out parameter Base_Types::Float_64;  
+   data5  : out parameter Base_Types::Float_64;  
+   data6  : out parameter Base_Types::Float_64;  
+   data7  : out parameter Base_Types::Float_64;  
+   data8  : out parameter Base_Types::Float_64;  
+   data9  : out parameter Base_Types::Float_64;  
+   data10 : out parameter Base_Types::Float_64;  
+   data11 : out parameter Base_Types::Float_64;  
+   data12 : out parameter Base_Types::Float_64;  
+   data13 : out parameter Base_Types::Float_64;  
+   data14 : out parameter Base_Types::Float_64;  
+   data15 : out parameter Base_Types::Float_64;  
+   data16 : out parameter Base_Types::Float_64;  
+properties  
+   Source_Language   => C;  
+   Source_Name       => "__po_hi_c_driver_exarm_ni_6071e_analog_poller";  
+end spg_poller;  
+  
+  
+thread thr_poller  
+features  
+   data1  : out data port Base_Types::Float_64;  
+   data2  : out data port Base_Types::Float_64;  
+   data3  : out data port Base_Types::Float_64;  
+   data4  : out data port Base_Types::Float_64;  
+   data5  : out data port Base_Types::Float_64;  
+   data6  : out data port Base_Types::Float_64;  
+   data7  : out data port Base_Types::Float_64;  
+   data8  : out data port Base_Types::Float_64;  
+   data9  : out data port Base_Types::Float_64;  
+   data10 : out data port Base_Types::Float_64;  
+   data11 : out data port Base_Types::Float_64;  
+   data12 : out data port Base_Types::Float_64;  
+   data13 : out data port Base_Types::Float_64;  
+   data14 : out data port Base_Types::Float_64;  
+   data15 : out data port Base_Types::Float_64;  
+   data16 : out data port Base_Types::Float_64;  
+end thr_poller;  
+  
+thread implementation thr_poller.i  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_poller;  
+	};  
+connections  
+   parameter pspg.data1 -> data1;     
+   parameter pspg.data2 -> data2;     
+   parameter pspg.data3 -> data3;     
+   parameter pspg.data4 -> data4;     
+   parameter pspg.data5 -> data5;     
+   parameter pspg.data6 -> data6;     
+   parameter pspg.data7 -> data7;     
+   parameter pspg.data8 -> data8;     
+   parameter pspg.data9 -> data9;     
+   parameter pspg.data10 -> data10;     
+   parameter pspg.data11 -> data11;     
+   parameter pspg.data12 -> data12;     
+   parameter pspg.data13 -> data13;     
+   parameter pspg.data14 -> data14;     
+   parameter pspg.data15 -> data15;     
+   parameter pspg.data16 -> data16;   
+properties  
+   Period => 100 ms;  
+   Dispatch_Protocol => Periodic;  
+end thr_poller.i;  
+  
+  
+abstract driver  
+features  
+   data1  : out data port Base_Types::Float_64;  
+   data2  : out data port Base_Types::Float_64;  
+   data3  : out data port Base_Types::Float_64;  
+   data4  : out data port Base_Types::Float_64;  
+   data5  : out data port Base_Types::Float_64;  
+   data6  : out data port Base_Types::Float_64;  
+   data7  : out data port Base_Types::Float_64;  
+   data8  : out data port Base_Types::Float_64;  
+   data9  : out data port Base_Types::Float_64;  
+   data10 : out data port Base_Types::Float_64;  
+   data11 : out data port Base_Types::Float_64;  
+   data12 : out data port Base_Types::Float_64;  
+   data13 : out data port Base_Types::Float_64;  
+   data14 : out data port Base_Types::Float_64;  
+   data15 : out data port Base_Types::Float_64;  
+   data16 : out data port Base_Types::Float_64;  
+end driver;  
+  
+abstract implementation driver.i  
+subcomponents  
+   ni6071e_analog_poller : thread thr_poller.i;  
+connections  
+   port ni6071e_analog_poller.data1 -> data1;     
+   port ni6071e_analog_poller.data2 -> data2;     
+   port ni6071e_analog_poller.data3 -> data3;     
+   port ni6071e_analog_poller.data4 -> data4;     
+   port ni6071e_analog_poller.data5 -> data5;     
+   port ni6071e_analog_poller.data6 -> data6;     
+   port ni6071e_analog_poller.data7 -> data7;     
+   port ni6071e_analog_poller.data8 -> data8;     
+   port ni6071e_analog_poller.data9 -> data9;     
+   port ni6071e_analog_poller.data10 -> data10;     
+   port ni6071e_analog_poller.data11 -> data11;     
+   port ni6071e_analog_poller.data12 -> data12;     
+   port ni6071e_analog_poller.data13 -> data13;     
+   port ni6071e_analog_poller.data14 -> data14;     
+   port ni6071e_analog_poller.data15 -> data15;     
+   port ni6071e_analog_poller.data16 -> data16;   
+end driver.i;  
+  
+end ocarina_drivers_exarm_ni_6071e_analog;
+
+
+package ocarina_drivers  
+  
+public  
+  
+with deployment;  
+  
+with ocarina_buses;  
+  
+with Data_Model;  
+with Base_Types;  
+  
+with ocarina_drivers_rasta_1553;  
+with ocarina_drivers_rasta_serial;  
+with ocarina_drivers_rasta_spacewire;  
+with ocarina_drivers_rtems_ne2000;  
+  
+with ocarina_drivers_udp_exarm;  
+with ocarina_drivers_serial;  
+  
+with ocarina_drivers_ip_asn1;  
+with ocarina_drivers_ip_pohic;  
+  
+with ocarina_drivers_exarm_ni_6071e_analog;  
+with ocarina_drivers_exarm_ni_6071e_digital;  
+  
+------------------  
+--  RASTA 1553  --  
+------------------  
+  
+device rasta_1553  
+end rasta_1553;  
+  
+device implementation rasta_1553.terminal  
+properties  
+   Deployment::Driver_Name    => "1553_rasta";  
+   Device_Driver              => classifier (ocarina_drivers_rasta_1553::if1553_driver.rasta_terminal);  
+   Initialize_Entrypoint      => classifier (ocarina_drivers_rasta_1553::spg_1553_init_rasta_terminal);  
+   Provided_Virtual_Bus_Class => (classifier (ocarina_buses::pohi.c));  
+end rasta_1553.terminal;  
+  
+device implementation rasta_1553.controller_sender_only  
+properties  
+   Deployment::Driver_Name    => "1553_rasta";  
+   Device_Driver              => classifier (ocarina_drivers_rasta_1553::if1553_driver.rasta_controller_sender_only);  
+   Initialize_Entrypoint      => classifier (ocarina_drivers_rasta_1553::spg_1553_init_rasta_controller);  
+   Provided_Virtual_Bus_Class => (classifier (ocarina_buses::pohi.c));  
+end rasta_1553.controller_sender_only;  
+  
+--------------------  
+--  RASTA SERIAL  --  
+--------------------  
+  
+device rasta_serial  
+end rasta_serial;  
+  
+device implementation rasta_serial.raw  
+properties  
+   Deployment::Driver_Name    => "serial_rasta";  
+   Device_Driver              => classifier (ocarina_drivers_rasta_serial::serial_driver.rasta);  
+   Initialize_Entrypoint      => classifier (ocarina_drivers_rasta_serial::spg_serial_init_rasta);  
+   Provided_Virtual_Bus_Class => (classifier (ocarina_buses::raw.i));  
+end rasta_serial.raw;  
+  
+  
+-----------------------  
+--  RASTA SPACEWIRE  --  
+-----------------------  
+  
+device rasta_spacewire  
+end rasta_spacewire;  
+  
+device implementation rasta_spacewire.pohic  
+properties  
+   Deployment::Driver_Name       => "spacewire_rasta";  
+   Device_Driver                 => classifier (ocarina_drivers_rasta_spacewire::spacewire_driver.rasta);  
+   Initialize_Entrypoint         => classifier (ocarina_drivers_rasta_spacewire::spg_spacewire_init_rasta);  
+   Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c));  
+end rasta_spacewire.pohic;  
+  
+  
+-----------------------------  
+--  Generic serial driver  --  
+-----------------------------  
+  
+device generic_serial  
+end generic_serial;  
+  
+device implementation generic_serial.raw  
+properties  
+   Deployment::Driver_Name       => "serial_linux";  
+   Device_Driver                 => classifier (ocarina_drivers_serial::serial_driver.linux);  
+   Initialize_Entrypoint         => classifier (ocarina_drivers_serial::spg_serial_init_linux);  
+   Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::raw.i));  
+end generic_serial.raw;  
+  
+---------------------------------  
+--  Generic sockets/ip driver  --  
+---------------------------------  
+  
+device generic_sockets_ip  
+features  
+   thebus : requires bus access ocarina_buses::ip.i;  
+end generic_sockets_ip;  
+  
+device implementation generic_sockets_ip.pohic  
+properties  
+   Deployment::Driver_Name       => "sockets";  
+   Device_Driver                 => classifier (ocarina_drivers_ip_pohic::sockets_impl.i);  
+   Initialize_Entrypoint         => classifier (ocarina_drivers_ip_pohic::spg_sockets_init);  
+   Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c));  
+end generic_sockets_ip.pohic;  
+  
+device implementation generic_sockets_ip.asn1  
+properties  
+   Deployment::Driver_Name       => "sockets_asn1";  
+   Device_Driver                 => classifier (ocarina_drivers_ip_asn1::sockets_impl.asn1);  
+   Initialize_Entrypoint         => classifier (ocarina_drivers_ip_asn1::spg_sockets_init);  
+   Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::asn1.i));  
+end generic_sockets_ip.asn1;  
+  
+---------------------  
+--  RTEMS NE2000   --  
+---------------------  
+  
+device rtems_ne2000  
+features  
+   thebus : requires bus access ocarina_buses::ip.i;  
+end rtems_ne2000;  
+  
+device implementation rtems_ne2000.ip_pohic  
+properties  
+   Deployment::Driver_Name       => "rtems_ne2000_sockets";  
+   Device_Driver                 => classifier (ocarina_drivers_rtems_ne2000::driver.i);  
+   Initialize_Entrypoint         => classifier (ocarina_drivers_rtems_ne2000::init);  
+   Provided_Virtual_Bus_Class    => (classifier (ocarina_buses::pohi.c));  
+end rtems_ne2000.ip_pohic;  
+  
+------------------------------------------  
+--            Exarm UDP driver          --  
+------------------------------------------  
+--  This driver is used to communicate  --  
+--  with the exarm robot and also       --  
+--  the Matlab simulator.               --  
+------------------------------------------  
+  
+device exarm  
+features  
+   thebus : requires bus access ocarina_buses::ip.i;  
+end exarm;  
+  
+device implementation exarm.i  
+properties  
+   Deployment::Driver_Name    => "exarm";  
+   Device_Driver              => classifier (ocarina_drivers_udp_exarm::driver.i);  
+   Initialize_Entrypoint      => classifier (ocarina_drivers_udp_exarm::init);  
+end exarm.i;  
+  
+data exarm_protocol_data  
+end exarm_protocol_data;  
+  
+data implementation exarm_protocol_data.vr extends ocarina_drivers_udp_exarm::protocol.vr  
+properties  
+   Data_Model::Data_Representation => Struct;  
+end exarm_protocol_data.vr;  
+  
+data implementation exarm_protocol_data.robot extends ocarina_drivers_udp_exarm::protocol.robot  
+properties  
+   Data_Model::Data_Representation => Struct;  
+end exarm_protocol_data.robot;  
+  
+---------------------------------------  
+--   Devices for the Exo skeleton    --  
+--  National Instruments PCI-6071E   --  
+---------------------------------------  
+--  This device is used to make data --  
+--  acquisition of the EXARM robot.  --  
+---------------------------------------  
+  
+device exarm_ni_6071e_analog  
+features  
+   data1  : out data port Base_Types::Float_64;  
+   data2  : out data port Base_Types::Float_64;  
+   data3  : out data port Base_Types::Float_64;  
+   data4  : out data port Base_Types::Float_64;  
+   data5  : out data port Base_Types::Float_64;  
+   data6  : out data port Base_Types::Float_64;  
+   data7  : out data port Base_Types::Float_64;  
+   data8  : out data port Base_Types::Float_64;  
+   data9  : out data port Base_Types::Float_64;  
+   data10 : out data port Base_Types::Float_64;  
+   data11 : out data port Base_Types::Float_64;  
+   data12 : out data port Base_Types::Float_64;  
+   data13 : out data port Base_Types::Float_64;  
+   data14 : out data port Base_Types::Float_64;  
+   data15 : out data port Base_Types::Float_64;  
+   data16 : out data port Base_Types::Float_64;  
+end exarm_ni_6071e_analog;  
+  
+  
+device implementation exarm_ni_6071e_analog.i  
+properties  
+   Deployment::Driver_Name    => "exarm_ni_6071e_analog";  
+   Device_Driver              => classifier (ocarina_drivers_exarm_ni_6071e_analog::driver.i);  
+   Initialize_Entrypoint      => classifier (ocarina_drivers_exarm_ni_6071e_analog::spg_init);  
+end exarm_ni_6071e_analog.i;  
+  
+  
+device exarm_ni_6071e_digital  
+features  
+   data1  : out data port Base_Types::Unsigned_8;  
+   data2  : out data port Base_Types::Unsigned_8;  
+end exarm_ni_6071e_digital;  
+  
+  
+device implementation exarm_ni_6071e_digital.i  
+properties  
+   Deployment::Driver_Name    => "exarm_ni_6071e_digital";  
+   Device_Driver              => classifier (ocarina_drivers_exarm_ni_6071e_digital::driver.i);  
+   Initialize_Entrypoint      => classifier (ocarina_drivers_exarm_ni_6071e_digital::spg_init);  
+end exarm_ni_6071e_digital.i;  
+  
+end ocarina_drivers;
+
+
+package ocarina_drivers_rasta_spacewire  
+  
+public  
+  
+with ocarina_buses;  
+  
+subprogram spg_spacewire_poller_rasta  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_spacewire_rasta_poller";  
+end spg_spacewire_poller_rasta;  
+  
+subprogram spg_spacewire_sender_rasta  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_spacewire_rasta_sender";  
+end spg_spacewire_sender_rasta;  
+  
+subprogram spg_spacewire_init_rasta  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_spacewire_rasta_init";  
+end spg_spacewire_init_rasta;  
+  
+  
+thread spacewire_poller  
+end spacewire_poller;  
+  
+thread implementation spacewire_poller.rasta  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_spacewire_poller_rasta;  
+	};  
+properties  
+   Period => 1000ms;  
+   Dispatch_Protocol => Periodic;  
+end spacewire_poller.rasta;  
+  
+  
+abstract spacewire_driver  
+end spacewire_driver;  
+  
+abstract implementation spacewire_driver.rasta  
+subcomponents  
+   receiver : thread spacewire_poller.rasta;  
+   sender   : subprogram spg_spacewire_sender_rasta;  
+end spacewire_driver.rasta;  
+  
+end ocarina_drivers_rasta_spacewire;
+
+
+package ocarina_drivers_rtems_ne2000  
+  
+public  
+  
+subprogram init  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_driver_rtems_ne2000_init";  
+end init;  
+  
+thread poller  
+end poller;  
+  
+thread implementation poller.i  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_poller;  
+	};  
+properties  
+   Period => 1000ms;  
+   Dispatch_Protocol => Periodic;  
+end poller.i;  
+  
+  
+subprogram spg_poller  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_driver_rtems_ne2000_poller";  
+end spg_poller;  
+  
+  
+subprogram spg_sender  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_driver_sockets_send";  
+end spg_sender;  
+  
+  
+abstract driver  
+end driver;  
+  
+  
+abstract implementation driver.i  
+subcomponents  
+--  receiver : thread       eth_sockets_ne2000_rtems_poller.i;  
+   sender   : subprogram   spg_sender;  
+end driver.i;  
+  
+end ocarina_drivers_rtems_ne2000;
+
+
+package ocarina_processors_x86  
+  
+public  
+  
+with Deployment;  
+  
+processor x86  
+properties  
+   Scheduling_Protocol => (RATE_MONOTONIC_PROTOCOL);  
+   Deployment::Execution_Platform => Native;  
+end x86;  
+  
+processor implementation x86.linux  
+properties  
+   Deployment::Execution_Platform => Native;  
+end x86.linux;  
+  
+processor implementation x86.native  
+properties  
+   Deployment::Execution_Platform => Native;  
+end x86.native;  
+  
+processor implementation x86.rtems  
+properties  
+   Deployment::Execution_Platform => X86_RTEMS;  
+end x86.rtems;  
+  
+processor implementation x86.linuxtaste  
+properties  
+   Deployment::Execution_Platform => X86_LINUXTASTE;  
+end x86.linuxtaste;  
+  
+end ocarina_processors_x86;
+
+
+package ocarina_processors_leon  
+  
+public  
+  
+with Deployment;  
+with Cheddar_Properties;  
+  
+processor leon  
+end leon;  
+  
+processor implementation leon.rtems  
+properties  
+   Scheduling_Protocol => (Posix_1003_Highest_Priority_First_Protocol);  
+   Priority_Range => 0 .. 255;  
+   Cheddar_Properties::Scheduler_Quantum => 0 Ms;  
+   Cheddar_Properties::Preemptive_Scheduler => true;  
+   Deployment::Execution_Platform => LEON_RTEMS;  
+end leon.rtems;  
+  
+processor implementation leon.ork  
+properties  
+   Deployment::Execution_Platform => LEON_ORK;  
+end leon.ork;  
+  
+end ocarina_processors_leon;
+
+
+package ocarina_drivers_serial  
+  
+public  
+  
+  
+subprogram spg_serial_poller_linux  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_serial_linux_poller";  
+end spg_serial_poller_linux;  
+  
+  
+subprogram spg_serial_sender_linux  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_serial_linux_sender";  
+end spg_serial_sender_linux;  
+  
+  
+subprogram spg_serial_init_linux  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_serial_linux_init";  
+end spg_serial_init_linux;  
+  
+  
+thread serial_poller  
+end serial_poller;  
+  
+thread implementation serial_poller.linux  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_serial_poller_linux;  
+	};  
+properties  
+   Period => 1000ms;  
+   Dispatch_Protocol => Periodic;  
+end serial_poller.linux;  
+  
+  
+abstract serial_driver  
+end serial_driver;  
+  
+abstract implementation serial_driver.linux  
+subcomponents  
+   receiver : thread serial_poller.linux;  
+   sender   : subprogram spg_serial_sender_linux;  
+end serial_driver.linux;  
+  
+end ocarina_drivers_serial;
+
+
+package ocarina_drivers_ip_pohic  
+  
+public  
+  
+  
+subprogram spg_sockets_init  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_driver_sockets_init";  
+end spg_sockets_init;  
+  
+  
+thread eth_linux_poller  
+end eth_linux_poller;  
+  
+thread implementation eth_linux_poller.i  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_eth_linux_poller_i;  
+	};  
+properties  
+   Period => 1000ms;  
+   Dispatch_Protocol => Periodic;  
+end eth_linux_poller.i;  
+  
+  
+subprogram spg_eth_linux_poller_i  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_sockets_receiver_task";  
+end spg_eth_linux_poller_i;  
+  
+  
+subprogram spg_eth_linux_sender  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_driver_sockets_send";  
+end spg_eth_linux_sender;  
+  
+  
+abstract sockets_impl  
+end sockets_impl;  
+  
+  
+abstract implementation sockets_impl.i  
+subcomponents  
+   receiver : thread       eth_linux_poller.i;  
+   sender   : subprogram   spg_eth_linux_sender;  
+end sockets_impl.i;  
+  
+end ocarina_drivers_ip_pohic;
+
+
+package ocarina_types  
+  
+public  
+  
+with Data_Model;  
+  
+data integer  
+end integer;  
+  
+data implementation integer.i  
+properties  
+   Data_Model::Data_Representation => integer;  
+end integer.i;  
+  
+  
+end ocarina_types;
+
+
+package ocarina_drivers_udp_exarm  
+  
+public  
+  
+with Data_Model;  
+with Base_Types;  
+  
+data protocol  
+properties  
+   Data_Model::Data_Representation => Struct;  
+end protocol;  
+  
+data implementation protocol.robot  
+subcomponents  
+   cmd   : data Base_Types::Unsigned_32;  
+   pktid : data Base_Types::Unsigned_32;  
+   X1    : data Base_Types::Float_32;  
+   X2    : data Base_Types::Float_32;  
+   X3    : data Base_Types::Float_32;  
+   Y1    : data Base_Types::Float_32;  
+   Y2    : data Base_Types::Float_32;  
+   Y3    : data Base_Types::Float_32;  
+   Z1    : data Base_Types::Float_32;  
+   Z2    : data Base_Types::Float_32;  
+   Z3    : data Base_Types::Float_32;  
+   P1    : data Base_Types::Float_32;  
+   P2    : data Base_Types::Float_32;  
+   P3    : data Base_Types::Float_32;  
+   J1    : data Base_Types::Float_32;  
+   J2    : data Base_Types::Float_32;  
+   J3    : data Base_Types::Float_32;  
+   J4    : data Base_Types::Float_32;  
+   J5    : data Base_Types::Float_32;  
+   J6    : data Base_Types::Float_32;  
+   J7    : data Base_Types::Float_32;  
+   Elbow : data Base_Types::Float_32;  
+end protocol.robot;  
+  
+  
+data implementation protocol.vr  
+subcomponents  
+   J1    : data Base_Types::Float_64;  
+   J2    : data Base_Types::Float_64;  
+   J3    : data Base_Types::Float_64;  
+   J4    : data Base_Types::Float_64;  
+   J5    : data Base_Types::Float_64;  
+   J6    : data Base_Types::Float_64;  
+   J7    : data Base_Types::Float_64;  
+   J8    : data Base_Types::Float_64;  
+   J9    : data Base_Types::Float_64;  
+   J10    : data Base_Types::Float_64;  
+   J11    : data Base_Types::Float_64;  
+   J12    : data Base_Types::Float_64;  
+   J13    : data Base_Types::Float_64;  
+   J14    : data Base_Types::Float_64;  
+   J15    : data Base_Types::Float_64;  
+   J16    : data Base_Types::Float_64;  
+   P1    : data Base_Types::Float_64;  
+   P2    : data Base_Types::Float_64;  
+   P3    : data Base_Types::Float_64;  
+   X1    : data Base_Types::Float_64;  
+   X2    : data Base_Types::Float_64;  
+   X3    : data Base_Types::Float_64;  
+   Y1    : data Base_Types::Float_64;  
+   Y2    : data Base_Types::Float_64;  
+   Y3    : data Base_Types::Float_64;  
+   Z1    : data Base_Types::Float_64;  
+   Z2    : data Base_Types::Float_64;  
+   Z3    : data Base_Types::Float_64;  
+end protocol.vr;  
+  
+  
+subprogram init  
+properties  
+   Source_Language   => C;  
+   Source_Name       => "__po_hi_driver_exarm_init";  
+end init;  
+  
+subprogram spg_sender  
+properties  
+   Source_Language   => C;  
+   Source_Name       => "__po_hi_driver_exarm_send";  
+end spg_sender;  
+  
+abstract driver  
+end driver;  
+  
+abstract implementation driver.i  
+subcomponents  
+   sender : subprogram spg_sender;  
+end driver.i;  
+  
+end ocarina_drivers_udp_exarm;
+
+
+package ocarina_drivers_rasta_serial  
+  
+public  
+  
+with ocarina_buses;  
+  
+subprogram spg_serial_poller_rasta  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_serial_rasta_poller";  
+end spg_serial_poller_rasta;  
+  
+  
+subprogram spg_serial_sender_rasta  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_serial_rasta_sender";  
+end spg_serial_sender_rasta;  
+  
+  
+  
+  
+subprogram spg_serial_init_rasta  
+properties  
+	Source_Language => C;  
+	Source_Name => "__po_hi_c_driver_serial_rasta_init";  
+end spg_serial_init_rasta;  
+  
+  
+thread serial_poller  
+end serial_poller;  
+  
+  
+thread implementation serial_poller.rasta  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_serial_poller_rasta;  
+	};  
+properties  
+   Period => 1000ms;  
+   Dispatch_Protocol => Periodic;  
+end serial_poller.rasta;  
+  
+abstract serial_driver  
+end serial_driver;  
+  
+abstract implementation serial_driver.rasta  
+subcomponents  
+   receiver : thread serial_poller.rasta;  
+   sender   : subprogram spg_serial_sender_rasta;  
+end serial_driver.rasta;  
+  
+end ocarina_drivers_rasta_serial;
+
+
+package ocarina_drivers_ip_asn1  
+  
+public  
+  
+subprogram spg_sockets_init  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_driver_sockets_asn1_init";  
+end spg_sockets_init;  
+  
+  
+thread eth_linux_poller  
+end eth_linux_poller;  
+  
+thread implementation eth_linux_poller.asn1  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_eth_linux_poller_asn1;  
+	};  
+properties  
+   Period => 1000ms;  
+   Dispatch_Protocol => Periodic;  
+end eth_linux_poller.asn1;  
+  
+  
+subprogram spg_eth_linux_poller_asn1  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_driver_sockets_asn1_poller";  
+end spg_eth_linux_poller_asn1;  
+  
+  
+subprogram spg_eth_linux_sender_asn1  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_driver_sockets_asn1_send";  
+end spg_eth_linux_sender_asn1;  
+  
+  
+abstract sockets_impl  
+end sockets_impl;  
+  
+  
+abstract implementation sockets_impl.asn1  
+subcomponents  
+--   receiver : thread       eth_linux_poller.asn1;  
+   sender   : subprogram   spg_eth_linux_sender_asn1;  
+end sockets_impl.asn1;  
+  
+end ocarina_drivers_ip_asn1;
+
+
+package ocarina_drivers_rasta_1553  
+  
+public  
+  
+subprogram spg_1553_controller_rasta  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_c_driver_1553_rasta_controller";  
+end spg_1553_controller_rasta;  
+  
+subprogram spg_1553_poller_rasta_terminal  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_c_driver_1553_rasta_terminal_poller";  
+end spg_1553_poller_rasta_terminal;  
+  
+subprogram spg_1553_sender_rasta_controller  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_c_driver_1553_rasta_sender_controller";  
+end spg_1553_sender_rasta_controller;  
+  
+subprogram spg_1553_sender_rasta_terminal  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_c_driver_1553_rasta_sender_terminal";  
+end spg_1553_sender_rasta_terminal;  
+  
+  
+subprogram spg_1553_init_rasta_controller  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_c_driver_1553_rasta_init_controller";  
+end spg_1553_init_rasta_controller;  
+  
+  
+subprogram spg_1553_init_rasta_terminal  
+properties  
+	Source_Language   => C;  
+	Source_Name       => "__po_hi_c_driver_1553_rasta_init_terminal";  
+end spg_1553_init_rasta_terminal;  
+  
+  
+  
+thread if1553_poller  
+end if1553_poller;  
+  
+thread implementation if1553_poller.rasta_terminal  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_1553_poller_rasta_terminal;  
+	};  
+properties  
+   Period => 2000ms;  
+   Dispatch_Protocol => Periodic;  
+end if1553_poller.rasta_terminal;  
+  
+thread if1553_controller  
+end if1553_controller;  
+  
+thread implementation if1553_controller.rasta  
+calls  
+	mycall : {  
+	  pspg : subprogram spg_1553_controller_rasta;  
+	};  
+properties  
+   Period => 4000ms;  
+   Dispatch_Protocol => Periodic;  
+end if1553_controller.rasta;  
+  
+  
+  
+abstract if1553_driver  
+end if1553_driver;  
+  
+abstract implementation if1553_driver.rasta_terminal  
+subcomponents  
+   receiver : thread       if1553_poller.rasta_terminal;  
+   sender   : subprogram   spg_1553_sender_rasta_terminal;  
+end if1553_driver.rasta_terminal;  
+  
+abstract implementation if1553_driver.rasta_controller_sender_only  
+subcomponents  
+--   controller  : thread       if1553_controller.rasta;  
+--   This thread (controller) should be a poller thread that  
+--   gives orders to the terminal nodes to send/receive data.  
+--   It should also specify the communication policy (when a terminal  
+--   is authorized to send/receive data).  
+  
+--   We don't specify poller and receiver since this controller  
+--   is just a node that sends data to a single other node.  
+  
+   sender      : subprogram   spg_1553_sender_rasta_controller;  
+end if1553_driver.rasta_controller_sender_only;  
+  
+  
+end ocarina_drivers_rasta_1553;
+
+

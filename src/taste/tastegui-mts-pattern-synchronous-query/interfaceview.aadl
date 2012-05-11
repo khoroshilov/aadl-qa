@@ -1,0 +1,136 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      node1: SYSTEM interfaceview::IV::node1.others
+        { Taste::Coordinates => "464 250 970 392"; };
+      node2: SYSTEM interfaceview::IV::node2.others
+        { Taste::Coordinates => "470 478 965 638"; };
+    CONNECTIONS
+      obj384 : SUBPROGRAM ACCESS node2.query_obj119  -> node1.obj285_obj98 
+        { Taste::Coordinates => "813 392 813 428 813 428 813 478"; };
+      obj545 : SUBPROGRAM ACCESS node1.answer_obj86  -> node2.obj477_obj131 
+        { Taste::Coordinates => "621 478 621 428 621 428 621 392"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::node1
+  ---------------------------------------------------
+
+  SYSTEM node1
+    FEATURES
+      activator_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj75.others
+        { Taste::Coordinates => "643 250 643 250";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      answer_obj86 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::answer_obj86.others
+        { Taste::Coordinates => "621 392 621 392";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      obj285_obj98 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::query_obj119.others 
+        { Taste::Coordinates => "813 392 813 392";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END node1;
+
+  SYSTEM IMPLEMENTATION node1.others
+    SUBCOMPONENTS
+      activator_obj75_impl : SUBPROGRAM interfaceview::FV::activator_obj75.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+      answer_obj86_impl : SUBPROGRAM interfaceview::FV::answer_obj86.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj75_impl  -> activator_obj75;
+      SUBPROGRAM ACCESS answer_obj86_impl  -> answer_obj86;
+  END node1.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::node2
+  ---------------------------------------------------
+
+  SYSTEM node2
+    FEATURES
+      query_obj119 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::query_obj119.others
+        { Taste::Coordinates => "813 478 813 478";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj477_obj131 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::answer_obj86.others 
+        { Taste::Coordinates => "621 478 621 478";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END node2;
+
+  SYSTEM IMPLEMENTATION node2.others
+    SUBCOMPONENTS
+      query_obj119_impl : SUBPROGRAM interfaceview::FV::query_obj119.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS query_obj119_impl  -> query_obj119;
+  END node2.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj75
+  END activator_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj75.others
+  END activator_obj75.others;
+
+  SUBPROGRAM answer_obj86
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END answer_obj86;
+
+  SUBPROGRAM IMPLEMENTATION answer_obj86.others
+  END answer_obj86.others;
+
+  SUBPROGRAM query_obj119
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END query_obj119;
+
+  SUBPROGRAM IMPLEMENTATION query_obj119.others
+  END query_obj119.others;
+
+END interfaceview::FV;
+

@@ -1,0 +1,154 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      sensor_acq: SYSTEM interfaceview::IV::sensor_acq.others
+        { Taste::Coordinates => "489 141 997 627"; };
+      filter: SYSTEM interfaceview::IV::filter.others
+        { Taste::Coordinates => "1237 135 1745 621"; };
+      average: SYSTEM interfaceview::IV::average.others
+        { Taste::Coordinates => "2005 141 2513 627"; };
+    CONNECTIONS
+      obj503 : SUBPROGRAM ACCESS filter.receive_temp_obj107  -> sensor_acq.obj402_obj86 
+        { Taste::Coordinates => "997 471 1117 471 1117 471 1237 471"; };
+      obj878 : SUBPROGRAM ACCESS average.receive_temp_obj139  -> filter.obj820_obj118 
+        { Taste::Coordinates => "1745 486 1875 486 1875 479 2005 479"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::sensor_acq
+  ---------------------------------------------------
+
+  SYSTEM sensor_acq
+    FEATURES
+      acquire_temp_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::acquire_temp_obj75.others
+        { Taste::Coordinates => "489 475";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj402_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_temp_obj107.others 
+        { Taste::Coordinates => "997 471";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END sensor_acq;
+
+  SYSTEM IMPLEMENTATION sensor_acq.others
+    SUBCOMPONENTS
+      acquire_temp_obj75_impl : SUBPROGRAM interfaceview::FV::acquire_temp_obj75.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS acquire_temp_obj75_impl  -> acquire_temp_obj75;
+  END sensor_acq.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::filter
+  ---------------------------------------------------
+
+  SYSTEM filter
+    FEATURES
+      receive_temp_obj107 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_temp_obj107.others
+        { Taste::Coordinates => "1237 471";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      obj820_obj118 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_temp_obj139.others 
+        { Taste::Coordinates => "1745 486";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END filter;
+
+  SYSTEM IMPLEMENTATION filter.others
+    SUBCOMPONENTS
+      receive_temp_obj107_impl : SUBPROGRAM interfaceview::FV::receive_temp_obj107.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_temp_obj107_impl  -> receive_temp_obj107;
+  END filter.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::average
+  ---------------------------------------------------
+
+  SYSTEM average
+    FEATURES
+      receive_temp_obj139 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_temp_obj139.others
+        { Taste::Coordinates => "2005 479";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END average;
+
+  SYSTEM IMPLEMENTATION average.others
+    SUBCOMPONENTS
+      receive_temp_obj139_impl : SUBPROGRAM interfaceview::FV::receive_temp_obj139.others
+        { Compute_Execution_Time => 0ms..500ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_temp_obj139_impl  -> receive_temp_obj139;
+  END average.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM acquire_temp_obj75
+  END acquire_temp_obj75;
+
+  SUBPROGRAM IMPLEMENTATION acquire_temp_obj75.others
+  END acquire_temp_obj75.others;
+
+  SUBPROGRAM receive_temp_obj107
+    FEATURES
+      val : in PARAMETER DataView::Temperature_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_temp_obj107;
+
+  SUBPROGRAM IMPLEMENTATION receive_temp_obj107.others
+  END receive_temp_obj107.others;
+
+  SUBPROGRAM receive_temp_obj139
+    FEATURES
+      val : in PARAMETER DataView::Temperature_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_temp_obj139;
+
+  SUBPROGRAM IMPLEMENTATION receive_temp_obj139.others
+  END receive_temp_obj139.others;
+
+END interfaceview::FV;
+

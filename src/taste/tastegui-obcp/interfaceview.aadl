@@ -1,0 +1,364 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+WITH interfaceview::IV::OBCP;
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      obcp_manager: SYSTEM interfaceview::IV::OBCP::obcp_manager.others
+        { Taste::Coordinates => "1068 335 1739 1097"; };
+      obcp_thread1: SYSTEM interfaceview::IV::OBCP::obcp_thread1.others
+        { Taste::Coordinates => "181 342 801 617"; };
+      obcp_thread2: SYSTEM interfaceview::IV::OBCP::obcp_thread2.others
+        { Taste::Coordinates => "182 820 802 1095"; };
+      ground: SYSTEM interfaceview::IV::ground.others
+        { Taste::Coordinates => "2053 512 2608 1081"; };
+    CONNECTIONS
+      obj1630 : SUBPROGRAM ACCESS obcp_thread2.execute_obcp2_obj306  -> obcp_manager.obj1575_obj232 
+        { Taste::Coordinates => "1068 887 937 887 937 887 802 887"; };
+      obj1824 : SUBPROGRAM ACCESS obcp_thread1.execute_obcp1_obj273  -> obcp_manager.obj1731_obj242 
+        { Taste::Coordinates => "1068 378 934 378 934 381 801 381"; };
+      obj3133 : SUBPROGRAM ACCESS ground.status_report_obj86  -> obcp_manager.obj3088_obj252 
+        { Taste::Coordinates => "1739 784 1897 784 1897 788 2053 788"; };
+      obj1891 : SUBPROGRAM ACCESS obcp_manager.report_execution_obcp1_obj172  -> obcp_thread1.obj1138_obj285 
+        { Taste::Coordinates => "801 497 934 497 934 563 1068 563"; };
+      obj1510 : SUBPROGRAM ACCESS obcp_manager.report_execution_obcp2_obj184  -> obcp_thread2.obj1242_obj318 
+        { Taste::Coordinates => "802 975 935 975 935 1006 1068 1006"; };
+      obj2146 : SUBPROGRAM ACCESS obcp_manager.load_obj196  -> ground.obj2079_obj120 
+        { Taste::Coordinates => "2053 617 1897 617 1897 617 1739 617"; };
+      obj2231 : SUBPROGRAM ACCESS obcp_manager.execute_obj208  -> ground.obj2174_obj130 
+        { Taste::Coordinates => "2053 911 1897 911 1897 911 1739 911"; };
+      obj3043 : SUBPROGRAM ACCESS obcp_manager.get_status_obj220  -> ground.obj2987_obj140 
+        { Taste::Coordinates => "2053 693 1897 693 1897 704 1739 704"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ground
+  ---------------------------------------------------
+
+  SYSTEM ground
+    FEATURES
+      status_report_obj86 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::status_report_obj86.others
+        { Taste::Coordinates => "2053 788";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      status_printer_obj98 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::status_printer_obj98.others
+        { Taste::Coordinates => "2400 512";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 5000 ms;
+          Taste::Deadline => 5000 ms;
+          Taste::Importance => MEDIUM ;};
+      gui_obj109 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::gui_obj109.others
+        { Taste::Coordinates => "2188 1081";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj2079_obj120 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::load_obj196.others 
+        { Taste::Coordinates => "2053 617";
+          Taste::RCMoperationKind => sporadic;};
+      obj2174_obj130 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::execute_obj208.others 
+        { Taste::Coordinates => "2053 911";
+          Taste::RCMoperationKind => sporadic;};
+      obj2987_obj140 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::get_status_obj220.others 
+        { Taste::Coordinates => "2053 693";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END ground;
+
+  SYSTEM IMPLEMENTATION ground.others
+    SUBCOMPONENTS
+      status_report_obj86_impl : SUBPROGRAM interfaceview::FV::status_report_obj86.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      status_printer_obj98_impl : SUBPROGRAM interfaceview::FV::status_printer_obj98.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      gui_obj109_impl : SUBPROGRAM interfaceview::FV::gui_obj109.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS status_report_obj86_impl  -> status_report_obj86;
+      SUBPROGRAM ACCESS status_printer_obj98_impl  -> status_printer_obj98;
+      SUBPROGRAM ACCESS gui_obj109_impl  -> gui_obj109;
+  END ground.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::IV::OBCP
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::OBCP::obcp_manager
+  ---------------------------------------------------
+
+  SYSTEM obcp_manager
+    FEATURES
+      monitor_obj161 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::monitor_obj161.others
+        { Taste::Coordinates => "1454 335";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      report_execution_obcp1_obj172 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::report_execution_obcp1_obj172.others
+        { Taste::Coordinates => "1068 563";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      report_execution_obcp2_obj184 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::report_execution_obcp2_obj184.others
+        { Taste::Coordinates => "1068 1006";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      load_obj196 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::load_obj196.others
+        { Taste::Coordinates => "1739 617";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      execute_obj208 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::execute_obj208.others
+        { Taste::Coordinates => "1739 911";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      get_status_obj220 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::get_status_obj220.others
+        { Taste::Coordinates => "1739 704";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1575_obj232 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::execute_obcp2_obj306.others 
+        { Taste::Coordinates => "1068 887";
+          Taste::RCMoperationKind => sporadic;};
+      obj1731_obj242 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::execute_obcp1_obj273.others 
+        { Taste::Coordinates => "1068 378";
+          Taste::RCMoperationKind => sporadic;};
+      obj3088_obj252 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::status_report_obj86.others 
+        { Taste::Coordinates => "1739 784";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END obcp_manager;
+
+  SYSTEM IMPLEMENTATION obcp_manager.others
+    SUBCOMPONENTS
+      monitor_obj161_impl : SUBPROGRAM interfaceview::FV::monitor_obj161.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      report_execution_obcp1_obj172_impl : SUBPROGRAM interfaceview::FV::report_execution_obcp1_obj172.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      report_execution_obcp2_obj184_impl : SUBPROGRAM interfaceview::FV::report_execution_obcp2_obj184.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      load_obj196_impl : SUBPROGRAM interfaceview::FV::load_obj196.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      execute_obj208_impl : SUBPROGRAM interfaceview::FV::execute_obj208.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      get_status_obj220_impl : SUBPROGRAM interfaceview::FV::get_status_obj220.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS monitor_obj161_impl  -> monitor_obj161;
+      SUBPROGRAM ACCESS report_execution_obcp1_obj172_impl  -> report_execution_obcp1_obj172;
+      SUBPROGRAM ACCESS report_execution_obcp2_obj184_impl  -> report_execution_obcp2_obj184;
+      SUBPROGRAM ACCESS load_obj196_impl  -> load_obj196;
+      SUBPROGRAM ACCESS execute_obj208_impl  -> execute_obj208;
+      SUBPROGRAM ACCESS get_status_obj220_impl  -> get_status_obj220;
+  END obcp_manager.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::OBCP::obcp_thread1
+  ---------------------------------------------------
+
+  SYSTEM obcp_thread1
+    FEATURES
+      execute_obcp1_obj273 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::execute_obcp1_obj273.others
+        { Taste::Coordinates => "801 381";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1138_obj285 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::report_execution_obcp1_obj172.others 
+        { Taste::Coordinates => "801 497";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function2";
+  END obcp_thread1;
+
+  SYSTEM IMPLEMENTATION obcp_thread1.others
+    SUBCOMPONENTS
+      execute_obcp1_obj273_impl : SUBPROGRAM interfaceview::FV::execute_obcp1_obj273.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS execute_obcp1_obj273_impl  -> execute_obcp1_obj273;
+  END obcp_thread1.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::OBCP::obcp_thread2
+  ---------------------------------------------------
+
+  SYSTEM obcp_thread2
+    FEATURES
+      execute_obcp2_obj306 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::execute_obcp2_obj306.others
+        { Taste::Coordinates => "802 887";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1242_obj318 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::report_execution_obcp2_obj184.others 
+        { Taste::Coordinates => "802 975";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function2";
+  END obcp_thread2;
+
+  SYSTEM IMPLEMENTATION obcp_thread2.others
+    SUBCOMPONENTS
+      execute_obcp2_obj306_impl : SUBPROGRAM interfaceview::FV::execute_obcp2_obj306.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS execute_obcp2_obj306_impl  -> execute_obcp2_obj306;
+  END obcp_thread2.others;
+
+PROPERTIES
+  Taste::Coordinates => "69 189 1849 1233";
+END interfaceview::IV::OBCP;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM monitor_obj161
+  END monitor_obj161;
+
+  SUBPROGRAM IMPLEMENTATION monitor_obj161.others
+  END monitor_obj161.others;
+
+  SUBPROGRAM report_execution_obcp1_obj172
+    FEATURES
+      status_code : IN PARAMETER DataView::OBCP_Status_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END report_execution_obcp1_obj172;
+
+  SUBPROGRAM IMPLEMENTATION report_execution_obcp1_obj172.others
+  END report_execution_obcp1_obj172.others;
+
+  SUBPROGRAM report_execution_obcp2_obj184
+    FEATURES
+      status_code : IN PARAMETER DataView::OBCP_Status_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END report_execution_obcp2_obj184;
+
+  SUBPROGRAM IMPLEMENTATION report_execution_obcp2_obj184.others
+  END report_execution_obcp2_obj184.others;
+
+  SUBPROGRAM load_obj196
+    FEATURES
+      msg : IN PARAMETER DataView::OBCP_Load_Msg_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END load_obj196;
+
+  SUBPROGRAM IMPLEMENTATION load_obj196.others
+  END load_obj196.others;
+
+  SUBPROGRAM execute_obj208
+    FEATURES
+      obcp_id : IN PARAMETER DataView::OBCP_Identifier_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END execute_obj208;
+
+  SUBPROGRAM IMPLEMENTATION execute_obj208.others
+  END execute_obj208.others;
+
+  SUBPROGRAM get_status_obj220
+    FEATURES
+      obcp_id : IN PARAMETER DataView::OBCP_Identifier_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END get_status_obj220;
+
+  SUBPROGRAM IMPLEMENTATION get_status_obj220.others
+  END get_status_obj220.others;
+
+  SUBPROGRAM execute_obcp1_obj273
+    FEATURES
+      content : IN PARAMETER DataView::OBCP_Content_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END execute_obcp1_obj273;
+
+  SUBPROGRAM IMPLEMENTATION execute_obcp1_obj273.others
+  END execute_obcp1_obj273.others;
+
+  SUBPROGRAM execute_obcp2_obj306
+    FEATURES
+      content : IN PARAMETER DataView::OBCP_Content_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END execute_obcp2_obj306;
+
+  SUBPROGRAM IMPLEMENTATION execute_obcp2_obj306.others
+  END execute_obcp2_obj306.others;
+
+  SUBPROGRAM status_report_obj86
+    FEATURES
+      report : IN PARAMETER DataView::OBCP_Status_Report
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END status_report_obj86;
+
+  SUBPROGRAM IMPLEMENTATION status_report_obj86.others
+  END status_report_obj86.others;
+
+  SUBPROGRAM status_printer_obj98
+  END status_printer_obj98;
+
+  SUBPROGRAM IMPLEMENTATION status_printer_obj98.others
+  END status_printer_obj98.others;
+
+  SUBPROGRAM gui_obj109
+  END gui_obj109;
+
+  SUBPROGRAM IMPLEMENTATION gui_obj109.others
+  END gui_obj109.others;
+
+END interfaceview::FV;
+

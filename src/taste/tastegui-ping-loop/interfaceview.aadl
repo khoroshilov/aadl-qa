@@ -1,0 +1,166 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+WITH interfaceview::IV::mycontainer;
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      pingsender: SYSTEM interfaceview::IV::mycontainer::pingsender.others
+        { Taste::Coordinates => "23 12 41 45"; };
+      transformer: SYSTEM interfaceview::IV::mycontainer::transformer.others
+        { Taste::Coordinates => "45 16 60 42"; };
+      pingreceiver: SYSTEM interfaceview::IV::mycontainer::pingreceiver.others
+        { Taste::Coordinates => "64 11 85 42"; };
+    CONNECTIONS
+      obj1388 : SUBPROGRAM ACCESS transformer.transformint_obj1316  -> pingsender.obj1344_obj1344 
+        { Taste::Coordinates => "41 27 43 27 43 27 45 27"; };
+      obj1500 : SUBPROGRAM ACCESS pingreceiver.receiveint_obj1176  -> transformer.obj1418_obj1418 
+        { Taste::Coordinates => "60 28 62 28 62 27 64 27"; };
+  END interfaceview.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 297 210";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::IV::mycontainer
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::mycontainer::pingsender
+  ---------------------------------------------------
+
+  SYSTEM pingsender
+    FEATURES
+      activator_obj86 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj86.others
+        { Taste::Coordinates => "23 20 23 20";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 10000 ms;
+          Taste::Deadline => 10000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1344_obj1344 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::transformint_obj1316.others 
+        { Taste::Coordinates => "41 27";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "pingsender";
+  END pingsender;
+
+  SYSTEM IMPLEMENTATION pingsender.others
+    SUBCOMPONENTS
+      activator_obj86_impl : SUBPROGRAM interfaceview::FV::activator_obj86.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj86_impl  -> activator_obj86;
+  END pingsender.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::mycontainer::transformer
+  ---------------------------------------------------
+
+  SYSTEM transformer
+    FEATURES
+      transformint_obj1316 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::transformint_obj1316.others
+        { Taste::Coordinates => "45 27";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1418_obj1418 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receiveint_obj1176.others 
+        { Taste::Coordinates => "60 28 60 28";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END transformer;
+
+  SYSTEM IMPLEMENTATION transformer.others
+    SUBCOMPONENTS
+      transformint_obj1316_impl : SUBPROGRAM interfaceview::FV::transformint_obj1316.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS transformint_obj1316_impl  -> transformint_obj1316;
+  END transformer.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::mycontainer::pingreceiver
+  ---------------------------------------------------
+
+  SYSTEM pingreceiver
+    FEATURES
+      receiveint_obj1176 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receiveint_obj1176.others
+        { Taste::Coordinates => "64 27 64 27";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "pingreceiver";
+  END pingreceiver;
+
+  SYSTEM IMPLEMENTATION pingreceiver.others
+    SUBCOMPONENTS
+      receiveint_obj1176_impl : SUBPROGRAM interfaceview::FV::receiveint_obj1176.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receiveint_obj1176_impl  -> receiveint_obj1176;
+  END pingreceiver.others;
+
+PROPERTIES
+  Taste::Coordinates => "20 10 85 55";
+END interfaceview::IV::mycontainer;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj86
+  END activator_obj86;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj86.others
+  END activator_obj86.others;
+
+  SUBPROGRAM transformint_obj1316
+    FEATURES
+      valin : in PARAMETER DataView::My_Integer
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END transformint_obj1316;
+
+  SUBPROGRAM IMPLEMENTATION transformint_obj1316.others
+  END transformint_obj1316.others;
+
+  SUBPROGRAM receiveint_obj1176
+    FEATURES
+      valin : in PARAMETER DataView::My_Integer
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receiveint_obj1176;
+
+  SUBPROGRAM IMPLEMENTATION receiveint_obj1176.others
+  END receiveint_obj1176.others;
+
+END interfaceview::FV;
+

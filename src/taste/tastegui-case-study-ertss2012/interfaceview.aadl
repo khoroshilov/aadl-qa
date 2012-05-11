@@ -1,0 +1,194 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      sensor_acquisition: SYSTEM interfaceview::IV::sensor_acquisition.others
+        { Taste::Coordinates => "1134 688 1468 824"; };
+      temperature_router: SYSTEM interfaceview::IV::temperature_router.others
+        { Taste::Coordinates => "1039 851 1465 1054"; };
+      warning_display: SYSTEM interfaceview::IV::warning_display.others
+        { Taste::Coordinates => "1745 691 2135 837"; };
+      avg_computer: SYSTEM interfaceview::IV::avg_computer.others
+        { Taste::Coordinates => "1750 871 2129 1043"; };
+    CONNECTIONS
+      obj1192 : SUBPROGRAM ACCESS temperature_router.receive_temp_obj107  -> sensor_acquisition.obj1144_obj86 
+        { Taste::Coordinates => "1134 743 949 743 949 1008 1039 1008"; };
+      obj461 : SUBPROGRAM ACCESS warning_display.activate_obj150  -> temperature_router.obj403_obj119 
+        { Taste::Coordinates => "1465 929 1559 929 1559 723 1745 723"; };
+      obj631 : SUBPROGRAM ACCESS avg_computer.tempval_obj172  -> temperature_router.obj559_obj129 
+        { Taste::Coordinates => "1465 997 1597 997 1597 912 1750 912"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::sensor_acquisition
+  ---------------------------------------------------
+
+  SYSTEM sensor_acquisition
+    FEATURES
+      activator_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj75.others
+        { Taste::Coordinates => "1288 688";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 25 ms;
+          Taste::Deadline => 25 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1144_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_temp_obj107.others 
+        { Taste::Coordinates => "1134 743";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END sensor_acquisition;
+
+  SYSTEM IMPLEMENTATION sensor_acquisition.others
+    SUBCOMPONENTS
+      activator_obj75_impl : SUBPROGRAM interfaceview::FV::activator_obj75.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj75_impl  -> activator_obj75;
+  END sensor_acquisition.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::temperature_router
+  ---------------------------------------------------
+
+  SYSTEM temperature_router
+    FEATURES
+      receive_temp_obj107 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_temp_obj107.others
+        { Taste::Coordinates => "1039 1008";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 50 ms;
+          Taste::Deadline => 50 ms;
+          Taste::Importance => MEDIUM ;};
+      obj403_obj119 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::activate_obj150.others 
+        { Taste::Coordinates => "1465 929";
+          Taste::RCMoperationKind => sporadic;};
+      obj559_obj129 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::tempval_obj172.others 
+        { Taste::Coordinates => "1465 997";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END temperature_router;
+
+  SYSTEM IMPLEMENTATION temperature_router.others
+    SUBCOMPONENTS
+      receive_temp_obj107_impl : SUBPROGRAM interfaceview::FV::receive_temp_obj107.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_temp_obj107_impl  -> receive_temp_obj107;
+  END temperature_router.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::warning_display
+  ---------------------------------------------------
+
+  SYSTEM warning_display
+    FEATURES
+      activate_obj150 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activate_obj150.others
+        { Taste::Coordinates => "1745 723";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 5 ms;
+          Taste::Deadline => 5 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END warning_display;
+
+  SYSTEM IMPLEMENTATION warning_display.others
+    SUBCOMPONENTS
+      activate_obj150_impl : SUBPROGRAM interfaceview::FV::activate_obj150.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activate_obj150_impl  -> activate_obj150;
+  END warning_display.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::avg_computer
+  ---------------------------------------------------
+
+  SYSTEM avg_computer
+    FEATURES
+      tempval_obj172 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::tempval_obj172.others
+        { Taste::Coordinates => "1750 912";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 2000 ms;
+          Taste::Deadline => 2000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END avg_computer;
+
+  SYSTEM IMPLEMENTATION avg_computer.others
+    SUBCOMPONENTS
+      tempval_obj172_impl : SUBPROGRAM interfaceview::FV::tempval_obj172.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS tempval_obj172_impl  -> tempval_obj172;
+  END avg_computer.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj75
+  END activator_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj75.others
+  END activator_obj75.others;
+
+  SUBPROGRAM receive_temp_obj107
+    FEATURES
+      temp : IN PARAMETER DataView::Temperature_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_temp_obj107;
+
+  SUBPROGRAM IMPLEMENTATION receive_temp_obj107.others
+  END receive_temp_obj107.others;
+
+  SUBPROGRAM activate_obj150
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END activate_obj150;
+
+  SUBPROGRAM IMPLEMENTATION activate_obj150.others
+  END activate_obj150.others;
+
+  SUBPROGRAM tempval_obj172
+    FEATURES
+      valin : IN PARAMETER DataView::Temperature_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 5;
+  END tempval_obj172;
+
+  SUBPROGRAM IMPLEMENTATION tempval_obj172.others
+  END tempval_obj172.others;
+
+END interfaceview::FV;
+

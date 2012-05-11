@@ -1,0 +1,154 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      producer: SYSTEM interfaceview::IV::producer.others
+        { Taste::Coordinates => "247 286 849 718"; };
+      transformer: SYSTEM interfaceview::IV::transformer.others
+        { Taste::Coordinates => "1085 283 1727 736"; };
+      printer: SYSTEM interfaceview::IV::printer.others
+        { Taste::Coordinates => "1889 301 2629 751"; };
+    CONNECTIONS
+      obj344 : SUBPROGRAM ACCESS transformer.received_value_obj107  -> producer.obj123_obj86 
+        { Taste::Coordinates => "849 428 967 428 967 406 1085 406"; };
+      obj2220 : SUBPROGRAM ACCESS printer.printvalue_obj140  -> transformer.obj2178_obj119 
+        { Taste::Coordinates => "1727 602 1808 602 1808 519 1889 519"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::producer
+  ---------------------------------------------------
+
+  SYSTEM producer
+    FEATURES
+      activator_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj75.others
+        { Taste::Coordinates => "247 374";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 10000 ms;
+          Taste::Deadline => 10000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj123_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::received_value_obj107.others 
+        { Taste::Coordinates => "849 428";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "producer";
+  END producer;
+
+  SYSTEM IMPLEMENTATION producer.others
+    SUBCOMPONENTS
+      activator_obj75_impl : SUBPROGRAM interfaceview::FV::activator_obj75.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj75_impl  -> activator_obj75;
+  END producer.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::transformer
+  ---------------------------------------------------
+
+  SYSTEM transformer
+    FEATURES
+      received_value_obj107 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::received_value_obj107.others
+        { Taste::Coordinates => "1085 406";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj2178_obj119 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::printvalue_obj140.others 
+        { Taste::Coordinates => "1727 602";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "transformer";
+  END transformer;
+
+  SYSTEM IMPLEMENTATION transformer.others
+    SUBCOMPONENTS
+      received_value_obj107_impl : SUBPROGRAM interfaceview::FV::received_value_obj107.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS received_value_obj107_impl  -> received_value_obj107;
+  END transformer.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::printer
+  ---------------------------------------------------
+
+  SYSTEM printer
+    FEATURES
+      printvalue_obj140 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::printvalue_obj140.others
+        { Taste::Coordinates => "1889 519";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "printer";
+  END printer;
+
+  SYSTEM IMPLEMENTATION printer.others
+    SUBCOMPONENTS
+      printvalue_obj140_impl : SUBPROGRAM interfaceview::FV::printvalue_obj140.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS printvalue_obj140_impl  -> printvalue_obj140;
+  END printer.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj75
+  END activator_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj75.others
+  END activator_obj75.others;
+
+  SUBPROGRAM received_value_obj107
+    FEATURES
+      inval : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END received_value_obj107;
+
+  SUBPROGRAM IMPLEMENTATION received_value_obj107.others
+  END received_value_obj107.others;
+
+  SUBPROGRAM printvalue_obj140
+    FEATURES
+      toprint : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END printvalue_obj140;
+
+  SUBPROGRAM IMPLEMENTATION printvalue_obj140.others
+  END printvalue_obj140.others;
+
+END interfaceview::FV;
+

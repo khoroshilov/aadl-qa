@@ -1,0 +1,371 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      car_controller: SYSTEM interfaceview::IV::car_controller.others
+        { Taste::Coordinates => "130 1 292 45"; };
+      car_command: SYSTEM interfaceview::IV::car_command.others
+        { Taste::Coordinates => "16 8 75 50"; };
+      keyboard: SYSTEM interfaceview::IV::keyboard.others
+        { Taste::Coordinates => "5 87 129 121"; };
+      arduino_handler: SYSTEM interfaceview::IV::arduino_handler.others
+        { Taste::Coordinates => "143 83 297 149"; };
+    CONNECTIONS
+      obj1410 : SUBPROGRAM ACCESS car_command.receive_tm_obj203  -> car_controller.obj1345_obj170 
+        { Taste::Coordinates => "130 15 98 15 98 16 75 16"; };
+      obj700 : SUBPROGRAM ACCESS car_controller.set_configuration_obj135  -> car_command.obj578_obj215 
+        { Taste::Coordinates => "75 32 114 32 114 31 130 31"; };
+      obj1281 : SUBPROGRAM ACCESS car_controller.receive_tc_obj147  -> car_command.obj1183_obj225 
+        { Taste::Coordinates => "75 23 104 23 104 22 130 22"; };
+      input_conn : SUBPROGRAM ACCESS car_command.receive_inputs_obj191  -> keyboard.receive_inputs_obj257 
+        { Taste::Coordinates => "67 87 67 68 44 68 44 50"; };
+      obj3019 : SUBPROGRAM ACCESS car_controller.set_sound_obj123  -> arduino_handler.change_sound_obj289 
+        { Taste::Coordinates => "259 83 259 68 278 68 278 45"; };
+      obj3161 : SUBPROGRAM ACCESS car_controller.set_distance_obj111  -> arduino_handler.change_distance_obj299 
+        { Taste::Coordinates => "244 83 244 68 248 68 248 45"; };
+      obj3326 : SUBPROGRAM ACCESS car_controller.set_vibration_obj99  -> arduino_handler.change_vibration_obj309 
+        { Taste::Coordinates => "227 83 227 68 219 68 219 45"; };
+      obj3449 : SUBPROGRAM ACCESS car_controller.set_light_obj87  -> arduino_handler.change_light_obj319 
+        { Taste::Coordinates => "206 83 206 60 186 60 186 45"; };
+      obj3610 : SUBPROGRAM ACCESS car_controller.set_temperature_obj75  -> arduino_handler.change_temp_obj329 
+        { Taste::Coordinates => "185 83 185 68 159 68 159 45"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::car_controller
+  ---------------------------------------------------
+
+  SYSTEM car_controller
+    FEATURES
+      set_temperature_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::set_temperature_obj75.others
+        { Taste::Coordinates => "158 45";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      set_light_obj87 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::set_light_obj87.others
+        { Taste::Coordinates => "185 45";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      set_vibration_obj99 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::set_vibration_obj99.others
+        { Taste::Coordinates => "218 45";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      set_distance_obj111 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::set_distance_obj111.others
+        { Taste::Coordinates => "247 45";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      set_sound_obj123 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::set_sound_obj123.others
+        { Taste::Coordinates => "277 45";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      set_configuration_obj135 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::set_configuration_obj135.others
+        { Taste::Coordinates => "130 30";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+      receive_tc_obj147 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_tc_obj147.others
+        { Taste::Coordinates => "130 21";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+      activator_obj159 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj159.others
+        { Taste::Coordinates => "292 22";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1345_obj170 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_tm_obj203.others 
+        { Taste::Coordinates => "130 14";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Coordinates => "130 1 292 45";
+      Taste::Instance_Name => "car_controller";
+  END car_controller;
+
+  SYSTEM IMPLEMENTATION car_controller.others
+    SUBCOMPONENTS
+      set_temperature_obj75_impl : SUBPROGRAM interfaceview::FV::set_temperature_obj75.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      set_light_obj87_impl : SUBPROGRAM interfaceview::FV::set_light_obj87.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      set_vibration_obj99_impl : SUBPROGRAM interfaceview::FV::set_vibration_obj99.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      set_distance_obj111_impl : SUBPROGRAM interfaceview::FV::set_distance_obj111.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      set_sound_obj123_impl : SUBPROGRAM interfaceview::FV::set_sound_obj123.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      set_configuration_obj135_impl : SUBPROGRAM interfaceview::FV::set_configuration_obj135.others
+        { Compute_Execution_Time => 0ms..500ms ;};
+      receive_tc_obj147_impl : SUBPROGRAM interfaceview::FV::receive_tc_obj147.others
+        { Compute_Execution_Time => 0ms..500ms ;};
+      activator_obj159_impl : SUBPROGRAM interfaceview::FV::activator_obj159.others
+        { Compute_Execution_Time => 0ms..500ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS set_temperature_obj75_impl  -> set_temperature_obj75;
+      SUBPROGRAM ACCESS set_light_obj87_impl  -> set_light_obj87;
+      SUBPROGRAM ACCESS set_vibration_obj99_impl  -> set_vibration_obj99;
+      SUBPROGRAM ACCESS set_distance_obj111_impl  -> set_distance_obj111;
+      SUBPROGRAM ACCESS set_sound_obj123_impl  -> set_sound_obj123;
+      SUBPROGRAM ACCESS set_configuration_obj135_impl  -> set_configuration_obj135;
+      SUBPROGRAM ACCESS receive_tc_obj147_impl  -> receive_tc_obj147;
+      SUBPROGRAM ACCESS activator_obj159_impl  -> activator_obj159;
+  END car_controller.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::car_command
+  ---------------------------------------------------
+
+  SYSTEM car_command
+    FEATURES
+      receive_inputs_obj191 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_inputs_obj191.others
+        { Taste::Coordinates => "43 50";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      receive_tm_obj203 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_tm_obj203.others
+        { Taste::Coordinates => "75 15";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+      obj578_obj215 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::set_configuration_obj135.others 
+        { Taste::Coordinates => "75 31";
+          Taste::RCMoperationKind => sporadic;};
+      obj1183_obj225 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_tc_obj147.others 
+        { Taste::Coordinates => "75 22";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Coordinates => "16 8 75 50";
+      Taste::Instance_Name => "car_command";
+  END car_command;
+
+  SYSTEM IMPLEMENTATION car_command.others
+    SUBCOMPONENTS
+      receive_inputs_obj191_impl : SUBPROGRAM interfaceview::FV::receive_inputs_obj191.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      receive_tm_obj203_impl : SUBPROGRAM interfaceview::FV::receive_tm_obj203.others
+        { Compute_Execution_Time => 0ms..500ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_inputs_obj191_impl  -> receive_inputs_obj191;
+      SUBPROGRAM ACCESS receive_tm_obj203_impl  -> receive_tm_obj203;
+  END car_command.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::keyboard
+  ---------------------------------------------------
+
+  SYSTEM keyboard
+    FEATURES
+      polling_obj246 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::polling_obj246.others
+        { Taste::Coordinates => "54 121";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      receive_inputs_obj257 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_inputs_obj191.others 
+        { Taste::Coordinates => "66 87";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Coordinates => "5 87 129 121";
+      Taste::Instance_Name => "keyboard";
+  END keyboard;
+
+  SYSTEM IMPLEMENTATION keyboard.others
+    SUBCOMPONENTS
+      polling_obj246_impl : SUBPROGRAM interfaceview::FV::polling_obj246.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS polling_obj246_impl  -> polling_obj246;
+  END keyboard.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::arduino_handler
+  ---------------------------------------------------
+
+  SYSTEM arduino_handler
+    FEATURES
+      activator_obj278 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj278.others
+        { Taste::Coordinates => "225 149";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      change_sound_obj289 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::set_sound_obj123.others 
+        { Taste::Coordinates => "258 83";
+          Taste::RCMoperationKind => unprotected;};
+      change_distance_obj299 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::set_distance_obj111.others 
+        { Taste::Coordinates => "243 83";
+          Taste::RCMoperationKind => unprotected;};
+      change_vibration_obj309 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::set_vibration_obj99.others 
+        { Taste::Coordinates => "226 83";
+          Taste::RCMoperationKind => unprotected;};
+      change_light_obj319 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::set_light_obj87.others 
+        { Taste::Coordinates => "205 83";
+          Taste::RCMoperationKind => unprotected;};
+      change_temp_obj329 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::set_temperature_obj75.others 
+        { Taste::Coordinates => "184 83";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Coordinates => "143 83 297 149";
+      Taste::Instance_Name => "arduino_handler";
+  END arduino_handler;
+
+  SYSTEM IMPLEMENTATION arduino_handler.others
+    SUBCOMPONENTS
+      activator_obj278_impl : SUBPROGRAM interfaceview::FV::activator_obj278.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj278_impl  -> activator_obj278;
+  END arduino_handler.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 297 210";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM set_temperature_obj75
+    FEATURES
+      val : IN PARAMETER DataView::Temperature_T
+        { Taste::encoding => NATIVE; };
+  END set_temperature_obj75;
+
+  SUBPROGRAM IMPLEMENTATION set_temperature_obj75.others
+  END set_temperature_obj75.others;
+
+  SUBPROGRAM set_light_obj87
+    FEATURES
+      val : IN PARAMETER DataView::Light_T
+        { Taste::encoding => NATIVE; };
+  END set_light_obj87;
+
+  SUBPROGRAM IMPLEMENTATION set_light_obj87.others
+  END set_light_obj87.others;
+
+  SUBPROGRAM set_vibration_obj99
+    FEATURES
+      val : IN PARAMETER DataView::Vibration_T
+        { Taste::encoding => NATIVE; };
+  END set_vibration_obj99;
+
+  SUBPROGRAM IMPLEMENTATION set_vibration_obj99.others
+  END set_vibration_obj99.others;
+
+  SUBPROGRAM set_distance_obj111
+    FEATURES
+      val : IN PARAMETER DataView::Distance_T
+        { Taste::encoding => NATIVE; };
+  END set_distance_obj111;
+
+  SUBPROGRAM IMPLEMENTATION set_distance_obj111.others
+  END set_distance_obj111.others;
+
+  SUBPROGRAM set_sound_obj123
+    FEATURES
+      val : IN PARAMETER DataView::Sound_T
+        { Taste::encoding => NATIVE; };
+  END set_sound_obj123;
+
+  SUBPROGRAM IMPLEMENTATION set_sound_obj123.others
+  END set_sound_obj123.others;
+
+  SUBPROGRAM set_configuration_obj135
+    FEATURES
+      val : IN PARAMETER DataView::Configuration_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END set_configuration_obj135;
+
+  SUBPROGRAM IMPLEMENTATION set_configuration_obj135.others
+  END set_configuration_obj135.others;
+
+  SUBPROGRAM receive_tc_obj147
+    FEATURES
+      tc : IN PARAMETER DataView::Telecommand_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_tc_obj147;
+
+  SUBPROGRAM IMPLEMENTATION receive_tc_obj147.others
+  END receive_tc_obj147.others;
+
+  SUBPROGRAM activator_obj159
+  END activator_obj159;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj159.others
+  END activator_obj159.others;
+
+  SUBPROGRAM receive_inputs_obj191
+    FEATURES
+      input : IN PARAMETER DataView::Keycode
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_inputs_obj191;
+
+  SUBPROGRAM IMPLEMENTATION receive_inputs_obj191.others
+  END receive_inputs_obj191.others;
+
+  SUBPROGRAM receive_tm_obj203
+    FEATURES
+      tm : IN PARAMETER DataView::Telemetry_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_tm_obj203;
+
+  SUBPROGRAM IMPLEMENTATION receive_tm_obj203.others
+  END receive_tm_obj203.others;
+
+  SUBPROGRAM polling_obj246
+  END polling_obj246;
+
+  SUBPROGRAM IMPLEMENTATION polling_obj246.others
+  END polling_obj246.others;
+
+  SUBPROGRAM activator_obj278
+  END activator_obj278;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj278.others
+  END activator_obj278.others;
+
+END interfaceview::FV;
+

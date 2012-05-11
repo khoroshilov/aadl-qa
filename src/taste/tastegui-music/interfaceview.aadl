@@ -1,0 +1,184 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      sender1: SYSTEM interfaceview::IV::sender1.others
+        { Taste::Coordinates => "15 7 50 38"; };
+      sender2: SYSTEM interfaceview::IV::sender2.others
+        { Taste::Coordinates => "14 44 51 68"; };
+      player: SYSTEM interfaceview::IV::player.others
+        { Taste::Coordinates => "72 15 107 51"; };
+    CONNECTIONS
+      conn_stream1 : SUBPROGRAM ACCESS player.receive_stream1_obj139  -> sender1.receive_stream1_obj86 
+        { Taste::Coordinates => "50 30 59 30 59 29 72 29"; };
+      conn_stream2 : SUBPROGRAM ACCESS player.receive_stream2_obj151  -> sender2.receive_stream2_obj118 
+        { Taste::Coordinates => "51 61 60 61 60 40 72 40"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::sender1
+  ---------------------------------------------------
+
+  SYSTEM sender1
+    FEATURES
+      activator_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj75.others
+        { Taste::Coordinates => "15 20";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 23 ms;
+          Taste::Deadline => 23 ms;
+          Taste::Importance => MEDIUM ;};
+      receive_stream1_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_stream1_obj139.others 
+        { Taste::Coordinates => "50 29";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "sender1";
+  END sender1;
+
+  SYSTEM IMPLEMENTATION sender1.others
+    SUBCOMPONENTS
+      activator_obj75_impl : SUBPROGRAM interfaceview::FV::activator_obj75.others
+        { Compute_Execution_Time => 0ms..23ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj75_impl  -> activator_obj75;
+  END sender1.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::sender2
+  ---------------------------------------------------
+
+  SYSTEM sender2
+    FEATURES
+      activator_obj107 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj107.others
+        { Taste::Coordinates => "14 57";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 23 ms;
+          Taste::Deadline => 23 ms;
+          Taste::Importance => MEDIUM ;};
+      receive_stream2_obj118 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_stream2_obj151.others 
+        { Taste::Coordinates => "51 60";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "sender2";
+  END sender2;
+
+  SYSTEM IMPLEMENTATION sender2.others
+    SUBCOMPONENTS
+      activator_obj107_impl : SUBPROGRAM interfaceview::FV::activator_obj107.others
+        { Compute_Execution_Time => 0ms..23ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj107_impl  -> activator_obj107;
+  END sender2.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::player
+  ---------------------------------------------------
+
+  SYSTEM player
+    FEATURES
+      receive_stream1_obj139 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_stream1_obj139.others
+        { Taste::Coordinates => "72 28";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 20 ms;
+          Taste::Deadline => 20 ms;
+          Taste::Importance => MEDIUM ;};
+      receive_stream2_obj151 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_stream2_obj151.others
+        { Taste::Coordinates => "72 39";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 20 ms;
+          Taste::Deadline => 20 ms;
+          Taste::Importance => MEDIUM ;};
+      play_music_obj163 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::play_music_obj163.others
+        { Taste::Coordinates => "107 38";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 23 ms;
+          Taste::Deadline => 23 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "player";
+  END player;
+
+  SYSTEM IMPLEMENTATION player.others
+    SUBCOMPONENTS
+      receive_stream1_obj139_impl : SUBPROGRAM interfaceview::FV::receive_stream1_obj139.others
+        { Compute_Execution_Time => 0ms..20ms ;};
+      receive_stream2_obj151_impl : SUBPROGRAM interfaceview::FV::receive_stream2_obj151.others
+        { Compute_Execution_Time => 0ms..20ms ;};
+      play_music_obj163_impl : SUBPROGRAM interfaceview::FV::play_music_obj163.others
+        { Compute_Execution_Time => 0ms..23ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_stream1_obj139_impl  -> receive_stream1_obj139;
+      SUBPROGRAM ACCESS receive_stream2_obj151_impl  -> receive_stream2_obj151;
+      SUBPROGRAM ACCESS play_music_obj163_impl  -> play_music_obj163;
+  END player.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 297 210";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj75
+  END activator_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj75.others
+  END activator_obj75.others;
+
+  SUBPROGRAM activator_obj107
+  END activator_obj107;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj107.others
+  END activator_obj107.others;
+
+  SUBPROGRAM receive_stream1_obj139
+    FEATURES
+      track : IN PARAMETER DataView::Stream_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_stream1_obj139;
+
+  SUBPROGRAM IMPLEMENTATION receive_stream1_obj139.others
+  END receive_stream1_obj139.others;
+
+  SUBPROGRAM receive_stream2_obj151
+    FEATURES
+      stream : IN PARAMETER DataView::Stream_T
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_stream2_obj151;
+
+  SUBPROGRAM IMPLEMENTATION receive_stream2_obj151.others
+  END receive_stream2_obj151.others;
+
+  SUBPROGRAM play_music_obj163
+  END play_music_obj163;
+
+  SUBPROGRAM IMPLEMENTATION play_music_obj163.others
+  END play_music_obj163.others;
+
+END interfaceview::FV;
+

@@ -1,0 +1,126 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      activator: SYSTEM interfaceview::IV::activator.others
+        { Taste::Coordinates => "519 185 1114 598"; };
+      dspace_connector: SYSTEM interfaceview::IV::dspace_connector.others
+        { Taste::Coordinates => "1788 196 2397 605"; };
+    CONNECTIONS
+      obj551 : SUBPROGRAM ACCESS dspace_connector.recv_obj107  -> activator.obj452_obj86 
+        { Taste::Coordinates => "1114 395 1451 395 1451 486 1788 486"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::activator
+  ---------------------------------------------------
+
+  SYSTEM activator
+    FEATURES
+      activate_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activate_obj75.others
+        { Taste::Coordinates => "903 185";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj452_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::recv_obj107.others 
+        { Taste::Coordinates => "1114 395";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END activator;
+
+  SYSTEM IMPLEMENTATION activator.others
+    SUBCOMPONENTS
+      activate_obj75_impl : SUBPROGRAM interfaceview::FV::activate_obj75.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activate_obj75_impl  -> activate_obj75;
+  END activator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::dspace_connector
+  ---------------------------------------------------
+
+  SYSTEM dspace_connector
+    FEATURES
+      recv_obj107 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::recv_obj107.others
+        { Taste::Coordinates => "1788 486";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      poller_obj307 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::poller_obj307.others
+        { Taste::Coordinates => "2021 605";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "Function1";
+  END dspace_connector;
+
+  SYSTEM IMPLEMENTATION dspace_connector.others
+    SUBCOMPONENTS
+      recv_obj107_impl : SUBPROGRAM interfaceview::FV::recv_obj107.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+      poller_obj307_impl : SUBPROGRAM interfaceview::FV::poller_obj307.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS recv_obj107_impl  -> recv_obj107;
+      SUBPROGRAM ACCESS poller_obj307_impl  -> poller_obj307;
+  END dspace_connector.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activate_obj75
+  END activate_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activate_obj75.others
+  END activate_obj75.others;
+
+  SUBPROGRAM recv_obj107
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END recv_obj107;
+
+  SUBPROGRAM IMPLEMENTATION recv_obj107.others
+  END recv_obj107.others;
+
+  SUBPROGRAM poller_obj307
+  END poller_obj307;
+
+  SUBPROGRAM IMPLEMENTATION poller_obj307.others
+  END poller_obj307.others;
+
+END interfaceview::FV;
+

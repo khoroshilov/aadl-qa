@@ -1,0 +1,2445 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+WITH interfaceview::IV::Channel_1;
+WITH interfaceview::IV::Channel_2;
+WITH interfaceview::IV::Channel_3;
+WITH interfaceview::IV::Channel_4;
+WITH interfaceview::IV::Channel_5;
+WITH interfaceview::IV::Acquisition;
+WITH interfaceview::IV::GUI;
+WITH interfaceview::IV::Channel_6;
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      Correlators_1: SYSTEM interfaceview::IV::Channel_1::Correlators_1.others
+        { Taste::Coordinates => "3099 236 3794 308"; };
+      Tracking_Loops_1: SYSTEM interfaceview::IV::Channel_1::Tracking_Loops_1.others
+        { Taste::Coordinates => "3104 326 3797 449"; };
+      Channel_1_Ctrl_Cmd: SYSTEM interfaceview::IV::Channel_1::Channel_1_Ctrl_Cmd.others
+        { Taste::Coordinates => "3100 472 3800 573"; };
+      Data_Demodulation_1: SYSTEM interfaceview::IV::Channel_1::Data_Demodulation_1.others
+        { Taste::Coordinates => "3103 591 3803 664"; };
+      PseudoRange_Measurements_1: SYSTEM interfaceview::IV::Channel_1::PseudoRange_Measurements_1.others
+        { Taste::Coordinates => "3102 677 3802 783"; };
+      Correlators_2: SYSTEM interfaceview::IV::Channel_2::Correlators_2.others
+        { Taste::Coordinates => "3087 863 3787 956"; };
+      Tracking_Loops_2: SYSTEM interfaceview::IV::Channel_2::Tracking_Loops_2.others
+        { Taste::Coordinates => "3089 971 3789 1074"; };
+      Channel_2_Ctrl_Cmd: SYSTEM interfaceview::IV::Channel_2::Channel_2_Ctrl_Cmd.others
+        { Taste::Coordinates => "3112 1119 3812 1214"; };
+      Data_Demodulation_2: SYSTEM interfaceview::IV::Channel_2::Data_Demodulation_2.others
+        { Taste::Coordinates => "3105 1240 3805 1317"; };
+      PseudoRange_Measurements_2: SYSTEM interfaceview::IV::Channel_2::PseudoRange_Measurements_2.others
+        { Taste::Coordinates => "3109 1341 3809 1471"; };
+      Correlators_3: SYSTEM interfaceview::IV::Channel_3::Correlators_3.others
+        { Taste::Coordinates => "3104 1567 3804 1697"; };
+      Tracking_Loops_3: SYSTEM interfaceview::IV::Channel_3::Tracking_Loops_3.others
+        { Taste::Coordinates => "3097 1719 3797 1839"; };
+      Channel_3_Ctrl_Cmd: SYSTEM interfaceview::IV::Channel_3::Channel_3_Ctrl_Cmd.others
+        { Taste::Coordinates => "3098 1864 3798 1979"; };
+      Data_Demodulation_3: SYSTEM interfaceview::IV::Channel_3::Data_Demodulation_3.others
+        { Taste::Coordinates => "3098 2003 3798 2093"; };
+      PseudoRange_Measurements_3: SYSTEM interfaceview::IV::Channel_3::PseudoRange_Measurements_3.others
+        { Taste::Coordinates => "3101 2124 3801 2254"; };
+      Correlators_4: SYSTEM interfaceview::IV::Channel_4::Correlators_4.others
+        { Taste::Coordinates => "3092 2387 3792 2460"; };
+      Tracking_Loops_4: SYSTEM interfaceview::IV::Channel_4::Tracking_Loops_4.others
+        { Taste::Coordinates => "3094 2504 3794 2616"; };
+      Channel_4_Ctrl_Cmd: SYSTEM interfaceview::IV::Channel_4::Channel_4_Ctrl_Cmd.others
+        { Taste::Coordinates => "3090 2643 3790 2745"; };
+      Data_Demodulation_4: SYSTEM interfaceview::IV::Channel_4::Data_Demodulation_4.others
+        { Taste::Coordinates => "3089 2759 3789 2889"; };
+      PseudoRange_Measurements_4: SYSTEM interfaceview::IV::Channel_4::PseudoRange_Measurements_4.others
+        { Taste::Coordinates => "3085 2910 3785 3013"; };
+      Correlators_5: SYSTEM interfaceview::IV::Channel_5::Correlators_5.others
+        { Taste::Coordinates => "3130 3142 3830 3242"; };
+      Tracking_Loops_5: SYSTEM interfaceview::IV::Channel_5::Tracking_Loops_5.others
+        { Taste::Coordinates => "3134 3261 3834 3421"; };
+      Channel_5_Ctrl_Cmd: SYSTEM interfaceview::IV::Channel_5::Channel_5_Ctrl_Cmd.others
+        { Taste::Coordinates => "3139 3445 3839 3605"; };
+      Data_Demodulation_5: SYSTEM interfaceview::IV::Channel_5::Data_Demodulation_5.others
+        { Taste::Coordinates => "3141 3627 3841 3740"; };
+      PseudoRange_Measurements_5: SYSTEM interfaceview::IV::Channel_5::PseudoRange_Measurements_5.others
+        { Taste::Coordinates => "3143 3764 3843 3870"; };
+      TabData: SYSTEM interfaceview::IV::Acquisition::TabData.others
+        { Taste::Coordinates => "774 3112 1477 3357"; };
+      Butterfly: SYSTEM interfaceview::IV::Acquisition::Butterfly.others
+        { Taste::Coordinates => "776 3426 1477 3626"; };
+      FFT: SYSTEM interfaceview::IV::Acquisition::FFT.others
+        { Taste::Coordinates => "780 3669 1477 3864"; };
+      Integrator: SYSTEM interfaceview::IV::Acquisition::Integrator.others
+        { Taste::Coordinates => "789 3929 1489 4140"; };
+      Correlator: SYSTEM interfaceview::IV::Acquisition::Correlator.others
+        { Taste::Coordinates => "793 4182 1496 4362"; };
+      CorrMult: SYSTEM interfaceview::IV::Acquisition::CorrMult.others
+        { Taste::Coordinates => "803 4410 1512 4590"; };
+      Acquisition_Ctrl_Cmd: SYSTEM interfaceview::IV::Acquisition::Acquisition_Ctrl_Cmd.others
+        { Taste::Coordinates => "684 4638 1499 4901"; };
+      GPS_Receiver_GUI: SYSTEM interfaceview::IV::GUI::GPS_Receiver_GUI.others
+        { Taste::Coordinates => "740 2151 1583 2529"; };
+      TM_TC_Simulation_GUI: SYSTEM interfaceview::IV::GUI::TM_TC_Simulation_GUI.others
+        { Taste::Coordinates => "766 2676 1609 2923"; };
+      Correlators_6: SYSTEM interfaceview::IV::Channel_6::Correlators_6.others
+        { Taste::Coordinates => "3133 4010 3833 4110"; };
+      Tracking_Loops_6: SYSTEM interfaceview::IV::Channel_6::Tracking_Loops_6.others
+        { Taste::Coordinates => "3137 4129 3837 4289"; };
+      Channel_6_Ctrl_Cmd: SYSTEM interfaceview::IV::Channel_6::Channel_6_Ctrl_Cmd.others
+        { Taste::Coordinates => "3142 4313 3842 4473"; };
+      Data_Demodulation_6: SYSTEM interfaceview::IV::Channel_6::Data_Demodulation_6.others
+        { Taste::Coordinates => "3144 4495 3844 4608"; };
+      PseudoRange_Measurements_6: SYSTEM interfaceview::IV::Channel_6::PseudoRange_Measurements_6.others
+        { Taste::Coordinates => "3146 4632 3846 4738"; };
+      Main_Ctrl_Cmd: SYSTEM interfaceview::IV::Main_Ctrl_Cmd.others
+        { Taste::Coordinates => "690 50 1558 1117"; };
+      PVT: SYSTEM interfaceview::IV::PVT.others
+        { Taste::Coordinates => "851 1201 1551 1978"; };
+    CONNECTIONS
+      obj31855 : SUBPROGRAM ACCESS Correlators_1.corr_acc_int_1_obj526  -> Tracking_Loops_1.corr_acc_int_1_obj571 
+        { Taste::Coordinates => "3797 346 3948 346 3948 259 3794 259"; };
+      obj31879 : SUBPROGRAM ACCESS Data_Demodulation_1.track_2_dem_1_obj645  -> Tracking_Loops_1.track_2_dem_1_obj581 
+        { Taste::Coordinates => "3797 390 3957 390 3957 610 3803 610"; };
+      unnamed_C10 : SUBPROGRAM ACCESS Tracking_Loops_1.track_cfg_cmd_mon_1_obj557  -> Channel_1_Ctrl_Cmd.track_cfg_cmd_mon_1_obj614 
+        { Taste::Coordinates => "3800 487 3881 487 3881 430 3797 430"; };
+      obj32171 : SUBPROGRAM ACCESS Main_Ctrl_Cmd.channel_monitor_1_obj163  -> Channel_1_Ctrl_Cmd.channel_monitor_1_obj624 
+        { Taste::Coordinates => "3100 539 2032 539 2032 629 1558 629"; };
+      obj31891 : SUBPROGRAM ACCESS PseudoRange_Measurements_1.dem_2_prm_1_obj681  -> Data_Demodulation_1.dem_2_prm_1_obj660 
+        { Taste::Coordinates => "3803 647 3952 647 3952 750 3802 750"; };
+      obj32232 : SUBPROGRAM ACCESS PVT.pvt_compute_1_obj394  -> PseudoRange_Measurements_1.pvt_compute_1_obj695 
+        { Taste::Coordinates => "3102 705 2108 705 2108 1354 1551 1354"; };
+      obj31903 : SUBPROGRAM ACCESS Correlators_2.corr_acc_int_2_obj716  -> Tracking_Loops_2.corr_acc_int_2_obj761 
+        { Taste::Coordinates => "3789 990 3923 990 3923 896 3787 896"; };
+      obj31927 : SUBPROGRAM ACCESS Data_Demodulation_2.track_2_dem_2_obj835  -> Tracking_Loops_2.track_2_dem_2_obj771 
+        { Taste::Coordinates => "3789 1032 3956 1032 3956 1262 3805 1262"; };
+      obj31915 : SUBPROGRAM ACCESS Tracking_Loops_2.track_cfg_cmd_mon_2_obj747  -> Channel_2_Ctrl_Cmd.track_cfg_cmd_mon_2_obj804 
+        { Taste::Coordinates => "3812 1171 3884 1171 3884 1065 3789 1065"; };
+      obj32183 : SUBPROGRAM ACCESS Main_Ctrl_Cmd.channel_monitor_2_obj175  -> Channel_2_Ctrl_Cmd.channel_monitor_2_obj814 
+        { Taste::Coordinates => "3112 1188 2032 1188 2032 707 1558 707"; };
+      obj31939 : SUBPROGRAM ACCESS PseudoRange_Measurements_2.dem_2_prm_2_obj871  -> Data_Demodulation_2.dem_2_prm_2_obj850 
+        { Taste::Coordinates => "3805 1309 3988 1309 3988 1430 3809 1430"; };
+      obj32244 : SUBPROGRAM ACCESS PVT.pvt_compute_2_obj409  -> PseudoRange_Measurements_2.pvt_compute_2_obj885 
+        { Taste::Coordinates => "3109 1374 2108 1374 2108 1425 1551 1425"; };
+      obj31951 : SUBPROGRAM ACCESS Correlators_3.corr_acc_int_3_obj906  -> Tracking_Loops_3.corr_acc_int_3_obj951 
+        { Taste::Coordinates => "3797 1745 3875 1745 3875 1608 3804 1608"; };
+      obj31975 : SUBPROGRAM ACCESS Data_Demodulation_3.track_2_dem_3_obj1025  -> Tracking_Loops_3.track_2_dem_3_obj961 
+        { Taste::Coordinates => "3797 1769 3954 1769 3954 2031 3798 2031"; };
+      obj31963 : SUBPROGRAM ACCESS Tracking_Loops_3.track_cfg_cmd_mon_3_obj937  -> Channel_3_Ctrl_Cmd.track_cfg_cmd_mon_3_obj994 
+        { Taste::Coordinates => "3798 1942 3876 1942 3876 1807 3797 1807"; };
+      obj32195 : SUBPROGRAM ACCESS Main_Ctrl_Cmd.channel_monitor_3_obj187  -> Channel_3_Ctrl_Cmd.channel_monitor_3_obj1004 
+        { Taste::Coordinates => "3098 1945 2032 1945 2032 774 1558 774"; };
+      obj31987 : SUBPROGRAM ACCESS PseudoRange_Measurements_3.dem_2_prm_3_obj1061  -> Data_Demodulation_3.dem_2_prm_3_obj1040 
+        { Taste::Coordinates => "3798 2071 3926 2071 3926 2217 3801 2217"; };
+      obj32256 : SUBPROGRAM ACCESS PVT.pvt_compute_3_obj424  -> PseudoRange_Measurements_3.pvt_compute_3_obj1075 
+        { Taste::Coordinates => "3101 2192 2108 2192 2108 1499 1551 1499"; };
+      obj31999 : SUBPROGRAM ACCESS Correlators_4.corr_acc_int_4_obj1096  -> Tracking_Loops_4.corr_acc_int_4_obj1141 
+        { Taste::Coordinates => "3794 2512 3947 2512 3947 2426 3792 2426"; };
+      obj32023 : SUBPROGRAM ACCESS Data_Demodulation_4.track_2_dem_4_obj1215  -> Tracking_Loops_4.track_2_dem_4_obj1151 
+        { Taste::Coordinates => "3794 2542 3985 2542 3985 2792 3789 2792"; };
+      obj32011 : SUBPROGRAM ACCESS Tracking_Loops_4.track_cfg_cmd_mon_4_obj1127  -> Channel_4_Ctrl_Cmd.track_cfg_cmd_mon_4_obj1184 
+        { Taste::Coordinates => "3790 2675 3947 2675 3947 2589 3794 2589"; };
+      obj32207 : SUBPROGRAM ACCESS Main_Ctrl_Cmd.channel_monitor_4_obj199  -> Channel_4_Ctrl_Cmd.channel_monitor_4_obj1194 
+        { Taste::Coordinates => "3090 2720 2032 2720 2032 855 1558 855"; };
+      obj32035 : SUBPROGRAM ACCESS PseudoRange_Measurements_4.dem_2_prm_4_obj1251  -> Data_Demodulation_4.dem_2_prm_4_obj1230 
+        { Taste::Coordinates => "3789 2861 3878 2861 3878 2960 3785 2960"; };
+      obj32268 : SUBPROGRAM ACCESS PVT.pvt_compute_4_obj439  -> PseudoRange_Measurements_4.pvt_compute_4_obj1265 
+        { Taste::Coordinates => "3085 2970 2108 2970 2108 1573 1551 1573"; };
+      obj32047 : SUBPROGRAM ACCESS Correlators_5.corr_acc_int_5_obj1286  -> Tracking_Loops_5.corr_acc_int_5_obj1331 
+        { Taste::Coordinates => "3834 3269 3999 3269 3999 3203 3830 3203"; };
+      obj32071 : SUBPROGRAM ACCESS Data_Demodulation_5.track_2_dem_5_obj1405  -> Tracking_Loops_5.track_2_dem_5_obj1341 
+        { Taste::Coordinates => "3834 3298 4071 3298 4071 3649 3841 3649"; };
+      obj32059 : SUBPROGRAM ACCESS Tracking_Loops_5.track_cfg_cmd_mon_5_obj1317  -> Channel_5_Ctrl_Cmd.track_cfg_cmd_mon_5_obj1374 
+        { Taste::Coordinates => "3839 3550 3998 3550 3998 3376 3834 3376"; };
+      obj32219 : SUBPROGRAM ACCESS Main_Ctrl_Cmd.channel_monitor_5_obj211  -> Channel_5_Ctrl_Cmd.channel_monitor_5_obj1384 
+        { Taste::Coordinates => "3139 3557 2031 3557 2031 944 1558 944"; };
+      obj32083 : SUBPROGRAM ACCESS PseudoRange_Measurements_5.dem_2_prm_5_obj1441  -> Data_Demodulation_5.dem_2_prm_5_obj1420 
+        { Taste::Coordinates => "3841 3691 4082 3691 4082 3807 3843 3807"; };
+      obj32280 : SUBPROGRAM ACCESS PVT.pvt_compute_5_obj454  -> PseudoRange_Measurements_5.pvt_Compute_5_obj1455 
+        { Taste::Coordinates => "3143 3846 2108 3846 2108 1679 1551 1679"; };
+      obj281590 : SUBPROGRAM ACCESS TabData.fft_memory_obj1476  -> FFT.fft_memory_obj1566 
+        { Taste::Coordinates => "780 3809 668 3809 668 3313 774 3313"; };
+      obj281366 : SUBPROGRAM ACCESS Butterfly.but_ctrl_cmd_obj1530  -> FFT.but_ctrl_cmd_obj1576 
+        { Taste::Coordinates => "780 3732 693 3732 693 3571 776 3571"; };
+      obj281868 : SUBPROGRAM ACCESS TabData.int_memory_obj1491  -> Integrator.int_memory_obj1610 
+        { Taste::Coordinates => "789 3967 645 3967 645 3250 774 3250"; };
+      obj282051 : SUBPROGRAM ACCESS TabData.corr_memory_obj1504  -> Correlator.corr_memory_obj1643 
+        { Taste::Coordinates => "793 4228 622 4228 622 3181 774 3181"; };
+      obj280238 : SUBPROGRAM ACCESS CorrMult.corrmult_ctrl_cmd_obj1674  -> Correlator.corrmult_ctrl_cmd_obj1653 
+        { Taste::Coordinates => "793 4318 700 4318 700 4454 803 4454"; };
+      obj281217 : SUBPROGRAM ACCESS FFT.fft_cmd_obj1554  -> Acquisition_Ctrl_Cmd.fft_cmd_obj1713 
+        { Taste::Coordinates => "1499 4850 1709 4850 1709 3748 1477 3748"; };
+      obj280922 : SUBPROGRAM ACCESS Integrator.int_ctrl_cmd_obj1597  -> Acquisition_Ctrl_Cmd.int_ctrl_cmd_obj1723 
+        { Taste::Coordinates => "1499 4766 1667 4766 1667 4095 1489 4095"; };
+      obj280597 : SUBPROGRAM ACCESS Correlator.corr_cmd_obj1631  -> Acquisition_Ctrl_Cmd.corr_cmd_obj1733 
+        { Taste::Coordinates => "1499 4673 1628 4673 1628 4309 1496 4309"; };
+      obj273180 : SUBPROGRAM ACCESS Main_Ctrl_Cmd.main_cfg_cmd_obj248  -> GPS_Receiver_GUI.main_cfg_cmd_obj1790 
+        { Taste::Coordinates => "740 2211 190 2211 190 396 690 396"; };
+      obj183867 : SUBPROGRAM ACCESS Correlators_6.corr_acc_int_6_obj1834  -> Tracking_Loops_6.corr_acc_int_6_obj1879 
+        { Taste::Coordinates => "3837 4155 3962 4155 3962 4071 3833 4071"; };
+      obj186093 : SUBPROGRAM ACCESS Data_Demodulation_6.track_2_dem_6_obj1953  -> Tracking_Loops_6.track_2_dem_6_obj1889 
+        { Taste::Coordinates => "3837 4200 4032 4200 4032 4519 3844 4519"; };
+      obj183947 : SUBPROGRAM ACCESS Tracking_Loops_6.track_cfg_cmd_mon_6_obj1865  -> Channel_6_Ctrl_Cmd.track_cfg_cmd_mon_6_obj1922 
+        { Taste::Coordinates => "3842 4418 3967 4418 3967 4244 3837 4244"; };
+      obj230813 : SUBPROGRAM ACCESS Main_Ctrl_Cmd.channel_monitor_6_obj223  -> Channel_6_Ctrl_Cmd.channel_monitor_6_obj1932 
+        { Taste::Coordinates => "3142 4425 2031 4425 2031 2965 2032 2965 2032 1039 1558 1039"; };
+      obj186180 : SUBPROGRAM ACCESS PseudoRange_Measurements_6.dem_2_prm_6_obj1989  -> Data_Demodulation_6.dem_2_prm_6_obj1968 
+        { Taste::Coordinates => "3844 4559 3971 4559 3971 4675 3846 4675"; };
+      obj209712 : SUBPROGRAM ACCESS PVT.pvt_compute_6_obj469  -> PseudoRange_Measurements_6.pvt_compute_6_obj2003 
+        { Taste::Coordinates => "3146 4714 2110 4714 2110 3859 2108 3859 2108 1825 1551 1825"; };
+      obj32110 : SUBPROGRAM ACCESS Channel_1_Ctrl_Cmd.channel_cfg_cmd_1_obj602  -> Main_Ctrl_Cmd.channel_cfg_cmd_1_obj260 
+        { Taste::Coordinates => "1558 104 1951 104 1951 490 3100 490"; };
+      obj32146 : SUBPROGRAM ACCESS Channel_4_Ctrl_Cmd.channel_cfg_cmd_4_obj1172  -> Main_Ctrl_Cmd.channel_cfg_cmd_4_obj270 
+        { Taste::Coordinates => "1558 355 1951 355 1951 2663 3090 2663"; };
+      obj32122 : SUBPROGRAM ACCESS Channel_2_Ctrl_Cmd.channel_cfg_cmd_2_obj792  -> Main_Ctrl_Cmd.channel_cfg_cmd_2_obj280 
+        { Taste::Coordinates => "1558 181 1951 181 1951 1146 3112 1146"; };
+      obj32158 : SUBPROGRAM ACCESS Channel_5_Ctrl_Cmd.channel_cfg_cmd_5_obj1362  -> Main_Ctrl_Cmd.channel_cfg_cmd_5_obj290 
+        { Taste::Coordinates => "1558 432 1951 432 1951 3489 3139 3489"; };
+      obj32134 : SUBPROGRAM ACCESS Channel_3_Ctrl_Cmd.channel_cfg_cmd_3_obj982  -> Main_Ctrl_Cmd.channel_cfg_cmd_3_obj300 
+        { Taste::Coordinates => "1558 273 1951 273 1951 1908 3098 1908"; };
+      obj220972 : SUBPROGRAM ACCESS Channel_6_Ctrl_Cmd.channel_cfg_cmd_6_obj1910  -> Main_Ctrl_Cmd.channel_cfg_cmd_6_obj310 
+        { Taste::Coordinates => "1558 499 1951 499 1951 3031 1951 3031 1951 4357 3142 4357"; };
+      obj32293 : SUBPROGRAM ACCESS PVT.pvt_cfg_cmd_obj381  -> Main_Ctrl_Cmd.pvt_cfg_cmd_obj320 
+        { Taste::Coordinates => "690 760 290 760 290 1329 851 1329"; };
+      obj269448 : SUBPROGRAM ACCESS GPS_Receiver_GUI.rx_monitor_obj1754  -> Main_Ctrl_Cmd.rx_monitor_obj330 
+        { Taste::Coordinates => "690 1073 190 1073 190 2285 740 2285"; };
+      obj272719 : SUBPROGRAM ACCESS GPS_Receiver_GUI.acq_monitor_obj1766  -> Main_Ctrl_Cmd.acq_monitor_obj340 
+        { Taste::Coordinates => "690 991 190 991 190 2383 740 2383"; };
+      obj272926 : SUBPROGRAM ACCESS GPS_Receiver_GUI.pvt_results_obj1778  -> Main_Ctrl_Cmd.pvt_results_obj350 
+        { Taste::Coordinates => "690 922 190 922 190 2474 740 2474"; };
+      obj275546 : SUBPROGRAM ACCESS Acquisition_Ctrl_Cmd.acq_cfg_cmd_mon_obj1698  -> Main_Ctrl_Cmd.acq_cfg_cmd_mon_obj360 
+        { Taste::Coordinates => "690 672 190 672 190 4703 684 4703"; };
+      obj32305 : SUBPROGRAM ACCESS Main_Ctrl_Cmd.pvt_monitor_obj235  -> PVT.pvt_monitor_obj495 
+        { Taste::Coordinates => "851 1474 290 1474 290 477 690 477"; };
+      obj278406 : SUBPROGRAM ACCESS TM_TC_Simulation_GUI.update_pvt_obj1811  -> PVT.update_pvt_obj505 
+        { Taste::Coordinates => "851 1884 226 1884 226 2726 766 2726"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Main_Ctrl_Cmd
+  ---------------------------------------------------
+
+  SYSTEM Main_Ctrl_Cmd
+    FEATURES
+      channel_monitor_1_obj163 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_1_obj163.others
+        { Taste::Coordinates => "1558 629";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      channel_monitor_2_obj175 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_2_obj175.others
+        { Taste::Coordinates => "1558 707";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      channel_monitor_3_obj187 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_3_obj187.others
+        { Taste::Coordinates => "1558 774";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      channel_monitor_4_obj199 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_4_obj199.others
+        { Taste::Coordinates => "1558 855";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      channel_monitor_5_obj211 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_5_obj211.others
+        { Taste::Coordinates => "1558 944";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      channel_monitor_6_obj223 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_6_obj223.others
+        { Taste::Coordinates => "1558 1039";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_monitor_obj235 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_monitor_obj235.others
+        { Taste::Coordinates => "690 477";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      main_cfg_cmd_obj248 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::main_cfg_cmd_obj248.others
+        { Taste::Coordinates => "690 396";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      channel_cfg_cmd_1_obj260 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_1_obj602.others 
+        { Taste::Coordinates => "1558 104";
+          Taste::RCMoperationKind => sporadic;};
+      channel_cfg_cmd_4_obj270 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_4_obj1172.others 
+        { Taste::Coordinates => "1558 355";
+          Taste::RCMoperationKind => sporadic;};
+      channel_cfg_cmd_2_obj280 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_2_obj792.others 
+        { Taste::Coordinates => "1558 181";
+          Taste::RCMoperationKind => sporadic;};
+      channel_cfg_cmd_5_obj290 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_5_obj1362.others 
+        { Taste::Coordinates => "1558 432";
+          Taste::RCMoperationKind => sporadic;};
+      channel_cfg_cmd_3_obj300 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_3_obj982.others 
+        { Taste::Coordinates => "1558 273";
+          Taste::RCMoperationKind => sporadic;};
+      channel_cfg_cmd_6_obj310 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_6_obj1910.others 
+        { Taste::Coordinates => "1558 499";
+          Taste::RCMoperationKind => sporadic;};
+      pvt_cfg_cmd_obj320 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_cfg_cmd_obj381.others 
+        { Taste::Coordinates => "690 760";
+          Taste::RCMoperationKind => protected;};
+      rx_monitor_obj330 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::rx_monitor_obj1754.others 
+        { Taste::Coordinates => "690 1073";
+          Taste::RCMoperationKind => sporadic;};
+      acq_monitor_obj340 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::acq_monitor_obj1766.others 
+        { Taste::Coordinates => "690 991";
+          Taste::RCMoperationKind => sporadic;};
+      pvt_results_obj350 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_results_obj1778.others 
+        { Taste::Coordinates => "690 922";
+          Taste::RCMoperationKind => sporadic;};
+      acq_cfg_cmd_mon_obj360 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::acq_cfg_cmd_mon_obj1698.others 
+        { Taste::Coordinates => "690 672";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Main_Ctrl_Cmd";
+  END Main_Ctrl_Cmd;
+
+  SYSTEM IMPLEMENTATION Main_Ctrl_Cmd.others
+    SUBCOMPONENTS
+      channel_monitor_1_obj163_impl : SUBPROGRAM interfaceview::FV::channel_monitor_1_obj163.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      channel_monitor_2_obj175_impl : SUBPROGRAM interfaceview::FV::channel_monitor_2_obj175.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      channel_monitor_3_obj187_impl : SUBPROGRAM interfaceview::FV::channel_monitor_3_obj187.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      channel_monitor_4_obj199_impl : SUBPROGRAM interfaceview::FV::channel_monitor_4_obj199.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      channel_monitor_5_obj211_impl : SUBPROGRAM interfaceview::FV::channel_monitor_5_obj211.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      channel_monitor_6_obj223_impl : SUBPROGRAM interfaceview::FV::channel_monitor_6_obj223.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      pvt_monitor_obj235_impl : SUBPROGRAM interfaceview::FV::pvt_monitor_obj235.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      main_cfg_cmd_obj248_impl : SUBPROGRAM interfaceview::FV::main_cfg_cmd_obj248.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS channel_monitor_1_obj163_impl  -> channel_monitor_1_obj163;
+      SUBPROGRAM ACCESS channel_monitor_2_obj175_impl  -> channel_monitor_2_obj175;
+      SUBPROGRAM ACCESS channel_monitor_3_obj187_impl  -> channel_monitor_3_obj187;
+      SUBPROGRAM ACCESS channel_monitor_4_obj199_impl  -> channel_monitor_4_obj199;
+      SUBPROGRAM ACCESS channel_monitor_5_obj211_impl  -> channel_monitor_5_obj211;
+      SUBPROGRAM ACCESS channel_monitor_6_obj223_impl  -> channel_monitor_6_obj223;
+      SUBPROGRAM ACCESS pvt_monitor_obj235_impl  -> pvt_monitor_obj235;
+      SUBPROGRAM ACCESS main_cfg_cmd_obj248_impl  -> main_cfg_cmd_obj248;
+  END Main_Ctrl_Cmd.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::PVT
+  ---------------------------------------------------
+
+  SYSTEM PVT
+    FEATURES
+      pvt_cfg_cmd_obj381 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_cfg_cmd_obj381.others
+        { Taste::Coordinates => "851 1329";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;};
+      pvt_compute_1_obj394 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_1_obj394.others
+        { Taste::Coordinates => "1551 1354";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_2_obj409 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_2_obj409.others
+        { Taste::Coordinates => "1551 1425";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_3_obj424 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_3_obj424.others
+        { Taste::Coordinates => "1551 1499";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_4_obj439 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_4_obj439.others
+        { Taste::Coordinates => "1551 1573";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_5_obj454 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_5_obj454.others
+        { Taste::Coordinates => "1551 1679";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_6_obj469 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_6_obj469.others
+        { Taste::Coordinates => "1551 1825";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_cyclic_task_obj484 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_cyclic_task_obj484.others
+        { Taste::Coordinates => "851 1403";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;};
+      pvt_monitor_obj495 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_monitor_obj235.others 
+        { Taste::Coordinates => "851 1474";
+          Taste::RCMoperationKind => protected;};
+      update_pvt_obj505 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::update_pvt_obj1811.others 
+        { Taste::Coordinates => "851 1884";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "PVT";
+  END PVT;
+
+  SYSTEM IMPLEMENTATION PVT.others
+    SUBCOMPONENTS
+      pvt_cfg_cmd_obj381_impl : SUBPROGRAM interfaceview::FV::pvt_cfg_cmd_obj381.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      pvt_compute_1_obj394_impl : SUBPROGRAM interfaceview::FV::pvt_compute_1_obj394.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      pvt_compute_2_obj409_impl : SUBPROGRAM interfaceview::FV::pvt_compute_2_obj409.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      pvt_compute_3_obj424_impl : SUBPROGRAM interfaceview::FV::pvt_compute_3_obj424.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      pvt_compute_4_obj439_impl : SUBPROGRAM interfaceview::FV::pvt_compute_4_obj439.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      pvt_compute_5_obj454_impl : SUBPROGRAM interfaceview::FV::pvt_compute_5_obj454.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      pvt_compute_6_obj469_impl : SUBPROGRAM interfaceview::FV::pvt_compute_6_obj469.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      pvt_cyclic_task_obj484_impl : SUBPROGRAM interfaceview::FV::pvt_cyclic_task_obj484.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS pvt_cfg_cmd_obj381_impl  -> pvt_cfg_cmd_obj381;
+      SUBPROGRAM ACCESS pvt_compute_1_obj394_impl  -> pvt_compute_1_obj394;
+      SUBPROGRAM ACCESS pvt_compute_2_obj409_impl  -> pvt_compute_2_obj409;
+      SUBPROGRAM ACCESS pvt_compute_3_obj424_impl  -> pvt_compute_3_obj424;
+      SUBPROGRAM ACCESS pvt_compute_4_obj439_impl  -> pvt_compute_4_obj439;
+      SUBPROGRAM ACCESS pvt_compute_5_obj454_impl  -> pvt_compute_5_obj454;
+      SUBPROGRAM ACCESS pvt_compute_6_obj469_impl  -> pvt_compute_6_obj469;
+      SUBPROGRAM ACCESS pvt_cyclic_task_obj484_impl  -> pvt_cyclic_task_obj484;
+  END PVT.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 5000 5000";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::IV::Channel_1
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_1::Correlators_1
+  ---------------------------------------------------
+
+  SYSTEM Correlators_1
+    FEATURES
+      corr_acc_int_1_obj526 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_1_obj526.others
+        { Taste::Coordinates => "3794 259";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Correlators_1";
+  END Correlators_1;
+
+  SYSTEM IMPLEMENTATION Correlators_1.others
+    SUBCOMPONENTS
+      corr_acc_int_1_obj526_impl : SUBPROGRAM interfaceview::FV::corr_acc_int_1_obj526.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS corr_acc_int_1_obj526_impl  -> corr_acc_int_1_obj526;
+  END Correlators_1.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_1::Tracking_Loops_1
+  ---------------------------------------------------
+
+  SYSTEM Tracking_Loops_1
+    FEATURES
+      track_cfg_cmd_mon_1_obj557 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_1_obj557.others
+        { Taste::Coordinates => "3797 430";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      corr_acc_int_1_obj571 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_1_obj526.others 
+        { Taste::Coordinates => "3797 346";
+          Taste::RCMoperationKind => unprotected;};
+      track_2_dem_1_obj581 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_1_obj645.others 
+        { Taste::Coordinates => "3797 390";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Tracking_Loops_1";
+  END Tracking_Loops_1;
+
+  SYSTEM IMPLEMENTATION Tracking_Loops_1.others
+    SUBCOMPONENTS
+      track_cfg_cmd_mon_1_obj557_impl : SUBPROGRAM interfaceview::FV::track_cfg_cmd_mon_1_obj557.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_cfg_cmd_mon_1_obj557_impl  -> track_cfg_cmd_mon_1_obj557;
+  END Tracking_Loops_1.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_1::Channel_1_Ctrl_Cmd
+  ---------------------------------------------------
+
+  SYSTEM Channel_1_Ctrl_Cmd
+    FEATURES
+      channel_cfg_cmd_1_obj602 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_1_obj602.others
+        { Taste::Coordinates => "3100 490";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      track_cfg_cmd_mon_1_obj614 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_1_obj557.others 
+        { Taste::Coordinates => "3800 487";
+          Taste::RCMoperationKind => unprotected;};
+      channel_monitor_1_obj624 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_1_obj163.others 
+        { Taste::Coordinates => "3100 539";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Channel_1_Ctrl_Cmd";
+  END Channel_1_Ctrl_Cmd;
+
+  SYSTEM IMPLEMENTATION Channel_1_Ctrl_Cmd.others
+    SUBCOMPONENTS
+      channel_cfg_cmd_1_obj602_impl : SUBPROGRAM interfaceview::FV::channel_cfg_cmd_1_obj602.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS channel_cfg_cmd_1_obj602_impl  -> channel_cfg_cmd_1_obj602;
+  END Channel_1_Ctrl_Cmd.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_1::Data_Demodulation_1
+  ---------------------------------------------------
+
+  SYSTEM Data_Demodulation_1
+    FEATURES
+      track_2_dem_1_obj645 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_1_obj645.others
+        { Taste::Coordinates => "3803 610";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      dem_2_prm_1_obj660 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_1_obj681.others 
+        { Taste::Coordinates => "3803 647";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Data_Demodulation_1";
+  END Data_Demodulation_1;
+
+  SYSTEM IMPLEMENTATION Data_Demodulation_1.others
+    SUBCOMPONENTS
+      track_2_dem_1_obj645_impl : SUBPROGRAM interfaceview::FV::track_2_dem_1_obj645.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_2_dem_1_obj645_impl  -> track_2_dem_1_obj645;
+  END Data_Demodulation_1.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_1::PseudoRange_Measurements_1
+  ---------------------------------------------------
+
+  SYSTEM PseudoRange_Measurements_1
+    FEATURES
+      dem_2_prm_1_obj681 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_1_obj681.others
+        { Taste::Coordinates => "3802 750";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_1_obj695 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_1_obj394.others 
+        { Taste::Coordinates => "3102 705";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "PseudoRange_Measurements_1";
+  END PseudoRange_Measurements_1;
+
+  SYSTEM IMPLEMENTATION PseudoRange_Measurements_1.others
+    SUBCOMPONENTS
+      dem_2_prm_1_obj681_impl : SUBPROGRAM interfaceview::FV::dem_2_prm_1_obj681.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS dem_2_prm_1_obj681_impl  -> dem_2_prm_1_obj681;
+  END PseudoRange_Measurements_1.others;
+
+PROPERTIES
+  Taste::Coordinates => "2838 179 4103 813";
+END interfaceview::IV::Channel_1;
+
+PACKAGE interfaceview::IV::Channel_2
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_2::Correlators_2
+  ---------------------------------------------------
+
+  SYSTEM Correlators_2
+    FEATURES
+      corr_acc_int_2_obj716 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_2_obj716.others
+        { Taste::Coordinates => "3787 896";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Correlators_2";
+  END Correlators_2;
+
+  SYSTEM IMPLEMENTATION Correlators_2.others
+    SUBCOMPONENTS
+      corr_acc_int_2_obj716_impl : SUBPROGRAM interfaceview::FV::corr_acc_int_2_obj716.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS corr_acc_int_2_obj716_impl  -> corr_acc_int_2_obj716;
+  END Correlators_2.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_2::Tracking_Loops_2
+  ---------------------------------------------------
+
+  SYSTEM Tracking_Loops_2
+    FEATURES
+      track_cfg_cmd_mon_2_obj747 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_2_obj747.others
+        { Taste::Coordinates => "3789 1065";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      corr_acc_int_2_obj761 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_2_obj716.others 
+        { Taste::Coordinates => "3789 990";
+          Taste::RCMoperationKind => unprotected;};
+      track_2_dem_2_obj771 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_2_obj835.others 
+        { Taste::Coordinates => "3789 1032";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Tracking_Loops_2";
+  END Tracking_Loops_2;
+
+  SYSTEM IMPLEMENTATION Tracking_Loops_2.others
+    SUBCOMPONENTS
+      track_cfg_cmd_mon_2_obj747_impl : SUBPROGRAM interfaceview::FV::track_cfg_cmd_mon_2_obj747.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_cfg_cmd_mon_2_obj747_impl  -> track_cfg_cmd_mon_2_obj747;
+  END Tracking_Loops_2.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_2::Channel_2_Ctrl_Cmd
+  ---------------------------------------------------
+
+  SYSTEM Channel_2_Ctrl_Cmd
+    FEATURES
+      channel_cfg_cmd_2_obj792 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_2_obj792.others
+        { Taste::Coordinates => "3112 1146";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      track_cfg_cmd_mon_2_obj804 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_2_obj747.others 
+        { Taste::Coordinates => "3812 1171";
+          Taste::RCMoperationKind => unprotected;};
+      channel_monitor_2_obj814 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_2_obj175.others 
+        { Taste::Coordinates => "3112 1188";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Channel_2_Ctrl_Cmd";
+  END Channel_2_Ctrl_Cmd;
+
+  SYSTEM IMPLEMENTATION Channel_2_Ctrl_Cmd.others
+    SUBCOMPONENTS
+      channel_cfg_cmd_2_obj792_impl : SUBPROGRAM interfaceview::FV::channel_cfg_cmd_2_obj792.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS channel_cfg_cmd_2_obj792_impl  -> channel_cfg_cmd_2_obj792;
+  END Channel_2_Ctrl_Cmd.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_2::Data_Demodulation_2
+  ---------------------------------------------------
+
+  SYSTEM Data_Demodulation_2
+    FEATURES
+      track_2_dem_2_obj835 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_2_obj835.others
+        { Taste::Coordinates => "3805 1262";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      dem_2_prm_2_obj850 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_2_obj871.others 
+        { Taste::Coordinates => "3805 1309";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Data_Demodulation_2";
+  END Data_Demodulation_2;
+
+  SYSTEM IMPLEMENTATION Data_Demodulation_2.others
+    SUBCOMPONENTS
+      track_2_dem_2_obj835_impl : SUBPROGRAM interfaceview::FV::track_2_dem_2_obj835.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_2_dem_2_obj835_impl  -> track_2_dem_2_obj835;
+  END Data_Demodulation_2.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_2::PseudoRange_Measurements_2
+  ---------------------------------------------------
+
+  SYSTEM PseudoRange_Measurements_2
+    FEATURES
+      dem_2_prm_2_obj871 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_2_obj871.others
+        { Taste::Coordinates => "3809 1430";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_2_obj885 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_2_obj409.others 
+        { Taste::Coordinates => "3109 1374";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "PseudoRange_Measurements_2";
+  END PseudoRange_Measurements_2;
+
+  SYSTEM IMPLEMENTATION PseudoRange_Measurements_2.others
+    SUBCOMPONENTS
+      dem_2_prm_2_obj871_impl : SUBPROGRAM interfaceview::FV::dem_2_prm_2_obj871.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS dem_2_prm_2_obj871_impl  -> dem_2_prm_2_obj871;
+  END PseudoRange_Measurements_2.others;
+
+PROPERTIES
+  Taste::Coordinates => "2848 834 4109 1505";
+END interfaceview::IV::Channel_2;
+
+PACKAGE interfaceview::IV::Channel_3
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_3::Correlators_3
+  ---------------------------------------------------
+
+  SYSTEM Correlators_3
+    FEATURES
+      corr_acc_int_3_obj906 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_3_obj906.others
+        { Taste::Coordinates => "3804 1608";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Correlators_3";
+  END Correlators_3;
+
+  SYSTEM IMPLEMENTATION Correlators_3.others
+    SUBCOMPONENTS
+      corr_acc_int_3_obj906_impl : SUBPROGRAM interfaceview::FV::corr_acc_int_3_obj906.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS corr_acc_int_3_obj906_impl  -> corr_acc_int_3_obj906;
+  END Correlators_3.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_3::Tracking_Loops_3
+  ---------------------------------------------------
+
+  SYSTEM Tracking_Loops_3
+    FEATURES
+      track_cfg_cmd_mon_3_obj937 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_3_obj937.others
+        { Taste::Coordinates => "3797 1807";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      corr_acc_int_3_obj951 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_3_obj906.others 
+        { Taste::Coordinates => "3797 1745";
+          Taste::RCMoperationKind => unprotected;};
+      track_2_dem_3_obj961 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_3_obj1025.others 
+        { Taste::Coordinates => "3797 1769";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Tracking_Loops_3";
+  END Tracking_Loops_3;
+
+  SYSTEM IMPLEMENTATION Tracking_Loops_3.others
+    SUBCOMPONENTS
+      track_cfg_cmd_mon_3_obj937_impl : SUBPROGRAM interfaceview::FV::track_cfg_cmd_mon_3_obj937.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_cfg_cmd_mon_3_obj937_impl  -> track_cfg_cmd_mon_3_obj937;
+  END Tracking_Loops_3.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_3::Channel_3_Ctrl_Cmd
+  ---------------------------------------------------
+
+  SYSTEM Channel_3_Ctrl_Cmd
+    FEATURES
+      channel_cfg_cmd_3_obj982 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_3_obj982.others
+        { Taste::Coordinates => "3098 1908";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      track_cfg_cmd_mon_3_obj994 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_3_obj937.others 
+        { Taste::Coordinates => "3798 1942";
+          Taste::RCMoperationKind => unprotected;};
+      channel_monitor_3_obj1004 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_3_obj187.others 
+        { Taste::Coordinates => "3098 1945";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Channel_3_Ctrl_Cmd";
+  END Channel_3_Ctrl_Cmd;
+
+  SYSTEM IMPLEMENTATION Channel_3_Ctrl_Cmd.others
+    SUBCOMPONENTS
+      channel_cfg_cmd_3_obj982_impl : SUBPROGRAM interfaceview::FV::channel_cfg_cmd_3_obj982.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS channel_cfg_cmd_3_obj982_impl  -> channel_cfg_cmd_3_obj982;
+  END Channel_3_Ctrl_Cmd.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_3::Data_Demodulation_3
+  ---------------------------------------------------
+
+  SYSTEM Data_Demodulation_3
+    FEATURES
+      track_2_dem_3_obj1025 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_3_obj1025.others
+        { Taste::Coordinates => "3798 2031";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      dem_2_prm_3_obj1040 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_3_obj1061.others 
+        { Taste::Coordinates => "3798 2071";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Data_Demodulation_3";
+  END Data_Demodulation_3;
+
+  SYSTEM IMPLEMENTATION Data_Demodulation_3.others
+    SUBCOMPONENTS
+      track_2_dem_3_obj1025_impl : SUBPROGRAM interfaceview::FV::track_2_dem_3_obj1025.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_2_dem_3_obj1025_impl  -> track_2_dem_3_obj1025;
+  END Data_Demodulation_3.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_3::PseudoRange_Measurements_3
+  ---------------------------------------------------
+
+  SYSTEM PseudoRange_Measurements_3
+    FEATURES
+      dem_2_prm_3_obj1061 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_3_obj1061.others
+        { Taste::Coordinates => "3801 2217";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_3_obj1075 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_3_obj424.others 
+        { Taste::Coordinates => "3101 2192";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "PseudoRange_Measurements_3";
+  END PseudoRange_Measurements_3;
+
+  SYSTEM IMPLEMENTATION PseudoRange_Measurements_3.others
+    SUBCOMPONENTS
+      dem_2_prm_3_obj1061_impl : SUBPROGRAM interfaceview::FV::dem_2_prm_3_obj1061.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS dem_2_prm_3_obj1061_impl  -> dem_2_prm_3_obj1061;
+  END PseudoRange_Measurements_3.others;
+
+PROPERTIES
+  Taste::Coordinates => "2838 1535 4109 2306";
+END interfaceview::IV::Channel_3;
+
+PACKAGE interfaceview::IV::Channel_4
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_4::Correlators_4
+  ---------------------------------------------------
+
+  SYSTEM Correlators_4
+    FEATURES
+      corr_acc_int_4_obj1096 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_4_obj1096.others
+        { Taste::Coordinates => "3792 2426";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Correlators_4";
+  END Correlators_4;
+
+  SYSTEM IMPLEMENTATION Correlators_4.others
+    SUBCOMPONENTS
+      corr_acc_int_4_obj1096_impl : SUBPROGRAM interfaceview::FV::corr_acc_int_4_obj1096.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS corr_acc_int_4_obj1096_impl  -> corr_acc_int_4_obj1096;
+  END Correlators_4.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_4::Tracking_Loops_4
+  ---------------------------------------------------
+
+  SYSTEM Tracking_Loops_4
+    FEATURES
+      track_cfg_cmd_mon_4_obj1127 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_4_obj1127.others
+        { Taste::Coordinates => "3794 2589";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      corr_acc_int_4_obj1141 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_4_obj1096.others 
+        { Taste::Coordinates => "3794 2512";
+          Taste::RCMoperationKind => unprotected;};
+      track_2_dem_4_obj1151 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_4_obj1215.others 
+        { Taste::Coordinates => "3794 2542";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Tracking_Loops_4";
+  END Tracking_Loops_4;
+
+  SYSTEM IMPLEMENTATION Tracking_Loops_4.others
+    SUBCOMPONENTS
+      track_cfg_cmd_mon_4_obj1127_impl : SUBPROGRAM interfaceview::FV::track_cfg_cmd_mon_4_obj1127.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_cfg_cmd_mon_4_obj1127_impl  -> track_cfg_cmd_mon_4_obj1127;
+  END Tracking_Loops_4.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_4::Channel_4_Ctrl_Cmd
+  ---------------------------------------------------
+
+  SYSTEM Channel_4_Ctrl_Cmd
+    FEATURES
+      channel_cfg_cmd_4_obj1172 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_4_obj1172.others
+        { Taste::Coordinates => "3090 2663";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      track_cfg_cmd_mon_4_obj1184 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_4_obj1127.others 
+        { Taste::Coordinates => "3790 2675";
+          Taste::RCMoperationKind => unprotected;};
+      channel_monitor_4_obj1194 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_4_obj199.others 
+        { Taste::Coordinates => "3090 2720";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Channel_4_Ctrl_Cmd";
+  END Channel_4_Ctrl_Cmd;
+
+  SYSTEM IMPLEMENTATION Channel_4_Ctrl_Cmd.others
+    SUBCOMPONENTS
+      channel_cfg_cmd_4_obj1172_impl : SUBPROGRAM interfaceview::FV::channel_cfg_cmd_4_obj1172.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS channel_cfg_cmd_4_obj1172_impl  -> channel_cfg_cmd_4_obj1172;
+  END Channel_4_Ctrl_Cmd.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_4::Data_Demodulation_4
+  ---------------------------------------------------
+
+  SYSTEM Data_Demodulation_4
+    FEATURES
+      track_2_dem_4_obj1215 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_4_obj1215.others
+        { Taste::Coordinates => "3789 2792";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      dem_2_prm_4_obj1230 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_4_obj1251.others 
+        { Taste::Coordinates => "3789 2861";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Data_Demodulation_4";
+  END Data_Demodulation_4;
+
+  SYSTEM IMPLEMENTATION Data_Demodulation_4.others
+    SUBCOMPONENTS
+      track_2_dem_4_obj1215_impl : SUBPROGRAM interfaceview::FV::track_2_dem_4_obj1215.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_2_dem_4_obj1215_impl  -> track_2_dem_4_obj1215;
+  END Data_Demodulation_4.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_4::PseudoRange_Measurements_4
+  ---------------------------------------------------
+
+  SYSTEM PseudoRange_Measurements_4
+    FEATURES
+      dem_2_prm_4_obj1251 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_4_obj1251.others
+        { Taste::Coordinates => "3785 2960";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_compute_4_obj1265 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_4_obj439.others 
+        { Taste::Coordinates => "3085 2970";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "PseudoRange_Measurements_4";
+  END PseudoRange_Measurements_4;
+
+  SYSTEM IMPLEMENTATION PseudoRange_Measurements_4.others
+    SUBCOMPONENTS
+      dem_2_prm_4_obj1251_impl : SUBPROGRAM interfaceview::FV::dem_2_prm_4_obj1251.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS dem_2_prm_4_obj1251_impl  -> dem_2_prm_4_obj1251;
+  END PseudoRange_Measurements_4.others;
+
+PROPERTIES
+  Taste::Coordinates => "2850 2341 4123 3046";
+END interfaceview::IV::Channel_4;
+
+PACKAGE interfaceview::IV::Channel_5
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_5::Correlators_5
+  ---------------------------------------------------
+
+  SYSTEM Correlators_5
+    FEATURES
+      corr_acc_int_5_obj1286 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_5_obj1286.others
+        { Taste::Coordinates => "3830 3203";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Correlators_5";
+  END Correlators_5;
+
+  SYSTEM IMPLEMENTATION Correlators_5.others
+    SUBCOMPONENTS
+      corr_acc_int_5_obj1286_impl : SUBPROGRAM interfaceview::FV::corr_acc_int_5_obj1286.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS corr_acc_int_5_obj1286_impl  -> corr_acc_int_5_obj1286;
+  END Correlators_5.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_5::Tracking_Loops_5
+  ---------------------------------------------------
+
+  SYSTEM Tracking_Loops_5
+    FEATURES
+      track_cfg_cmd_mon_5_obj1317 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_5_obj1317.others
+        { Taste::Coordinates => "3834 3376";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      corr_acc_int_5_obj1331 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_5_obj1286.others 
+        { Taste::Coordinates => "3834 3269";
+          Taste::RCMoperationKind => unprotected;};
+      track_2_dem_5_obj1341 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_5_obj1405.others 
+        { Taste::Coordinates => "3834 3298";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Tracking_Loops_5";
+  END Tracking_Loops_5;
+
+  SYSTEM IMPLEMENTATION Tracking_Loops_5.others
+    SUBCOMPONENTS
+      track_cfg_cmd_mon_5_obj1317_impl : SUBPROGRAM interfaceview::FV::track_cfg_cmd_mon_5_obj1317.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_cfg_cmd_mon_5_obj1317_impl  -> track_cfg_cmd_mon_5_obj1317;
+  END Tracking_Loops_5.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_5::Channel_5_Ctrl_Cmd
+  ---------------------------------------------------
+
+  SYSTEM Channel_5_Ctrl_Cmd
+    FEATURES
+      channel_cfg_cmd_5_obj1362 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_5_obj1362.others
+        { Taste::Coordinates => "3139 3489";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      track_cfg_cmd_mon_5_obj1374 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_5_obj1317.others 
+        { Taste::Coordinates => "3839 3550";
+          Taste::RCMoperationKind => unprotected;};
+      channel_monitor_5_obj1384 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_5_obj211.others 
+        { Taste::Coordinates => "3139 3557";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Channel_5_Ctrl_Cmd";
+  END Channel_5_Ctrl_Cmd;
+
+  SYSTEM IMPLEMENTATION Channel_5_Ctrl_Cmd.others
+    SUBCOMPONENTS
+      channel_cfg_cmd_5_obj1362_impl : SUBPROGRAM interfaceview::FV::channel_cfg_cmd_5_obj1362.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS channel_cfg_cmd_5_obj1362_impl  -> channel_cfg_cmd_5_obj1362;
+  END Channel_5_Ctrl_Cmd.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_5::Data_Demodulation_5
+  ---------------------------------------------------
+
+  SYSTEM Data_Demodulation_5
+    FEATURES
+      track_2_dem_5_obj1405 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_5_obj1405.others
+        { Taste::Coordinates => "3841 3649";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      dem_2_prm_5_obj1420 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_5_obj1441.others 
+        { Taste::Coordinates => "3841 3691";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Data_Demodulation_5";
+  END Data_Demodulation_5;
+
+  SYSTEM IMPLEMENTATION Data_Demodulation_5.others
+    SUBCOMPONENTS
+      track_2_dem_5_obj1405_impl : SUBPROGRAM interfaceview::FV::track_2_dem_5_obj1405.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_2_dem_5_obj1405_impl  -> track_2_dem_5_obj1405;
+  END Data_Demodulation_5.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_5::PseudoRange_Measurements_5
+  ---------------------------------------------------
+
+  SYSTEM PseudoRange_Measurements_5
+    FEATURES
+      dem_2_prm_5_obj1441 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_5_obj1441.others
+        { Taste::Coordinates => "3843 3807";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;};
+      pvt_Compute_5_obj1455 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_5_obj454.others 
+        { Taste::Coordinates => "3143 3846";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "PseudoRange_Measurements_5";
+  END PseudoRange_Measurements_5;
+
+  SYSTEM IMPLEMENTATION PseudoRange_Measurements_5.others
+    SUBCOMPONENTS
+      dem_2_prm_5_obj1441_impl : SUBPROGRAM interfaceview::FV::dem_2_prm_5_obj1441.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS dem_2_prm_5_obj1441_impl  -> dem_2_prm_5_obj1441;
+  END PseudoRange_Measurements_5.others;
+
+PROPERTIES
+  Taste::Coordinates => "2852 3093 4106 3923";
+END interfaceview::IV::Channel_5;
+
+PACKAGE interfaceview::IV::Acquisition
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Acquisition::TabData
+  ---------------------------------------------------
+
+  SYSTEM TabData
+    FEATURES
+      fft_memory_obj1476 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::fft_memory_obj1476.others
+        { Taste::Coordinates => "774 3313";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      int_memory_obj1491 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::int_memory_obj1491.others
+        { Taste::Coordinates => "774 3250";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      corr_memory_obj1504 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corr_memory_obj1504.others
+        { Taste::Coordinates => "774 3181";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "TabData";
+  END TabData;
+
+  SYSTEM IMPLEMENTATION TabData.others
+    SUBCOMPONENTS
+      fft_memory_obj1476_impl : SUBPROGRAM interfaceview::FV::fft_memory_obj1476.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      int_memory_obj1491_impl : SUBPROGRAM interfaceview::FV::int_memory_obj1491.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      corr_memory_obj1504_impl : SUBPROGRAM interfaceview::FV::corr_memory_obj1504.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS fft_memory_obj1476_impl  -> fft_memory_obj1476;
+      SUBPROGRAM ACCESS int_memory_obj1491_impl  -> int_memory_obj1491;
+      SUBPROGRAM ACCESS corr_memory_obj1504_impl  -> corr_memory_obj1504;
+  END TabData.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Acquisition::Butterfly
+  ---------------------------------------------------
+
+  SYSTEM Butterfly
+    FEATURES
+      but_ctrl_cmd_obj1530 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::but_ctrl_cmd_obj1530.others
+        { Taste::Coordinates => "776 3571";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Butterfly";
+  END Butterfly;
+
+  SYSTEM IMPLEMENTATION Butterfly.others
+    SUBCOMPONENTS
+      but_ctrl_cmd_obj1530_impl : SUBPROGRAM interfaceview::FV::but_ctrl_cmd_obj1530.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS but_ctrl_cmd_obj1530_impl  -> but_ctrl_cmd_obj1530;
+  END Butterfly.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Acquisition::FFT
+  ---------------------------------------------------
+
+  SYSTEM FFT
+    FEATURES
+      fft_cmd_obj1554 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::fft_cmd_obj1554.others
+        { Taste::Coordinates => "1477 3748";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      fft_memory_obj1566 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::fft_memory_obj1476.others 
+        { Taste::Coordinates => "780 3809";
+          Taste::RCMoperationKind => unprotected;};
+      but_ctrl_cmd_obj1576 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::but_ctrl_cmd_obj1530.others 
+        { Taste::Coordinates => "780 3732";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "FFT";
+  END FFT;
+
+  SYSTEM IMPLEMENTATION FFT.others
+    SUBCOMPONENTS
+      fft_cmd_obj1554_impl : SUBPROGRAM interfaceview::FV::fft_cmd_obj1554.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS fft_cmd_obj1554_impl  -> fft_cmd_obj1554;
+  END FFT.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Acquisition::Integrator
+  ---------------------------------------------------
+
+  SYSTEM Integrator
+    FEATURES
+      int_ctrl_cmd_obj1597 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::int_ctrl_cmd_obj1597.others
+        { Taste::Coordinates => "1489 4095";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      int_memory_obj1610 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::int_memory_obj1491.others 
+        { Taste::Coordinates => "789 3967";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Integrator";
+  END Integrator;
+
+  SYSTEM IMPLEMENTATION Integrator.others
+    SUBCOMPONENTS
+      int_ctrl_cmd_obj1597_impl : SUBPROGRAM interfaceview::FV::int_ctrl_cmd_obj1597.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS int_ctrl_cmd_obj1597_impl  -> int_ctrl_cmd_obj1597;
+  END Integrator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Acquisition::Correlator
+  ---------------------------------------------------
+
+  SYSTEM Correlator
+    FEATURES
+      corr_cmd_obj1631 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corr_cmd_obj1631.others
+        { Taste::Coordinates => "1496 4309";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      corr_memory_obj1643 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corr_memory_obj1504.others 
+        { Taste::Coordinates => "793 4228";
+          Taste::RCMoperationKind => unprotected;};
+      corrmult_ctrl_cmd_obj1653 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corrmult_ctrl_cmd_obj1674.others 
+        { Taste::Coordinates => "793 4318";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Correlator";
+  END Correlator;
+
+  SYSTEM IMPLEMENTATION Correlator.others
+    SUBCOMPONENTS
+      corr_cmd_obj1631_impl : SUBPROGRAM interfaceview::FV::corr_cmd_obj1631.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS corr_cmd_obj1631_impl  -> corr_cmd_obj1631;
+  END Correlator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Acquisition::CorrMult
+  ---------------------------------------------------
+
+  SYSTEM CorrMult
+    FEATURES
+      corrmult_ctrl_cmd_obj1674 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corrmult_ctrl_cmd_obj1674.others
+        { Taste::Coordinates => "803 4454";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "CorrMult";
+  END CorrMult;
+
+  SYSTEM IMPLEMENTATION CorrMult.others
+    SUBCOMPONENTS
+      corrmult_ctrl_cmd_obj1674_impl : SUBPROGRAM interfaceview::FV::corrmult_ctrl_cmd_obj1674.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS corrmult_ctrl_cmd_obj1674_impl  -> corrmult_ctrl_cmd_obj1674;
+  END CorrMult.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Acquisition::Acquisition_Ctrl_Cmd
+  ---------------------------------------------------
+
+  SYSTEM Acquisition_Ctrl_Cmd
+    FEATURES
+      acq_cfg_cmd_mon_obj1698 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::acq_cfg_cmd_mon_obj1698.others
+        { Taste::Coordinates => "684 4703";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      fft_cmd_obj1713 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::fft_cmd_obj1554.others 
+        { Taste::Coordinates => "1499 4850";
+          Taste::RCMoperationKind => unprotected;};
+      int_ctrl_cmd_obj1723 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::int_ctrl_cmd_obj1597.others 
+        { Taste::Coordinates => "1499 4766";
+          Taste::RCMoperationKind => unprotected;};
+      corr_cmd_obj1733 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corr_cmd_obj1631.others 
+        { Taste::Coordinates => "1499 4673";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Acquisition_Ctrl_Cmd";
+  END Acquisition_Ctrl_Cmd;
+
+  SYSTEM IMPLEMENTATION Acquisition_Ctrl_Cmd.others
+    SUBCOMPONENTS
+      acq_cfg_cmd_mon_obj1698_impl : SUBPROGRAM interfaceview::FV::acq_cfg_cmd_mon_obj1698.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS acq_cfg_cmd_mon_obj1698_impl  -> acq_cfg_cmd_mon_obj1698;
+  END Acquisition_Ctrl_Cmd.others;
+
+PROPERTIES
+  Taste::Coordinates => "594 3045 1750 4953";
+END interfaceview::IV::Acquisition;
+
+PACKAGE interfaceview::IV::GUI
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::GUI::GPS_Receiver_GUI
+  ---------------------------------------------------
+
+  SYSTEM GPS_Receiver_GUI
+    FEATURES
+      rx_monitor_obj1754 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::rx_monitor_obj1754.others
+        { Taste::Coordinates => "740 2285";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      acq_monitor_obj1766 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::acq_monitor_obj1766.others
+        { Taste::Coordinates => "740 2383";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      pvt_results_obj1778 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::pvt_results_obj1778.others
+        { Taste::Coordinates => "740 2474";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      main_cfg_cmd_obj1790 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::main_cfg_cmd_obj248.others 
+        { Taste::Coordinates => "740 2211";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => GUI;
+      Taste::Instance_Name => "GPS_Receiver_GUI";
+  END GPS_Receiver_GUI;
+
+  SYSTEM IMPLEMENTATION GPS_Receiver_GUI.others
+    SUBCOMPONENTS
+      rx_monitor_obj1754_impl : SUBPROGRAM interfaceview::FV::rx_monitor_obj1754.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      acq_monitor_obj1766_impl : SUBPROGRAM interfaceview::FV::acq_monitor_obj1766.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+      pvt_results_obj1778_impl : SUBPROGRAM interfaceview::FV::pvt_results_obj1778.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS rx_monitor_obj1754_impl  -> rx_monitor_obj1754;
+      SUBPROGRAM ACCESS acq_monitor_obj1766_impl  -> acq_monitor_obj1766;
+      SUBPROGRAM ACCESS pvt_results_obj1778_impl  -> pvt_results_obj1778;
+  END GPS_Receiver_GUI.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::GUI::TM_TC_Simulation_GUI
+  ---------------------------------------------------
+
+  SYSTEM TM_TC_Simulation_GUI
+    FEATURES
+      update_pvt_obj1811 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::update_pvt_obj1811.others
+        { Taste::Coordinates => "766 2726";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => GUI;
+      Taste::Instance_Name => "TM_TC_Simulation_GUI";
+  END TM_TC_Simulation_GUI;
+
+  SYSTEM IMPLEMENTATION TM_TC_Simulation_GUI.others
+    SUBCOMPONENTS
+      update_pvt_obj1811_impl : SUBPROGRAM interfaceview::FV::update_pvt_obj1811.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS update_pvt_obj1811_impl  -> update_pvt_obj1811;
+  END TM_TC_Simulation_GUI.others;
+
+PROPERTIES
+  Taste::Coordinates => "606 2059 1729 2999";
+END interfaceview::IV::GUI;
+
+PACKAGE interfaceview::IV::Channel_6
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_6::Correlators_6
+  ---------------------------------------------------
+
+  SYSTEM Correlators_6
+    FEATURES
+      corr_acc_int_6_obj1834 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_6_obj1834.others
+        { Taste::Coordinates => "3833 4071";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Correlators_5";
+  END Correlators_6;
+
+  SYSTEM IMPLEMENTATION Correlators_6.others
+    SUBCOMPONENTS
+      corr_acc_int_6_obj1834_impl : SUBPROGRAM interfaceview::FV::corr_acc_int_6_obj1834.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS corr_acc_int_6_obj1834_impl  -> corr_acc_int_6_obj1834;
+  END Correlators_6.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_6::Tracking_Loops_6
+  ---------------------------------------------------
+
+  SYSTEM Tracking_Loops_6
+    FEATURES
+      track_cfg_cmd_mon_6_obj1865 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_6_obj1865.others
+        { Taste::Coordinates => "3837 4244";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      corr_acc_int_6_obj1879 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::corr_acc_int_6_obj1834.others 
+        { Taste::Coordinates => "3837 4155";
+          Taste::RCMoperationKind => unprotected;};
+      track_2_dem_6_obj1889 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_6_obj1953.others 
+        { Taste::Coordinates => "3837 4200";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Tracking_Loops_5";
+  END Tracking_Loops_6;
+
+  SYSTEM IMPLEMENTATION Tracking_Loops_6.others
+    SUBCOMPONENTS
+      track_cfg_cmd_mon_6_obj1865_impl : SUBPROGRAM interfaceview::FV::track_cfg_cmd_mon_6_obj1865.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_cfg_cmd_mon_6_obj1865_impl  -> track_cfg_cmd_mon_6_obj1865;
+  END Tracking_Loops_6.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_6::Channel_6_Ctrl_Cmd
+  ---------------------------------------------------
+
+  SYSTEM Channel_6_Ctrl_Cmd
+    FEATURES
+      channel_cfg_cmd_6_obj1910 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::channel_cfg_cmd_6_obj1910.others
+        { Taste::Coordinates => "3142 4357";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+      track_cfg_cmd_mon_6_obj1922 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::track_cfg_cmd_mon_6_obj1865.others 
+        { Taste::Coordinates => "3842 4418";
+          Taste::RCMoperationKind => unprotected;};
+      channel_monitor_6_obj1932 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::channel_monitor_6_obj223.others 
+        { Taste::Coordinates => "3142 4425";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Channel_5_Ctrl_Cmd";
+  END Channel_6_Ctrl_Cmd;
+
+  SYSTEM IMPLEMENTATION Channel_6_Ctrl_Cmd.others
+    SUBCOMPONENTS
+      channel_cfg_cmd_6_obj1910_impl : SUBPROGRAM interfaceview::FV::channel_cfg_cmd_6_obj1910.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS channel_cfg_cmd_6_obj1910_impl  -> channel_cfg_cmd_6_obj1910;
+  END Channel_6_Ctrl_Cmd.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_6::Data_Demodulation_6
+  ---------------------------------------------------
+
+  SYSTEM Data_Demodulation_6
+    FEATURES
+      track_2_dem_6_obj1953 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::track_2_dem_6_obj1953.others
+        { Taste::Coordinates => "3844 4519";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      dem_2_prm_6_obj1968 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_6_obj1989.others 
+        { Taste::Coordinates => "3844 4559";
+          Taste::RCMoperationKind => unprotected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Data_Demodulation_5";
+  END Data_Demodulation_6;
+
+  SYSTEM IMPLEMENTATION Data_Demodulation_6.others
+    SUBCOMPONENTS
+      track_2_dem_6_obj1953_impl : SUBPROGRAM interfaceview::FV::track_2_dem_6_obj1953.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS track_2_dem_6_obj1953_impl  -> track_2_dem_6_obj1953;
+  END Data_Demodulation_6.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Channel_6::PseudoRange_Measurements_6
+  ---------------------------------------------------
+
+  SYSTEM PseudoRange_Measurements_6
+    FEATURES
+      dem_2_prm_6_obj1989 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::dem_2_prm_6_obj1989.others
+        { Taste::Coordinates => "3846 4675";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      pvt_compute_6_obj2003 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::pvt_compute_6_obj469.others 
+        { Taste::Coordinates => "3146 4714";
+          Taste::RCMoperationKind => protected;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "PseudoRange_Measurements_5";
+  END PseudoRange_Measurements_6;
+
+  SYSTEM IMPLEMENTATION PseudoRange_Measurements_6.others
+    SUBCOMPONENTS
+      dem_2_prm_6_obj1989_impl : SUBPROGRAM interfaceview::FV::dem_2_prm_6_obj1989.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS dem_2_prm_6_obj1989_impl  -> dem_2_prm_6_obj1989;
+  END PseudoRange_Measurements_6.others;
+
+PROPERTIES
+  Taste::Coordinates => "2855 3961 4109 4791";
+END interfaceview::IV::Channel_6;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM corr_acc_int_1_obj526
+    FEATURES
+      Code_NCO_Com_1 : IN PARAMETER DataView::T_CODE_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Com_1 : IN PARAMETER DataView::T_CARRIER_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Track_Config_Corr_1 : IN PARAMETER DataView::T_TRACK_CONFIG_CORR
+        { Taste::encoding => NATIVE; };
+      Ip_1 : OUT PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_1 : OUT PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Idelta_1 : OUT PARAMETER DataView::T_IDELTA
+        { Taste::encoding => NATIVE; };
+      Qdelta_1 : OUT PARAMETER DataView::T_QDELTA
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_1 : OUT PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_1 : OUT PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END corr_acc_int_1_obj526;
+
+  SUBPROGRAM IMPLEMENTATION corr_acc_int_1_obj526.others
+  END corr_acc_int_1_obj526.others;
+
+  SUBPROGRAM track_cfg_cmd_mon_1_obj557
+    FEATURES
+      Track_Config_1 : IN PARAMETER DataView::T_TRACK_CONFIG
+        { Taste::encoding => NATIVE; };
+      Track_Command_1 : IN PARAMETER DataView::T_TRACK_COMMAND
+        { Taste::encoding => NATIVE; };
+      Track_Status_1 : OUT PARAMETER DataView::T_TRACK_STATUS
+        { Taste::encoding => NATIVE; };
+  END track_cfg_cmd_mon_1_obj557;
+
+  SUBPROGRAM IMPLEMENTATION track_cfg_cmd_mon_1_obj557.others
+  END track_cfg_cmd_mon_1_obj557.others;
+
+  SUBPROGRAM channel_cfg_cmd_1_obj602
+    FEATURES
+      Chn_Cfg_Cmd_1 : IN PARAMETER DataView::T_CHN_CFG_CMD
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END channel_cfg_cmd_1_obj602;
+
+  SUBPROGRAM IMPLEMENTATION channel_cfg_cmd_1_obj602.others
+  END channel_cfg_cmd_1_obj602.others;
+
+  SUBPROGRAM track_2_dem_1_obj645
+    FEATURES
+      Ip_1 : IN PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_1 : IN PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_1 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_1 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END track_2_dem_1_obj645;
+
+  SUBPROGRAM IMPLEMENTATION track_2_dem_1_obj645.others
+  END track_2_dem_1_obj645.others;
+
+  SUBPROGRAM dem_2_prm_1_obj681
+    FEATURES
+      NAV_Params_1 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_1 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_1 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END dem_2_prm_1_obj681;
+
+  SUBPROGRAM IMPLEMENTATION dem_2_prm_1_obj681.others
+  END dem_2_prm_1_obj681.others;
+
+  SUBPROGRAM corr_acc_int_2_obj716
+    FEATURES
+      Code_NCO_Com_2 : IN PARAMETER DataView::T_CODE_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Com_2 : IN PARAMETER DataView::T_CARRIER_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Track_Config_Corr_2 : IN PARAMETER DataView::T_TRACK_CONFIG_CORR
+        { Taste::encoding => NATIVE; };
+      Ip_2 : OUT PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_2 : OUT PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Idelta_2 : OUT PARAMETER DataView::T_IDELTA
+        { Taste::encoding => NATIVE; };
+      Qdelta_2 : OUT PARAMETER DataView::T_QDELTA
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_2 : OUT PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_2 : OUT PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END corr_acc_int_2_obj716;
+
+  SUBPROGRAM IMPLEMENTATION corr_acc_int_2_obj716.others
+  END corr_acc_int_2_obj716.others;
+
+  SUBPROGRAM track_cfg_cmd_mon_2_obj747
+    FEATURES
+      Track_Config_2 : IN PARAMETER DataView::T_TRACK_CONFIG
+        { Taste::encoding => NATIVE; };
+      Track_Command_2 : IN PARAMETER DataView::T_TRACK_COMMAND
+        { Taste::encoding => NATIVE; };
+      Track_Status_2 : OUT PARAMETER DataView::T_TRACK_STATUS
+        { Taste::encoding => NATIVE; };
+  END track_cfg_cmd_mon_2_obj747;
+
+  SUBPROGRAM IMPLEMENTATION track_cfg_cmd_mon_2_obj747.others
+  END track_cfg_cmd_mon_2_obj747.others;
+
+  SUBPROGRAM channel_cfg_cmd_2_obj792
+    FEATURES
+      Chn_Cfg_Cmd_2 : IN PARAMETER DataView::T_CHN_CFG_CMD
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END channel_cfg_cmd_2_obj792;
+
+  SUBPROGRAM IMPLEMENTATION channel_cfg_cmd_2_obj792.others
+  END channel_cfg_cmd_2_obj792.others;
+
+  SUBPROGRAM track_2_dem_2_obj835
+    FEATURES
+      Ip_2 : IN PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_2 : IN PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_2 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_2 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END track_2_dem_2_obj835;
+
+  SUBPROGRAM IMPLEMENTATION track_2_dem_2_obj835.others
+  END track_2_dem_2_obj835.others;
+
+  SUBPROGRAM dem_2_prm_2_obj871
+    FEATURES
+      NAV_Params_2 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_2 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_2 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END dem_2_prm_2_obj871;
+
+  SUBPROGRAM IMPLEMENTATION dem_2_prm_2_obj871.others
+  END dem_2_prm_2_obj871.others;
+
+  SUBPROGRAM corr_acc_int_3_obj906
+    FEATURES
+      Code_NCO_Com_3 : IN PARAMETER DataView::T_CODE_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Com_3 : IN PARAMETER DataView::T_CARRIER_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Track_Config_Corr_3 : IN PARAMETER DataView::T_TRACK_CONFIG_CORR
+        { Taste::encoding => NATIVE; };
+      Ip_3 : OUT PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_3 : OUT PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Idelta_3 : OUT PARAMETER DataView::T_IDELTA
+        { Taste::encoding => NATIVE; };
+      Qdelta_3 : OUT PARAMETER DataView::T_QDELTA
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_3 : OUT PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_3 : OUT PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END corr_acc_int_3_obj906;
+
+  SUBPROGRAM IMPLEMENTATION corr_acc_int_3_obj906.others
+  END corr_acc_int_3_obj906.others;
+
+  SUBPROGRAM track_cfg_cmd_mon_3_obj937
+    FEATURES
+      Track_Config_2 : IN PARAMETER DataView::T_TRACK_CONFIG
+        { Taste::encoding => NATIVE; };
+      Track_Command_2 : IN PARAMETER DataView::T_TRACK_COMMAND
+        { Taste::encoding => NATIVE; };
+      Track_Status_2 : OUT PARAMETER DataView::T_TRACK_STATUS
+        { Taste::encoding => NATIVE; };
+  END track_cfg_cmd_mon_3_obj937;
+
+  SUBPROGRAM IMPLEMENTATION track_cfg_cmd_mon_3_obj937.others
+  END track_cfg_cmd_mon_3_obj937.others;
+
+  SUBPROGRAM channel_cfg_cmd_3_obj982
+    FEATURES
+      Chn_Cfg_Cmd_3 : IN PARAMETER DataView::T_CHN_CFG_CMD
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END channel_cfg_cmd_3_obj982;
+
+  SUBPROGRAM IMPLEMENTATION channel_cfg_cmd_3_obj982.others
+  END channel_cfg_cmd_3_obj982.others;
+
+  SUBPROGRAM track_2_dem_3_obj1025
+    FEATURES
+      Ip_3 : IN PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_3 : IN PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_3 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_3 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END track_2_dem_3_obj1025;
+
+  SUBPROGRAM IMPLEMENTATION track_2_dem_3_obj1025.others
+  END track_2_dem_3_obj1025.others;
+
+  SUBPROGRAM dem_2_prm_3_obj1061
+    FEATURES
+      NAV_Params_3 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_3 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_3 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END dem_2_prm_3_obj1061;
+
+  SUBPROGRAM IMPLEMENTATION dem_2_prm_3_obj1061.others
+  END dem_2_prm_3_obj1061.others;
+
+  SUBPROGRAM corr_acc_int_4_obj1096
+    FEATURES
+      Code_NCO_Com_4 : IN PARAMETER DataView::T_CODE_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Com_4 : IN PARAMETER DataView::T_CARRIER_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Track_Config_Corr_4 : IN PARAMETER DataView::T_TRACK_CONFIG_CORR
+        { Taste::encoding => NATIVE; };
+      Ip_4 : OUT PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_4 : OUT PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Idelta_4 : OUT PARAMETER DataView::T_IDELTA
+        { Taste::encoding => NATIVE; };
+      Qdelta_4 : OUT PARAMETER DataView::T_QDELTA
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_4 : OUT PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_4 : OUT PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END corr_acc_int_4_obj1096;
+
+  SUBPROGRAM IMPLEMENTATION corr_acc_int_4_obj1096.others
+  END corr_acc_int_4_obj1096.others;
+
+  SUBPROGRAM track_cfg_cmd_mon_4_obj1127
+    FEATURES
+      Track_config_4 : IN PARAMETER DataView::T_TRACK_CONFIG
+        { Taste::encoding => NATIVE; };
+      Track_Command_4 : IN PARAMETER DataView::T_TRACK_COMMAND
+        { Taste::encoding => NATIVE; };
+      Track_Status_4 : OUT PARAMETER DataView::T_TRACK_STATUS
+        { Taste::encoding => NATIVE; };
+  END track_cfg_cmd_mon_4_obj1127;
+
+  SUBPROGRAM IMPLEMENTATION track_cfg_cmd_mon_4_obj1127.others
+  END track_cfg_cmd_mon_4_obj1127.others;
+
+  SUBPROGRAM channel_cfg_cmd_4_obj1172
+    FEATURES
+      Chn_Cfg_Cmd_4 : IN PARAMETER DataView::T_CHN_CFG_CMD
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END channel_cfg_cmd_4_obj1172;
+
+  SUBPROGRAM IMPLEMENTATION channel_cfg_cmd_4_obj1172.others
+  END channel_cfg_cmd_4_obj1172.others;
+
+  SUBPROGRAM track_2_dem_4_obj1215
+    FEATURES
+      Ip_4 : IN PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_4 : IN PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_4 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_4 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END track_2_dem_4_obj1215;
+
+  SUBPROGRAM IMPLEMENTATION track_2_dem_4_obj1215.others
+  END track_2_dem_4_obj1215.others;
+
+  SUBPROGRAM dem_2_prm_4_obj1251
+    FEATURES
+      NAV_Params_4 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_4 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_4 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END dem_2_prm_4_obj1251;
+
+  SUBPROGRAM IMPLEMENTATION dem_2_prm_4_obj1251.others
+  END dem_2_prm_4_obj1251.others;
+
+  SUBPROGRAM corr_acc_int_5_obj1286
+    FEATURES
+      Code_NCO_Com_5 : IN PARAMETER DataView::T_CODE_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Com_5 : IN PARAMETER DataView::T_CARRIER_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Track_Config_Corr_5 : IN PARAMETER DataView::T_TRACK_CONFIG_CORR
+        { Taste::encoding => NATIVE; };
+      Ip_5 : OUT PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_5 : OUT PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Idelta_5 : OUT PARAMETER DataView::T_IDELTA
+        { Taste::encoding => NATIVE; };
+      Qdelta_5 : OUT PARAMETER DataView::T_QDELTA
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_5 : OUT PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_5 : OUT PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END corr_acc_int_5_obj1286;
+
+  SUBPROGRAM IMPLEMENTATION corr_acc_int_5_obj1286.others
+  END corr_acc_int_5_obj1286.others;
+
+  SUBPROGRAM track_cfg_cmd_mon_5_obj1317
+    FEATURES
+      Track_Config_5 : IN PARAMETER DataView::T_TRACK_CONFIG
+        { Taste::encoding => NATIVE; };
+      Track_Command_5 : IN PARAMETER DataView::T_TRACK_COMMAND
+        { Taste::encoding => NATIVE; };
+      Track_Status_5 : OUT PARAMETER DataView::T_TRACK_STATUS
+        { Taste::encoding => NATIVE; };
+  END track_cfg_cmd_mon_5_obj1317;
+
+  SUBPROGRAM IMPLEMENTATION track_cfg_cmd_mon_5_obj1317.others
+  END track_cfg_cmd_mon_5_obj1317.others;
+
+  SUBPROGRAM channel_cfg_cmd_5_obj1362
+    FEATURES
+      Chn_Cfg_Cmd_5 : IN PARAMETER DataView::T_CHN_CFG_CMD
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END channel_cfg_cmd_5_obj1362;
+
+  SUBPROGRAM IMPLEMENTATION channel_cfg_cmd_5_obj1362.others
+  END channel_cfg_cmd_5_obj1362.others;
+
+  SUBPROGRAM track_2_dem_5_obj1405
+    FEATURES
+      Ip_5 : IN PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_5 : IN PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_5 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_5 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END track_2_dem_5_obj1405;
+
+  SUBPROGRAM IMPLEMENTATION track_2_dem_5_obj1405.others
+  END track_2_dem_5_obj1405.others;
+
+  SUBPROGRAM dem_2_prm_5_obj1441
+    FEATURES
+      NAV_Params_5 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_5 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_5 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END dem_2_prm_5_obj1441;
+
+  SUBPROGRAM IMPLEMENTATION dem_2_prm_5_obj1441.others
+  END dem_2_prm_5_obj1441.others;
+
+  SUBPROGRAM fft_memory_obj1476
+    FEATURES
+      FftRW : IN PARAMETER DataView::T_FFT_RW
+        { Taste::encoding => NATIVE; };
+      FftAddress : IN PARAMETER DataView::T_MemoryAddress
+        { Taste::encoding => NATIVE; };
+      FftDataR : OUT PARAMETER DataView::T_Data
+        { Taste::encoding => NATIVE; };
+      FftDataW : IN PARAMETER DataView::T_Data
+        { Taste::encoding => NATIVE; };
+  END fft_memory_obj1476;
+
+  SUBPROGRAM IMPLEMENTATION fft_memory_obj1476.others
+  END fft_memory_obj1476.others;
+
+  SUBPROGRAM int_memory_obj1491
+    FEATURES
+      IntAddress : IN PARAMETER DataView::T_MemoryAddress
+        { Taste::encoding => NATIVE; };
+      IntDataR : OUT PARAMETER DataView::T_Data
+        { Taste::encoding => NATIVE; };
+  END int_memory_obj1491;
+
+  SUBPROGRAM IMPLEMENTATION int_memory_obj1491.others
+  END int_memory_obj1491.others;
+
+  SUBPROGRAM corr_memory_obj1504
+    FEATURES
+      CorrRW : IN PARAMETER DataView::T_CORR_RW
+        { Taste::encoding => NATIVE; };
+      CorrAddress : IN PARAMETER DataView::T_MemoryAddress
+        { Taste::encoding => NATIVE; };
+      CorrDataR : OUT PARAMETER DataView::T_Data
+        { Taste::encoding => NATIVE; };
+      CorrDataW : IN PARAMETER DataView::T_Data
+        { Taste::encoding => NATIVE; };
+  END corr_memory_obj1504;
+
+  SUBPROGRAM IMPLEMENTATION corr_memory_obj1504.others
+  END corr_memory_obj1504.others;
+
+  SUBPROGRAM but_ctrl_cmd_obj1530
+    FEATURES
+      ButCmd : IN PARAMETER DataView::T_BUTTERFLY_COMMAND
+        { Taste::encoding => NATIVE; };
+      ButRes : OUT PARAMETER DataView::T_BUTTERFLY_RESULT
+        { Taste::encoding => NATIVE; };
+  END but_ctrl_cmd_obj1530;
+
+  SUBPROGRAM IMPLEMENTATION but_ctrl_cmd_obj1530.others
+  END but_ctrl_cmd_obj1530.others;
+
+  SUBPROGRAM fft_cmd_obj1554
+    FEATURES
+      FftCmd : IN PARAMETER DataView::T_FFT_COMMAND
+        { Taste::encoding => NATIVE; };
+  END fft_cmd_obj1554;
+
+  SUBPROGRAM IMPLEMENTATION fft_cmd_obj1554.others
+  END fft_cmd_obj1554.others;
+
+  SUBPROGRAM int_ctrl_cmd_obj1597
+    FEATURES
+      IntCmd : IN PARAMETER DataView::T_INTEGRATOR_COMMAND
+        { Taste::encoding => NATIVE; };
+      IntRes : OUT PARAMETER DataView::T_INTEGRATOR_RESULT
+        { Taste::encoding => NATIVE; };
+  END int_ctrl_cmd_obj1597;
+
+  SUBPROGRAM IMPLEMENTATION int_ctrl_cmd_obj1597.others
+  END int_ctrl_cmd_obj1597.others;
+
+  SUBPROGRAM corr_cmd_obj1631
+    FEATURES
+      CorrCmd : IN PARAMETER DataView::T_CORRELATOR_COMMAND
+        { Taste::encoding => NATIVE; };
+  END corr_cmd_obj1631;
+
+  SUBPROGRAM IMPLEMENTATION corr_cmd_obj1631.others
+  END corr_cmd_obj1631.others;
+
+  SUBPROGRAM corrmult_ctrl_cmd_obj1674
+    FEATURES
+      CorrMultCmd : IN PARAMETER DataView::T_CORRMULT_COMMAND
+        { Taste::encoding => NATIVE; };
+      CorrMultRes : OUT PARAMETER DataView::T_CORRMULT_RESULT
+        { Taste::encoding => NATIVE; };
+  END corrmult_ctrl_cmd_obj1674;
+
+  SUBPROGRAM IMPLEMENTATION corrmult_ctrl_cmd_obj1674.others
+  END corrmult_ctrl_cmd_obj1674.others;
+
+  SUBPROGRAM acq_cfg_cmd_mon_obj1698
+    FEATURES
+      Acq_Config : IN PARAMETER DataView::T_ACQ_CONFIG
+        { Taste::encoding => NATIVE; };
+      Acq_Command : IN PARAMETER DataView::T_ACQ_COMMAND
+        { Taste::encoding => NATIVE; };
+      Acq_Status : OUT PARAMETER DataView::T_ACQ_STATUS
+        { Taste::encoding => NATIVE; };
+      Acq_Results : OUT PARAMETER DataView::T_ACQ_RESULTS
+        { Taste::encoding => NATIVE; };
+  END acq_cfg_cmd_mon_obj1698;
+
+  SUBPROGRAM IMPLEMENTATION acq_cfg_cmd_mon_obj1698.others
+  END acq_cfg_cmd_mon_obj1698.others;
+
+  SUBPROGRAM rx_monitor_obj1754
+    FEATURES
+      Rx_Status : IN PARAMETER DataView::T_RX_STATUS
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END rx_monitor_obj1754;
+
+  SUBPROGRAM IMPLEMENTATION rx_monitor_obj1754.others
+  END rx_monitor_obj1754.others;
+
+  SUBPROGRAM acq_monitor_obj1766
+    FEATURES
+      Acq_Results : IN PARAMETER DataView::T_ACQ_RESULTS
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END acq_monitor_obj1766;
+
+  SUBPROGRAM IMPLEMENTATION acq_monitor_obj1766.others
+  END acq_monitor_obj1766.others;
+
+  SUBPROGRAM pvt_results_obj1778
+    FEATURES
+      GPS_PVT : IN PARAMETER DataView::T_GPS_PVT
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END pvt_results_obj1778;
+
+  SUBPROGRAM IMPLEMENTATION pvt_results_obj1778.others
+  END pvt_results_obj1778.others;
+
+  SUBPROGRAM update_pvt_obj1811
+    FEATURES
+      GPS_PVT : IN PARAMETER DataView::T_GPS_PVT
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END update_pvt_obj1811;
+
+  SUBPROGRAM IMPLEMENTATION update_pvt_obj1811.others
+  END update_pvt_obj1811.others;
+
+  SUBPROGRAM corr_acc_int_6_obj1834
+    FEATURES
+      Code_NCO_Com_6 : IN PARAMETER DataView::T_CODE_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Com_6 : IN PARAMETER DataView::T_CARRIER_NCO_COM
+        { Taste::encoding => NATIVE; };
+      Track_Config_Corr_6 : IN PARAMETER DataView::T_TRACK_CONFIG_CORR
+        { Taste::encoding => NATIVE; };
+      Ip_6 : OUT PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_6 : OUT PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Idelta_6 : OUT PARAMETER DataView::T_IDELTA
+        { Taste::encoding => NATIVE; };
+      Qdelta_6 : OUT PARAMETER DataView::T_QDELTA
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_6 : OUT PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_6 : OUT PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END corr_acc_int_6_obj1834;
+
+  SUBPROGRAM IMPLEMENTATION corr_acc_int_6_obj1834.others
+  END corr_acc_int_6_obj1834.others;
+
+  SUBPROGRAM track_cfg_cmd_mon_6_obj1865
+    FEATURES
+      Track_Config_6 : IN PARAMETER DataView::T_TRACK_CONFIG
+        { Taste::encoding => NATIVE; };
+      Track_Command_6 : IN PARAMETER DataView::T_TRACK_COMMAND
+        { Taste::encoding => NATIVE; };
+      Track_Status_6 : OUT PARAMETER DataView::T_TRACK_STATUS
+        { Taste::encoding => NATIVE; };
+  END track_cfg_cmd_mon_6_obj1865;
+
+  SUBPROGRAM IMPLEMENTATION track_cfg_cmd_mon_6_obj1865.others
+  END track_cfg_cmd_mon_6_obj1865.others;
+
+  SUBPROGRAM channel_cfg_cmd_6_obj1910
+    FEATURES
+      Chn_Cfg_Cmd_6 : IN PARAMETER DataView::T_CHN_CFG_CMD
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END channel_cfg_cmd_6_obj1910;
+
+  SUBPROGRAM IMPLEMENTATION channel_cfg_cmd_6_obj1910.others
+  END channel_cfg_cmd_6_obj1910.others;
+
+  SUBPROGRAM track_2_dem_6_obj1953
+    FEATURES
+      Ip_6 : IN PARAMETER DataView::T_IP
+        { Taste::encoding => NATIVE; };
+      Qp_6 : IN PARAMETER DataView::T_QP
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_6 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_6 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END track_2_dem_6_obj1953;
+
+  SUBPROGRAM IMPLEMENTATION track_2_dem_6_obj1953.others
+  END track_2_dem_6_obj1953.others;
+
+  SUBPROGRAM dem_2_prm_6_obj1989
+    FEATURES
+      NAV_Params_6 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      Code_NCO_Phase_6 : IN PARAMETER DataView::T_CODE_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+      Carrier_NCO_Phase_6 : IN PARAMETER DataView::T_CARRIER_NCO_PHASE
+        { Taste::encoding => NATIVE; };
+  END dem_2_prm_6_obj1989;
+
+  SUBPROGRAM IMPLEMENTATION dem_2_prm_6_obj1989.others
+  END dem_2_prm_6_obj1989.others;
+
+  SUBPROGRAM channel_monitor_1_obj163
+    FEATURES
+      Channel_Status_1 : IN PARAMETER DataView::T_CHANNEL_STATUS
+        { Taste::encoding => NATIVE; };
+  END channel_monitor_1_obj163;
+
+  SUBPROGRAM IMPLEMENTATION channel_monitor_1_obj163.others
+  END channel_monitor_1_obj163.others;
+
+  SUBPROGRAM channel_monitor_2_obj175
+    FEATURES
+      Channel_Status_2 : IN PARAMETER DataView::T_CHANNEL_STATUS
+        { Taste::encoding => NATIVE; };
+  END channel_monitor_2_obj175;
+
+  SUBPROGRAM IMPLEMENTATION channel_monitor_2_obj175.others
+  END channel_monitor_2_obj175.others;
+
+  SUBPROGRAM channel_monitor_3_obj187
+    FEATURES
+      Channel_Status_3 : IN PARAMETER DataView::T_CHANNEL_STATUS
+        { Taste::encoding => NATIVE; };
+  END channel_monitor_3_obj187;
+
+  SUBPROGRAM IMPLEMENTATION channel_monitor_3_obj187.others
+  END channel_monitor_3_obj187.others;
+
+  SUBPROGRAM channel_monitor_4_obj199
+    FEATURES
+      Channel_Status_4 : IN PARAMETER DataView::T_CHANNEL_STATUS
+        { Taste::encoding => NATIVE; };
+  END channel_monitor_4_obj199;
+
+  SUBPROGRAM IMPLEMENTATION channel_monitor_4_obj199.others
+  END channel_monitor_4_obj199.others;
+
+  SUBPROGRAM channel_monitor_5_obj211
+    FEATURES
+      Channel_Status_5 : IN PARAMETER DataView::T_CHANNEL_STATUS
+        { Taste::encoding => NATIVE; };
+  END channel_monitor_5_obj211;
+
+  SUBPROGRAM IMPLEMENTATION channel_monitor_5_obj211.others
+  END channel_monitor_5_obj211.others;
+
+  SUBPROGRAM channel_monitor_6_obj223
+    FEATURES
+      Channel_Status_6 : IN PARAMETER DataView::T_CHANNEL_STATUS
+        { Taste::encoding => NATIVE; };
+  END channel_monitor_6_obj223;
+
+  SUBPROGRAM IMPLEMENTATION channel_monitor_6_obj223.others
+  END channel_monitor_6_obj223.others;
+
+  SUBPROGRAM pvt_monitor_obj235
+    FEATURES
+      GPS_PVT : IN PARAMETER DataView::T_GPS_PVT
+        { Taste::encoding => NATIVE; };
+      PVT_Status : IN PARAMETER DataView::T_PVT_STATUS
+        { Taste::encoding => NATIVE; };
+  END pvt_monitor_obj235;
+
+  SUBPROGRAM IMPLEMENTATION pvt_monitor_obj235.others
+  END pvt_monitor_obj235.others;
+
+  SUBPROGRAM main_cfg_cmd_obj248
+    FEATURES
+      Rx_Cfg_Cmd : IN PARAMETER DataView::T_RX_CFG_CMD
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END main_cfg_cmd_obj248;
+
+  SUBPROGRAM IMPLEMENTATION main_cfg_cmd_obj248.others
+  END main_cfg_cmd_obj248.others;
+
+  SUBPROGRAM pvt_cfg_cmd_obj381
+    FEATURES
+      PVT_Config : IN PARAMETER DataView::T_PVT_CONFIG
+        { Taste::encoding => NATIVE; };
+      PVT_Command : IN PARAMETER DataView::T_PVT_COMMAND
+        { Taste::encoding => NATIVE; };
+  END pvt_cfg_cmd_obj381;
+
+  SUBPROGRAM IMPLEMENTATION pvt_cfg_cmd_obj381.others
+  END pvt_cfg_cmd_obj381.others;
+
+  SUBPROGRAM pvt_compute_1_obj394
+    FEATURES
+      GPS_time_1 : OUT PARAMETER DataView::T_UTC_Time
+        { Taste::encoding => NATIVE; };
+      Nav_Params_1 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      PR_Measurements_1 : IN PARAMETER DataView::T_PR
+        { Taste::encoding => NATIVE; };
+      PV_Measurements_1 : IN PARAMETER DataView::T_PV
+        { Taste::encoding => NATIVE; };
+  END pvt_compute_1_obj394;
+
+  SUBPROGRAM IMPLEMENTATION pvt_compute_1_obj394.others
+  END pvt_compute_1_obj394.others;
+
+  SUBPROGRAM pvt_compute_2_obj409
+    FEATURES
+      GPS_Time_2 : OUT PARAMETER DataView::T_UTC_Time
+        { Taste::encoding => NATIVE; };
+      Nav_Params_2 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      PR_Measurements_2 : IN PARAMETER DataView::T_PR
+        { Taste::encoding => NATIVE; };
+      PV_Measurements_2 : IN PARAMETER DataView::T_PV
+        { Taste::encoding => NATIVE; };
+  END pvt_compute_2_obj409;
+
+  SUBPROGRAM IMPLEMENTATION pvt_compute_2_obj409.others
+  END pvt_compute_2_obj409.others;
+
+  SUBPROGRAM pvt_compute_3_obj424
+    FEATURES
+      GPS_Time_3 : OUT PARAMETER DataView::T_UTC_Time
+        { Taste::encoding => NATIVE; };
+      Nav_Params_3 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      PR_Measurements_3 : IN PARAMETER DataView::T_PR
+        { Taste::encoding => NATIVE; };
+      PV_Measurements_3 : IN PARAMETER DataView::T_PV
+        { Taste::encoding => NATIVE; };
+  END pvt_compute_3_obj424;
+
+  SUBPROGRAM IMPLEMENTATION pvt_compute_3_obj424.others
+  END pvt_compute_3_obj424.others;
+
+  SUBPROGRAM pvt_compute_4_obj439
+    FEATURES
+      GPS_Time_4 : OUT PARAMETER DataView::T_UTC_Time
+        { Taste::encoding => NATIVE; };
+      Nav_Params_4 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      PR_Measurements_4 : IN PARAMETER DataView::T_PR
+        { Taste::encoding => NATIVE; };
+      PV_Measurements_4 : IN PARAMETER DataView::T_PV
+        { Taste::encoding => NATIVE; };
+  END pvt_compute_4_obj439;
+
+  SUBPROGRAM IMPLEMENTATION pvt_compute_4_obj439.others
+  END pvt_compute_4_obj439.others;
+
+  SUBPROGRAM pvt_compute_5_obj454
+    FEATURES
+      GPS_Time_5 : OUT PARAMETER DataView::T_UTC_Time
+        { Taste::encoding => NATIVE; };
+      Nav_Params_5 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      PR_Measurements_5 : IN PARAMETER DataView::T_PR
+        { Taste::encoding => NATIVE; };
+      PV_Measurements_5 : IN PARAMETER DataView::T_PV
+        { Taste::encoding => NATIVE; };
+  END pvt_compute_5_obj454;
+
+  SUBPROGRAM IMPLEMENTATION pvt_compute_5_obj454.others
+  END pvt_compute_5_obj454.others;
+
+  SUBPROGRAM pvt_compute_6_obj469
+    FEATURES
+      GPS_Time_6 : OUT PARAMETER DataView::T_UTC_Time
+        { Taste::encoding => NATIVE; };
+      Nav_Params_6 : IN PARAMETER DataView::T_NAV_PARAMS
+        { Taste::encoding => NATIVE; };
+      PR_Measurements_6 : IN PARAMETER DataView::T_PR
+        { Taste::encoding => NATIVE; };
+      PV_Measurements_6 : IN PARAMETER DataView::T_PV
+        { Taste::encoding => NATIVE; };
+  END pvt_compute_6_obj469;
+
+  SUBPROGRAM IMPLEMENTATION pvt_compute_6_obj469.others
+  END pvt_compute_6_obj469.others;
+
+  SUBPROGRAM pvt_cyclic_task_obj484
+  END pvt_cyclic_task_obj484;
+
+  SUBPROGRAM IMPLEMENTATION pvt_cyclic_task_obj484.others
+  END pvt_cyclic_task_obj484.others;
+
+END interfaceview::FV;
+

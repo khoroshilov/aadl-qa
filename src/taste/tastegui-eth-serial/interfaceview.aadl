@@ -1,0 +1,135 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      pinger: SYSTEM interfaceview::IV::pinger.others
+        { Taste::Coordinates => "12 11 45 23"; };
+      pingee_native: SYSTEM interfaceview::IV::pingee_native.others
+        { Taste::Coordinates => "59 12 92 24"; };
+      pingee_device: SYSTEM interfaceview::IV::pingee_device.others
+        { Taste::Coordinates => "60 30 92 43"; };
+    CONNECTIONS
+      obj253 : SUBPROGRAM ACCESS pingee_native.receive_int  -> pinger.obj222 
+        { Taste::Coordinates => "45 21 52 21 52 23 59 23"; };
+      obj491 : SUBPROGRAM ACCESS pingee_device.receive_int  -> pinger.obj454 
+        { Taste::Coordinates => "28 23 28 39 60 39"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::pinger
+  ---------------------------------------------------
+
+  SYSTEM pinger
+    FEATURES
+      activation : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activation
+        { Taste::Coordinates => "10 17 12 19";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj222 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_int
+        { Taste::Coordinates => "45 20 47 22";
+          Taste::RCMoperationKind => sporadic;};
+      obj454 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_int
+        { Taste::Coordinates => "27 23 29 25";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Coordinates => "12 11 45 23";
+  END pinger;
+
+  SYSTEM IMPLEMENTATION pinger.others
+    SUBCOMPONENTS
+      activation_impl : SUBPROGRAM interfaceview::FV::activation
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activation_impl  -> activation;
+  END pinger.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::pingee_native
+  ---------------------------------------------------
+
+  SYSTEM pingee_native
+    FEATURES
+      receive_int : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_int
+        { Taste::Coordinates => "57 22 59 24";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Coordinates => "59 12 92 24";
+  END pingee_native;
+
+  SYSTEM IMPLEMENTATION pingee_native.others
+    SUBCOMPONENTS
+      receive_int_impl : SUBPROGRAM interfaceview::FV::receive_int
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_int_impl  -> receive_int;
+  END pingee_native.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::pingee_device
+  ---------------------------------------------------
+
+  SYSTEM pingee_device
+    FEATURES
+      receive_int : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_int
+        { Taste::Coordinates => "58 38 60 40";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Coordinates => "60 30 92 43";
+  END pingee_device;
+
+  SYSTEM IMPLEMENTATION pingee_device.others
+    SUBCOMPONENTS
+      receive_int_impl : SUBPROGRAM interfaceview::FV::receive_int
+        { Compute_Execution_Time => 0ms..500ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_int_impl  -> receive_int;
+  END pingee_device.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 297 210";
+  Taste::dataView => "DataView";
+  Taste::dataViewPath => "../../../../tmp/CHYCkA7f3y/datamodelrkwWo.aadl";
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activation
+  END activation;
+
+  SUBPROGRAM receive_int
+    FEATURES
+      valuein : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+  END receive_int;
+
+END interfaceview::FV;
+

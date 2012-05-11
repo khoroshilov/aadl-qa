@@ -1,0 +1,180 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      Power_Model: SYSTEM interfaceview::IV::Power_Model.others
+        { Taste::Coordinates => "1832 177 2510 351"; };
+      Power_Orchestrator: SYSTEM interfaceview::IV::Power_Orchestrator.others
+        { Taste::Coordinates => "972 113 1610 1110"; };
+      Spacecraft: SYSTEM interfaceview::IV::Spacecraft.others
+        { Taste::Coordinates => "44 607 668 1097"; };
+      Ground: SYSTEM interfaceview::IV::Ground.others
+        { Taste::Coordinates => "50 111 674 553"; };
+    CONNECTIONS
+      obj731 : SUBPROGRAM ACCESS Power_Model.activator_obj108  -> Power_Orchestrator.activate_thermal_model_obj230 
+        { Taste::Coordinates => "1610 293 1721 293 1721 289 1832 289"; };
+      obj1984 : SUBPROGRAM ACCESS Ground.powermodelresults_obj1664  -> Power_Orchestrator.send_power_model_results_obj1917 
+        { Taste::Coordinates => "972 464 823 464 823 464 674 464"; };
+      obj963 : SUBPROGRAM ACCESS Power_Orchestrator.receive_spacecraft_powermodel_obj206  -> Spacecraft.obj900_obj303 
+        { Taste::Coordinates => "668 754 845 754 845 757 972 757"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Power_Model
+  ---------------------------------------------------
+
+  SYSTEM Power_Model
+    FEATURES
+      activator_obj108 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj108.others
+        { Taste::Coordinates => "1832 289";
+          Taste::RCMoperationKind => protected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Simulink;
+      Taste::Instance_Name => "Power_Model";
+  END Power_Model;
+
+  SYSTEM IMPLEMENTATION Power_Model.others
+    SUBCOMPONENTS
+      activator_obj108_impl : SUBPROGRAM interfaceview::FV::activator_obj108.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj108_impl  -> activator_obj108;
+  END Power_Model.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Power_Orchestrator
+  ---------------------------------------------------
+
+  SYSTEM Power_Orchestrator
+    FEATURES
+      receive_spacecraft_powermodel_obj206 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_spacecraft_powermodel_obj206.others
+        { Taste::Coordinates => "972 757 972 757";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      activate_thermal_model_obj230 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::activator_obj108.others 
+        { Taste::Coordinates => "1610 293 1610 293";
+          Taste::RCMoperationKind => protected;};
+      send_power_model_results_obj1917 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::powermodelresults_obj1664.others 
+        { Taste::Coordinates => "972 464 972 464";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Power_Orchestrator";
+  END Power_Orchestrator;
+
+  SYSTEM IMPLEMENTATION Power_Orchestrator.others
+    SUBCOMPONENTS
+      receive_spacecraft_powermodel_obj206_impl : SUBPROGRAM interfaceview::FV::receive_spacecraft_powermodel_obj206.others
+        { Compute_Execution_Time => 0ms..10ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_spacecraft_powermodel_obj206_impl  -> receive_spacecraft_powermodel_obj206;
+  END Power_Orchestrator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Spacecraft
+  ---------------------------------------------------
+
+  SYSTEM Spacecraft
+    FEATURES
+      obj900_obj303 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_spacecraft_powermodel_obj206.others 
+        { Taste::Coordinates => "668 754";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => GUI;
+      Taste::Instance_Name => "Spacecraft";
+  END Spacecraft;
+
+  SYSTEM IMPLEMENTATION Spacecraft.others
+  END Spacecraft.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Ground
+  ---------------------------------------------------
+
+  SYSTEM Ground
+    FEATURES
+      powermodelresults_obj1664 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::powermodelresults_obj1664.others
+        { Taste::Coordinates => "674 464 674 464";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1 ms;
+          Taste::Deadline => 1 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => GUI;
+      Taste::Instance_Name => "Ground";
+  END Ground;
+
+  SYSTEM IMPLEMENTATION Ground.others
+    SUBCOMPONENTS
+      powermodelresults_obj1664_impl : SUBPROGRAM interfaceview::FV::powermodelresults_obj1664.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS powermodelresults_obj1664_impl  -> powermodelresults_obj1664;
+  END Ground.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+  Taste::dataView => ("DataView");
+  Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj108
+    FEATURES
+      inputs : IN PARAMETER DataView::SpaceCraft_2_PowerModel
+        { Taste::encoding => UPER; };
+      outputs : out PARAMETER DataView::PowerModel_Outputs
+        { Taste::encoding => UPER; };
+  END activator_obj108;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj108.others
+  END activator_obj108.others;
+
+  SUBPROGRAM receive_spacecraft_powermodel_obj206
+    FEATURES
+      input : IN PARAMETER SpaceCraft_2_Thermal
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_spacecraft_powermodel_obj206;
+
+  SUBPROGRAM IMPLEMENTATION receive_spacecraft_powermodel_obj206.others
+  END receive_spacecraft_powermodel_obj206.others;
+
+  SUBPROGRAM powermodelresults_obj1664
+    FEATURES
+      val : in PARAMETER DataView::PowerModel_Outputs
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END powermodelresults_obj1664;
+
+  SUBPROGRAM IMPLEMENTATION powermodelresults_obj1664.others
+  END powermodelresults_obj1664.others;
+
+END interfaceview::FV;
+

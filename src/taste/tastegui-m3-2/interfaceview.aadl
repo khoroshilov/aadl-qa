@@ -1,0 +1,179 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      periodicsender: SYSTEM interfaceview::IV::periodicsender.others
+        { Taste::Coordinates => "61 250 425 1058"; };
+      RASTA1_LeonApp: SYSTEM interfaceview::IV::RASTA1_LeonApp.others
+        { Taste::Coordinates => "686 242 1242 645"; };
+      RASTA1_FPGA: SYSTEM interfaceview::IV::RASTA1_FPGA.others
+        { Taste::Coordinates => "695 819 1235 1056"; };
+    CONNECTIONS
+      obj1754 : SUBPROGRAM ACCESS RASTA1_LeonApp.Step_obj119  -> periodicsender.obj1651_obj98 
+        { Taste::Coordinates => "425 324 556 324 556 324 686 324"; };
+      obj1290 : SUBPROGRAM ACCESS RASTA1_FPGA.compute_obj162  -> RASTA1_LeonApp.obj1212_obj131 
+        { Taste::Coordinates => "970 645 970 732 970 732 970 819"; };
+      obj2656 : SUBPROGRAM ACCESS periodicsender.Result_obj75  -> RASTA1_LeonApp.obj2561_obj141 
+        { Taste::Coordinates => "686 553 556 553 556 553 425 553"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::periodicsender
+  ---------------------------------------------------
+
+  SYSTEM periodicsender
+    FEATURES
+      Result_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::Result_obj75.others
+        { Taste::Coordinates => "425 553";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 0 ms;
+          Taste::Importance => MEDIUM ;};
+      activator_obj87 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj87.others
+        { Taste::Coordinates => "61 743";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 4000 ms;
+          Taste::Deadline => 4000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1651_obj98 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::Step_obj119.others 
+        { Taste::Coordinates => "425 324";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END periodicsender;
+
+  SYSTEM IMPLEMENTATION periodicsender.others
+    SUBCOMPONENTS
+      Result_obj75_impl : SUBPROGRAM interfaceview::FV::Result_obj75.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+      activator_obj87_impl : SUBPROGRAM interfaceview::FV::activator_obj87.others
+        { Compute_Execution_Time => 0ms..400ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS Result_obj75_impl  -> Result_obj75;
+      SUBPROGRAM ACCESS activator_obj87_impl  -> activator_obj87;
+  END periodicsender.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::RASTA1_LeonApp
+  ---------------------------------------------------
+
+  SYSTEM RASTA1_LeonApp
+    FEATURES
+      Step_obj119 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::Step_obj119.others
+        { Taste::Coordinates => "686 324";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 5000 ms;
+          Taste::Deadline => 5000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj1212_obj131 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::compute_obj162.others 
+        { Taste::Coordinates => "970 645";
+          Taste::RCMoperationKind => unprotected;};
+      obj2561_obj141 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::Result_obj75.others 
+        { Taste::Coordinates => "686 553";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END RASTA1_LeonApp;
+
+  SYSTEM IMPLEMENTATION RASTA1_LeonApp.others
+    SUBCOMPONENTS
+      Step_obj119_impl : SUBPROGRAM interfaceview::FV::Step_obj119.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS Step_obj119_impl  -> Step_obj119;
+  END RASTA1_LeonApp.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::RASTA1_FPGA
+  ---------------------------------------------------
+
+  SYSTEM RASTA1_FPGA
+    FEATURES
+      compute_obj162 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::compute_obj162.others
+        { Taste::Coordinates => "970 819";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 100 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => VHDL;
+      Taste::Instance_Name => "Function2";
+  END RASTA1_FPGA;
+
+  SYSTEM IMPLEMENTATION RASTA1_FPGA.others
+    SUBCOMPONENTS
+      compute_obj162_impl : SUBPROGRAM interfaceview::FV::compute_obj162.others
+        { Compute_Execution_Time => 0ms..100ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS compute_obj162_impl  -> compute_obj162;
+  END RASTA1_FPGA.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM Result_obj75
+    FEATURES
+      status : IN PARAMETER DataView::Response_T
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END Result_obj75;
+
+  SUBPROGRAM IMPLEMENTATION Result_obj75.others
+  END Result_obj75.others;
+
+  SUBPROGRAM activator_obj87
+  END activator_obj87;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj87.others
+  END activator_obj87.others;
+
+  SUBPROGRAM Step_obj119
+    FEATURES
+      val : IN PARAMETER DataView::T_INTEGER
+        { Taste::encoding => UPER; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END Step_obj119;
+
+  SUBPROGRAM IMPLEMENTATION Step_obj119.others
+  END Step_obj119.others;
+
+  SUBPROGRAM compute_obj162
+    FEATURES
+      my_in : IN PARAMETER DataView::T_INTEGER
+        { Taste::encoding => UPER; };
+      result : OUT PARAMETER DataView::T_INTEGER
+        { Taste::encoding => NATIVE; };
+  END compute_obj162;
+
+  SUBPROGRAM IMPLEMENTATION compute_obj162.others
+  END compute_obj162.others;
+
+END interfaceview::FV;
+

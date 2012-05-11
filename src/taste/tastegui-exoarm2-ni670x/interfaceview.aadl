@@ -1,0 +1,187 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      ni660x_acquisition: SYSTEM interfaceview::IV::ni660x_acquisition.others
+        { Taste::Coordinates => "352 134 1092 671"; };
+      printer_660x: SYSTEM interfaceview::IV::printer_660x.others
+        { Taste::Coordinates => "1570 145 2299 667"; };
+      ni670x_output: SYSTEM interfaceview::IV::ni670x_output.others
+        { Taste::Coordinates => "1505 716 2245 1033"; };
+      controller_670x: SYSTEM interfaceview::IV::controller_670x.others
+        { Taste::Coordinates => "358 711 1087 1047"; };
+    CONNECTIONS
+      obj533 : SUBPROGRAM ACCESS printer_660x.printval_obj107  -> ni660x_acquisition.obj454_obj86 
+        { Taste::Coordinates => "1092 528 1331 528 1331 497 1570 497"; };
+      obj386 : SUBPROGRAM ACCESS ni670x_output.output_obj130  -> controller_670x.obj306_obj164 
+        { Taste::Coordinates => "1087 841 1320 841 1320 873 1505 873"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ni660x_acquisition
+  ---------------------------------------------------
+
+  SYSTEM ni660x_acquisition
+    FEATURES
+      activator_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj75.others
+        { Taste::Coordinates => "352 535";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1 ms;
+          Taste::Deadline => 1 ms;
+          Taste::Importance => MEDIUM ;};
+      obj454_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::printval_obj107.others 
+        { Taste::Coordinates => "1092 528";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "Function0";
+  END ni660x_acquisition;
+
+  SYSTEM IMPLEMENTATION ni660x_acquisition.others
+    SUBCOMPONENTS
+      activator_obj75_impl : SUBPROGRAM interfaceview::FV::activator_obj75.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj75_impl  -> activator_obj75;
+  END ni660x_acquisition.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::printer_660x
+  ---------------------------------------------------
+
+  SYSTEM printer_660x
+    FEATURES
+      printval_obj107 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::printval_obj107.others
+        { Taste::Coordinates => "1570 497";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1 ms;
+          Taste::Deadline => 1 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END printer_660x;
+
+  SYSTEM IMPLEMENTATION printer_660x.others
+    SUBCOMPONENTS
+      printval_obj107_impl : SUBPROGRAM interfaceview::FV::printval_obj107.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS printval_obj107_impl  -> printval_obj107;
+  END printer_660x.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::ni670x_output
+  ---------------------------------------------------
+
+  SYSTEM ni670x_output
+    FEATURES
+      output_obj130 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::output_obj130.others
+        { Taste::Coordinates => "1505 873";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1 ms;
+          Taste::Deadline => 1 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "Function0";
+  END ni670x_output;
+
+  SYSTEM IMPLEMENTATION ni670x_output.others
+    SUBCOMPONENTS
+      output_obj130_impl : SUBPROGRAM interfaceview::FV::output_obj130.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS output_obj130_impl  -> output_obj130;
+  END ni670x_output.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::controller_670x
+  ---------------------------------------------------
+
+  SYSTEM controller_670x
+    FEATURES
+      simulate_voltage_obj153 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::simulate_voltage_obj153.others
+        { Taste::Coordinates => "358 908";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 100 ms;
+          Taste::Deadline => 2 ms;
+          Taste::Importance => MEDIUM ;};
+      obj306_obj164 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::output_obj130.others 
+        { Taste::Coordinates => "1087 841";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END controller_670x;
+
+  SYSTEM IMPLEMENTATION controller_670x.others
+    SUBCOMPONENTS
+      simulate_voltage_obj153_impl : SUBPROGRAM interfaceview::FV::simulate_voltage_obj153.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS simulate_voltage_obj153_impl  -> simulate_voltage_obj153;
+  END controller_670x.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj75
+  END activator_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj75.others
+  END activator_obj75.others;
+
+  SUBPROGRAM printval_obj107
+    FEATURES
+      val : IN PARAMETER DataView::Ni_660x_Output
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END printval_obj107;
+
+  SUBPROGRAM IMPLEMENTATION printval_obj107.others
+  END printval_obj107.others;
+
+  SUBPROGRAM output_obj130
+    FEATURES
+      voltage : IN PARAMETER DataView::NI670x_Input
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END output_obj130;
+
+  SUBPROGRAM IMPLEMENTATION output_obj130.others
+  END output_obj130.others;
+
+  SUBPROGRAM simulate_voltage_obj153
+  END simulate_voltage_obj153;
+
+  SUBPROGRAM IMPLEMENTATION simulate_voltage_obj153.others
+  END simulate_voltage_obj153.others;
+
+END interfaceview::FV;
+

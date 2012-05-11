@@ -1,0 +1,67 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      printer: SYSTEM interfaceview::IV::printer.others
+        { Taste::Coordinates => "820 257 1403 939"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::printer
+  ---------------------------------------------------
+
+  SYSTEM printer
+    FEATURES
+      activator_obj200 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj200.others
+        { Taste::Coordinates => "1044 257";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 5000 ms;
+          Taste::Deadline => 5000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END printer;
+
+  SYSTEM IMPLEMENTATION printer.others
+    SUBCOMPONENTS
+      activator_obj200_impl : SUBPROGRAM interfaceview::FV::activator_obj200.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj200_impl  -> activator_obj200;
+  END printer.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj200
+  END activator_obj200;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj200.others
+  END activator_obj200.others;
+
+END interfaceview::FV;
+

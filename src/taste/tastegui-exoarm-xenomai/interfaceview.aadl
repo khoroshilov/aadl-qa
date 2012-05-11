@@ -1,0 +1,300 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+WITH interfaceview::IV::Controller;
+WITH interfaceview::IV::Exoskeleton;
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      orchestrator: SYSTEM interfaceview::IV::Controller::orchestrator.others
+        { Taste::Coordinates => "158 80 179 97"; };
+      control_law: SYSTEM interfaceview::IV::Controller::control_law.others
+        { Taste::Coordinates => "159 110 180 128"; };
+      arm: SYSTEM interfaceview::IV::Exoskeleton::arm.others
+        { Taste::Coordinates => "90 103 118 126"; };
+      digital_arm_control: SYSTEM interfaceview::IV::Exoskeleton::digital_arm_control.others
+        { Taste::Coordinates => "91 73 118 99"; };
+      vr_arm: SYSTEM interfaceview::IV::vr_arm.others
+        { Taste::Coordinates => "215 78 235 108"; };
+    CONNECTIONS
+      ctrl_law : SUBPROGRAM ACCESS control_law.control_law_obj187  -> orchestrator.control_law_obj156 
+        { Taste::Coordinates => "171 97 171 103 152 103 152 113 159 113"; };
+      vr_cmd : SUBPROGRAM ACCESS vr_arm.vr_command_obj98  -> orchestrator.vr_command_obj166 
+        { Taste::Coordinates => "179 91 197 91 197 89 215 89"; };
+      analog_cmd : SUBPROGRAM ACCESS orchestrator.analog_command_obj133  -> arm.analog_command_obj223 
+        { Taste::Coordinates => "118 111 138 111 138 93 158 93"; };
+      digital_cmd : SUBPROGRAM ACCESS orchestrator.digital_command_obj121  -> digital_arm_control.digital_command_obj255 
+        { Taste::Coordinates => "118 81 138 81 138 86 158 86"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::vr_arm
+  ---------------------------------------------------
+
+  SYSTEM vr_arm
+    FEATURES
+      vr_command_obj98 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::vr_command_obj98.others
+        { Taste::Coordinates => "215 89";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 50 ms;
+          Taste::Deadline => 50 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "vr_arm";
+  END vr_arm;
+
+  SYSTEM IMPLEMENTATION vr_arm.others
+    SUBCOMPONENTS
+      vr_config_obj87 : DATA DataView::VR_Arm_Configuration 
+        { Taste::FS_Default_Value => "{ ip ""192.168.1.215"", port 25000 }"; };
+      vr_command_obj98_impl : SUBPROGRAM interfaceview::FV::vr_command_obj98.others
+        { Compute_Execution_Time => 0ms..2ms ;};
+    CONNECTIONS
+      DATA ACCESS vr_config_obj87 -> vr_command_obj98_impl.vr_config_obj87;
+      SUBPROGRAM ACCESS vr_command_obj98_impl  -> vr_command_obj98;
+  END vr_arm.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 297 210";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::IV::Controller
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Controller::orchestrator
+  ---------------------------------------------------
+
+  SYSTEM orchestrator
+    FEATURES
+      digital_command_obj121 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::digital_command_obj121.others
+        { Taste::Coordinates => "158 86";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 500 ms;
+          Taste::Deadline => 500 ms;
+          Taste::Importance => MEDIUM ;};
+      analog_command_obj133 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::analog_command_obj133.others
+        { Taste::Coordinates => "158 93";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 2 ms;
+          Taste::Deadline => 2 ms;
+          Taste::Importance => MEDIUM ;};
+      cyclic_activation_obj145 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::cyclic_activation_obj145.others
+        { Taste::Coordinates => "168 80";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      control_law_obj156 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::control_law_obj187.others 
+        { Taste::Coordinates => "171 97";
+          Taste::RCMoperationKind => unprotected;};
+      vr_command_obj166 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::vr_command_obj98.others 
+        { Taste::Coordinates => "179 91";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => RTDS;
+      Taste::Instance_Name => "orchestrator";
+  END orchestrator;
+
+  SYSTEM IMPLEMENTATION orchestrator.others
+    SUBCOMPONENTS
+      digital_command_obj121_impl : SUBPROGRAM interfaceview::FV::digital_command_obj121.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+      analog_command_obj133_impl : SUBPROGRAM interfaceview::FV::analog_command_obj133.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+      cyclic_activation_obj145_impl : SUBPROGRAM interfaceview::FV::cyclic_activation_obj145.others
+        { Compute_Execution_Time => 0ms..1ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS digital_command_obj121_impl  -> digital_command_obj121;
+      SUBPROGRAM ACCESS analog_command_obj133_impl  -> analog_command_obj133;
+      SUBPROGRAM ACCESS cyclic_activation_obj145_impl  -> cyclic_activation_obj145;
+  END orchestrator.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Controller::control_law
+  ---------------------------------------------------
+
+  SYSTEM control_law
+    FEATURES
+      control_law_obj187 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::control_law_obj187.others
+        { Taste::Coordinates => "159 113";
+          Taste::RCMoperationKind => unprotected;
+          Taste::RCMperiod => 0 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => SIMULINK;
+      Taste::Instance_Name => "control_law";
+  END control_law;
+
+  SYSTEM IMPLEMENTATION control_law.others
+    SUBCOMPONENTS
+      control_law_obj187_impl : SUBPROGRAM interfaceview::FV::control_law_obj187.others
+        { Compute_Execution_Time => 0ms..2ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS control_law_obj187_impl  -> control_law_obj187;
+  END control_law.others;
+
+PROPERTIES
+  Taste::Coordinates => "134 74 204 135";
+END interfaceview::IV::Controller;
+
+PACKAGE interfaceview::IV::Exoskeleton
+PUBLIC
+
+WITH interfaceview::FV;
+WITH DataView;
+WITH Taste;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Exoskeleton::arm
+  ---------------------------------------------------
+
+  SYSTEM arm
+    FEATURES
+      poll_acquisition_board_obj212 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::poll_acquisition_board_obj212.others
+        { Taste::Coordinates => "104 103";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 10 ms;
+          Taste::Deadline => 10 ms;
+          Taste::Importance => MEDIUM ;};
+      analog_command_obj223 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::analog_command_obj133.others 
+        { Taste::Coordinates => "118 111";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "arm";
+  END arm;
+
+  SYSTEM IMPLEMENTATION arm.others
+    SUBCOMPONENTS
+      poll_acquisition_board_obj212_impl : SUBPROGRAM interfaceview::FV::poll_acquisition_board_obj212.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS poll_acquisition_board_obj212_impl  -> poll_acquisition_board_obj212;
+  END arm.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::Exoskeleton::digital_arm_control
+  ---------------------------------------------------
+
+  SYSTEM digital_arm_control
+    FEATURES
+      poll_digital_board_obj244 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::poll_digital_board_obj244.others
+        { Taste::Coordinates => "103 73";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      digital_command_obj255 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::digital_command_obj121.others 
+        { Taste::Coordinates => "118 81";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => Blackbox_device;
+      Taste::Instance_Name => "digital_arm_control";
+  END digital_arm_control;
+
+  SYSTEM IMPLEMENTATION digital_arm_control.others
+    SUBCOMPONENTS
+      poll_digital_board_obj244_impl : SUBPROGRAM interfaceview::FV::poll_digital_board_obj244.others
+        { Compute_Execution_Time => 0ms..0ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS poll_digital_board_obj244_impl  -> poll_digital_board_obj244;
+  END digital_arm_control.others;
+
+PROPERTIES
+  Taste::Coordinates => "86 69 124 142";
+END interfaceview::IV::Exoskeleton;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM digital_command_obj121
+    FEATURES
+      in_digital : IN PARAMETER DataView::Digital_Inputs
+        { Taste::encoding => ACN; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END digital_command_obj121;
+
+  SUBPROGRAM IMPLEMENTATION digital_command_obj121.others
+  END digital_command_obj121.others;
+
+  SUBPROGRAM analog_command_obj133
+    FEATURES
+      in_analog : IN PARAMETER DataView::Analog_Inputs
+        { Taste::encoding => ACN; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END analog_command_obj133;
+
+  SUBPROGRAM IMPLEMENTATION analog_command_obj133.others
+  END analog_command_obj133.others;
+
+  SUBPROGRAM cyclic_activation_obj145
+  END cyclic_activation_obj145;
+
+  SUBPROGRAM IMPLEMENTATION cyclic_activation_obj145.others
+  END cyclic_activation_obj145.others;
+
+  SUBPROGRAM control_law_obj187
+    FEATURES
+      in_analog : IN PARAMETER DataView::Analog_Inputs
+        { Taste::encoding => NATIVE; };
+      in_digital : IN PARAMETER DataView::Digital_Inputs
+        { Taste::encoding => NATIVE; };
+      out_vr : OUT PARAMETER DataView::VR_Model_Output
+        { Taste::encoding => NATIVE; };
+  END control_law_obj187;
+
+  SUBPROGRAM IMPLEMENTATION control_law_obj187.others
+  END control_law_obj187.others;
+
+  SUBPROGRAM poll_acquisition_board_obj212
+  END poll_acquisition_board_obj212;
+
+  SUBPROGRAM IMPLEMENTATION poll_acquisition_board_obj212.others
+  END poll_acquisition_board_obj212.others;
+
+  SUBPROGRAM poll_digital_board_obj244
+  END poll_digital_board_obj244;
+
+  SUBPROGRAM IMPLEMENTATION poll_digital_board_obj244.others
+  END poll_digital_board_obj244.others;
+
+  SUBPROGRAM vr_command_obj98
+    FEATURES
+      vr_output : IN PARAMETER DataView::VR_Model_Output
+        { Taste::encoding => ACN; };
+      vr_config_obj87 : REQUIRES DATA ACCESS DataView::VR_Arm_Configuration;
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END vr_command_obj98;
+
+  SUBPROGRAM IMPLEMENTATION vr_command_obj98.others
+  END vr_command_obj98.others;
+
+END interfaceview::FV;
+

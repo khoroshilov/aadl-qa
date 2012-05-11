@@ -1,0 +1,111 @@
+PACKAGE interfaceview::IV
+PUBLIC
+WITH DataView;
+WITH interfaceview::FV;
+WITH Taste;
+
+---------------------------------------------------
+-- TASTE Interface View 
+---------------------------------------------------
+
+  SYSTEM interfaceview
+  END interfaceview;
+
+  SYSTEM IMPLEMENTATION interfaceview.others
+    SUBCOMPONENTS
+      sender: SYSTEM interfaceview::IV::sender.others
+        { Taste::Coordinates => "464 141 852 259"; };
+      receiver: SYSTEM interfaceview::IV::receiver.others
+        { Taste::Coordinates => "460 305 854 429"; };
+    CONNECTIONS
+      obj384 : SUBPROGRAM ACCESS receiver.receive_obj107  -> sender.obj285_obj86 
+        { Taste::Coordinates => "852 202 893 202 893 338 854 338"; };
+  END interfaceview.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::sender
+  ---------------------------------------------------
+
+  SYSTEM sender
+    FEATURES
+      activator_obj75 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::activator_obj75.others
+        { Taste::Coordinates => "464 170 464 170";
+          Taste::RCMoperationKind => cyclic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+      obj285_obj86 : REQUIRES SUBPROGRAM ACCESS interfaceview::FV::receive_obj107.others 
+        { Taste::Coordinates => "852 202 852 202";
+          Taste::RCMoperationKind => sporadic;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function0";
+  END sender;
+
+  SYSTEM IMPLEMENTATION sender.others
+    SUBCOMPONENTS
+      activator_obj75_impl : SUBPROGRAM interfaceview::FV::activator_obj75.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS activator_obj75_impl  -> activator_obj75;
+  END sender.others;
+
+  ---------------------------------------------------
+  -- TASTE Function: interfaceview::IV::receiver
+  ---------------------------------------------------
+
+  SYSTEM receiver
+    FEATURES
+      receive_obj107 : PROVIDES SUBPROGRAM ACCESS interfaceview::FV::receive_obj107.others
+        { Taste::Coordinates => "854 338 854 338";
+          Taste::RCMoperationKind => sporadic;
+          Taste::RCMperiod => 1000 ms;
+          Taste::Deadline => 1000 ms;
+          Taste::Importance => MEDIUM ;};
+    PROPERTIES
+      Source_Language => C;
+      Taste::Instance_Name => "Function1";
+  END receiver;
+
+  SYSTEM IMPLEMENTATION receiver.others
+    SUBCOMPONENTS
+      receive_obj107_impl : SUBPROGRAM interfaceview::FV::receive_obj107.others
+        { Compute_Execution_Time => 0ms..1000ms ;};
+    CONNECTIONS
+      SUBPROGRAM ACCESS receive_obj107_impl  -> receive_obj107;
+  END receiver.others;
+
+
+
+PROPERTIES
+  Taste::Coordinates => "0 0 2970 2100";
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
+
+END interfaceview::IV;
+
+PACKAGE interfaceview::FV
+PUBLIC
+
+WITH DataView;
+WITH TASTE;
+
+  SUBPROGRAM activator_obj75
+  END activator_obj75;
+
+  SUBPROGRAM IMPLEMENTATION activator_obj75.others
+  END activator_obj75.others;
+
+  SUBPROGRAM receive_obj107
+    FEATURES
+      val : IN PARAMETER DataView::My_Integer
+        { Taste::encoding => NATIVE; };
+    PROPERTIES
+      Taste::Associated_Queue_Size => 1;
+  END receive_obj107;
+
+  SUBPROGRAM IMPLEMENTATION receive_obj107.others
+  END receive_obj107.others;
+
+END interfaceview::FV;
+
