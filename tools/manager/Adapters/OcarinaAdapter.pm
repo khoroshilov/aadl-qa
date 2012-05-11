@@ -48,6 +48,9 @@ sub do_run {
    $components_file = "";
   }
 
+  $components_file = "" if ( defined ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'})
+                            and ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'} eq "NO"));
+
   print "[Ocarina] EXECUTING TEST $test_case->{'name'}: ";
 
   $cmd = "ocarina -aadlv2 -f $self->{'aadlfiles'} ". $components_file . " >$test_case->{'LOGDIR'}/log.txt 2>&1";
