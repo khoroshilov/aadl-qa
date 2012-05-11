@@ -33,8 +33,11 @@ sub do_run {
   my $code;
   my $expected;
   my $components_file;
+  my $instance_option;
+  my $instance_name;
+  my $instances_names;
 
-   $components_file = "";
+  $components_file = "";
 
   $components_file = `ocarina-config --prefix`;
   chomp ($components_file);
@@ -43,25 +46,59 @@ sub do_run {
 
   $expected = "";
 
+  $instance_option = "";
+  $instance_name = "";
+
   if (! -f $components_file)
   {
    $components_file = "";
   }
 
+
+  $instance_option = " -i " if ( defined ($test_case->{'manifest'}{'OCARINA_INSTANTIATE'})
+                            and ($test_case->{'manifest'}{'OCARINA_INSTANTIATE'} eq "YES"));
+  $instances_names = $test_case->{'manifest'}{'OCARINA_INSTANCES_NAMES'} if (defined ($test_case->{'manifest'}{'OCARINA_INSTANCES_NAMES'}));
+
   $components_file = "" if ( defined ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'})
                             and ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'} eq "NO"));
 
-  print "[Ocarina] EXECUTING TEST $test_case->{'name'}: ";
 
-  $cmd = "ocarina -aadlv2 -f $self->{'aadlfiles'} ". $components_file . " >$test_case->{'LOGDIR'}/log.txt 2>&1";
-  $code = system($cmd);
-  if ($code == 0)
+  print "[Ocarina] EXECUTING TEST $test_case->{'name'}: ";
+  if (defined ($instances_names))
   {
-      $result{'RESULT'} = "VALID";
+      my @instances = split /\s+/, $instances_names;
+
+      print "instance(s) ";
+      foreach (@instances)
+      {
+      chomp;
+
+      print "$_ ";
+     $cmd = "ocarina -aadlv2 -r $_ -i -f $self->{'aadlfiles'} ". $components_file . " >>$test_case->{'LOGDIR'}/log.txt 2>&1";
+     $code = system($cmd);
+     if ($code == 0)
+     {
+         $result{'RESULT'} = "VALID";
+     }
+     else
+     {
+         $result{'RESULT'} = "INVALID";
+     }
+     }
+
   }
   else
   {
-      $result{'RESULT'} = "INVALID";
+     $cmd = "ocarina -aadlv2 $instance_option -f $self->{'aadlfiles'} ". $components_file . " >$test_case->{'LOGDIR'}/log.txt 2>&1";
+     $code = system($cmd);
+     if ($code == 0)
+     {
+         $result{'RESULT'} = "VALID";
+     }
+     else
+     {
+         $result{'RESULT'} = "INVALID";
+     }
   }
 
   $expected = $test_case->{'manifest'}{'EXPECTED_RESULT'};
