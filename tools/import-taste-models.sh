@@ -30,7 +30,6 @@ for v in `ls ${TASTEGUIDIR}/examples/ | grep -v svn`; do
          (cd /tmp/ && cp -f dataview.aadl ${EXPORTDIR}) >/dev/null 2>&1
          (cd /tmp/ && cp -f deploymentview.aadl ${EXPORTDIR}) >/dev/null 2>&1
          (cd /tmp/ && cp -f interfaceview.aadl ${EXPORTDIR}) >/dev/null 2>&1
-         echo REQ=/Requirements/01-Syntax/identifier/01-l > ${EXPORTDIR}/MANIFEST.TC
          echo EXPECTED_RESULT=VALID >> ${EXPORTDIR}/MANIFEST.TC
          echo OCARINA_USE_COMPONENTS_LIBRARY=NO >> ${EXPORTDIR}/MANIFEST.TC
          echo OCARINA_INSTANTIATE=YES >> ${EXPORTDIR}/MANIFEST.TC
