@@ -1,0 +1,38 @@
+
+	
+		package Redundancy
+		public
+		  abstract Triple
+		    features
+		      input: in data port;
+		      output: out data port;
+		  end Triple;
+		
+		  abstract implementation Triple.impl
+		    subcomponents
+		      MyProcess: abstract Calculate [3];
+		      MyVoter: abstract Voter;
+		    connections
+		      extinput: port input -> MyProcess.input
+		                     { Connection_Pattern => ((One_To_All)); };
+		      tovoter: port MyProcess.output -> MyVoter.input
+		                     { Connection_Pattern => ((One_To_One)); };
+		      extoutput: port MyVoter.output -> output;
+		  end Triple.impl;
+		
+		  abstract Calculate
+		    features
+		      input: in data port;
+		      output: out data port;
+		  end Calculate;
+		
+		  abstract Voter
+		    features
+		      input: in data port [3];
+		      output: out data port;
+		  end Voter;
+		end Redundancy;
+
+
+	 
+

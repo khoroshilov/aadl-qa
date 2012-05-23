@@ -1,0 +1,18 @@
+
+	
+		
+			
+				
+					package identifier
+					public
+					  -- Invalid identifier: underscore cannot be in the end
+					  data f_9_
+					  end f_9_;
+					end identifier; 
+				
+					 
+			
+		
+	
+
+ 

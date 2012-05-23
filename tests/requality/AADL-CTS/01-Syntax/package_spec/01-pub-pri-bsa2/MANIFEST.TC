@@ -1,0 +1,2 @@
+REQ=/Requirements/01-Syntax/package_spec/01-pub-pri-bsa2
+EXPECTED_RESULT=VALID

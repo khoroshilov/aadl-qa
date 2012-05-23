@@ -14,14 +14,14 @@ TASTEGUIDIR=${TASTEDIR}/tastegui/
 #######################################################
 
 
-mkdir -p ${AADLQADIR}/src/taste
+mkdir -p ${AADLQADIR}/tests/taste
 
-echo "DESCRIPTION=Examples from TASTE GUI tool" > ${AADLQADIR}/src/taste/MANIFEST.TS
+echo "DESCRIPTION=Examples from TASTE GUI tool" > ${AADLQADIR}/tests/taste/MANIFEST.TS
 
 for v in `ls ${TASTEGUIDIR}/examples/ | grep -v svn`; do
    if [ -d ${TASTEGUIDIR}/examples/$v ]; then
       if [ -f ${TASTEGUIDIR}/examples/$v/project.taste ]; then
-         EXPORTDIR=${AADLQADIR}/src/taste/tastegui-$v
+         EXPORTDIR=${AADLQADIR}/tests/taste/tastegui-$v
          echo Exporting model $v in $EXPORTDIR
          (cp -f ${TASTEGUIDIR}/examples/$v/project.taste /tmp/)
          (cd /tmp/ && tar xzvf project.taste) >/dev/null 2>&1

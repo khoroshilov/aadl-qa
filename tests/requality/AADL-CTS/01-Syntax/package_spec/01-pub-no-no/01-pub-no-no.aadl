@@ -1,0 +1,15 @@
+
+	
+		
+			
+				package package_spec
+				public
+				  data Bool_Type
+				  end Bool_Type;
+				end package_spec;
+		
+	
+
+
+	 
+

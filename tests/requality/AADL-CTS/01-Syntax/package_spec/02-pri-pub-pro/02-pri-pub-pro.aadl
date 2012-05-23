@@ -1,0 +1,31 @@
+
+	
+		
+			
+				
+					
+						
+						property set MyProp is
+						  Access_Rights3 : type enumeration (read_only2, write_only2, read_write2);
+						  Pckg_Access_Right1  : MyProp::Access_Rights3 applies to (package);
+						  Pckg_Access_Right2  : MyProp::Access_Rights3 applies to (package);
+						end MyProp;
+					
+						package package_spec
+						private
+						  data Priv_Bool_Type
+						  end Priv_Bool_Type;
+						public
+						  with MyProp;
+						  data Bool_Type
+						  end Bool_Type;
+						properties
+						   MyProp::Pckg_Access_Right1 => read_only2;
+						   MyProp::Pckg_Access_Right2 => write_only2;
+						end package_spec;
+				
+			
+		
+	
+
+

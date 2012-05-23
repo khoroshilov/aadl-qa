@@ -1,0 +1,13 @@
+
+	
+		
+			package package_spec
+			private
+			  data Bool_Type
+			  end Bool_Type;
+			properties
+			  none;
+			end package_spec;
+	
+
+ 

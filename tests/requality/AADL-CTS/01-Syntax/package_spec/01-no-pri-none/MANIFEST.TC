@@ -1,0 +1,2 @@
+REQ=/Requirements/01-Syntax/package_spec/01-no-pri-none
+EXPECTED_RESULT=VALID

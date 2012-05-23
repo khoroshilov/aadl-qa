@@ -1,0 +1,26 @@
+
+	
+		property set Safety_Properties is
+		  Safety_Criticality_Levels : type enumeration (low,medium,high);
+		  Safety_Criticality  : Safety_Properties::Safety_Criticality_Levels applies to (system);
+		end Safety_Properties;
+	
+		package Avionics::DataTypes
+		public
+		  data AirData
+		  end AirData;
+		end Avionics::DataTypes;
+	
+		package Aircraft::Cockpit
+		public
+		   with Avionics::DataTypes, Safety_Properties;
+		   AirData renames data Avionics::DataTypes::AirData;
+		   system MFD
+		   features
+		      Airdata: in data port AirData;
+		   properties
+		      Safety_Properties::Safety_Criticality => high;
+		   end MFD;
+		end Aircraft::Cockpit;
+
+

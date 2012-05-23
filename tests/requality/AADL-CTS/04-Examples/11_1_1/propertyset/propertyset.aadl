@@ -1,0 +1,25 @@
+
+	property set mine is
+
+	  Length_Unit : type units ( mm, cm => mm * 10, 
+
+	                           m => cm * 100, km => m * 1000 );
+
+	  OnOff : type aadlboolean;
+
+	  -- This type declaration references a separately declared units type
+
+	  Car_Length : type aadlreal 1.5 m .. 4.5 m units mine::Length_Unit ; 
+
+	  -- This type declaration defines the units in place
+
+	  Speed_Range : type range of aadlreal 0.0 kph .. 250.0 kph units ( kph );
+
+	  Position : type record (
+
+	       X: aadlinteger;
+
+	       Y: aadlinteger; );
+
+	end mine;
+ 

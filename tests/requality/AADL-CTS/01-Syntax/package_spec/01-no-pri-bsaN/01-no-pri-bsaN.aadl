@@ -1,0 +1,160 @@
+
+	
+		
+			 
+		
+			  property set MyProp is
+			  Access_Rights2 : type enumeration (read_only2, write_only2, read_write2);
+		
+			  Access_Right1  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right2  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right3  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right4  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right5  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right6  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right7  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right8  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right9  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right10  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right11  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right12  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right13  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right14  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right15  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right16  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right17  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right18  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right19  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right20  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right21  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right22  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right23  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right24  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right25  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right26  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right27  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right28  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right29  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right30  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right31  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right32  : MyProp::Access_Rights2 applies to (package); 
+		
+			  Access_Right33  : MyProp::Access_Rights2 applies to (package); 
+		
+			end MyProp;
+		
+			 
+		
+			package package_spec
+		
+			  private
+		
+			    with MyProp;
+		
+			    data Bool_Type
+		
+			    end Bool_Type;
+		
+			  properties
+		
+			    MyProp::Access_Right1 => read_only2;
+		
+			    MyProp::Access_Right2 => write_only2;
+		
+			    MyProp::Access_Right3 => read_write2;
+		
+			    MyProp::Access_Right4 => read_only2;
+		
+			    MyProp::Access_Right5 => write_only2;
+		
+			    MyProp::Access_Right6 => read_write2;
+		
+			    MyProp::Access_Right7 => read_only2;
+		
+			    MyProp::Access_Right8 => write_only2;
+		
+			    MyProp::Access_Right9 => read_write2;
+		
+			    MyProp::Access_Right10 => read_only2;
+		
+			    MyProp::Access_Right11 => read_only2;
+		
+			    MyProp::Access_Right12 => write_only2;
+		
+			    MyProp::Access_Right13 => read_write2;
+		
+			    MyProp::Access_Right14 => read_only2;
+		
+			    MyProp::Access_Right15 => write_only2;
+		
+			    MyProp::Access_Right16 => read_write2;
+		
+			    MyProp::Access_Right17 => read_only2;
+		
+			    MyProp::Access_Right18 => write_only2;
+		
+			    MyProp::Access_Right19 => read_write2;
+		
+			    MyProp::Access_Right20 => read_only2;
+		
+			    MyProp::Access_Right21 => read_only2;
+		
+			    MyProp::Access_Right22 => write_only2;
+		
+			    MyProp::Access_Right23 => read_write2;
+		
+			    MyProp::Access_Right24 => read_only2;
+		
+			    MyProp::Access_Right25 => write_only2;
+		
+			    MyProp::Access_Right26 => read_write2;
+		
+			    MyProp::Access_Right27 => read_only2;
+		
+			    MyProp::Access_Right28 => write_only2;
+		
+			    MyProp::Access_Right29 => read_write2;
+		
+			    MyProp::Access_Right30 => read_only2;
+		
+			    MyProp::Access_Right31 => write_only2;
+		
+			    MyProp::Access_Right32 => read_write2;
+		
+			    MyProp::Access_Right33 => read_only2;
+		
+			end package_spec;
+	
+
+

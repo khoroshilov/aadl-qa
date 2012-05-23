@@ -1,0 +1,22 @@
+
+	
+		
+			
+				
+					
+						package_spec
+						public
+						  data Bool_Type
+						  end Bool_Type;
+						private
+						  data Priv_Bool_Type
+						  end Priv_Bool_Type;
+						end package_spec;
+				
+			
+		
+	
+
+
+	 
+

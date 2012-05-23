@@ -29,40 +29,42 @@ my $CMD       = shift;
 
 #----------------------------------------------------------------------
 my $reqproject = "$FindBin::Bin/requirements/AADL-CTS";
-my $src        = "$FindBin::Bin/src";
-my $gensrc     = "$FindBin::Bin/gensrc";
+my $src        = "$FindBin::Bin/tests";
 my $logdir     = "$FindBin::Bin/journals";
 my $reportdir  = "$FindBin::Bin/reports";
-my $aadlgen    = "$FindBin::Bin/tools/aadlgen/aadlgen.pl";
 my $manager    = "$FindBin::Bin/tools/manager/manager.pl";
-my $gensrcts   = "$FindBin::Bin/gensrc/AADL-CTS";
-my $reqbase    = "$FindBin::Bin/gensrc/AADL-CTS/reqdb.txt";
 
 #----------------------------------------------------------------------
 # Generate gensrc from requality project
 sub tests_gensrc() {
-  if (-e "$gensrcts") {
-    system("rm -rf $gensrcts");
+my @test_suites_list = ();
+
+  if (-d $src) {
+    @test_suites_list = `find $src -name MANIFEST.TS | sort`;
+    foreach my $tsmanifest ( @test_suites_list ) {
+      $tsmanifest =~ m/$src(.*)\/MANIFEST.TS/;
+      my $test_suite = $1;    
+      if (-f "$src$test_suite/build.pl") {
+        print("Generate tests for '$test_suite'\n");
+        my $res = system("$src$test_suite/build.pl");
+        my $msg = ($res == 0) ? "OK" : "FAIL";
+        print("Generate tests for '$test_suite': $msg\n");
+      }
+    }
   }
-  system("$aadlgen $reqproject $gensrcts");
 }
 
 #----------------------------------------------------------------------
 # Run all tests for the tools given
 sub tests_run() {
   my $tools = join(" --tool ",@ARGV);
-  if (! -e $gensrc) {
-    print "ERROR: $gensrc not found\n";
-    print "\nRun 'aadl-qa.pl gensrc'\n";
-    exit 1;
-  }
-  system("$manager --src $src --src $gensrc --logdir $logdir --reportdir $reportdir --reqproject $reqproject --reqbase $reqbase --tool $tools");
+  system("$manager --src $src --logdir $logdir --reportdir $reportdir --reqproject $reqproject --tool $tools");
 }
 
 #----------------------------------------------------------------------
 # Clean all generated files
 sub tests_clean() {
-  system("rm -rf $gensrc $logdir $reportdir");
+  system("rm -rf $logdir $reportdir");
 }
 
 #----------------------------------------------------------------------

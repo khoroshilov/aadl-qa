@@ -1,0 +1,1291 @@
+---id:   /Requirements/01-Syntax/identifier/01-l
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/837df2bd-183e-41c0-848b-be88187512da
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); ">
+			<p>
+				<b><span lang="EN-US">package&nbsp;</span></b>identifier<br />
+				<b>public</b><br />
+				<b>&nbsp; data</b>&nbsp;v<br />
+				<b><span lang="EN-US">&nbsp; end&nbsp;</span></b>v;<br />
+				<b>end&nbsp;</b>identifier;&nbsp;</p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/01-Syntax/identifier/01-l-u-lN
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/837df2bd-183e-41c0-848b-be88187512da
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); ">
+		<p>
+			<b><span lang="EN-US">package&nbsp;</span></b>identifier<br />
+			<b>private</b><br />
+			<b>&nbsp; data</b>&nbsp;valid_identifier<br />
+			<b><span lang="EN-US">&nbsp; end&nbsp;</span></b>valid_identifier;<br />
+			<b>end&nbsp;</b>identifier;</p>
+	</div>
+</div>
+&nbsp;
+---id:   /Requirements/01-Syntax/identifier/01-l-ulN
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/837df2bd-183e-41c0-848b-be88187512da
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); ">
+			<p>
+				<b><span lang="EN-US">package&nbsp;</span></b>identifier<br />
+				<b>private</b><br />
+				<b>&nbsp; data</b>&nbsp;a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_r_q_s_t_u_v_w_x_y_z_0_1_2_3_4_5_6_7_8_9<br />
+				<b><span lang="EN-US">&nbsp; end&nbsp;</span></b>a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_r_q_s_t_u_v_w_x_y_z_0_1_2_3_4_5_6_7_8_9;<br />
+				<b>end&nbsp;</b>identifier;&nbsp;</p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/01-Syntax/identifier/02-d-l
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/837df2bd-183e-41c0-848b-be88187512da
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); ">
+				<p>
+					<b><span lang="EN-US">package&nbsp;</span></b>identifier<br />
+					<b>public</b><br />
+					&nbsp; -- Invalid identifier: digit cannot be first<br />
+					<b>&nbsp; data</b>&nbsp;4v<br />
+					<b><span lang="EN-US">&nbsp; end </span></b><span lang="EN-US">4</span>v;<br />
+					<b>end&nbsp;</b>identifier;&nbsp;</p>
+			</div>
+		</div>
+	</div>
+</div>
+&nbsp;
+---id:   /Requirements/01-Syntax/identifier/02-l-u-l-u
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/837df2bd-183e-41c0-848b-be88187512da
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); ">
+				<p>
+					<b><span lang="EN-US">package&nbsp;</span></b>identifier<br />
+					<b>public</b><br />
+					&nbsp; -- Invalid identifier: underscore cannot be in the end<br />
+					<b>&nbsp; data</b>&nbsp;f_9_<br />
+					<b><span lang="EN-US">&nbsp; end&nbsp;</span></b>f_9_;<br />
+					<b>end&nbsp;</b>identifier;&nbsp;</p>
+				<div>
+					&nbsp;</div>
+			</div>
+		</div>
+	</div>
+</div>
+&nbsp;
+---id:   /Requirements/01-Syntax/identifier/02-l-u-u-l
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/837df2bd-183e-41c0-848b-be88187512da
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+				<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); ">
+					<p>
+						<b><span lang="EN-US">package&nbsp;</span></b>identifier<br />
+						<b>public</b><br />
+						&nbsp; -- Invalid identifier: two underscores cannot be togather<br />
+						<b>&nbsp; data</b>&nbsp;a__b<br />
+						<b><span lang="EN-US">&nbsp; end&nbsp;</span></b>a__b;<br />
+						<b>end&nbsp;</b>identifier; &nbsp;</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/01-Syntax/identifier/02-u-l
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/837df2bd-183e-41c0-848b-be88187512da
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); ">
+			<p>
+				<b><span lang="EN-US">package&nbsp;</span></b>identifier<br />
+				<b>private</b><br />
+				&nbsp; -- Invalid identifier: underscore cannot be the first<br />
+				<b>&nbsp; data</b>&nbsp;_s<br />
+				<b><span lang="EN-US">&nbsp; end&nbsp;</span></b>_s;<br />
+				<b>end&nbsp;</b>identifier;&nbsp;</p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/01-Syntax/package_spec/01-no-pri-bsaN
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+<div style="background-color: rgb(255, 255, 255); ">
+	<div style="background-color: rgb(255, 255, 255); ">
+		<p class="ExampleText" style="page-break-after: avoid; ">
+			&nbsp;</p>
+		<div>
+			<b style="color: rgb(34, 34, 34); font-family: Arial, Verdana, sans-serif; font-size: 12px; ">&nbsp;&nbsp;</b><strong>property set</strong> MyProp <strong>is</strong><br />
+			&nbsp; Access_Rights2 : <strong>type enumeration</strong> (read_only2, write_only2, read_write2);</div>
+		<div>
+			&nbsp; Access_Right1 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right2 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right3 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right4 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right5 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right6 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right7 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right8 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right9 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right10 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right11 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right12 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right13 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right14 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right15 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right16 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right17 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right18 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right19 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right20 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right21 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right22 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right23 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right24 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right25 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right26 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right27 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right28 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right29 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right30 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right31 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right32 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			&nbsp; Access_Right33 &nbsp;: MyProp::Access_Rights2 <strong>applies to</strong> (package);<span class="Apple-tab-span" style="white-space:pre"> </span></div>
+		<div>
+			<strong>end</strong> MyProp;</div>
+		<div>
+			&nbsp;</div>
+		<div>
+			<strong>package</strong> package_spec</div>
+		<div>
+			<strong>&nbsp; private</strong></div>
+		<div>
+			&nbsp; &nbsp; <strong>with</strong> MyProp;</div>
+		<div>
+			&nbsp; &nbsp; <strong>data</strong> Bool_Type</div>
+		<div>
+			&nbsp; &nbsp; <strong>end</strong> Bool_Type;</div>
+		<div>
+			<strong>&nbsp; properties</strong></div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right1 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right2 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right3 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right4 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right5 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right6 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right7 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right8 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right9 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right10 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right11 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right12 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right13 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right14 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right15 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right16 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right17 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right18 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right19 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right20 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right21 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right22 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right23 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right24 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right25 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right26 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right27 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right28 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right29 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right30 =&gt; read_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right31 =&gt; write_only2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right32 =&gt; read_write2;</div>
+		<div>
+			&nbsp; &nbsp; MyProp::Access_Right33 =&gt; read_only2;</div>
+		<div>
+			<strong>end</strong> package_spec;</div>
+	</div>
+</div>
+
+---id:   /Requirements/01-Syntax/package_spec/01-no-pri-no
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); ">
+	<p>
+		<b><span lang="EN-US">package&nbsp;</span></b>package_spec<br />
+		<b>private</b><br />
+		<b>&nbsp; data</b>&nbsp;Bool_Type<br />
+		<b><span lang="EN-US">&nbsp; end&nbsp;</span></b>Bool_Type;<br />
+		<b>end&nbsp;</b>package_spec;</p>
+</div>
+
+---id:   /Requirements/01-Syntax/package_spec/01-no-pri-none
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<p class="ExampleText" style="page-break-after: avoid; ">
+			<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">package_spec</span><br />
+			<b><span lang="EN-US">private</span></b><br />
+			<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Bool_Type</span><br />
+			<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Bool_Type;</span><br />
+			<b><span lang="EN-US">properties</span></b><br />
+			&nbsp; <strong>none</strong>;<br />
+			<b><span lang="EN-US">end&nbsp;</span></b><span lang="EN-US">package_spec</span><span lang="EN-US">;</span></p>
+	</div>
+</div>
+&nbsp;
+---id:   /Requirements/01-Syntax/package_spec/01-pub-no-bsa1
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<p class="ExampleText" style="page-break-after: avoid; ">
+			<strong>property set</strong> MyProp <strong>is</strong><br />
+			&nbsp; Access_Rights3 : <strong>type enumeration</strong> (read_only2, write_only2, read_write2);<br />
+			&nbsp; Pckg_Access_Right &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong> (<strong>package</strong>);<br />
+			<strong>end</strong> MyProp;</p>
+		<p class="ExampleText" style="page-break-after: avoid; ">
+			<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">package_spec</span><br />
+			<b><span lang="EN-US">public<br />
+			&nbsp; with</span></b><span lang="EN-US">&nbsp;MyProp;</span><br />
+			<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Bool_Type</span><br />
+			<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Bool_Type;<br />
+			<strong>properties</strong><br />
+			&nbsp;&nbsp;&nbsp;MyProp::Pckg_Access_Right =&gt; read_only2;<br />
+			<strong>end</strong>&nbsp;package_spec</span><span lang="EN-US">;</span></p>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/01-Syntax/package_spec/01-pub-no-no
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<p class="ExampleText" style="page-break-after: avoid; ">
+				<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">package_spec</span><br />
+				<b><span lang="EN-US">public</span></b><br />
+				<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Bool_Type</span><br />
+				<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Bool_Type;</span><br />
+				<b><span lang="EN-US">end&nbsp;</span></b><span lang="EN-US">package_spec</span><span lang="EN-US">;</span></p>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/01-Syntax/package_spec/01-pub-pri-bsa2
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+				<p class="ExampleText" style="page-break-after: avoid; ">
+					<br />
+					<strong>property set</strong>&nbsp;MyProp&nbsp;<strong>is</strong><br />
+					&nbsp; Access_Rights3 :&nbsp;<strong>type enumeration</strong>&nbsp;(read_only2, write_only2, read_write2);<br />
+					&nbsp; Pckg_Access_Right1 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+					&nbsp; Pckg_Access_Right2 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+					<strong>end</strong>&nbsp;MyProp;</p>
+				<p class="ExampleText" style="page-break-after: avoid; ">
+					<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">package_spec</span><br />
+					<b><span lang="EN-US">public<br />
+					&nbsp; with</span></b><span lang="EN-US">&nbsp;MyProp;</span><br />
+					<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Bool_Type</span><br />
+					<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Bool_Type;<br />
+					<strong><b><span lang="EN-US">private</span></b></strong><br />
+					<span lang="EN-US">&nbsp;&nbsp;<strong>data</strong>&nbsp;Priv_Bool_Type</span><br />
+					<span lang="EN-US">&nbsp; <strong>end</strong>&nbsp;Priv_Bool_Type;</span><br />
+					<strong>properties</strong><br />
+					&nbsp;&nbsp;&nbsp;MyProp::Pckg_Access_Right1 =&gt; read_only2;<br />
+					&nbsp; &nbsp;MyProp::Pckg_Access_Right2 =&gt; write_only2;<br />
+					<strong>end</strong>&nbsp;package_spec</span><span lang="EN-US">;</span></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+---id:   /Requirements/01-Syntax/package_spec/01-pub-pri-no
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+				<p class="ExampleText" style="page-break-after: avoid; ">
+					<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">package_spec</span><br />
+					<b><span lang="EN-US">public</span></b><br />
+					<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Bool_Type</span><br />
+					<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Bool_Type;</span><br />
+					<b><span lang="EN-US"><b><span lang="EN-US">private</span></b><br />
+					<b><span lang="EN-US">&nbsp; data</span></b></span></b><span lang="EN-US"><span lang="EN-US">&nbsp;Priv_Bool_Type</span></span><br />
+					<b><span lang="EN-US"><b><span lang="EN-US">&nbsp; end</span></b></span></b><span lang="EN-US"><span lang="EN-US">&nbsp;Priv_Bool_Type;</span></span><br />
+					<b><span lang="EN-US">end&nbsp;</span></b><span lang="EN-US">package_spec</span><span lang="EN-US">;</span></p>
+			</div>
+		</div>
+	</div>
+</div>
+&nbsp;
+---id:   /Requirements/01-Syntax/package_spec/02-omit_package
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+				<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+					<p class="ExampleText" style="page-break-after: avoid; ">
+						<span lang="EN-US">package_spec</span><br />
+						<b><span lang="EN-US">public</span></b><br />
+						<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Bool_Type</span><br />
+						<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Bool_Type;</span><br />
+						<b><span lang="EN-US"><b><span lang="EN-US">private</span></b><br />
+						<b><span lang="EN-US">&nbsp; data</span></b></span></b><span lang="EN-US"><span lang="EN-US">&nbsp;Priv_Bool_Type</span></span><br />
+						<b><span lang="EN-US"><b><span lang="EN-US">&nbsp; end</span></b></span></b><span lang="EN-US"><span lang="EN-US">&nbsp;Priv_Bool_Type;</span></span><br />
+						<b><span lang="EN-US">end&nbsp;</span></b><span lang="EN-US">package_spec</span><span lang="EN-US">;</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/01-Syntax/package_spec/02-pri-pub-pro
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+				<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+					<p class="ExampleText" style="page-break-after: avoid; ">
+						<br />
+						<strong>property set</strong>&nbsp;MyProp&nbsp;<strong>is</strong><br />
+						&nbsp; Access_Rights3 :&nbsp;<strong>type enumeration</strong>&nbsp;(read_only2, write_only2, read_write2);<br />
+						&nbsp; Pckg_Access_Right1 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+						&nbsp; Pckg_Access_Right2 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+						<strong>end</strong>&nbsp;MyProp;</p>
+					<p class="ExampleText" style="page-break-after: avoid; ">
+						<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">package_spec</span><br />
+						<span lang="EN-US"><strong><b><span lang="EN-US">private</span></b></strong><br />
+						<span lang="EN-US">&nbsp;&nbsp;<strong>data</strong>&nbsp;Priv_Bool_Type</span><br />
+						<span lang="EN-US">&nbsp;&nbsp;<strong>end</strong>&nbsp;Priv_Bool_Type;</span></span><br />
+						<b><span lang="EN-US">public<br />
+						&nbsp; with</span></b><span lang="EN-US">&nbsp;MyProp;</span><br />
+						<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Bool_Type</span><br />
+						<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Bool_Type;</span><br />
+						<strong>properties</strong><br />
+						&nbsp; &nbsp;MyProp::Pckg_Access_Right1 =&gt; read_only2;<br />
+						&nbsp; &nbsp;MyProp::Pckg_Access_Right2 =&gt; write_only2;<br />
+						<span lang="EN-US"><strong>end</strong>&nbsp;package_spec</span><span lang="EN-US">;</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+---id:   /Requirements/01-Syntax/package_spec/02-pro-pub-pri
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+				<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+					<p class="ExampleText" style="page-break-after: avoid; ">
+						<strong>property set</strong>&nbsp;MyProp&nbsp;<strong>is</strong><br />
+						&nbsp; Access_Rights3 :&nbsp;<strong>type enumeration</strong>&nbsp;(read_only2, write_only2, read_write2);<br />
+						&nbsp; Pckg_Access_Right1 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+						&nbsp; Pckg_Access_Right2 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+						<strong>end</strong>&nbsp;MyProp;</p>
+					<p class="ExampleText" style="page-break-after: avoid; ">
+						<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">package_spec</span><br />
+						<strong>properties</strong><br />
+						&nbsp; &nbsp;MyProp::Pckg_Access_Right1 =&gt; read_only2;<br />
+						&nbsp; &nbsp;MyProp::Pckg_Access_Right2 =&gt; write_only2;<br />
+						<span lang="EN-US"><strong><b><span lang="EN-US"><b><span lang="EN-US">public</span></b></span></b></strong><br />
+						<span lang="EN-US"><b><span lang="EN-US">&nbsp; with</span></b><span lang="EN-US">&nbsp;MyProp;</span><br />
+						&nbsp;&nbsp;<strong>data</strong>&nbsp;Bool_Type</span><br />
+						<span lang="EN-US">&nbsp;&nbsp;<strong>end</strong>&nbsp;Bool_Type;</span></span><br />
+						<b><span lang="EN-US"><strong><b><span lang="EN-US">private</span></b></strong></span></b><br />
+						<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Priv_Bool_Type</span><br />
+						<b><span lang="EN-US">&nbsp; end&nbsp;Priv_</span></b><span lang="EN-US">Bool_Type;</span><br />
+						<span lang="EN-US"><strong>end</strong>&nbsp;package_spec</span><span lang="EN-US">;</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/01-Syntax/package_spec/02-pub-pro-pri
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/fb328993-1080-47be-847c-fc75d0bbf635
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+		<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+			<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+				<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+					<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+						<p class="ExampleText" style="page-break-after: avoid; ">
+							<strong>property set</strong>&nbsp;MyProp&nbsp;<strong>is</strong><br />
+							&nbsp; Access_Rights3 :&nbsp;<strong>type enumeration</strong>&nbsp;(read_only2, write_only2, read_write2);<br />
+							&nbsp; Pckg_Access_Right1 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+							&nbsp; Pckg_Access_Right2 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+							<strong>end</strong>&nbsp;MyProp;</p>
+						<p class="ExampleText" style="page-break-after: avoid; ">
+							<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">package_spec</span><br />
+							<span lang="EN-US"><strong><b><span lang="EN-US"><b><span lang="EN-US">public</span></b></span></b></strong><br />
+							<span lang="EN-US"><b><span lang="EN-US">&nbsp; with</span></b><span lang="EN-US">&nbsp;MyProp;</span><br />
+							&nbsp;&nbsp;<strong>data</strong>&nbsp;Bool_Type</span><br />
+							<span lang="EN-US">&nbsp;&nbsp;<strong>end</strong>&nbsp;Bool_Type;</span></span><br />
+							<strong>properties</strong><br />
+							&nbsp; &nbsp;MyProp::Pckg_Access_Right1 =&gt; read_only2;<br />
+							&nbsp; &nbsp;MyProp::Pckg_Access_Right2 =&gt; write_only2;<br />
+							<b><span lang="EN-US"><strong><b><span lang="EN-US">private</span></b></strong></span></b><br />
+							<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;Priv_Bool_Type</span><br />
+							<b><span lang="EN-US">&nbsp; end&nbsp;Priv_</span></b><span lang="EN-US">Bool_Type;</span><br />
+							<span lang="EN-US"><strong>end</strong>&nbsp;package_spec</span><span lang="EN-US">;</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+---id:   /Requirements/02-Semantic/SC0001/AADL-11.1-N2/01-pos
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/05e30c0c-b86d-4bc5-ae32-5544ee1abca9
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p>
+		<strong>property set</strong>&nbsp;MyProp&nbsp;<strong>is</strong><br />
+		&nbsp; Access_Rights3 :&nbsp;<strong>type enumeration</strong>&nbsp;(read_only2, write_only2, read_write2);<br />
+		&nbsp; Pckg_Access_Right1 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+		<strong>end</strong>&nbsp;MyProp;</p>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/02-Semantic/SC0001/AADL-11.1-N2/02-neg
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/05e30c0c-b86d-4bc5-ae32-5544ee1abca9
+--attr[EXPECTED_RESULT]: INVALID
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p>
+		<strong>property set</strong>&nbsp;MyProp&nbsp;<strong>is</strong><br />
+		&nbsp; Access_Rights3 :&nbsp;<strong>type enumeration</strong>&nbsp;(read_only2, write_only2, read_write2);<br />
+		&nbsp; Pckg_Access_Right1 &nbsp;: MyProp::Access_Rights3&nbsp;<strong>applies to</strong>&nbsp;(<strong>package</strong>);<br />
+		<strong>end</strong>&nbsp;MyProp_XXX;</p>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/04-Examples/04_2/Aircraft_Cockpit_4_2
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/8c7e6d02-4da8-49ce-b3ab-312b049ec082
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p class="ExampleText" xmlns="http://www.w3.org/1999/xhtml">
+		<strong>property set</strong>&nbsp;Safety_Properties <strong>is</strong><br />
+		&nbsp;&nbsp;Safety_Criticality_Levels&nbsp;: <strong>type enumeration</strong> (low,medium,high);<br />
+		&nbsp; Safety_Criticality &nbsp;: Safety_Properties::Safety_Criticality_Levels applies to (<strong>system</strong>);<br />
+		<strong>end</strong>&nbsp;Safety_Properties;</p>
+	<p class="ExampleText" xmlns="http://www.w3.org/1999/xhtml">
+		<span class="CODE"><span lang="EN-US"><strong>package</strong>&nbsp;Avionics::DataTypes</span></span><br />
+		<b><span lang="EN-US">public<br />
+		&nbsp; data</span></b><span lang="EN-US">&nbsp;AirData</span><br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;AirData;</span><br />
+		<b><span lang="EN-US">end</span></b><span lang="EN-US">&nbsp;Avionics::DataTypes;</span></p>
+	<p class="ExampleText" xmlns="http://www.w3.org/1999/xhtml">
+		<span class="CODE"><span lang="EN-US"><strong>package</strong>&nbsp;Aircraft::Cockpit</span></span><br />
+		<b><span lang="EN-US">public</span></b><br />
+		&nbsp; &nbsp;<b>with</b>&nbsp;Avionics::DataTypes, Safety_Properties;<br />
+		&nbsp; &nbsp;AirData&nbsp;<b>renames data</b>&nbsp;Avionics::DataTypes::AirData;<br />
+		&nbsp; &nbsp;<b>system&nbsp;</b>MFD<br />
+		&nbsp; &nbsp;<b>features</b><br />
+		&nbsp; &nbsp; &nbsp; Airdata:&nbsp;<b>in data port&nbsp;</b>AirData;<br />
+		&nbsp; &nbsp;<b>properties</b><br />
+		&nbsp; &nbsp; &nbsp; Safety_Properties::Safety_Criticality =&gt; high;<br />
+		&nbsp; &nbsp;<b>end</b>&nbsp;MFD;<br />
+		<strong>end</strong> Aircraft::Cockpit;</p>
+</div>
+
+---id:   /Requirements/04-Examples/04_3/TypeExample_4_3
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/9e5f873e-0893-4a94-94d9-ab33c58d416b
+<div style="color: rgb(34, 34, 34); font-family: Arial, Verdana, sans-serif; font-size: 12px;">
+	<strong>package</strong> FileSystem<br />
+	<strong>public</strong><br />
+	<strong>&nbsp;&nbsp;<strong>data</strong></strong>&nbsp;Directory<br />
+	<strong>&nbsp;&nbsp;<strong>end</strong></strong>&nbsp;Directory;<br />
+	<strong>&nbsp;&nbsp;<strong>data</strong></strong>&nbsp;<strong>implementation</strong> Directory.hashed<br />
+	<strong>&nbsp;&nbsp;<strong>end</strong></strong>&nbsp;Directory.hashed;<br />
+	<strong>end</strong> FileSystem;<br />
+	<br />
+	<strong>package</strong> App<br />
+	<strong>public</strong><br />
+	&nbsp;&nbsp;<strong>data</strong> result_type<br />
+	&nbsp;&nbsp;<strong>end</strong> &nbsp;result_type;<br />
+	&nbsp;&nbsp;<strong>data</strong> Distance<br />
+	&nbsp;&nbsp;<strong>end</strong> &nbsp;Distance;<br />
+	<strong>end</strong> App;<br />
+	<br />
+	<b>package&nbsp;</b>TypeExample<br />
+	<b>public</b><br />
+	&nbsp; <strong>with</strong> FileSystem;<br />
+	&nbsp; <strong>with</strong> App;<br />
+	&nbsp; <b>system</b>&nbsp;File_System<br />
+	<b>&nbsp; &nbsp; features</b><br />
+	&nbsp; &nbsp; &nbsp; -- access to a data component<br />
+	<b>&nbsp; &nbsp; &nbsp;&nbsp;</b>root:&nbsp;<b>requires&nbsp;</b><b>data access&nbsp;</b>FileSystem::Directory.hashed;<br />
+	<b>&nbsp; end</b>&nbsp;File_System;<br />
+	<br />
+	<b>&nbsp; process</b>&nbsp;Application<br />
+	<b>&nbsp; &nbsp; features</b><br />
+	&nbsp; &nbsp; &nbsp; -- a data out port<br />
+	&nbsp; &nbsp; &nbsp; result:&nbsp;<b>out data port</b>&nbsp;App::result_type;<br />
+	&nbsp; &nbsp; &nbsp; home:&nbsp;<b>requires</b>&nbsp;<b>data access&nbsp;</b>FileSystem::Directory.hashed;<br />
+	<b>&nbsp; end</b>&nbsp;Application;<br />
+	<br />
+	<b>&nbsp; thread</b>&nbsp;Calculate<br />
+	<b>&nbsp; &nbsp; prototypes</b><br />
+	&nbsp; &nbsp; &nbsp; -- A data type to be used as type for the input and result port<br />
+	&nbsp; &nbsp; &nbsp; data_type:&nbsp;<b>data</b>;<br />
+	<b>&nbsp; &nbsp; features</b><br />
+	&nbsp; &nbsp; &nbsp; input:&nbsp;<b>in data port&nbsp;</b>data_type;<br />
+	&nbsp; &nbsp; &nbsp; result:&nbsp;<b>out data port&nbsp;</b>data_type;<br />
+	&nbsp;&nbsp;<b>end</b>&nbsp;Calculate;<br />
+	<br />
+	<b>&nbsp; thread</b>&nbsp;Compute_Distance&nbsp;<b>extends</b>&nbsp;Calculate (data_type =&gt;&nbsp;<b>data&nbsp;</b>App::Distance)<br />
+	<b>&nbsp; end</b>&nbsp;Compute_Distance;<br />
+	<b>end&nbsp;</b>TypeExample;</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/04-Examples/04_4/ImplementationExample_4_4
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/db5c6dea-8e25-460b-a45a-221dda37920b
+<p class="ExampleText" style="page-break-after: avoid;">
+	<b><span lang="EN-US">package </span></b><span lang="EN-US">ImplementationExample</span></p>
+<p class="ExampleText" style="page-break-after: avoid;">
+	<b><span lang="EN-US">public</span></b></p>
+<p class="ExampleText" style="page-break-after: avoid;">
+	<b><span lang="EN-US">data</span></b><span lang="EN-US"> Bool_Type</span></p>
+<p class="ExampleText" style="page-break-after: avoid;">
+	<b><span lang="EN-US">end </span></b><span lang="EN-US">Bool_Type;</span></p>
+<p class="ExampleText" style="page-break-after: avoid;">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText" style="page-break-after: avoid;">
+	<b><span lang="EN-US">thread </span></b><span lang="EN-US">DriverModeLogic</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">features</span></b></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp;&nbsp; </span></b><span lang="EN-US">BreakPedalPressed :<b> in data port </b>Bool_Type;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp;&nbsp; </span></b><span lang="EN-US">ClutchPedalPressed :<b> in data port </b>Bool_Type;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp;&nbsp; </span></b><span lang="EN-US">Activate :<b> in data port </b>Bool_Type;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp;&nbsp; </span></b><span lang="EN-US">Cancel :<b> in data port </b>Bool_Type;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp;&nbsp; </span></b><span lang="EN-US">OnNotOff :<b> in data port </b>Bool_Type;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp;&nbsp; </span></b><span lang="EN-US">CruiseActive :<b> out data port </b>Bool_Type;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end </span></b><span lang="EN-US">DriverModeLogic<b>;</b></span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">-- Two implementations whose source texts use different variable names for</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">-- their cruise active port</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread implementation </span></b><span lang="EN-US">DriverModeLogic.Simulink</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">properties</span></b></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp; </span></b><span lang="EN-US">Dispatch_Protocol=&gt;Periodic;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; Period=&gt; 10 ms;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; Source_Name =&gt; &ldquo;CruiseControlActive&rdquo; <b>applies to </b>CruiseActive;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end </span></b><span lang="EN-US">DriverModeLogic.Simulink<b>;</b></span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp;</span></b></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread implementation </span></b><span lang="EN-US">DriverModeLogic.C</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">properties</span></b></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">&nbsp; </span></b><span lang="EN-US">Dispatch_Protocol=&gt;Periodic;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; Period=&gt; 10 ms;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; Source_Name =&gt; &ldquo;CCActive&rdquo; <b>applies to </b>CruiseActive;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end </span></b><span lang="EN-US">DriverModeLogic.C<b>;</b></span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end </span></b><span lang="EN-US">ImplementationExample;</span></p>
+&nbsp;
+---id:   /Requirements/04-Examples/04_5_1/Sampling_4_5_1
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/12c78c8d-6938-4c17-b5a1-2c5efd7e9514
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p class="ExampleText" xmlns="http://www.w3.org/1999/xhtml">
+		<b><span lang="EN-US">package</span></b><span lang="EN-US">&nbsp;Sampling</span><br />
+		<b><span lang="EN-US">public</span></b><br />
+		&nbsp; <b>data</b>&nbsp;Sample<br />
+		&nbsp; <b>properties</b><br />
+		&nbsp; &nbsp; Source_Data_Size =&gt; 16 Bytes;<br />
+		&nbsp; <b>end</b>&nbsp;Sample;<br />
+		<br />
+		&nbsp; <b>data</b>&nbsp;Sample_Set<br />
+		&nbsp; <b>properties</b><br />
+		&nbsp; &nbsp; Source_Data_Size =&gt; 1 MByte;<br />
+		&nbsp; <b>end</b>&nbsp;Sample_Set;<br />
+		<br />
+		&nbsp;&nbsp;<b>data implementation</b>&nbsp;Sample_Set.impl<br />
+		&nbsp; <b>subcomponents</b><br />
+		&nbsp; &nbsp; Data_Set:&nbsp;<b>data</b>&nbsp;Sample ;<br />
+		&nbsp; <b>end</b>&nbsp;Sample_Set.impl;<br />
+		<br />
+		&nbsp;&nbsp;<b>data</b>&nbsp;Dynamic_Sample_Set&nbsp;<b>extends</b>&nbsp;Sample_Set<br />
+		&nbsp; <b>end</b>&nbsp;Dynamic_Sample_Set;<br />
+		<br />
+		<b>&nbsp; data implementation</b>&nbsp;Dynamic_Sample_Set.impl&nbsp;<b>extends</b>&nbsp;Sample_Set.impl<br />
+		&nbsp; <b>properties</b><br />
+		<b><span lang="EN-US">&nbsp; &nbsp;&nbsp;</span></b><span lang="EN-US">Source_Data_Size =&gt; 8 Bytes&nbsp;<b>applies to</b>&nbsp;Data_Set;</span><br />
+		&nbsp; <strong>end</strong> Dynamic_Sample_Set.impl;<br />
+		<b><span lang="EN-US">end</span></b><span lang="EN-US">&nbsp;Sampling;</span><br />
+		<br />
+		<b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">SamplingTasks</span><br />
+		<b><span lang="EN-US">public</span></b><br />
+		<b><span lang="EN-US">&nbsp; with&nbsp;</span></b><span lang="EN-US">Sampling;</span><br />
+		<b><span lang="EN-US">&nbsp; thread</span></b><span lang="EN-US">&nbsp;Init_Samples</span><br />
+		<b><span lang="EN-US">&nbsp; features</span></b><br />
+		&nbsp; &nbsp; OrigSet&nbsp;:&nbsp;<b>requires data access</b>&nbsp;Sampling::Sample_Set;<br />
+		&nbsp; &nbsp; SampleSet&nbsp;:&nbsp;<b>requires data access</b>&nbsp;Sampling::Sample_Set;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Init_Samples;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; thread</span></b><span lang="EN-US">&nbsp;Collect_Samples</span><br />
+		<b><span lang="EN-US">&nbsp; features</span></b><br />
+		&nbsp; &nbsp; Input_Sample&nbsp;:&nbsp;<b>in event data port</b>&nbsp;Sampling::Sample;<br />
+		&nbsp; &nbsp; SampleSet&nbsp;:&nbsp;<b>requires data access</b>&nbsp;Sampling::Sample_Set;<br />
+		&nbsp; &nbsp; Filtering_Routine:&nbsp;<b>requires subprogram access</b>&nbsp;Sample_Subprogram;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Collect_Samples;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; thread implementation</span></b><span lang="EN-US">&nbsp;Collect_Samples.Batch_Update</span><br />
+		<b><span lang="EN-US">&nbsp; properties</span></b><br />
+		&nbsp; &nbsp; Source_Name =&gt; &quot;InSample&quot;&nbsp;<b>applies to&nbsp;</b>Input_Sample;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Collect_Samples.Batch_Update;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; thread</span></b><span lang="EN-US">&nbsp;Distribute_Samples</span><br />
+		<b><span lang="EN-US">&nbsp; features</span></b><br />
+		&nbsp; &nbsp; SampleSet&nbsp;:&nbsp;<b>requires data access</b>&nbsp;Sampling::Sample_Set;<br />
+		&nbsp; &nbsp; UpdatedSamples :&nbsp;<b>out event data port</b>&nbsp;Sampling::Sample;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Distribute_Samples;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; process</span></b><span lang="EN-US">&nbsp;Sample_Manager</span><br />
+		<b><span lang="EN-US">&nbsp; features</span></b><br />
+		&nbsp; &nbsp; Input_Sample:&nbsp;<b>in event data port</b>&nbsp;Sampling::Sample;<br />
+		&nbsp; &nbsp; External_Samples:&nbsp;<b>requires data access</b>&nbsp;Sampling::Sample_Set;<br />
+		&nbsp; &nbsp; Result_Sample:&nbsp;<b>out event data port</b>&nbsp;Sampling::Sample;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Sample_Manager;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; process implementation</span></b><span lang="EN-US">&nbsp;Sample_Manager.Slow_Update</span><br />
+		<b><span lang="EN-US">&nbsp; subcomponents</span></b><br />
+		&nbsp; &nbsp; Samples:&nbsp;<b>data</b>&nbsp;Sampling::Sample_Set;<br />
+		&nbsp; &nbsp; Init_Samples :&nbsp;<b>thread</b>&nbsp;Init_Samples;<br />
+		<br />
+		&nbsp; &nbsp; -- the required access is resolved to a subcomponent declaration<br />
+		&nbsp; &nbsp; Collect_Samples:&nbsp;<b>thread</b>&nbsp;Collect_Samples.Batch_Update;<br />
+		&nbsp; &nbsp; Distribute:&nbsp;<b>thread</b>&nbsp;Distribute_Samples;<br />
+		&nbsp; &nbsp; Sample_Filter:&nbsp;<b>subprogram</b>&nbsp;Sample_Subprogram.Simple;<br />
+		<br />
+		<b><span lang="EN-US">&nbsp; connections</span></b><br />
+		&nbsp; &nbsp; ISSSConn:&nbsp;<b>data</b>&nbsp;<b>access&nbsp;</b>Samples &lt;-&gt; Init_Samples.SampleSet;<br />
+		&nbsp; &nbsp; ISOSConn:&nbsp;<b>data access&nbsp;</b>External_Samples &lt;-&gt; Init_Samples.OrigSet;<br />
+		&nbsp; &nbsp; CSSSConn:&nbsp;<b>data access</b>&nbsp;Samples &lt;-&gt; Collect_Samples.SampleSet;<br />
+		&nbsp; &nbsp; CSISConn:&nbsp;<b>port</b>&nbsp;Input_Sample -&gt; Collect_Samples.Input_Sample;<br />
+		&nbsp; &nbsp; DSSConn:&nbsp;<b>data access</b>&nbsp;Samples &lt;-&gt; Distribute.SampleSet;<br />
+		&nbsp; &nbsp; DUSConn:&nbsp;<b>port</b>&nbsp;Distribute.UpdatedSamples -&gt; Result_Sample;<br />
+		&nbsp; &nbsp; CSFRConn:&nbsp;<b>subprogram access</b>&nbsp;Sample_Filter &lt;-&gt; Collect_Samples.Filtering_Routine;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Sample_Manager.Slow_Update;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; subprogram&nbsp;</span></b><span lang="EN-US">Sample_Subprogram</span><br />
+		<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Sample_Subprogram;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; subprogram implementation&nbsp;</span></b><span lang="EN-US">Sample_Subprogram.Simple</span><br />
+		<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Sample_Subprogram.Simple;</span><br />
+		<b><span lang="EN-US">end&nbsp;</span></b><span lang="EN-US">SamplingTasks;</span></p>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/04-Examples/04_5_2/Redundancy_4_5_2
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/72d09fae-038d-41e9-8be6-b5d0f6a04835
+<div style="font-family: Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p class="ExampleText" xmlns="http://www.w3.org/1999/xhtml">
+		<b><span lang="EN-US">package</span></b><span lang="EN-US">&nbsp;Redundancy</span><br />
+		<b><span lang="EN-US">public</span></b><br />
+		&nbsp; <b>abstract</b>&nbsp;Triple<br />
+		<b><span lang="EN-US">&nbsp; &nbsp; features</span></b><br />
+		&nbsp; &nbsp; &nbsp; input:<b>&nbsp;in</b>&nbsp;<b>data port</b>;<br />
+		&nbsp; &nbsp; &nbsp; output:&nbsp;<b>out data port</b>;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Triple;</span><br />
+		<br />
+		&nbsp; <b>abstract implementation</b>&nbsp;Triple.impl<br />
+		&nbsp; &nbsp;&nbsp;<b>subcomponents</b><br />
+		&nbsp; &nbsp; &nbsp; MyProcess:<b>&nbsp;abstract&nbsp;</b>Calculate [3];<br />
+		&nbsp; &nbsp; &nbsp; MyVoter:&nbsp;<b>abstract</b>&nbsp;Voter;<br />
+		&nbsp; &nbsp;&nbsp;<b>connections</b><br />
+		&nbsp; &nbsp; &nbsp;<b>&nbsp;</b>extinput:&nbsp;<b>port</b>&nbsp;input -&gt; MyProcess.input<br />
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ Connection_Pattern =&gt; ((One_To_All)); };<br />
+		&nbsp; &nbsp; &nbsp;<b>&nbsp;</b>tovoter:&nbsp;<b>port</b>&nbsp;MyProcess.output -&gt; MyVoter.input<br />
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{ Connection_Pattern =&gt; ((One_To_One)); };<br />
+		&nbsp; &nbsp; &nbsp;<b>&nbsp;</b>extoutput:&nbsp;<b>port</b>&nbsp;MyVoter.output -&gt; output;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Triple.impl;</span><br />
+		<br />
+		&nbsp; <b>abstract</b>&nbsp;Calculate<br />
+		<b><span lang="EN-US">&nbsp; &nbsp; features</span></b><br />
+		&nbsp; &nbsp; &nbsp; input:<b>&nbsp;in</b>&nbsp;<b>data port</b>;<br />
+		&nbsp; &nbsp; &nbsp; output:&nbsp;<b>out data port</b>;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Calculate;<br />
+		<br />
+		&nbsp; <b>abstract</b>&nbsp;Voter</span><br />
+		<b><span lang="EN-US">&nbsp; &nbsp; features</span></b><br />
+		&nbsp; &nbsp; &nbsp; input:<b>&nbsp;in</b>&nbsp;<b>data port&nbsp;</b>[3];<br />
+		&nbsp; &nbsp; &nbsp; output:&nbsp;<b>out data port</b>;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;Voter;</span><br />
+		<b><span lang="EN-US">end</span></b><span lang="EN-US">&nbsp;Redundancy;</span></p>
+</div>
+<p>
+	&nbsp;</p>
+
+---id:   /Requirements/04-Examples/04_6/CarSystem_4_6
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/63d2194d-535e-4d6b-a147-2f198283066d
+<div style="font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p class="ExampleText" style="font-family: Arial, Verdana, sans-serif; " xmlns="http://www.w3.org/1999/xhtml">
+		<code><b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">CarSystem</span></code><br />
+		<b><span lang="EN-US">public</span></b><br />
+		<b><span lang="EN-US">&nbsp; bus&nbsp;</span></b><span lang="EN-US">Manifold</span><br />
+		<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">Manifold;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; abstract</span></b><span lang="EN-US">&nbsp;car</span><br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;car;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; abstract implementation</span></b><span lang="EN-US">&nbsp;car.generic</span><br />
+		<b><span lang="EN-US">&nbsp; subcomponents</span></b><br />
+		&nbsp; &nbsp; PowerTrain:&nbsp;<b>abstract</b>&nbsp;power_train;<br />
+		&nbsp; &nbsp; ExhaustSystem:&nbsp;<b>abstract</b>&nbsp;exhaust_system;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;car.generic;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; abstract</span></b><span lang="EN-US">&nbsp;power_train</span><br />
+		<b><span lang="EN-US">&nbsp; features</span></b><br />
+		&nbsp; &nbsp; exhaustoutput:&nbsp;<b>requires bus access</b>&nbsp;Manifold;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;power_train;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; abstract</span></b><span lang="EN-US">&nbsp;exhaust_system</span><br />
+		<b><span lang="EN-US">&nbsp; features</span></b><br />
+		&nbsp; &nbsp; exhaustManifold:&nbsp;<b>provides bus access</b>&nbsp;Manifold;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;exhaust_system;</span><br />
+		<br />
+		&nbsp; -- runtime architecture<br />
+		<b><span lang="EN-US">&nbsp; system</span></b><span lang="EN-US">&nbsp;carRT&nbsp;<b>extends</b>&nbsp;car</span><br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;carRT;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; system implementation</span></b><span lang="EN-US">&nbsp;carRT.impl</span><br />
+		&nbsp; &nbsp;&nbsp;<b>extends</b>&nbsp;car.generic<br />
+		<b><span lang="EN-US">&nbsp; subcomponents</span></b><br />
+		&nbsp; &nbsp; PowerTrain&nbsp;:&nbsp;<b>refined to system</b>&nbsp;power_train;<br />
+		&nbsp; &nbsp; ExhaustSystem&nbsp;:&nbsp;<b>refined to system</b>&nbsp;exhaust_system;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;carRT.impl;</span><br />
+		<b><span lang="EN-US">end&nbsp;</span></b><span lang="EN-US">CarSystem;</span></p>
+</div>
+
+---id:   /Requirements/04-Examples/04_7/PrototypeExample_4_7
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/e8a211f0-1ab1-444b-8c8a-81773d8e7f89
+<div style="font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+	<p class="ExampleText" style="font-family: Arial, Verdana, sans-serif; " xmlns="http://www.w3.org/1999/xhtml">
+		<code><b><span lang="EN-US">package&nbsp;</span></b><span lang="EN-US">PrototypeExample</span></code><br />
+		<b><span lang="EN-US">public</span></b><br />
+		&nbsp; -- a generic component interface with one in and one out port<br />
+		<b><span lang="EN-US">&nbsp; abstract</span></b><span lang="EN-US">&nbsp;flowComponent</span><br />
+		<b><span lang="EN-US">&nbsp; prototypes</span></b><br />
+		&nbsp; &nbsp; dt:&nbsp;<b>data</b>;<br />
+		&nbsp; &nbsp; incoming:&nbsp;<b>in feature</b>;<br />
+		<b><span lang="EN-US">&nbsp; features</span></b><br />
+		&nbsp; &nbsp; insignal:&nbsp;<b>in feature&nbsp;</b>incoming;<br />
+		&nbsp; &nbsp; outsignal:&nbsp;<b>out data port&nbsp;</b>dt;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;flowComponent;</span><br />
+		<br />
+		&nbsp; -- a dual redundant component pattern<br />
+		<b><span lang="EN-US">&nbsp; abstract&nbsp;</span></b><b><span lang="EN-US">implementation</span></b><span lang="EN-US">&nbsp;flowComponent.primaryBackup</span><br />
+		<b><span lang="EN-US">&nbsp; prototypes</span></b><br />
+		&nbsp; &nbsp; control:&nbsp;<b>abstract</b>&nbsp;flowComponent;<br />
+		<b><span lang="EN-US">&nbsp; subcomponents</span></b><br />
+		&nbsp; &nbsp; primary:&nbsp;<b>abstract</b>&nbsp;control;<br />
+		&nbsp; &nbsp; backup:<b>abstract</b>&nbsp;control;<br />
+		<b><span lang="EN-US">&nbsp; connections</span></b><br />
+		&nbsp; &nbsp; inprimary:&nbsp;<b>feature</b>&nbsp;insignal -&gt; primary.insignal;<br />
+		&nbsp; &nbsp; inbackup:&nbsp;<b>feature&nbsp;</b>insignal -&gt; backup.insignal;<br />
+		&nbsp; &nbsp; outprimary:&nbsp;<b>port</b>&nbsp;primary.outsignal -&gt; outsignal;<br />
+		&nbsp; &nbsp; outbackup:&nbsp;<b>port</b>&nbsp;backup.outsignal -&gt; outsignal;<br />
+		<b><span lang="FR">&nbsp; modes</span></b><br />
+		&nbsp; &nbsp; Primarymode:&nbsp;<b>initial mode</b>;<br />
+		&nbsp; &nbsp; Backupmode:&nbsp;<b>mode</b>;<br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;flowComponent.primaryBackup;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; data</span></b><span lang="EN-US">&nbsp;signal</span><br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;signal;</span><br />
+		<br />
+		<b><span lang="EN-US">&nbsp; data implementation</span></b><span lang="EN-US">&nbsp;signal.unit16</span><br />
+		<b><span lang="EN-US">&nbsp; end</span></b><span lang="EN-US">&nbsp;signal.unit16;</span><br />
+		<br />
+		&nbsp; -- a controller to be realized as dual redundant system<br />
+		<code><b><span lang="EN-US">&nbsp; process</span></b></code><span lang="EN-US">&nbsp;controller&nbsp;<b>extends</b>&nbsp;flowComponent ( dt =&gt;&nbsp;<b>data&nbsp;</b>signal.unit16,</span><br />
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incoming =&gt;&nbsp;<b>event data port</b>&nbsp;signal.unit16 )<br />
+		<b><span lang="EN-US">&nbsp; &nbsp; end&nbsp;</span></b><span lang="EN-US">controller;</span><br />
+		<br />
+		&nbsp; -- the dual redundant controller system interface<br />
+		<b><span lang="EN-US">&nbsp; system&nbsp;</span></b><span lang="EN-US">DualRedundantController&nbsp;<b>extends</b></span><br />
+		&nbsp; &nbsp; &nbsp; &nbsp;flowComponent (dt =&gt;&nbsp;<b>data&nbsp;</b>signal.unit16,<br />
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incoming =&gt;&nbsp;<b>in</b>&nbsp;<b>event data port</b>&nbsp;signal.unit16)<br />
+		<b><span lang="EN-US">&nbsp; end&nbsp;</span></b><span lang="EN-US">DualRedundantController;</span><br />
+		<br />
+		&nbsp; -- the dual redundant instance of the controller<br />
+		<b><span lang="EN-US">&nbsp; system implementation&nbsp;</span></b><span lang="EN-US">DualRedundantController.PrimaryBackup</span><br />
+		<span lang="EN-US">&nbsp; &nbsp;&nbsp;<b>extends</b>&nbsp;</span><code><span lang="EN-US">flowComponent.primaryBackup (control =&gt;&nbsp;<b>process&nbsp;</b>controller)</span></code><br />
+		<code><b><span lang="EN-US">&nbsp;end&nbsp;</span></b></code><span lang="EN-US">DualRedundantController.PrimaryBackup;</span><br />
+		<b><span lang="EN-US">end&nbsp;</span></b><span lang="EN-US">PrototypeExample;</span></p>
+</div>
+
+---id:   /Requirements/04-Examples/10_1/FlowSpecificationExample
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/d2ddee68-a668-4e45-b9ae-5e0626f42554
+<p class="ExampleText">
+	<b><span lang="EN-US">package</span></b><span lang="EN-US"> GPSLib</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">public</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>data</b> signal_data</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>end</b> signal_data;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b><span style="color: rgb(127, 0, 85);">data</span></b> commands</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b><span style="color: rgb(127, 0, 85);">end</span></b> commands ;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>data</b> position</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>end</b> position;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>data</b> implementation position.radial</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>end</b> position.radial;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>data</b> implementation position.cartesian</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>end</b> position.cartesian;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> </span><span lang="EN-US">GPSLib</span><span lang="EN-US">;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">package</span></b><span lang="EN-US"> FlowExample</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">public</span></b></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">with </span></b><span lang="EN-US">&nbsp;GPSLib;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">process</span></b><span lang="EN-US"> foo </span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">features</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Initcmd: <b>in event port</b>;&nbsp;&nbsp; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Signal: <b>in data port</b> GPSLib::signal_data;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Result1: <b>out data port</b> GPSLib::position.radial;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Result2: <b>out data port</b> GPSLib::position.cartesian;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Status: <b>out data port</b>;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">flows</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; </span><span lang="EN-US">-- two flows split from the same input&nbsp; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow1: <b>flow path</b> signal -&gt; result1;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow2: <b>flow path</b> signal -&gt; result2;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- An input is consumed by process foo through its initcmd port</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow3: <b>flow sink</b> initcmd;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- An output is generated (produced) by process foo and made available</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- through its port Status; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow4: <b>flow source</b> Status;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> foo;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread</span></b><span lang="EN-US"> bar</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">features</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p1 : <b>in data port</b> GPSLib::signal_data;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p2 : <b>out data port</b> GPSLib::position.radial;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p3 : <b>out event port</b>;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; reset : <b><span style="color: rgb(127, 0, 85);">in</span></b> <b><span style="color: rgb(127, 0, 85);">event</span></b> <b><span style="color: rgb(127, 0, 85);">port</span></b>;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">flows</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; fs1 : <b>flow path</b> p1 -&gt; p2;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; fs2 : <b>flow source</b> p3;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> bar;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread implementation</span></b><span lang="EN-US"> bar.basic</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> bar.basic;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread</span></b><span lang="EN-US"> baz</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">features</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p1 : <b>in data port</b> GPSLib::position.radial;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p2 : <b>out data port</b> GPSLib::position.cartesian;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; reset : <b>in event port</b>;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">flows</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; fs1 : <b>flow path</b> p1 -&gt; p2;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; fsink : <b>flow sink</b> reset;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> baz;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread implementation</span></b><span lang="EN-US"> baz.basic</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> baz.basic;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> FlowExample;</span></p>
+&nbsp;
+---id:   /Requirements/04-Examples/10_2/FlowImplementationExample
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/88335cb2-aceb-4f5d-a7fe-9846656c8ad9
+<p class="ExampleText" style="page-break-after: avoid;">
+	<span lang="EN-US">-- This is an AADL fragement </span>from 10_1</p>
+<p class="ExampleText">
+	<b><span lang="EN-US">package</span></b><span lang="EN-US"> GPSLib</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">public</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>data</b> signal_data</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>end</b> signal_data;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b><span style="color: rgb(127, 0, 85);">data</span></b> commands</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b><span style="color: rgb(127, 0, 85);">end</span></b> commands ;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>data</b> position</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>end</b> position;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>data</b> implementation position.radial</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>end</b> position.radial;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>data</b> implementation position.cartesian</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; <b>end</b> position.cartesian;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> </span><span lang="EN-US">GPSLib</span><span lang="EN-US">;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">package</span></b><span lang="EN-US"> FlowExample</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">public</span></b></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">with </span></b><span lang="EN-US">&nbsp;GPSLib;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">process</span></b><span lang="EN-US"> foo </span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">features</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Initcmd: <b>in event port</b>;&nbsp;&nbsp; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Signal: <b>in data port</b> GPSLib::signal_data;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Result1: <b>out data port</b> GPSLib::position.radial;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Result2: <b>out data port</b> GPSLib::position.cartesian;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Status: <b>out data port</b>;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">flows</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; </span><span lang="EN-US">-- two flows split from the same input&nbsp; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow1: <b>flow path</b> signal -&gt; result1;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow2: <b>flow path</b> signal -&gt; result2;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- An input is consumed by process foo through its initcmd port</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow3: <b>flow sink</b> initcmd;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- An output is generated (produced) by process foo and made available</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- through its port Status; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow4: <b>flow source</b> Status;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> foo;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread</span></b><span lang="EN-US"> bar</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">features</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p1 : <b>in data port</b> GPSLib::signal_data;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p2 : <b>out data port</b> GPSLib::position.radial;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p3 : <b>out event port</b>;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; reset : <b><span style="color: rgb(127, 0, 85);">in</span></b> <b><span style="color: rgb(127, 0, 85);">event</span></b> <b><span style="color: rgb(127, 0, 85);">port</span></b>;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">flows</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; fs1 : <b>flow path</b> p1 -&gt; p2;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; fs2 : <b>flow source</b> p3;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> bar;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread implementation</span></b><span lang="EN-US"> bar.basic</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> bar.basic;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread</span></b><span lang="EN-US"> baz</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">features</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p1 : <b>in data port</b> GPSLib::position.radial;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; p2 : <b>out data port</b> GPSLib::position.cartesian;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; reset : <b>in event port</b>;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">flows</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; fs1 : <b>flow path</b> p1 -&gt; p2;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp; fsink : <b>flow sink</b> reset;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> baz;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">thread implementation</span></b><span lang="EN-US"> baz.basic</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> baz.basic;</span></p>
+<p>
+	&nbsp;</p>
+<p>
+	<span lang="EN-US">-- This is an AADL fragement</span></p>
+<p class="ExampleText" style="page-break-after: avoid;">
+	<span lang="EN-US">-- process foo is declared in the previous section</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">process implementation</span></b><span lang="EN-US"> foo.basic </span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">subcomponents</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; A: <b>thread</b> bar.basic;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- bar has a flow path fs1 from port p1 to p2</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- bar has a flow source fs2 to p3</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; B: <b>thread</b> baz.basic; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- baz has a flow path fs1 from port p1 to p2</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- baz has a flow sink fsink in port reset</span></p>
+<p class="ExampleText">
+	<b><span lang="FR">connections</span></b></p>
+<p class="ExampleText">
+	<span lang="FR">&nbsp;&nbsp; conn1: <b>port</b> signal -&gt; A.p1;</span></p>
+<p class="ExampleText">
+	<span lang="FR">&nbsp;&nbsp; conn2: <b>port</b> A.p2 -&gt; B.p1;</span></p>
+<p class="ExampleText">
+	<span lang="FR">&nbsp;&nbsp; conn3: <b>port</b> B.p2 -&gt; result2;</span></p>
+<p class="ExampleText">
+	<span lang="FR">&nbsp;&nbsp; conn4: <b>port</b> A.p2 -&gt; result1;</span></p>
+<p class="ExampleText">
+	<span lang="FR">&nbsp;&nbsp; conn6: <b>port</b> A.p3 -&gt; status;</span></p>
+<p class="ExampleText">
+	<span lang="FR">&nbsp;&nbsp; connToThread: <b>port</b> initcmd -&gt; B.reset;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">flows</span></b></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow1: <b>flow path</b> </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; signal -&gt; conn1 -&gt; A.fs1 -&gt; conn4 -&gt; result1;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow2: <b>flow path</b> </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; signal -&gt; conn1 -&gt; A.fs1 -&gt; conn2 -&gt; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;B.fs1 -&gt; conn3 -&gt; result2;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow3: <b>flow sink</b> initcmd -&gt; connToThread -&gt; </span><span lang="FR">B.reset</span><span lang="EN-US">;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- a flow source may start in a subcomponent, </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; -- i.e., the first named element is a flow source</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp; Flow4: <b>flow source</b> A.fs2 -&gt; conn6 -&gt; status;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> foo.basic;</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> FlowExample;</span></p>
+
+---id:   /Requirements/04-Examples/11_1_1/propertyset
+--location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/e963b716-6884-49e3-8eaf-47641c221ea0
+<p class="ExampleText" style="page-break-after: avoid;">
+	<b><span lang="EN-US">property set</span></b><span lang="EN-US"> mine <b>is</b></span></p>
+<p class="ExampleText" style="page-break-after: avoid;">
+	<span lang="EN-US">&nbsp; Length_Unit : <b>type units </b>( mm, cm =&gt; mm * 10, </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m =&gt; cm * 100, km =&gt; m * 1000 );</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; OnOff : <b>type aadlboolean</b>;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;-- This type declaration references a separately declared units type</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; Car_Length : <b>type aadlreal </b>1.5 m .. 4.5 m <b>units</b> mine::Length_Unit ; </span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; -- This type declaration defines the units in place</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; Speed_Range : <b>type range of aadlreal</b> 0.0 kph .. 250.0 kph <b>units</b> ( kph );</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp; Position : <b>type record </b>(</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X: <b>aadlinteger</b>;</span></p>
+<p class="ExampleText">
+	<span lang="EN-US">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Y: <b>aadlinteger</b>; );</span></p>
+<p class="ExampleText">
+	<b><span lang="EN-US">end</span></b><span lang="EN-US"> mine;</span></p>
+&nbsp;

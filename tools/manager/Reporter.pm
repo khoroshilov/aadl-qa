@@ -20,6 +20,7 @@
 package Reporter;
 use strict;
 use IO::File;
+use FindBin;
 
 require Exporter;
 our @ISA = qw(Exporter);
@@ -539,17 +540,14 @@ sub generate_reqcoverage {
 #----------------------------------------------------------------------
 sub generate_reqreport {
   my ($self,$REPORTDIR) = @_;
-  my $requality_dir;
   my $reqcoverage_file_name = "$REPORTDIR/reqcoverage";
-  my $requality = `which requality`;
-  ($requality_dir)  = ($requality =~ m/(.*)\/bin(\/)+requality\s*$/);
-  my $reqreport = "$1/reqreport/reqreport.pl";
+  my $reqreport = "$FindBin::Bin/../reqreport/reqreport.pl";
   if (! -e $reqreport) {
-    print STDERR "WARNING: reqreport.pl not found ($reqreport) $requality $requality_dir\n";
+    print STDERR "WARNING: reqreport.pl not found ($reqreport)\n";
     return;
   }
   
-  system("$reqreport $self->{'reqproject'} $self->{'reqbase'} $reqcoverage_file_name $REPORTDIR");
+  system("$reqreport $self->{'reqproject'} $reqcoverage_file_name $REPORTDIR");
 }
 
 #----------------------------------------------------------------------

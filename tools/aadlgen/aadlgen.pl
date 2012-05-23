@@ -119,11 +119,11 @@ if (! -e $reqdb) {
 
 # Generate MANIFEST file for test suite
 system("mkdir -p $gensrc");
-open(FILE, ">", "$gensrc/MANIFEST.TS");
-print FILE <<ENDMANIFEST;
-DESCRIPTION=Test Suite generated from Requality
-ENDMANIFEST
-close(FILE);
+#open(FILE, ">", "$gensrc/MANIFEST.TS");
+#print FILE <<ENDMANIFEST;
+#DESCRIPTION=Test Suite generated from Requality
+#ENDMANIFEST
+#close(FILE);
 # Generate test cases
 if (open (SOURCE_FILE, "<", $reqdb)) {
   while (<SOURCE_FILE>) {

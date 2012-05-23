@@ -38,7 +38,6 @@ my $LOGDIR;
 my $REPORTDIR;
 my @TOOLS;
 my $REQPROJECT;
-my $REQBASE;
 my $keep_journals = 1;
 my $list_tools_only = 0;
 GetOptions("src=s"        => \@SRCDIRS,
@@ -46,7 +45,6 @@ GetOptions("src=s"        => \@SRCDIRS,
            "reportdir=s"  => \$REPORTDIR,
            "tool=s"       => \@TOOLS,
            "reqproject=s" => \$REQPROJECT,
-           "reqbase=s"    => \$REQBASE,
            "clean"        => sub {$keep_journals=0;},
            "list-tools"   => \$list_tools_only
           );
@@ -301,8 +299,7 @@ my ($second, $minute, $hour, $day, $month, $year) = (localtime)[0,1,2,3,4,5];
 $ENV{'AADLRUN'} = sprintf "%04d%02d%02d-%02d%02d%02d", $year+1900, $month+1, $day, $hour, $minute, $second;
 
 # Load required staff
-my %args = ( "reqproject" => $REQPROJECT, 
-             "reqbase"    => $REQBASE 
+my %args = ( "reqproject" => $REQPROJECT
            );
 my $reporter = load_reporter(%args);
 my %all_test_suites = ();

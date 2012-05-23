@@ -1,0 +1,39 @@
+
+	
+		package CarSystem
+		public
+		  bus Manifold
+		  end Manifold;
+		
+		  abstract car
+		  end car;
+		
+		  abstract implementation car.generic
+		  subcomponents
+		    PowerTrain: abstract power_train;
+		    ExhaustSystem: abstract exhaust_system;
+		  end car.generic;
+		
+		  abstract power_train
+		  features
+		    exhaustoutput: requires bus access Manifold;
+		  end power_train;
+		
+		  abstract exhaust_system
+		  features
+		    exhaustManifold: provides bus access Manifold;
+		  end exhaust_system;
+		
+		  -- runtime architecture
+		  system carRT extends car
+		  end carRT;
+		
+		  system implementation carRT.impl
+		    extends car.generic
+		  subcomponents
+		    PowerTrain : refined to system power_train;
+		    ExhaustSystem : refined to system exhaust_system;
+		  end carRT.impl;
+		end CarSystem;
+
+

@@ -1,0 +1,2 @@
+REQ=/Requirements/01-Syntax/package_spec/02-omit_package
+EXPECTED_RESULT=INVALID

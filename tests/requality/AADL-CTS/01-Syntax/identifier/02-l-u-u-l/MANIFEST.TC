@@ -1,0 +1,2 @@
+REQ=/Requirements/01-Syntax/identifier/02-l-u-u-l
+EXPECTED_RESULT=INVALID

@@ -1,0 +1,20 @@
+
+	
+		
+			
+				
+					
+						package identifier
+						public
+						  -- Invalid identifier: two underscores cannot be togather
+						  data a__b
+						  end a__b;
+						end identifier;  
+				
+			
+		
+	
+
+
+	 
+
