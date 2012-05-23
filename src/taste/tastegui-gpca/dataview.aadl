@@ -22,7 +22,7 @@ end Stream_Element_Buffer;
 DATA User_Input_T
 PROPERTIES
     -- name of the ASN.1 source file:
-    Source_Text => ("/tmp/Ja2ZJ7qAtC/dataview.asn");
+    Source_Text => ("dataview.asn");
     TASTE::Ada_Package_Name => "DataView";
     Deployment::ASN1_Module_Name => "DataView";
     Source_Language => ASN1;
@@ -61,7 +61,7 @@ END User_Input_T_Buffer.impl;
 DATA Model_Data_T
 PROPERTIES
     -- name of the ASN.1 source file:
-    Source_Text => ("/tmp/Ja2ZJ7qAtC/dataview.asn");
+    Source_Text => ("dataview.asn");
     TASTE::Ada_Package_Name => "DataView";
     Deployment::ASN1_Module_Name => "DataView";
     Source_Language => ASN1;
@@ -100,7 +100,7 @@ END Model_Data_T_Buffer.impl;
 DATA State_T
 PROPERTIES
     -- name of the ASN.1 source file:
-    Source_Text => ("/tmp/Ja2ZJ7qAtC/dataview.asn");
+    Source_Text => ("dataview.asn");
     TASTE::Ada_Package_Name => "DataView";
     Deployment::ASN1_Module_Name => "DataView";
     Source_Language => ASN1;
@@ -139,7 +139,7 @@ END State_T_Buffer.impl;
 DATA Boolean_T
 PROPERTIES
     -- name of the ASN.1 source file:
-    Source_Text => ("/tmp/Ja2ZJ7qAtC/dataview.asn");
+    Source_Text => ("dataview.asn");
     TASTE::Ada_Package_Name => "DataView";
     Deployment::ASN1_Module_Name => "DataView";
     Source_Language => ASN1;
@@ -178,7 +178,7 @@ END Boolean_T_Buffer.impl;
 DATA Real_T
 PROPERTIES
     -- name of the ASN.1 source file:
-    Source_Text => ("/tmp/Ja2ZJ7qAtC/dataview.asn");
+    Source_Text => ("dataview.asn");
     TASTE::Ada_Package_Name => "DataView";
     Deployment::ASN1_Module_Name => "DataView";
     Source_Language => ASN1;
@@ -217,7 +217,7 @@ END Real_T_Buffer.impl;
 DATA Infusion_State_T
 PROPERTIES
     -- name of the ASN.1 source file:
-    Source_Text => ("/tmp/Ja2ZJ7qAtC/dataview.asn");
+    Source_Text => ("dataview.asn");
     TASTE::Ada_Package_Name => "DataView";
     Deployment::ASN1_Module_Name => "DataView";
     Source_Language => ASN1;
@@ -256,7 +256,7 @@ END Infusion_State_T_Buffer.impl;
 DATA Integer_T
 PROPERTIES
     -- name of the ASN.1 source file:
-    Source_Text => ("/tmp/Ja2ZJ7qAtC/dataview.asn");
+    Source_Text => ("dataview.asn");
     TASTE::Ada_Package_Name => "DataView";
     Deployment::ASN1_Module_Name => "DataView";
     Source_Language => ASN1;

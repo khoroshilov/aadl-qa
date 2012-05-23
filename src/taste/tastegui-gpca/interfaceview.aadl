@@ -227,8 +227,8 @@ WITH Taste;
 
 PROPERTIES
   Taste::Coordinates => "0 0 2970 2100";
-  Taste::dataView => ("DataView");
-  Taste::dataViewPath => ("dataview.aadl");
+Taste::dataView => ("DataView");
+Taste::dataViewPath => ("dataview.aadl");
 
 END interfaceview::IV;
 
