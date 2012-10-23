@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- A component alias declaration renames a component type declared in the private<br />\n\t-- section of a package. The package does not have the public section.<br />\n\t-- The component type alias does not explicitly declare a new identifier for the referenced<br />\n\t-- component type. No bug SC0027.<br />\n\t<br />\n\tPACKAGE TC23<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH noPublicSectionPckg;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES THREAD noPublicSectionPckg::threadTypeId; -- No bug SC0027<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\tEND TC23;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE noPublicSectionPckg<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;<br />\n\tEND noPublicSectionPckg;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "e288358d-03b2-4889-b579-b5965d10fa89"
+}

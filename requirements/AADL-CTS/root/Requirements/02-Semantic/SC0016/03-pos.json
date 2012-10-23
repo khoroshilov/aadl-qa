@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- The defining identifier of a package is not identical to the defining identifiers of<br />\n\t-- the predeclared property sets. No bug SC0016.<br />\n\tPACKAGE pckgId -- No bug SC0016<br />\n\tPUBLIC<\/p>\n<p>\n\t&nbsp; THREAD myThr<\/p>\n&nbsp; END myThr;\n<p>\n\t<br />\n\tPRIVATE<\/p>\n<p>\n\t&nbsp; THREAD myThr2<\/p>\n&nbsp; END myThr2;\n<p>\n\t<br />\n\tEND pckgId;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "3a6f2905-40a7-49af-abb6-73ca039b68fe"
+}

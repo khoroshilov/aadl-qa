@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "t can also contain flow specifications, modes\nsubclauses, and property associations."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "308ebe84-f1be-42af-a5b3-c31b2120b7cf"
+}

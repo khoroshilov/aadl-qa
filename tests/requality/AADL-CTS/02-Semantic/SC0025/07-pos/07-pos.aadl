@@ -1,0 +1,45 @@
+
+	-- An alias declaration renames all declarations of a package. The private section
+	-- of the referenced package contains a subprogram declaration which defining identifier
+	-- is identical to the defining identifiers of declarations from the namespace of the package
+	-- which contains the alias declaration. No bug SC0025.
+	
+	PACKAGE TC7
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL;        
+	        
+	        SUBPROGRAM subprogramTypeId -- no bug SC0025
+	        END subprogramTypeId;
+	    PRIVATE
+	        WITH pckgId::pckgId::pckgId::pckgId;
+	        subprogramTypeId RENAMES PACKAGE pckgId::pckgId; -- no bug SC0025
+	        subprogramTypeId RENAMES THREAD pckgId::pckgId::pckgId::pckgId::threadTypeId; -- no bug SC0025
+	END TC7;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+	
+	PACKAGE pckgId::pckgId::pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;        
+	END pckgId::pckgId::pckgId::pckgId;
+	
+	
+	 
+

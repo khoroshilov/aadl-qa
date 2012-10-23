@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- The namespace of a property set does not declare any identical identifiers. No bug SC0009.<br />\nPROPERTY SET PROPERTY_SET_TC3 IS<br />\n&nbsp;&nbsp; &nbsp;enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);<br />\n&nbsp;&nbsp; &nbsp;property_declaration : id APPLIES TO (system);<br />\n&nbsp;&nbsp; &nbsp;property_constant : constant INTEGER =&gt; 256;<br />\nEND PROPERTY_SET_TC3; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "870f9da5-9d3e-4b18-9f4c-b95103a8876f"
+}

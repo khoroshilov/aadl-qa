@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- A deep extension hierarchy of feature group types is declared. The hierarchy<br />\r\n-- contains a circle of feature group type extensions.<br />\r\n-- A feature group type from the hierarchy declares identifiers which are identical<br />\r\n-- to the identifiers declared in ancestor feature group types. Bugs SC0017 and SC0009.<br />\r\nPACKAGE FEATURE_GROUP_TYPE_TC2<br />\r\n&nbsp;&nbsp; &nbsp;PUBLIC<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP f_group_declaration<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURES<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_1 : FEATURE;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END f_group_declaration;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP f_group_extension_1 -- Bug SC0017<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;EXTENDS f_group_extension_3<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROTOTYPES<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_2 : FEATURE;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END f_group_extension_1;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP f_group_extension_2 -- Bug SC0017<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;EXTENDS f_group_extension_1<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROTOTYPES<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_3 : FEATURE;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END f_group_extension_2;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP f_group_extension_3 -- Bug SC0017<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;EXTENDS f_group_extension_2<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROTOTYPES<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_4 : FEATURE;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END f_group_extension_3;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP f_group_extension_4<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;EXTENDS f_group_extension_3<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROTOTYPES<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_1 : FEATURE;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_2 : FEATURE; -- Bug SC0009<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_3 : FEATURE; -- Bug SC0009<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_4 : FEATURE; -- Bug SC0009&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END f_group_extension_4;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\nEND FEATURE_GROUP_TYPE_TC2; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "9d743e56-ad84-4c5c-89cb-c1777055f8b3"
+}

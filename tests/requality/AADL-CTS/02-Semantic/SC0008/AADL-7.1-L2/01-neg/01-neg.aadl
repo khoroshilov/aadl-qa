@@ -1,0 +1,105 @@
+
+	PACKAGE SystemPack
+	    PUBLIC
+	        WITH CTP;
+	        systemT RENAMES SYSTEM CTP::systemT;
+	        
+	        SYSTEM IMPLEMENTATION systemT.systemImpl
+	            SUBCOMPONENTS
+	                abstractSubc : ABSTRACT CTP::abstractT;
+	                busSubc : BUS CTP::busT;
+	                dataSubc : DATA CTP::dataT;
+	                deviceSubc : DEVICE CTP::deviceT;
+	                memorySubc : MEMORY CTP::memoryT;
+	                processSubc : PROCESS CTP::processT;
+	                processorSubc : PROCESSOR CTP::processorT;
+	                subprogramSubc : SUBPROGRAM CTP::subprogramT;
+	                subprogramGroupSubc : SUBPROGRAM GROUP CTP::subprogramGroupT;
+	                systemSubc : SYSTEM CTP::systemT;
+	                threadSubc : THREAD CTP::threadT; -- bug SC0008
+	                threadGroupSubc : THREAD GROUP CTP::threadGroupT; -- bug SC0008
+	                virtualBusSubc : VIRTUAL BUS CTP::virtualBusT;
+	                virtualProcessorSubc : VIRTUAL PROCESSOR CTP::virtualProcessorT;
+	        END systemT.systemImpl;
+	        
+	        SYSTEM IMPLEMENTATION systemT.systemImpl2            
+	        END systemT.systemImpl2;
+	        
+	        SYSTEM IMPLEMENTATION systemT.systemImpl3
+	            SUBCOMPONENTS
+	                none;            
+	        END systemT.systemImpl3;
+	        
+	        SYSTEM IMPLEMENTATION systemT.systemImplExt
+	            EXTENDS systemT.systemImpl
+	            SUBCOMPONENTS
+	                abstractSubc : REFINED TO ABSTRACT CTP::abstractT;
+	                busSubc : REFINED TO BUS CTP::busT;
+	                dataSubc : REFINED TO DATA CTP::dataT;
+	                deviceSubc : REFINED TO DEVICE CTP::deviceT;
+	                memorySubc : REFINED TO MEMORY CTP::memoryT;
+	                processSubc : REFINED TO PROCESS CTP::processT;
+	                processorSubc : REFINED TO PROCESSOR CTP::processorT;
+	                subprogramSubc : REFINED TO SUBPROGRAM CTP::subprogramT;
+	                subprogramGroupSubc : REFINED TO SUBPROGRAM GROUP CTP::subprogramGroupT;
+	                systemSubc : REFINED TO SYSTEM CTP::systemT;
+	                threadSubc : REFINED TO THREAD CTP::threadT; -- bug SC0008
+	                threadGroupSubc : REFINED TO THREAD GROUP CTP::threadGroupT; -- bug SC0008
+	                virtualBusSubc : REFINED TO VIRTUAL BUS CTP::virtualBusT;
+	                virtualProcessorSubc : REFINED TO VIRTUAL PROCESSOR CTP::virtualProcessorT;
+	        END systemT.systemImplExt;
+	        
+	        SYSTEM IMPLEMENTATION systemT.systemImplExt2
+	            EXTENDS systemT.systemImpl
+	            SUBCOMPONENTS
+	                none;
+	        END systemT.systemImplExt2;
+	END SystemPack;
+
+	 
+
+	PACKAGE CTP
+	    PUBLIC
+	        ABSTRACT abstractT
+	        END abstractT;
+	        
+	        BUS busT
+	        END busT;
+	        
+	        DATA dataT
+	        END dataT;
+	        
+	        DEVICE deviceT
+	        END deviceT;
+	        
+	        MEMORY memoryT
+	        END memoryT;
+	        
+	        PROCESS processT
+	        END processT;
+	        
+	        PROCESSOR processorT
+	        END processorT;
+	        
+	        SUBPROGRAM subprogramT
+	        END subprogramT;
+	        
+	        SUBPROGRAM GROUP subprogramGroupT
+	        END subprogramGroupT;
+	        
+	        SYSTEM systemT
+	        END systemT;
+	        
+	        THREAD threadT
+	        END threadT;
+	        
+	        THREAD GROUP threadGroupT
+	        END threadGroupT;
+	        
+	        VIRTUAL BUS virtualBusT
+	        END virtualBusT;
+	        
+	        VIRTUAL PROCESSOR virtualProcessorT
+	        END virtualProcessorT;
+	END CTP;
+

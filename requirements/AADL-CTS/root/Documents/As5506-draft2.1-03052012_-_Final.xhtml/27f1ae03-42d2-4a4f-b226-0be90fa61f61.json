@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\"><span lang=\"EN-US\">Flow specifications: no<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\"><span lang=\"EN-US\">Modes: yes<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\"><span lang=\"EN-US\">Properties: yes<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "27f1ae03-42d2-4a4f-b226-0be90fa61f61"
+}

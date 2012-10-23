@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- A feature group type declaration declares prototypes and features with the same defining identifier. Bug SC0009.<br />\nPACKAGE FEATURE_GROUP_TYPE_DECLARATION_TC1<br />\n&nbsp;&nbsp; &nbsp;PUBLIC<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP f_group_declaration<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROTOTYPES<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ID_1 : FEATURE; -- bug SC0009<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;feature_prototype : FEATURE;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURES<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;feature_declaration : IN DATA PORT;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;id_1 : IN DATA PORT; -- bug SC0009<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;in_feature : IN DATA PORT;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;out_feature : OUT DATA PORT;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END f_group_declaration;<br />\nEND FEATURE_GROUP_TYPE_DECLARATION_TC1; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "4ef1ac9a-31c0-4a8a-a879-0c6c36726bdb"
+}

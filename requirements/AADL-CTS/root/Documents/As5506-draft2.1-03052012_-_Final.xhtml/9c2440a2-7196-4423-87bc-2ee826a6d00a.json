@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N1)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">The defining identifier of a defined connection\ndeclaration must be unique in the local namespace of the component\nimplementation with the connection subclause. This is also the case for\nmode-specific connection declarations, i.e., declarations with an <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">in_modes_and_transition<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\"> subclause.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "9c2440a2-7196-4423-87bc-2ee826a6d00a"
+}

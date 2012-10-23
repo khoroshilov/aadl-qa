@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- A package contains a component type and a feature group type declaration. Identifiers of these<br />\n\t-- declaratins are identical to the identifiers imported by alias declarations which do not define<br />\n\t-- short names for the declarations imported. Two private sections are defined for the package.<br />\n\t-- No bug SC0025.<br />\n\t<br />\n\tPACKAGE TC11<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH pckgId::pckgId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES THREAD pckgId::pckgId::threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES FEATURE GROUP pckgId::pckgId::featureGrTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId -- No bug SC0025<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId -- No bug SC0025<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND TC11;<\/p>\n<p>\n\tPACKAGE TC11<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<\/p>\n<p>\n\t&nbsp; &nbsp; &nbsp;&nbsp; THREAD threadTypeId3<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId3; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br />\n\tEND TC11;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadTypeId.Impl<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId.Impl;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DATA myData<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END myData;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FEATURES<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; myFeature : IN DATA PORT myData;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBPROGRAM subprogramTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END subprogramTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgId::pckgId;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "93076c06-d9cd-493a-8896-17e0af7acbaf"
+}

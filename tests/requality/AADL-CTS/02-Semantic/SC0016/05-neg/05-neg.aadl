@@ -1,0 +1,21 @@
+
+	-- The defining identifier of a project is identical to the defining identifier of a predeclared
+	-- property set. There are two public section declarations for the project. Bug SC0016.
+	PACKAGE Programming_Properties -- bug SC0016
+	PUBLIC
+
+	  THREAD myThr
+  END myThr;
+
+	
+	END Programming_Properties;
+	
+	PACKAGE Programming_Properties -- bug SC0016
+	PUBLIC
+
+	  THREAD myThr2
+  END myThr2;
+
+	
+	END Programming_Properties;
+

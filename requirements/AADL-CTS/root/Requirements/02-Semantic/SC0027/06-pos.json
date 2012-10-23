@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- A package declares two declarations which have the same defining identifier.<br />\n\t-- This package declares two public sections. Bug SC0027 is not detected.<br />\n\tPACKAGE TC6<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD id -- bug SC0027 is not detected<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END id;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP id -- bug SC0027 is not detected<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END id;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND TC6;<br />\n\t<br />\n\tPACKAGE TC6<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC&nbsp;&nbsp;<\/p>\n<p>\n\t&nbsp; &nbsp; &nbsp; &nbsp; THREAD id3<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END id3; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br />\n\tEND TC6;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "64024c21-c74b-4779-8918-449714064ad3"
+}

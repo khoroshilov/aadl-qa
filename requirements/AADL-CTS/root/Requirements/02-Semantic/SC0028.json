@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "The identifier of a package alias declaration may not be identical to the name of the package which contains the alias declaration."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "996cc4aa-84da-4f80-ad1d-662aad06fb8d"
+}

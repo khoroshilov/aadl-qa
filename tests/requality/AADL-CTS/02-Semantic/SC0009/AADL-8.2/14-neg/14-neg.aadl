@@ -1,0 +1,17 @@
+-- A feature group type extension does not contain any unique identifiers but
+-- contains some non-unique. Bug SC0009.
+PACKAGE FEATURE_GROUP_TYPE_EXTENSION_TC9
+    PUBLIC
+        FEATURE GROUP f_group_declaration
+            FEATURES
+                id_1 : FEATURE;
+        END f_group_declaration;
+            
+        FEATURE GROUP f_group_extension
+            EXTENDS f_group_declaration
+            PROTOTYPES
+                id_1 : FEATURE; -- bug SC0009
+            FEATURES
+                id_1 : FEATURE; -- bug SC0009    
+        END f_group_extension;
+END FEATURE_GROUP_TYPE_EXTENSION_TC9; 

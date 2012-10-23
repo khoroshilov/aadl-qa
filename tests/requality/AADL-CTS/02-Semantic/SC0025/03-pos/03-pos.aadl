@@ -1,0 +1,22 @@
+
+	-- Two declarations with identical defining identifiers are declared in the public section of a package.
+	-- All declarations of the package are imported into the local namespace of another package.
+	-- No bug SC0025.
+	PACKAGE TC3
+	    PUBLIC
+	        WITH pckgId::pckgId::pckgId;
+	        RENAMES pckgId::pckgId::pckgId::ALL; -- No bug SC0025                    
+	END TC3;
+
+	 
+
+	-- Two identical declarations in the public section of the package
+	PACKAGE pckgId::pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD threadTypeId
+	        END threadTypeId;
+	END pckgId::pckgId::pckgId;
+

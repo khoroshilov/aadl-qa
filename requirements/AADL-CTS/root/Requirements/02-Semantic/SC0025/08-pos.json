@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- An alias declaration renames all declarations of a package. The public section of the referenced<br />\n\t-- package contains a component implementation declaration. The same component implementation is<br />\n\t-- declared in the namespace of the package containing the alias declaration. No bug SC0025.<br />\n\tPACKAGE TC8<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH pckgId::pckgId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgId::pckgId::ALL;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadTypeId.Impl -- no bug SC0025<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId.Impl;&nbsp;&nbsp; &nbsp;<br />\n\tEND TC8;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadTypeId.Impl<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId.Impl;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBPROGRAM subprogramTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END subprogramTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgId::pckgId;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "79f2dde8-6090-4dd5-82aa-1255f884ceb8"
+}

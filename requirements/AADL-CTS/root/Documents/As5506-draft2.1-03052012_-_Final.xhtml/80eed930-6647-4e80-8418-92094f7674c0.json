@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(L2)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">A virtual bus type must not contain flow\nspecifications.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "80eed930-6647-4e80-8418-92094f7674c0"
+}

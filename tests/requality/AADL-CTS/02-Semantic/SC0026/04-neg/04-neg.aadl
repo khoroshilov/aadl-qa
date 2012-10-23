@@ -1,0 +1,18 @@
+-- An alias declaration renames all declarations of the containing package. The public section of
+-- the containing package contains some component type and feature group type
+-- declarations. Bug SC0026.
+PACKAGE TC4
+    PUBLIC
+        renames TC4::all; -- bug SC0026
+        
+        THREAD threadT
+        END threadT;        
+    PRIVATE
+        renames TC4::all; -- bug SC0026
+        
+        FEATURE GROUP fGroupType
+        END fGroupType;
+        
+        THREAD GROUP threadGrT
+        END threadGrT;    
+END TC4; 

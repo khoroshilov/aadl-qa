@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(L5)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">A processor implementation must not contain a\nsubprogram calls subclause.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "9b12b439-8d7d-42f2-8586-a714e33d91d5"
+}

@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Lucida Sans Typewriter&quot;;\">(6)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">   <\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">An AADL specification provides a global namespace for packages and\nproperty sets.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "f44fb391-8942-4cc2-97fa-bbfe8001e491"
+}

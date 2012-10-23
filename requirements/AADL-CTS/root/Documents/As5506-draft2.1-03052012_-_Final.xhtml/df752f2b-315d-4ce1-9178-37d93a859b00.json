@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"MsoBodyText\"><span lang=\"EN-US\"><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"Legalityrule\"><span lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(L1)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n<\/span><\/span><span lang=\"EN-US\">A thread group component type can contain\nprovides and requires data access, as well as port, feature group, provides and\nrequires subprogram access declarations, and provides and requires subprogram\ngroup access declarations.<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "df752f2b-315d-4ce1-9178-37d93a859b00"
+}

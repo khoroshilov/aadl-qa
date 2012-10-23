@@ -1,0 +1,30 @@
+
+	-- Two aliases rename all declarations of the same package. The package contains two private sections.
+	-- Bug SC0024 is not detected.
+	PACKAGE TC7
+	    PUBLIC
+	        WITH badPckg;
+	        renames badPckg::all; -- bug SC0024 is not detected    
+	    PRIVATE
+	        WITH badPckg;
+	        renames badPckg::all; -- bug SC0024 is not detected    
+	END TC7;
+
+	PACKAGE badPckg
+
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	    PRIVATE  
+
+	        THREAD threadTypeId2
+	        END threadTypeId2;
+	END badPckg;
+	
+	PACKAGE badPckg
+	    PRIVATE    
+
+	        THREAD threadTypeId3
+	        END threadTypeId3;
+	END badPckg;      
+

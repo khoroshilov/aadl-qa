@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(L4)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">A processor implementation can contain bus\naccess,<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-size: 12pt; font-family: &quot;Times New Roman&quot;,&quot;serif&quot;; color: windowtext;\"> <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">subprogram access, subprogram group\naccess, port, feature, and feature group connection declarations.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "393787f0-4302-458a-9760-0d19d2e75071"
+}

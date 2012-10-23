@@ -1,0 +1,8 @@
+-- Two aliases rename all declarations of the containing package.
+-- The public section of the containing package does not contain a feature group declaration
+-- or a component type declaration. No bug SC0024.
+PACKAGE TC4
+    PUBLIC
+        renames TC4::all; -- No bug SC0024.     
+        renames TC4::all; -- No bug SC0024.            
+END TC4; 

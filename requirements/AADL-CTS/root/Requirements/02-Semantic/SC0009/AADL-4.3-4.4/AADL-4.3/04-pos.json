@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- A component type declaration does not contain any subclauses. No bug SC0009.<br />\nPACKAGE COMPONENT_TYPE_DECLARATION_TC4<br />\n&nbsp;&nbsp; &nbsp;PUBLIC<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD thread_type&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END thread_type;<br />\nEND COMPONENT_TYPE_DECLARATION_TC4; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "59000ebf-c7a4-459a-930a-0c52b97d029a"
+}

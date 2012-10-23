@@ -1,0 +1,12 @@
+-- A component alias declaration renames a component type declared in the containing package.
+-- The identifier of this alias declaration is identical to the identifier of a feature grooup.
+-- Bug SC0027.
+PACKAGE TC19
+    PUBLIC
+        id2 RENAMES THREAD id1; -- Bug SC0027
+        THREAD id1
+        END id1;
+    PRIVATE    
+        FEATURE GROUP id2 -- Bug SC0027
+        END id2;        
+END TC19; 

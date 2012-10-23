@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- The defining identifier of a project is identical to the defining identifier of a predeclared<br />\n\t-- property set. There are two public section declarations for the project. Bug SC0016.<br />\n\tPACKAGE Programming_Properties -- bug SC0016<br />\n\tPUBLIC<\/p>\n<p>\n\t&nbsp; THREAD myThr<\/p>\n&nbsp; END myThr;\n<p>\n\t<br />\n\tEND Programming_Properties;<br />\n\t<br />\n\tPACKAGE Programming_Properties -- bug SC0016<br />\n\tPUBLIC<\/p>\n<p>\n\t&nbsp; THREAD myThr2<\/p>\n&nbsp; END myThr2;\n<p>\n\t<br />\n\tEND Programming_Properties;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "1665fe32-f4b4-44b8-98f3-0c8628828522"
+}

@@ -1,0 +1,4 @@
+--  A units type does not declare any identical unit literals. No bug SC0009.
+PROPERTY SET UNITS_LIST_TC2 IS
+    units_type : TYPE UNITS (MM, SM => MM * 10, M => SM * 100); -- No bug SC0009        
+END UNITS_LIST_TC2; 

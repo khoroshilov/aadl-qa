@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- Identifier of a package alias is identical to an identifier listed in the WITH clause.<br />\n\t-- The identifier listed in the with clause is identical to the identifier of a property set<br />\n\t-- and to the identifier of a package. No bug SC0023.<br />\n\tPACKAGE TC6<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH commonId, pckgId::pckgId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;commonId renames package pckgId::pckgId; -- no bug SC0023<br />\n\tEND TC6;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THREAD myThr<\/p>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END myThr;\n<p>\n\t<br />\n\tEND pckgId::pckgId;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE commonId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THREAD myThr2<\/p>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END myThr2r;\n<p>\n\t<br />\n\tEND commonId;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPROPERTY SET commonId is&nbsp;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);&nbsp;&nbsp;<br />\n\t&nbsp;&nbsp;<br />\n\tEND commonId;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "b89399eb-348f-47fb-ad97-b41261a5ecbf"
+}

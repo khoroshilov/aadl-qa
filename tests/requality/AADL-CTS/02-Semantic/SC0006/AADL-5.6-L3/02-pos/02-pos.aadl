@@ -1,0 +1,38 @@
+-- A PROCESS implementation is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE PROCESS_IMPLEMENTATION_TC2
+    PUBLIC
+        PROCESS T                        
+        END T;
+        
+        PROCESS IMPLEMENTATION T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.I;
+        
+        PROCESS IMPLEMENTATION T.IExt
+            EXTENDS T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.IExt;
+END PROCESS_IMPLEMENTATION_TC2; 

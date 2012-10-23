@@ -1,0 +1,2 @@
+REQ=/Requirements/02-Semantic/SC0008/AADL-5.3-L2/01-neg
+EXPECTED_RESULT=INVALID

@@ -1,0 +1,7 @@
+-- An alias declaration renames all declarations of the containing package. The public section of
+-- the containing package does not contain any component type or feature group type declarations.
+-- No bug SC0026.
+PACKAGE TC2
+    PUBLIC
+        renames TC2::all; -- no bug SC0026        
+END TC2; 

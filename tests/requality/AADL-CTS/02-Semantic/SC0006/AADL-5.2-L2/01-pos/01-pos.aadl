@@ -1,0 +1,69 @@
+
+    -- A SUBPROGRAM implementation is declared with all subclauses specified.
+    -- The subclauses contain declarations. No bug SC0006.
+    PACKAGE SUBPROGRAM_IMPLEMENTATION_TC1
+        PUBLIC
+            WITH simplePropSet;
+
+    
+
+           SUBPROGRAM simpleProg
+           END simpleProg;
+
+           DATA simpleData
+           END simpleData;
+    
+            SUBPROGRAM T
+                FEATURES
+                    outEventDataPort : OUT EVENT DATA PORT;
+            outEventDataPort2 : OUT EVENT DATA PORT;
+            inParam : IN PARAMETER simpleData;
+            inParam2 : IN PARAMETER simpleData;
+            outParam : OUT PARAMETER simpleData;
+            outParam2 : OUT PARAMETER simpleData;
+                FLOWS
+                    flowSrc : FLOW SOURCE outEventDataPort;
+            flowSrc2 : FLOW SOURCE outEventDataPort2;            
+            END T;
+            
+            SUBPROGRAM IMPLEMENTATION T.I
+                SUBCOMPONENTS
+                    myDataSubc : DATA simpleData;
+                CALLS myCalls : {
+                    subprogCall : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection : PARAMETER inParam -> outParam;
+                FLOWS
+                    flowSrc : FLOW SOURCE outEventDataPort;
+                MODES
+                    initMode : INITIAL MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T.I;
+            
+            SUBPROGRAM IMPLEMENTATION T.IExt
+                EXTENDS T.I
+                SUBCOMPONENTS
+                    myDataSubc2 : Data simpleData;
+                CALLS myCalls2 : {
+                    subprogCall2 : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection2 : PARAMETER inParam2 -> outParam2;
+                FLOWS
+                    flowSrc2 : FLOW SOURCE outEventDataPort2;
+                MODES
+                    mode2 : MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END T.IExt;
+    END SUBPROGRAM_IMPLEMENTATION_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (SUBPROGRAM);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (SUBPROGRAM);
+    END simplePropSet;
+

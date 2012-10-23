@@ -1,0 +1,30 @@
+
+	-- An alias declaration renames all declarations of the containing package. The public section of
+	-- the containing package contains some component implementation
+	-- declarations. No bug SC0026.
+	PACKAGE TC5
+	    PUBLIC
+	        WITH COMPONENT_TYPES;
+	        renames TC5::all; -- No bug SC0026
+	        
+	        PROCESS IMPLEMENTATION processT.impl
+	        END    processT.impl;
+	        
+	        PROCESSOR IMPLEMENTATION processorT.impl
+	        END    processorT.impl;
+	                                
+	    PRIVATE        
+	        renames TC5::all; -- No bug SC0026                        
+	END TC5;
+
+	 
+
+	PACKAGE COMPONENT_TYPES
+	    PUBLIC
+	        PROCESS processT
+	        END processT;
+	        
+	        PROCESSOR processorT
+	        END processorT;
+	END COMPONENT_TYPES;
+

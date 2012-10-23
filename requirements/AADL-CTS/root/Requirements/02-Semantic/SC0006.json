@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "The subclause may not be declared in a component classifier of the given component category."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "de4b52f2-9361-4299-a5a8-4eefe5e0ee4b"
+}

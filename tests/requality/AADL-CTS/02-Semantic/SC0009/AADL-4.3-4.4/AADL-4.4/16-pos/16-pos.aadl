@@ -1,0 +1,13 @@
+-- A component implementation declaration does not contain any non-unique
+-- identifiers and implements a component type which does not exist.
+-- No bug SC0009.
+PACKAGE COMPONENT_IMPLEMENTATION_DECLARATION_TC16
+PRIVATE
+    THREAD IMPLEMENTATION threadT_XXX.impl        
+        SUBCOMPONENTS
+            id_1 : SUBPROGRAM;        
+        MODES
+            id_2 : INITIAL MODE;            
+    END threadT_XXX.impl;
+    
+END COMPONENT_IMPLEMENTATION_DECLARATION_TC16; 

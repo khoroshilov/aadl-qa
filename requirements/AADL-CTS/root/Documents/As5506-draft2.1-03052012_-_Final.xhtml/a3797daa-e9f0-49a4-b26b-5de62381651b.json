@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">If an <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">alias_declaration<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">\ndefines an alias for a package then the alias name must not conflict with any\npackage name listed in an <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">import_declaration\n<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">or that of the package containing the <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">alias_declaration<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "a3797daa-e9f0-49a4-b26b-5de62381651b"
+}

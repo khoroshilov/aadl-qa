@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<td xmlns=\"http://www.w3.org/1999/xhtml\" width=\"96\" style=\"width: 72.25pt; border-width: medium 1pt 1pt; border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; padding: 0cm 5.4pt;\"><p align=\"center\" class=\"table\" style=\"text-align: center; page-break-after: avoid;\"><b><span lang=\"EN-US\" style=\"font-size: 10pt;\"><\/span><\/b><\/p>\n  <\/td>\n  <td xmlns=\"http://www.w3.org/1999/xhtml\" width=\"276\" style=\"width: 206.9pt; border-width: medium 1pt 1pt medium; border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; padding: 0cm 5.4pt;\">\n  <p class=\"table\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-size: 10pt;\">Features<\/span><\/p><\/td>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "2bea3b18-5b25-4d50-aee2-62a02d61608c"
+}

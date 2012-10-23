@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- The identifier of a package alias is identical to the identifier of a package listed in an import declaration.<br />\n\t-- The name of this package as well as some other package names are listed more than once in the import declaration.<br />\n\t-- Bug SC0023.<br />\n\tPACKAGE TC8<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH PckgId, pckgId2, pckgid2, pckgId::pckgId, pckgid;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;pckgId2 renames package pckgId::pckgId; -- bug SC0023&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND TC8;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THREAD myThr<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END myThr;<br />\n\tEND pckgId;<br />\n\t<br />\n\tPACKAGE pckgId2<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THREAD myThr2<\/p>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END myThr2;\n<p>\n\t<br />\n\tEND pckgId2;<br />\n\t<br />\n\tPACKAGE pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THREAD myThr3<\/p>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END myThr3;\n<p>\n\t<br />\n\tEND pckgId::pckgId;<br />\n\t&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "57e3e27b-e36f-44c3-b4ce-7e7a3b1da157"
+}

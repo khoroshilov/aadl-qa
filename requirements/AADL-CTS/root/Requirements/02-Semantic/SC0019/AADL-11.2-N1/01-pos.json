@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- As predeclared property sets are checked, no specification is needed.<br />\n\tPACKAGE DUMMY_PACKAGE<br />\n\tPUBLIC<\/p>\n<p>\n\t&nbsp;&nbsp; THREAD myThr<\/p>\n&nbsp; END myThr;\n<p>\n\tPRIVATE<\/p>\n<p>\n\t&nbsp; THREAD myThr2<\/p>\n&nbsp; END myThr2;\n<p>\n\t<br />\n\tEND DUMMY_PACKAGE;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "fc3e1aa0-5ba2-4b7f-857e-9ad0e7a18d98"
+}

@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- The name of some packages is identical to the name of some property sets. Bug SC0009.<br />\n\t<br />\n\tPACKAGE GLOBAL_NAMESPACE_TC1 -- Bug SC0009<br />\n\tPRIVATE<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\t&nbsp; THREAD thrT<\/p>\n&nbsp;&nbsp; END thrT;\n<p>\n\t<br />\n\tEND GLOBAL_NAMESPACE_TC1;<br />\n\t<br />\n\tPACKAGE GLOBAL_NAMESPACE_TC1 -- Bug SC0009<br />\n\tPUBLIC<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\t&nbsp; THREAD thrT<\/p>\n&nbsp;&nbsp; END thrT;\n<p>\n\t<br />\n\tEND GLOBAL_NAMESPACE_TC1;<br />\n\t<br />\n\tPACKAGE GLOBAL_NAMESPACE_TC1_XXX<br />\n\tPUBLIC<\/p>\n<p>\n\t&nbsp; THREAD thrT<\/p>\n<p>\n\t&nbsp;&nbsp; END thrT;<br />\n\tPRIVATE<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\t&nbsp; THREAD thrT2<\/p>\n&nbsp;&nbsp; END thrT2;\n<p>\n\t<br />\n\tEND GLOBAL_NAMESPACE_TC1_XXX;<br />\n\t<br />\n\tPROPERTY SET GLOBAL_NAMESPACE_TC1 IS -- Bug SC0009<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND GLOBAL_NAMESPACE_TC1;<br />\n\t<br />\n\tPROPERTY SET GLOBAL_NAMESPACE_TC1_YYY IS<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND GLOBAL_NAMESPACE_TC1_YYY;<br />\n\t<br />\n\tPROPERTY SET GLOBAL_NAMESPACE_TC1 IS -- Bug SC0009<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND GLOBAL_NAMESPACE_TC1;<br />\n\t<br />\n\tPROPERTY SET GLOBAL_NAMESPACE_TC1_ZZZ IS<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND GLOBAL_NAMESPACE_TC1_ZZZ;<br />\n\t<br />\n\tPROPERTY SET GLOBAL_NAMESPACE_TC1 IS -- Bug SC0009<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND GLOBAL_NAMESPACE_TC1;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "df725980-dd64-4957-bdc5-b26a3233c09f"
+}

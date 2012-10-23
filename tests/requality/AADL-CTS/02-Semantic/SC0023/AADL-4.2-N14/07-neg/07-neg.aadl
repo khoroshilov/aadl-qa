@@ -1,0 +1,24 @@
+
+	-- The name of a package alias declaration is identical to the name of the containing package.
+
+	-- The name of the containing package is listed in the import declaration of the containing package. Bug SC0023.
+
+	
+	PACKAGE TC7
+	    PUBLIC
+	        WITH TC7;
+	        TC7 renames package pckgId::pckgId; -- Bug SC0023
+	END TC7;
+
+	 
+
+	PACKAGE pckgId::pckgId
+
+	   PUBLIC
+
+	       THREAD myThr
+
+	       END myThr;
+
+	END pckgId::pckgId;
+

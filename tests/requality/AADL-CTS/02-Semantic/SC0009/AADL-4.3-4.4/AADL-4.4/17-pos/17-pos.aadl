@@ -1,0 +1,14 @@
+
+	-- A component implementation declares one identifier. No bug SC0009.
+	PACKAGE COMPONENT_IMPLEMENTATION_DECLARATION_TC17
+	PRIVATE
+	    THREAD threadT        
+	    END threadT;   
+
+	    THREAD IMPLEMENTATION threadT.impl        
+	        SUBCOMPONENTS
+	            id_1 : SUBPROGRAM;                    
+	    END threadT.impl;
+	    
+	END COMPONENT_IMPLEMENTATION_DECLARATION_TC17;
+

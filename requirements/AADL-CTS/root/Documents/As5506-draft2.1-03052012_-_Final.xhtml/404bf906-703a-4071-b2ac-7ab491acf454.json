@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "a calls\nsubclause, a flows subclause, a modes subclause, and thread property\nassociations."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "404bf906-703a-4071-b2ac-7ab491acf454"
+}

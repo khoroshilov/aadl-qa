@@ -1,0 +1,40 @@
+
+	-- A SUBPROGRAM implementation is declared with all subclauses specified.
+	-- The subclauses contain the none statement. No bug SC0006.
+	PACKAGE SUBPROGRAM_IMPLEMENTATION_TC2
+	    PUBLIC
+	        SUBPROGRAM T                        
+	        END T;
+	        
+	        SUBPROGRAM IMPLEMENTATION T.I
+	            SUBCOMPONENTS
+	                none;
+	            CALLS
+	                none;
+	            CONNECTIONS
+	                none;
+	            FLOWS
+	                none;
+	            MODES
+	                none;
+	            PROPERTIES
+	                none;
+	        END T.I;
+	        
+	        SUBPROGRAM IMPLEMENTATION T.IExt
+	            EXTENDS T.I
+	            SUBCOMPONENTS
+	                none;
+	            CALLS
+	                none;
+	            CONNECTIONS
+	                none;
+	            FLOWS
+	                none;
+	            MODES
+	                none;
+	            PROPERTIES
+	                none;
+	        END T.IExt;
+	END SUBPROGRAM_IMPLEMENTATION_TC2;
+

@@ -1,0 +1,39 @@
+
+	-- A DEVICE component type is declared with all subclauses specified.
+	-- The subclauses contain declarations. No bug SC0006.
+	PACKAGE DEVICE_TYPE_TC1
+	    PUBLIC
+	        WITH simplePropSet;
+	        DEVICE T
+	            FEATURES
+	                inDataPort : IN DATA PORT;    
+	                outDataPort : OUT DATA PORT;
+	            FLOWS
+	                flowPath : FLOW PATH inDataPort -> outDataPort;
+	            MODES
+	                initMode : INITIAL mode;
+	            PROPERTIES
+	                simplePropSet::simpleProp => 1;
+	        END T;
+	        
+	        DEVICE TExt
+	            EXTENDS T    
+	            FEATURES
+	                inDataPort2 : IN DATA PORT;    
+	                outDataPort2 : OUT DATA PORT;
+	            FLOWS
+	                flowPath2 : FLOW PATH inDataPort2 -> outDataPort2;
+	            MODES
+	                initMode2 : INITIAL mode;
+	            PROPERTIES
+	                simplePropSet::simpleProp => 2;
+	        END TExt;
+	END DEVICE_TYPE_TC1;
+
+	 
+
+	PROPERTY SET simplePropSet IS
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (DEVICE);
+	    simpleProp2 : AADLINTEGER => 0 APPLIES TO (DEVICE);
+	END simplePropSet;
+

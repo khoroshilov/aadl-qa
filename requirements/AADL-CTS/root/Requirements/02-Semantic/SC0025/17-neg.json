@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- A lot of alias all declarations are declared in a package. Two of them introduce<br />\n\t-- into the package namespace identical defining identifiers.<br />\n\t-- Some of the referenced packages does not declare the public section. Bug SC0025.<br />\n\tPACKAGE TC17<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH pckgAAA, pckgBBB, pckgId::pckgId, pckgCCC, pckgZZZ,<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; pckgId::pckgId::pckgId::pckgId, pckgXXX, pckgYYY;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgAAA::ALL;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgXXX::ALL;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgId::pckgId::ALL; -- Bug SC0025.<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgBBB::ALL;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgYYY::ALL;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgCCC::ALL;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgId::pckgId::pckgId::pckgId::ALL; -- Bug SC0025.<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgZZZ::ALL;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND TC17;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadTypeId.Impl<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId.Impl;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBPROGRAM subprogramTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END subprogramTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgId::pckgId;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgAAA<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeAAA<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeAAA;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgAAA;<br />\n\t<br />\n\tPACKAGE pckgBBB<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeBBB<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeBBB;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgBBB;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgCCC<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeCCC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeCCC;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgCCC;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgZZZ<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeZZZ<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeZZZ;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgZZZ;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgId::pckgId::pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgId::pckgId::pckgId::pckgId;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgXXX<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeXXX<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeXXX;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgXXX;<br />\n\t<br />\n\tPACKAGE pckgYYY<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeYYY<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeYYY;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgYYY;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "e1fbb501-3dee-4094-a202-7e8225397587"
+}

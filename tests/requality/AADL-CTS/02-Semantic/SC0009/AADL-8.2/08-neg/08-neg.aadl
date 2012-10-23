@@ -1,0 +1,30 @@
+-- A feature group type extension declares prototypes and features with the same defining identifier.
+-- The extended feature group type declaration also declares prototypes and features.
+-- Some of them have the same defining identifier.
+-- There is no feature from the feature group type extension which defining identifier is
+-- identical to the defining identifier of a feature from the extended feature group type. Bug SC0009.
+PACKAGE FEATURE_GROUP_TYPE_EXTENSION_TC3
+    PUBLIC
+        FEATURE GROUP f_group_declaration
+            PROTOTYPES
+                ID_1 : FEATURE; -- bug SC0009
+                feature_prototype : FEATURE;
+            FEATURES
+                feature_declaration : IN DATA PORT;
+                id_1 : IN DATA PORT; -- bug SC0009
+                in_feature : IN DATA PORT;
+                out_feature : OUT DATA PORT;            
+        END f_group_declaration;
+        
+        FEATURE GROUP f_group_extension
+            EXTENDS f_group_declaration
+            PROTOTYPES
+                ID_1_ext : FEATURE; -- bug SC0009
+                feature_prototype_ext : FEATURE;
+            FEATURES
+                feature_declaration_ext : IN DATA PORT;
+                id_1_ext : IN DATA PORT; -- bug SC0009
+                in_feature_ext : IN DATA PORT;
+                out_feature_ext : OUT DATA PORT;            
+        END f_group_extension;
+END FEATURE_GROUP_TYPE_EXTENSION_TC3; 

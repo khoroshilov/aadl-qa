@@ -1,0 +1,30 @@
+-- The identifier of a subcomponent is equal to the identifier of a modal flow implementation.
+-- The identifier of another subcomponent is equal to the identifier of a non-modal implementation.
+-- Bug SC0009.  
+PACKAGE COMPONENT_IMPLEMENTATION_EXTENSION_TC6
+PRIVATE
+    THREAD threadT
+        FEATURES
+            inFeature : IN DATA PORT;
+            outFeature : OUT DATA PORT;            
+        FLOWS
+            flowSource : FLOW SOURCE outFeature IN MODES (mode1);
+            flowSink : FLOW SINK inFeature;
+        MODES
+            mode1 : INITIAL mode;                    
+    END threadT;
+    
+    THREAD IMPLEMENTATION threadT.impl
+    END threadT.impl;
+    
+    THREAD IMPLEMENTATION threadT.implExt
+        EXTENDS threadT.impl
+        SUBCOMPONENTS
+            flowSource : SUBPROGRAM; -- Bug SC0009
+            subcomp : SUBPROGRAM;
+            flowSink : SUBPROGRAM GROUP; -- Bug SC0009
+        FLOWS
+            flowSource : FLOW SOURCE outFeature IN MODES (mode1); -- Bug SC0009            
+            flowSink : FLOW SINK inFeature; -- Bug SC0009
+    END threadT.implExt;
+END COMPONENT_IMPLEMENTATION_EXTENSION_TC6; 

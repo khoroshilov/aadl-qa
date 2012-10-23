@@ -1,0 +1,33 @@
+
+	-- A short identifier assigned to a component type declaration by an alias declaration is
+	-- identical to the identifier of a declaration from the package containing the alias declaration.
+	-- Bug SC0027.
+	PACKAGE TC4
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        fGrTypeId RENAMES THREAD pckgId::pckgId::threadTypeId; -- bug SC0027
+	    PRIVATE    
+	        FEATURE GROUP fGrTypeId -- bug SC0027
+	        END fGrTypeId;        
+	END TC4;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

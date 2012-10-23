@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table\" style=\"margin-left: 36pt; text-indent: -18pt; page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-size: 10pt; font-family: Symbol;\"><span style=\"font: 7pt &quot;Times New Roman&quot;;\">  <\/span><\/span><span lang=\"EN-US\" style=\"font-size: 10pt;\">data<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table\" style=\"margin-left: 36pt; text-indent: -18pt; page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-size: 10pt; font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\" style=\"font-size: 10pt;\">abstract<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table\" style=\"margin-left: 36pt; text-indent: -18pt; page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-size: 10pt; font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\" style=\"font-size: 10pt;\">subprogram<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "3b449ae8-2a36-4bc7-a30a-bc3f60c7c035"
+}

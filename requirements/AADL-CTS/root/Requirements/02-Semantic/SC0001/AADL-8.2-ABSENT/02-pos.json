@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "PACKAGE pack_id1::pack<br />\r\nPUBLIC<br />\r\n&nbsp;&nbsp;&nbsp; feature group GPSbasic_socket<br />\r\n&nbsp;&nbsp; &nbsp;end GPSbasic_socket; -- no bug SC0001&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;feature group GPSextended_socket extends GPSbasic_socket<br />\r\n&nbsp;&nbsp; &nbsp;end GPSextended_socket; -- no bug SC0001<br />\r\nEND pack_id1::pack; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "89197220-f54c-4403-b598-161576af200e"
+}

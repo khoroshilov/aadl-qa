@@ -1,0 +1,6 @@
+-- A component type declaration does not contain any subclauses. No bug SC0009.
+PACKAGE COMPONENT_TYPE_DECLARATION_TC4
+    PUBLIC
+        THREAD thread_type                            
+        END thread_type;
+END COMPONENT_TYPE_DECLARATION_TC4; 

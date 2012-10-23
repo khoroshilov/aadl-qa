@@ -1,0 +1,46 @@
+
+	-- Two public sections for the containing package are declared. The identifier of a package alias is
+	-- identical to the identifier of an imported package. Bug SC0023 is not detected.
+	PACKAGE TC4
+	    PUBLIC
+	        WITH pckgId, pckgId::pckgId;
+	        pckgId renames package pckgId::pckgId; -- bug SC0023 is not detected                
+	END TC4;
+	
+	PACKAGE TC4
+	    PUBLIC  
+
+	      
+
+	       THREAD myThr
+        END myThr;
+
+	                       
+	END TC4;
+
+	 
+
+	PACKAGE pckgId
+	    PUBLIC
+
+	     
+
+	       THREAD myThr2
+        END myThr2;
+
+	
+	END pckgId;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+
+	       
+
+	       THREAD myThr3
+        END myThr3;
+
+	
+	END pckgId::pckgId;
+

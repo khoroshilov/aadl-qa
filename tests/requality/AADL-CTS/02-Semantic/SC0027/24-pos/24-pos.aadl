@@ -1,0 +1,36 @@
+
+	-- A component alias declaration renames a component type declared in the private
+	-- section of a package.
+	-- The component type alias does not explicitly declare a new identifier for the referenced
+	-- component type. No bug SC0027.
+	
+	PACKAGE TC24
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        
+	        RENAMES THREAD pckgId::pckgId::subprogramTypeId; -- No bug SC0027
+	        
+	        SUBPROGRAM GROUP subprogramTypeId
+	        END subprogramTypeId;
+	END TC24;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

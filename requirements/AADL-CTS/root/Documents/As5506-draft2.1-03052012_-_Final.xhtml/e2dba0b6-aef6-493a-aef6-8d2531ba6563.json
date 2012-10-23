@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<a xmlns=\"http://www.w3.org/1999/xhtml\" name=\"_Ref178057101\"><span lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N17)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">    \n<\/span><\/span><span lang=\"EN-US\">The identifiers introduced by the <\/span><\/a><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">alias_declaration <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">are only accessible within the package.  When declared in the public\npackage section, they can be referenced within the public and private package\nsection, but not from other packages.  When declared in the private package\nsection, they can be referenced within the private package section only.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "e2dba0b6-aef6-493a-aef6-8d2531ba6563"
+}

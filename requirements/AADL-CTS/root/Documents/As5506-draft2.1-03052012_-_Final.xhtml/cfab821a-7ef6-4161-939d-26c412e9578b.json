@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N3)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">Every component implementation defines a <i>local\nnamespace<\/i> for all defining identifiers of prototypes, subcomponents,\nsubprogram calls, connections, flows, and modes declared within the component\nimplementation.  The defining identifier of a prototype, subcomponent,\nsubprogram call, connection, flow, or mode must be unique within this\nnamespace.  For example, a subcomponent and a mode cannot have the same\ndefining identifier within the same component implementation, or a mode with\nthe same defining identifier cannot be declared in a component type and a\ncomponent implementation.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "cfab821a-7ef6-4161-939d-26c412e9578b"
+}

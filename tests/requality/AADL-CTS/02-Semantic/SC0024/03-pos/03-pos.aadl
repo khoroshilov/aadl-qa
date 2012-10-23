@@ -1,0 +1,11 @@
+-- Two aliases rename all declarations of the containing package.
+-- The public section of the containing package contains a feature group declaration.
+-- No bug SC0024.
+PACKAGE TC3
+    PUBLIC
+        renames TC3::all; -- No bug SC0024.     
+        renames TC3::all; -- No bug SC0024.
+        
+        FEATURE GROUP fGrId
+        END fGrId;    
+END TC3; 

@@ -1,0 +1,23 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "#1) AADL-8.2-N2\r\n#2) AADL-8.2-N3"
+        },
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/52d716ea-c4f4-4539-ae52-0e4256643842",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/87ebb962-ed32-4f6f-b969-b14f79046591"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "d65cabd2-133e-4feb-bb9a-0e1192c0ae02"
+}

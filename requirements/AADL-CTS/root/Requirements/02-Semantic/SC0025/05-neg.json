@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- An alias declaration defines a short name which is identical to an identifier imported<br />\n\t-- by an alias declaration which renames all declarations of a package and to the short name<br />\n\t-- introduced by a package alias declaration. Bug SC0025.<br />\n\tPACKAGE TC5<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH pckgId::pckgId, pckgId::pckgId::pckgId::pckgId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgId::pckgId::ALL;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;threadTypeId RENAMES THREAD pckgId::pckgId::pckgId::pckgId::threadTypeId; -- bug SC0025<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;threadTypeId RENAMES PACKAGE pckgId::pckgId::pckgId::pckgId; -- bug SC0025<br />\n\tEND TC5;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadTypeId.Impl<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId.Impl;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBPROGRAM subprogramTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END subprogramTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgId::pckgId;<br />\n\t<br />\n\tPACKAGE pckgId::pckgId::pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\tEND pckgId::pckgId::pckgId::pckgId;<br />\n\t&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "a8dbe990-fcbe-4c7d-8f56-89445bdc24da"
+}

@@ -1,0 +1,40 @@
+
+    -- A DATA component type is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE DATA_TYPE_TC1
+        PUBLIC
+            WITH simplePropSet;
+            DATA T
+                FEATURES
+                    feature1 : IN FEATURE;    
+                    feature2 : OUT FEATURE;
+            feature5 : FEATURE;
+                FLOWS -- bug SC0006.
+                    flowPath : FLOW PATH feature1 -> feature2;
+                MODES -- bug SC0006.
+                    initMode : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T;
+            
+            DATA TExt
+                EXTENDS T    
+                FEATURES
+                    feature3 : IN FEATURE;    
+                    feature4 : OUT FEATURE;
+                FLOWS -- bug SC0006.
+                    flowPath2 : FLOW PATH feature3 -> feature4;
+                MODES -- bug SC0006.
+                    initMode2 : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END TExt;
+    END DATA_TYPE_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (DATA);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (DATA);
+    END simplePropSet;
+

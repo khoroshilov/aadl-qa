@@ -1,0 +1,20 @@
+
+	-- The name of a package alias is identical to the name of the containing package
+	-- and those name is listed in the import declaration. Bug SC0023.
+	PACKAGE TC5
+	    PUBLIC
+	        WITH pckgId::pckgId, TC5;
+	        TC5 renames package pckgId::pckgId; -- bug SC0023                
+	END TC5;
+	
+	 PACKAGE pckgId::pckgId
+	    PUBLIC
+
+	      
+
+	       THREAD myThr
+        END myThr;
+
+	
+	END pckgId::pckgId;
+

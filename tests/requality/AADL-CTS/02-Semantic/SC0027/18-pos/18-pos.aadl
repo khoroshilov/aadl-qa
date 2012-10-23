@@ -1,0 +1,26 @@
+
+	-- A component type alias declaration does not declare a short name for the renamed component type.
+	-- The package in which the component type is supposed to be declared does not contain the public section.
+	-- The package which contains the alias declaration defines a declaration which identifier
+	-- is identical to the identifier of the component type referenced by the alias declaration.
+	-- No bug SC0027.
+	PACKAGE TC18
+	    PUBLIC
+	        WITH noPublicSectionPckg;
+	        RENAMES THREAD noPublicSectionPckg::undeclaredId; -- no bug SC0027
+	    PRIVATE    
+	        FEATURE GROUP undeclaredId
+	        END undeclaredId;        
+	END TC18;
+
+	 
+
+	PACKAGE noPublicSectionPckg
+	    PRIVATE
+	        THREAD threadTypeId
+	        END threadTypeId;
+	    
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	END noPublicSectionPckg;
+

@@ -1,0 +1,54 @@
+
+	-- A component type extension declares refinement declarations with the same defining identifier.
+	-- It also declares modal flow specification declarations which have the same identifier
+	-- and do not share any common modes. Bug SC0009.
+	PACKAGE COMPONENT_TYPE_EXTENSION_TC4
+	    PUBLIC
+	        WITH DATA_TYPES;
+	        THREAD thread_type_declaration            
+	            PROTOTYPES
+	                component_prototype : DATA;
+	                id1 : FEATURE;
+	            FEATURES
+	                feature_declaration : IN DATA PORT;
+	                in_feature : IN DATA PORT;
+	                id2 : OUT DATA PORT;
+	            FLOWS
+	                flow_source : FLOW SOURCE out_feature;
+	                flow_sink : FLOW SINK in_feature;                
+	        END thread_type_declaration;        
+	        
+	        THREAD thread_type_extension
+	            EXTENDS thread_type_declaration            
+	            PROTOTYPES
+	                component_prototype : REFINED TO DATA DATA_TYPES::data_type_1; -- Bug SC0009
+	                id1: REFINED TO IN FEATURE; -- Bug SC0009
+	                component_prototype : REFINED TO DATA DATA_TYPES::data_type_2; -- Bug SC0009            
+	            FEATURES
+	                id1 : IN DATA PORT; -- Bug SC0009
+	                in_feature : REFINED TO IN DATA PORT DATA_TYPES::data_type_1; -- Bug SC0009
+	                id2 : REFINED TO OUT DATA PORT DATA_TYPES::data_type_1; -- Bug SC0009
+	                in_feature : REFINED TO IN DATA PORT DATA_TYPES::data_type_2; -- Bug SC0009
+	            FLOWS
+	                flow_source : REFINED TO FLOW SOURCE IN MODES (mode1, mode2); -- Bug SC0009
+	                id2 : FLOW SINK id2; -- Bug SC0009
+	                flow_source : REFINED TO FLOW SOURCE IN MODES (mode3); -- Bug SC0009
+	            MODES
+	                mode1 : INITIAL mode;
+	                mode2 : mode;
+	                mode3 : mode;                
+	        END thread_type_extension;
+	END COMPONENT_TYPE_EXTENSION_TC4;
+
+	PACKAGE DATA_TYPES
+	    PUBLIC
+	        DATA data_type_1
+	        END data_type_1;
+	        
+	        DATA data_type_2
+	        END data_type_2;
+	        
+	        SUBPROGRAM subprogram_type_1
+	        END subprogram_type_1;
+	END DATA_TYPES;
+

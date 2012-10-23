@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- A component alias declaration renames a component type declared in a package<br />\n\t-- for which two private sections are declared.<br />\n\t-- The component type alias does not explicitly declare a new identifier for the referenced<br />\n\t-- component type. No bug SC0027.<br />\n\t<br />\n\tPACKAGE TC22<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH badPckgId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES THREAD badPckgId::threadTypeId; -- No bug SC0027<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\tEND TC22;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\t-- Two private sections for the same package<br />\n\tPACKAGE badPckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE&nbsp;<\/p>\n<p>\n\t&nbsp; &nbsp; &nbsp; &nbsp; THREAD threadTypeId2<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId2;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br />\n\tEND badPckgId;<br />\n\t<br />\n\tPACKAGE badPckgId<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; THREAD threadTypeId3<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId3;<br />\n\tEND badPckgId;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "79a350fd-2c25-4e30-9c60-3e70c84daccc"
+}

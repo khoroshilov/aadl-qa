@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": " flow\nimplementation name may appear more than once in each component implementation,\neither as alternative flows under different modes or transitions (using <b xmlns=\"http://www.w3.org/1999/xhtml\">in\nmodes<\/b>), or to represent multiple flows for the same flow specification such\nas replicated flows to support redundancy or different flows for different\nelements of feature groups."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "a245361f-71a7-4ecc-bf15-e5a11e9093ff"
+}

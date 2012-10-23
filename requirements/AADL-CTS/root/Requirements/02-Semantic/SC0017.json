@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "There may not be cycles in an extension hierarchy of classifiers, i.e. component types, component implementations or feature group types."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "8769407d-ac22-424d-8d62-9fea343a51b0"
+}

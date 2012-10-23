@@ -1,0 +1,10 @@
+-- A component alias declaration renames a component type declared in the containing package.
+-- The component type alias does not explicitly declare a new identifier for the referenced
+-- component type. Bug SC0027.
+
+PACKAGE TC20
+PUBLIC
+RENAMES THREAD id1; -- Bug SC0027
+THREAD id1
+END id1;
+END TC20; 

@@ -1,0 +1,88 @@
+
+	-- A lot of alias all declarations are declared in a package. Two of them introduce
+	-- into the package namespace identical defining identifiers.
+	-- Some of the referenced packages does not declare the public section. Bug SC0025.
+	PACKAGE TC17
+	    PUBLIC
+	        WITH pckgAAA, pckgBBB, pckgId::pckgId, pckgCCC, pckgZZZ,
+	             pckgId::pckgId::pckgId::pckgId, pckgXXX, pckgYYY;
+	        RENAMES pckgAAA::ALL;
+	        RENAMES pckgXXX::ALL;
+	        RENAMES pckgId::pckgId::ALL; -- Bug SC0025.
+	        RENAMES pckgBBB::ALL;
+	        RENAMES pckgYYY::ALL;        
+	    PRIVATE    
+	        RENAMES pckgCCC::ALL;
+	        RENAMES pckgId::pckgId::pckgId::pckgId::ALL; -- Bug SC0025.
+	        RENAMES pckgZZZ::ALL;            
+	END TC17;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+
+	 
+
+	PACKAGE pckgAAA
+	    PRIVATE
+	        THREAD threadTypeAAA
+	        END threadTypeAAA;                
+	END pckgAAA;
+	
+	PACKAGE pckgBBB
+	    PUBLIC
+	        THREAD threadTypeBBB
+	        END threadTypeBBB;                
+	END pckgBBB;
+
+	 
+
+	PACKAGE pckgCCC
+	    PRIVATE
+	        THREAD threadTypeCCC
+	        END threadTypeCCC;                
+	END pckgCCC;
+
+	 
+
+	PACKAGE pckgZZZ
+	    PUBLIC
+	        THREAD threadTypeZZZ
+	        END threadTypeZZZ;                
+	END pckgZZZ;
+
+	 
+
+	PACKAGE pckgId::pckgId::pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;        
+	END pckgId::pckgId::pckgId::pckgId;
+
+	 
+
+	PACKAGE pckgXXX
+	    PRIVATE
+	        THREAD threadTypeXXX
+	        END threadTypeXXX;                
+	END pckgXXX;
+	
+	PACKAGE pckgYYY
+	    PUBLIC
+	        THREAD threadTypeYYY
+	        END threadTypeYYY;                
+	END pckgYYY;
+

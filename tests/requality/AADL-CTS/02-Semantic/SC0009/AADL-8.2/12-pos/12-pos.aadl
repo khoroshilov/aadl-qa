@@ -1,0 +1,19 @@
+-- A feature group type extension refines a declaration, i.e. declares a refinement declaration.
+-- The identifier of the refined declaration is identical to the identifier of another declaration
+-- from the local namespace where the refined declaration is declared.
+-- The refinement declaration has no bug SC0009.
+PACKAGE FEATURE_GROUP_TYPE_EXTENSION_TC7
+    PUBLIC
+        FEATURE GROUP f_group_declaration
+            PROTOTYPES
+                ID_1 : FEATURE;                
+            FEATURES
+                id_1 : IN DATA PORT;                            
+        END f_group_declaration;
+        
+        FEATURE GROUP f_group_extension
+            EXTENDS f_group_declaration
+            PROTOTYPES
+                ID_1 : REFINED TO IN FEATURE; -- No bug SC0009            
+        END f_group_extension;
+END FEATURE_GROUP_TYPE_EXTENSION_TC7; 

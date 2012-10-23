@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- Identifier of a package alias is identical to the identifier of an imported property set.<br />\n\t-- No bug SC0023.<br />\n\tPACKAGE TC2<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH propSetId, pckgId::pckgId;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;propSetId renames package pckgId::pckgId; -- no bug SC0023<br />\n\tEND TC2;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPROPERTY SET propSetId is<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);&nbsp;&nbsp;&nbsp;<br />\n\tEND propSetId;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPACKAGE pckgId::pckgId<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THREAD myThr<\/p>\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END myThr;\n<p>\n\t<br />\n\tEND pckgId::pckgId;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "833b2e47-b9a3-4ceb-a196-a29b8c1cdcdf"
+}

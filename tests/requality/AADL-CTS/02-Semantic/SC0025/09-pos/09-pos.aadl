@@ -1,0 +1,31 @@
+
+	-- An alias declaration does not define a short name for the referenced component type.
+	-- The name of the referenced component type does not exist in the public section of the package
+	-- determined by the declaration reference.
+	-- The namespace of the package which contains the alias declaration includes a defining identifier
+	-- identical to the defining identifier of the imported component declaration. No bug SC0025.
+	
+	PACKAGE TC9
+	    PUBLIC
+	        WITH pckgId::pckgId;    
+	        declrtnId RENAMES PACKAGE pckgId::pckgId; -- no bug SC0025
+	        RENAMES SUBPROGRAM GROUP pckgId::pckgId::declrtnId;
+	END TC9;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+

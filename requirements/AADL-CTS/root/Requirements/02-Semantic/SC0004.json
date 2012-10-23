@@ -1,0 +1,23 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "A component implementation declared in the public section of a package may only contain the properties subclause and the modes subclause.\r\n\r\n#1) AADL-4.2-L3\r\n#2) AADL-4.4-S8"
+        },
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/d7dd8cd1-eba1-4473-a814-1ac739bf2103",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/eb70dbc0-8e64-4eb4-ab2f-40506c2c61f5"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "40289a65-6091-4015-9a53-d02ac3839cb6"
+}

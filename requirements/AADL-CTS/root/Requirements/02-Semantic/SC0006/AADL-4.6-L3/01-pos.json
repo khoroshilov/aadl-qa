@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- An ABSTRACT implementation is declared with all subclauses specified.<br />\n\t-- The subclauses contain declarations. No bug SC0006.<br />\n\tPACKAGE ABSTRACT_IMPLEMENTATION_TC1<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH simplePropSet;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<\/p>\n<p>\n\t&nbsp; &nbsp; &nbsp;&nbsp; SUBPROGRAM simpleProg<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END simpleProg;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ABSTRACT T<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURES<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;outDataPort : OUT DATA PORT;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;outEventPort : OUT EVENT PORT;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;inEventPort : IN EVENT PORT;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FLOWS<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;flowSource : FLOW SOURCE outDataPort;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END T;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ABSTRACT IMPLEMENTATION T.I<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBCOMPONENTS<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;myProgSubc : SUBPROGRAM simpleProg;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;CALLS myCalls : {<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;subprogCall : SUBPROGRAM myProgSubc;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;};<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;CONNECTIONS<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;myConnection : PORT outEventPort -&gt; inEventPort;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FLOWS<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;flowSource : FLOW SOURCE outDataPort;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;MODES<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;initMode : INITIAL MODE;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROPERTIES<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;simplePropSet::simpleProp =&gt; 1;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END T.I;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ABSTRACT IMPLEMENTATION T.IExt<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;EXTENDS T.I<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBCOMPONENTS<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;myProgSubc2 : SUBPROGRAM simpleProg;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;CALLS myCalls2 : {<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;subprogCall2 : SUBPROGRAM myProgSubc2;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;};<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;CONNECTIONS<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;myConnection2 : PORT outEventPort -&gt; inEventPort;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FLOWS<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;flowSource2 : FLOW SOURCE outDataPort;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;MODES<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;mode2 : MODE;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROPERTIES<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;simplePropSet::simpleProp =&gt; 2;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END T.IExt;<br />\n\tEND ABSTRACT_IMPLEMENTATION_TC1;<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\tPROPERTY SET simplePropSet IS<br />\n\t&nbsp;&nbsp; &nbsp;simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\t&nbsp;&nbsp; &nbsp;simpleProp2 : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND simplePropSet;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "1fbd6d3e-9cb1-4f6a-bdea-d9db208fd859"
+}

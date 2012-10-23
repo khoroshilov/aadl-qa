@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- The public section of a package contains an identifier which is identical to an identifier<br />\n-- declared in the private section of the package. Bug SC0027.<br />\nPACKAGE TC2<br />\n&nbsp;&nbsp; &nbsp;PUBLIC<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD id -- bug SC0027<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END id;<br />\n&nbsp;&nbsp; &nbsp;PRIVATE&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP id -- bug SC0027<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END id;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\nEND TC2; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "6023608e-1c81-4d4b-a758-a0aaf32458ec"
+}

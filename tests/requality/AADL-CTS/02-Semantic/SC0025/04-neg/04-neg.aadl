@@ -1,0 +1,36 @@
+
+	-- Four alias declarations do not declare short names and import the same defining identifier.
+	-- Bug SC0025.
+	PACKAGE TC4
+	    PUBLIC
+	        WITH pckgId::pckgId, pckgId::pckgId::pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL; -- bug SC0025
+	        RENAMES THREAD pckgId::pckgId::threadTypeId; -- bug SC0025
+	        RENAMES THREAD pckgId::pckgId::pckgId::pckgId::threadTypeId; -- bug SC0025
+	        RENAMES pckgId::pckgId::pckgId::pckgId::ALL; -- bug SC0025
+	END TC4;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+	
+	PACKAGE pckgId::pckgId::pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;        
+	END pckgId::pckgId::pckgId::pckgId;
+	 
+

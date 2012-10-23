@@ -1,0 +1,35 @@
+
+	-- A component alias declaration does not declare a short name for the referenced component.
+	-- The referenced component does not exist in the public section of the package determined
+	-- by the reference. The package containing the alias declaration declares a declaration
+	-- which identifier is identical to the identifier of the component referenced by the alias declaration.
+	-- No bug SC0027.
+	PACKAGE TC11
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES THREAD pckgId::pckgId::undeclaredId; -- no bug SC0027
+	    PRIVATE    
+	        FEATURE GROUP undeclaredId
+	        END undeclaredId;        
+	END TC11;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

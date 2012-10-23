@@ -1,0 +1,64 @@
+
+    -- A PROCESS implementation is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE PROCESS_IMPLEMENTATION_TC1
+        PUBLIC
+            WITH simplePropSet;
+
+          
+
+           SUBPROGRAM simpleProg
+
+           END simpleProg;
+
+    
+            PROCESS T
+                FEATURES
+                    outDataPort : OUT DATA PORT;
+                    outEventPort : OUT EVENT PORT;
+                    inEventPort : IN EVENT PORT;
+                FLOWS
+                    flowSource : FLOW SOURCE outDataPort;            
+            END T;
+            
+            PROCESS IMPLEMENTATION T.I
+                SUBCOMPONENTS
+                    myProgSubc : SUBPROGRAM simpleProg;
+                CALLS myCalls : { -- bug SC0006.
+                    subprogCall : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection : PORT outEventPort -> inEventPort;
+                FLOWS
+                    flowSource : FLOW SOURCE outDataPort;
+                MODES
+                    initMode : INITIAL MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T.I;
+            
+            PROCESS IMPLEMENTATION T.IExt
+                EXTENDS T.I
+                SUBCOMPONENTS
+                    myProgSubc2 : SUBPROGRAM simpleProg;
+                CALLS myCalls2 : { -- bug SC0006.
+                    subprogCall2 : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection2 : PORT outEventPort -> inEventPort;
+                FLOWS
+                    flowSource2 : FLOW SOURCE outDataPort;
+                MODES
+                    mode2 : MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END T.IExt;
+    END PROCESS_IMPLEMENTATION_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (PROCESS);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (PROCESS);
+    END simplePropSet;
+

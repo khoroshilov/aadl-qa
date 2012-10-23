@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "a modes subclause, and property associations.  It\nmust not contain flow specifications."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "a3117dd8-3901-40bf-86cf-e2e411b49aad"
+}

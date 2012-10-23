@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- A record type does not declare any identical fields. No bug SC0009.<br />\nPROPERTY SET RECORD_TC2 IS<br />\n&nbsp;&nbsp; &nbsp;record_type : TYPE RECORD (<br />\n&nbsp;&nbsp; &nbsp;integer_field : INTEGER;<br />\n&nbsp;&nbsp; &nbsp;real_field : REAL;<br />\n&nbsp;&nbsp; &nbsp;integer_field_2 : INTEGER;); -- No bug SC0009&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\nEND RECORD_TC2; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "9108e578-a9d0-4bfe-a360-af536c237944"
+}

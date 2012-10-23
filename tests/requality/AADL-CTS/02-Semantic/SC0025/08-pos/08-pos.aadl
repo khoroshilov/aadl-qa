@@ -1,0 +1,30 @@
+
+	-- An alias declaration renames all declarations of a package. The public section of the referenced
+	-- package contains a component implementation declaration. The same component implementation is
+	-- declared in the namespace of the package containing the alias declaration. No bug SC0025.
+	PACKAGE TC8
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL;        
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl -- no bug SC0025
+	        END threadTypeId.Impl;    
+	END TC8;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+

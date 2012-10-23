@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N16)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">     <\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">If the <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">alias_declaration\n<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">renames all<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\"> <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">publicly visible identifiers of component\ntypes and feature group types by naming the package and <b>all<\/b>, then all\nthose identifiers must also be unique in the namespace of the package with the\nalias declaration.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "1abb93b3-4d16-414c-a91d-fab263b9adb5"
+}

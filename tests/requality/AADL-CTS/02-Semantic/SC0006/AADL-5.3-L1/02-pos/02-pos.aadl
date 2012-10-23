@@ -1,0 +1,27 @@
+-- A SUBPROGRAM_GROUP component type is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE SUBPROGRAM_GROUP_TYPE_TC2
+    PUBLIC
+        SUBPROGRAM GROUP T
+            FEATURES
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T;
+        
+        SUBPROGRAM GROUP TExt
+            EXTENDS T    
+            FEATURES
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END TExt;
+END SUBPROGRAM_GROUP_TYPE_TC2; 

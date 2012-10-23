@@ -1,0 +1,38 @@
+-- A VIRTUAL PROCESSOR implementation is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE VIRTUAL_PROCESSOR_IMPLEMENTATION_TC2
+    PUBLIC
+        VIRTUAL PROCESSOR T                        
+        END T;
+        
+        VIRTUAL PROCESSOR IMPLEMENTATION T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.I;
+        
+        VIRTUAL PROCESSOR IMPLEMENTATION T.IExt
+            EXTENDS T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.IExt;
+END VIRTUAL_PROCESSOR_IMPLEMENTATION_TC2; 

@@ -1,0 +1,30 @@
+-- Two modal subcomponents are declared with the same identifier. The subcomponents belong to
+-- different modes. Two modal connections are declared with the same identifier. The connections
+-- belong to different modes. Bug SC0009.
+PACKAGE COMPONENT_IMPLEMENTATION_EXTENSION_TC7
+PRIVATE
+    THREAD threadT
+        FEATURES
+            inFeature : IN DATA PORT;
+            outFeature : OUT DATA PORT;
+        MODES
+            mode1 : INITIAL mode;
+            mode2 : mode;
+            mode3 : mode;                        
+    END threadT;
+    
+    THREAD IMPLEMENTATION threadT.impl
+    END threadT.impl;
+    
+    THREAD IMPLEMENTATION threadT.implExt
+        EXTENDS threadT.impl    
+        SUBCOMPONENTS
+            modal_subcomp : SUBPROGRAM GROUP IN MODES (mode1, mode2); -- Bug SC0009
+            non_modal_subcomp : SUBPROGRAM;
+            modal_subcomp : SUBPROGRAM GROUP IN MODES (mode3); -- Bug SC0009
+        CONNECTIONS
+            modal_connection : PORT inFeaute -> outFeature IN MODES (mode1); -- Bug SC0009
+            non_modal_connection : PORT inFeaute -> outFeature;
+            modal_connection : PORT inFeaute -> outFeature IN MODES (mode2, mode3); -- Bug SC0009            
+    END threadT.implExt;
+END COMPONENT_IMPLEMENTATION_EXTENSION_TC7; 

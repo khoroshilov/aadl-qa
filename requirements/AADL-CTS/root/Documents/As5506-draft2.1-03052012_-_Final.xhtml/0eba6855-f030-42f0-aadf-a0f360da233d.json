@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\"><span style=\"font: 7pt &quot;Times New Roman&quot;;\">\n  <\/span><\/span><span lang=\"EN-US\">feature group<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">provides subprogram access<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">requires subprogram access<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">requires subprogram group access<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">provides subprogram group access<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">feature<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "0eba6855-f030-42f0-aadf-a0f360da233d"
+}

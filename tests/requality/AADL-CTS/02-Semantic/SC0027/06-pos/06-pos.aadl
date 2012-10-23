@@ -1,0 +1,19 @@
+
+	-- A package declares two declarations which have the same defining identifier.
+	-- This package declares two public sections. Bug SC0027 is not detected.
+	PACKAGE TC6
+	    PUBLIC
+	        THREAD id -- bug SC0027 is not detected
+	        END id;
+	        
+	        FEATURE GROUP id -- bug SC0027 is not detected
+	        END id;        
+	END TC6;
+	
+	PACKAGE TC6
+	    PUBLIC  
+
+	        THREAD id3
+	        END id3;            
+	END TC6;
+

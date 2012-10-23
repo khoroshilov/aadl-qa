@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- Four property sets are declared. Two property sets have the same identifier.<br />\n\t-- The other two have different identifiers. Bug SC0009.<br />\n\tPROPERTY SET id1 IS<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND id1;<br />\n\t<br />\n\tPROPERTY SET id2 IS<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND id2;<br />\n\t<br />\n\tPROPERTY SET id3 IS -- Bug SC0009<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND id3;<br />\n\t<br />\n\tPROPERTY SET id3 IS -- Bug SC0009<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND id3;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "77dad607-65ac-4539-b834-a944234910db"
+}

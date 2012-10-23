@@ -1,0 +1,34 @@
+
+	-- A component alias declaration renames a component type declared in a package
+	-- for which two private sections are declared.
+	-- The component type alias does not explicitly declare a new identifier for the referenced
+	-- component type. No bug SC0027.
+	
+	PACKAGE TC22
+	    PUBLIC
+	        WITH badPckgId;
+	        RENAMES THREAD badPckgId::threadTypeId; -- No bug SC0027
+	        THREAD threadTypeId
+	        END threadTypeId;
+	END TC22;
+
+	 
+
+	-- Two private sections for the same package
+	PACKAGE badPckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	    PRIVATE 
+
+	        THREAD threadTypeId2
+	        END threadTypeId2;          
+	END badPckgId;
+	
+	PACKAGE badPckgId
+	    PRIVATE        
+
+	         THREAD threadTypeId3
+	        END threadTypeId3;
+	END badPckgId;
+

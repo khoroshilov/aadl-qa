@@ -1,0 +1,21 @@
+-- A component type declaration declares modal flow specification declarations which have
+-- the same identifier and share a common mode. This component type declaration also
+-- declares modal flow specification declarations which have the same identifier, but
+-- do not share a common mode. Bug SC0009.
+PACKAGE COMPONENT_TYPE_DECLARATION_TC5
+    PUBLIC
+        THREAD thread_type                                        
+            FEATURES
+                in_feature : IN DATA PORT;
+                out_feature : OUT DATA PORT;
+            FLOWS
+                flow_source : FLOW SOURCE out_feature IN MODES (mode1, mode2); -- Bug SC0009
+                flow_source : FLOW SOURCE out_feature IN MODES (mode2, mode3); -- Bug SC0009
+                flow_sink : FLOW SINK in_feature IN MODES (mode1, mode2); -- Bug SC0009
+                flow_sink : FLOW SINK in_feature IN MODES (mode3); -- Bug SC0009
+            MODES
+                mode1 : INITIAL mode;
+                mode2 : mode;
+                mode3 : mode;                
+        END thread_type;
+END COMPONENT_TYPE_DECLARATION_TC5; 

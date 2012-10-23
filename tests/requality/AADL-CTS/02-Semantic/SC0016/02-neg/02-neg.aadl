@@ -1,0 +1,10 @@
+
+	-- The defining identifier of a user defined property set is identical to the defining identifier
+	-- of a predeclared property set. Bug SC0016.
+	PROPERTY SET Memory_Properties is -- Bug SC0016
+
+	  simpleProp : AADLINTEGER => 0 APPLIES TO (ABSTRACT);
+	END Memory_Properties;
+	
+	 
+

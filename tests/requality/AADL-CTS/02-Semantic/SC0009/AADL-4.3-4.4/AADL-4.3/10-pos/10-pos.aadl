@@ -1,0 +1,42 @@
+
+	-- A component type extension refines a prototype, a feature and a flow. No bug SC0009.
+	PACKAGE COMPONENT_TYPE_EXTENSION_TC5
+	    PUBLIC
+	        WITH DATA_TYPES;
+	        THREAD thread_type_declaration            
+	            PROTOTYPES
+	                component_prototype : DATA;                
+	            FEATURES
+	                out_fature : OUT DATA PORT;                
+	            FLOWS
+	                flow_source : FLOW SOURCE out_feature;                                
+	        END thread_type_declaration;        
+	        
+	        THREAD thread_type_extension
+	            EXTENDS thread_type_declaration            
+	            PROTOTYPES
+	                component_prototype : REFINED TO DATA DATA_TYPES::data_type_1; -- No bug SC0009
+	            FEATURES
+	                out_fature : REFINED TO OUT DATA PORT DATA_TYPES::data_type_1; -- No bug SC0009                                
+	            FLOWS
+	                flow_source : REFINED TO FLOW SOURCE IN MODES (mode1, mode2); -- No bug SC0009
+	            MODES
+	                mode1 : INITIAL mode;
+	                mode2 : mode;                                                                    
+	        END thread_type_extension;
+	END COMPONENT_TYPE_EXTENSION_TC5;
+
+	 
+
+	PACKAGE DATA_TYPES
+	    PUBLIC
+	        DATA data_type_1
+	        END data_type_1;
+	        
+	        DATA data_type_2
+	        END data_type_2;
+	        
+	        SUBPROGRAM subprogram_type_1
+	        END subprogram_type_1;
+	END DATA_TYPES;
+

@@ -1,0 +1,18 @@
+
+	-- The defining identifier of a package is not identical to the defining identifiers of
+	-- the predeclared property sets. No bug SC0016.
+	PACKAGE pckgId -- No bug SC0016
+	PUBLIC
+
+	  THREAD myThr
+  END myThr;
+
+	
+	PRIVATE
+
+	  THREAD myThr2
+  END myThr2;
+
+	
+	END pckgId;
+

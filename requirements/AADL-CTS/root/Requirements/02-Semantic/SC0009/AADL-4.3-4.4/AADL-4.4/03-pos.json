@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- Two flow implementations are declared to belong to the same mode. No bug SC0009. &nbsp;<br />\r\nPACKAGE COMPONENT_IMPLEMENTATION_DECLARATION_TC3<br />\r\nPRIVATE<br />\r\n&nbsp;&nbsp; &nbsp;THREAD threadT<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURES<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;inFeature : IN DATA PORT;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;outFeature : OUT DATA PORT;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FLOWS<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;flowSource : FLOW SOURCE outFeature IN MODES (mode1, mode2);<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;flowSink : FLOW SINK inFeature IN MODES (mode2);<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;MODES<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;mode1 : INITIAL mode;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;mode2 : mode;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;mode3 : mode;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;END threadT;<br />\r\n&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadT.impl<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FLOWS<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;flowSource : FLOW SOURCE outFeature IN MODES (mode1); -- No bug SC0009&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;flowSource : FLOW SOURCE outFeature IN MODES (mode2, mode3, mode1); -- No bug SC0009<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;flowSink : FLOW SINK inFeature IN MODES (mode2);<br />\r\n&nbsp;&nbsp; &nbsp;END threadT.impl;<br />\r\nEND COMPONENT_IMPLEMENTATION_DECLARATION_TC3; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "cdbc1b23-fec0-4600-8ac8-545be9a583f1"
+}

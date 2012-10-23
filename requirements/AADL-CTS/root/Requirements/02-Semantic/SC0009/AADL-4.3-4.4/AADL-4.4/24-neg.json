@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- Two modal subcomponents are declared with the same identifier. The subcomponents belong to<br />\n-- different modes. Two modal connections are declared with the same identifier. The connections<br />\n-- belong to different modes. Bug SC0009.<br />\nPACKAGE COMPONENT_IMPLEMENTATION_EXTENSION_TC7<br />\nPRIVATE<br />\n&nbsp;&nbsp; &nbsp;THREAD threadT<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURES<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;inFeature : IN DATA PORT;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;outFeature : OUT DATA PORT;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;MODES<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;mode1 : INITIAL mode;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;mode2 : mode;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;mode3 : mode;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;END threadT;<br />\n&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadT.impl<br />\n&nbsp;&nbsp; &nbsp;END threadT.impl;<br />\n&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadT.implExt<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;EXTENDS threadT.impl&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBCOMPONENTS<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;modal_subcomp : SUBPROGRAM GROUP IN MODES (mode1, mode2); -- Bug SC0009<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;non_modal_subcomp : SUBPROGRAM;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;modal_subcomp : SUBPROGRAM GROUP IN MODES (mode3); -- Bug SC0009<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;CONNECTIONS<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;modal_connection : PORT inFeaute -&gt; outFeature IN MODES (mode1); -- Bug SC0009<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;non_modal_connection : PORT inFeaute -&gt; outFeature;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;modal_connection : PORT inFeaute -&gt; outFeature IN MODES (mode2, mode3); -- Bug SC0009&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;END threadT.implExt;<br />\nEND COMPONENT_IMPLEMENTATION_EXTENSION_TC7; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "ab6a4742-31d8-4a04-9241-0f5648e867bd"
+}

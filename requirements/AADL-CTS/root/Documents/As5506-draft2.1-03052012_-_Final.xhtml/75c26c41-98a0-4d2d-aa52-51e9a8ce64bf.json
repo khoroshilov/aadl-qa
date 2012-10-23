@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Lucida Sans Typewriter&quot;;\">(12)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">  <\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">Features\ncan be declared with an array dimension, if the component is a thread, device,\nor processor.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "75c26c41-98a0-4d2d-aa52-51e9a8ce64bf"
+}

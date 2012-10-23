@@ -1,0 +1,46 @@
+
+	-- An alias declaration references a package for which two private sections are defined.
+	-- This alias declaration imports a declaration into the local namespace of the containing package.
+	-- The alias declaration does not define a short name for the imported declaration, so declaration&#39;s
+	-- own name is imported into the local namespace of the containing package.
+	-- The containing package defines other declarations which defining identifiers are identical to
+	-- the defining identifier of the declaration imported by the alias. No bug SC0025.
+	
+	PACKAGE TC10
+	    PUBLIC
+	        WITH badPckgId, pckgId::pckgId::pckgId::pckgId;
+	        RENAMES THREAD badPckgId::threadTypeId;        
+	        threadTypeId RENAMES THREAD pckgId::pckgId::pckgId::pckgId::threadTypeId; --  no bug SC0025
+	        threadTypeId RENAMES PACKAGE pckgId::pckgId::pckgId::pckgId; -- no bug SC0025
+	END TC10;
+
+	 
+
+	PACKAGE pckgId::pckgId::pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;        
+	END pckgId::pckgId::pckgId::pckgId;
+
+	 
+
+	-- Two private sections for the same package
+	PACKAGE badPckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	    PRIVATE            
+
+	        THREAD threadTypeId2
+	        END threadTypeId2;   
+	
+	END badPckgId;
+	
+	PACKAGE badPckgId
+	    PRIVATE
+
+	        THREAD threadTypeId3
+	        END threadTypeId3;   
+	      
+	END badPckgId;
+

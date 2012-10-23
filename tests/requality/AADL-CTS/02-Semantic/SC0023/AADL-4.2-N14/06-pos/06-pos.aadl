@@ -1,0 +1,44 @@
+
+	-- Identifier of a package alias is identical to an identifier listed in the WITH clause.
+	-- The identifier listed in the with clause is identical to the identifier of a property set
+	-- and to the identifier of a package. No bug SC0023.
+	PACKAGE TC6
+	    PUBLIC
+	        WITH commonId, pckgId::pckgId;
+	        commonId renames package pckgId::pckgId; -- no bug SC0023
+	END TC6;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+
+	      
+
+	       THREAD myThr
+        END myThr;
+
+	
+	END pckgId::pckgId;
+
+	 
+
+	PACKAGE commonId
+	    PUBLIC
+
+	      
+
+	       THREAD myThr2
+        END myThr2r;
+
+	
+	END commonId;
+
+	 
+
+	PROPERTY SET commonId is 
+
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (ABSTRACT);  
+	  
+	END commonId;
+

@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- The name of a package alias is identical to the name of the containing package. Bug SC0028.<br />\nPACKAGE TC1<br />\n&nbsp;&nbsp;&nbsp; PUBLIC<br />\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TC1 renames package pack2; -- bug SC0028&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />\nEND TC1;<br />\n<br />\nPACKAGE pack2<br />\n&nbsp;&nbsp;&nbsp; PUBLIC<br />\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THREAD t<br />\n&nbsp;&nbsp; &nbsp;END t;<br />\nEND pack2;<br />\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "74b5c4f4-8ab8-40e6-aede-7d0f6fe9a14c"
+}

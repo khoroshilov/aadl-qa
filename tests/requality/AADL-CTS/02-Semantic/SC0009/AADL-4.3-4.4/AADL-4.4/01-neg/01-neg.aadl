@@ -1,0 +1,44 @@
+-- The namespace of a component implementation declaration contains several declarations
+-- with the same defining identifier. Bug SC0009.
+PACKAGE COMPONENT_IMPLEMENTATION_DECLARATION_TC1
+PRIVATE
+    THREAD threadT
+        FEATURES
+            inFeature : IN DATA PORT;
+            outFeature : OUT DATA PORT;
+            outFeature_2 : OUT DATA PORT;
+        FLOWS
+            flowSource : FLOW SOURCE outFeature;            
+            flowSink : FLOW SINK inFeature;
+            id : FLOW SOURCE outFeature_2;    
+    END threadT;
+    
+    THREAD IMPLEMENTATION threadT.impl
+        PROTOTYPES
+            componentPrototype : SUBPROGRAM;
+            id : SUBPROGRAM; -- bug SC0009
+        SUBCOMPONENTS
+            subcomp : SUBPROGRAM GROUP;
+            ID : SUBPROGRAM GROUP; -- bug SC0009
+        CALLS
+            callSequence : {call_1 : SUBPROGRAM subcomp; call_2 : SUBPROGRAM subcomp;}; -- bug SC0009
+            id : {call_1 : SUBPROGRAM subcomp; call_2 : SUBPROGRAM subcomp;}; -- bug SC0009
+            callSequence_2 : {call_1 : SUBPROGRAM subcomp; id : SUBPROGRAM subcomp;}; -- bug SC0009
+        CONNECTIONS
+            port_connection : PORT inFeaute -> outFeature;
+            id : PORT inFeaute -> outFeature; -- bug SC0009
+        FLOWS
+            flowSource : FLOW SOURCE outFeature;
+            flowSink : FLOW SINK inFeature;    
+            id : FLOW SOURCE outFeature_2; -- bug SC0009
+        MODES
+            id : INITIAL mode; -- bug SC0009
+            mode3 -[inFeature]-> mode1;
+            mode1 : mode;
+            modeTrans : id -[inFeature]-> mode3; -- bug SC0009
+            id -[inFeature]-> mode1;
+            mode3 : mode;
+            modeTrans : mode1 -[inFeature]-> mode3; -- bug SC0009
+            mode1 -[inFeature]-> id;
+    END threadT.impl;
+END COMPONENT_IMPLEMENTATION_DECLARATION_TC1; 

@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N2)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">Each feature group type provides a local\nnamespace.  The defining identifiers of prototype, feature, <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">and <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">feature <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">group<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\"> declarations in a feature group type must be unique within the\nnamespace of the feature group type.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "52d716ea-c4f4-4539-ae52-0e4256643842"
+}

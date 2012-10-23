@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- A component alias declaration renames a component type declared in the containing package.<br />\n-- The component type alias does not explicitly declare a new identifier for the referenced<br />\n-- component type. Bug SC0027.<br />\n<br />\nPACKAGE TC20<br />\nPUBLIC<br />\nRENAMES THREAD id1; -- Bug SC0027<br />\nTHREAD id1<br />\nEND id1;<br />\nEND TC20; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "51e0a9fd-4e0a-4357-af68-240d89a120be"
+}

@@ -1,0 +1,11 @@
+-- A component alias declaration renames a component type declared in a package which does not exist.
+-- The component type alias does not explicitly declare a new identifier for the referenced
+-- component type. No bug SC0027.
+
+PACKAGE TC21
+    PUBLIC
+        WITH XXXPackage;
+        RENAMES THREAD XXXPackage::id1; -- No bug SC0027
+        THREAD id1
+        END id1;
+END TC21; 

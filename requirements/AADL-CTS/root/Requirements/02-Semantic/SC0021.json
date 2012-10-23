@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "The component category of a component implementation must be identical to the component category of the component type for which the component implementation is declared."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "7852db51-6e0d-46d0-9f80-8ad18e5cdd4f"
+}

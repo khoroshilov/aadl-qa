@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"MsoBodyText\"><span lang=\"EN-US\"><\/span><\/p>\n\n<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"Legalityrule\"><span lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(L1)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n<\/span><\/span><span lang=\"EN-US\">A data type declaration can contain provides subprogram\naccess declarations<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "f0a1d37c-de8d-4c85-b509-73fefcc3a490"
+}

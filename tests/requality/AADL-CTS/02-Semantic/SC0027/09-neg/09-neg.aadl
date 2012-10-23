@@ -1,0 +1,33 @@
+
+	-- A package contains two alias declarations. The component alias declaration does not assign
+	-- a short name for the renamed component. The feature group alias declaration does assign
+	-- a short name for the renamed feature group. The short name is identical to the name of the
+	-- component renamed by the component alias declaration. Bug SC0027.
+	PACKAGE TC9
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES THREAD pckgId::pckgId::threadTypeId; -- bug SC0027
+	    PRIVATE    
+	        threadTypeId RENAMES FEATURE GROUP pckgId::pckgId::fGrTypeId;    
+	END TC9;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

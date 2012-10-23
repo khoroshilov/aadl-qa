@@ -1,0 +1,7 @@
+-- The namespace of a property set declares two identical identifiers. Bug SC0009.
+PROPERTY SET PROPERTY_SET_TC1 IS
+    enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);
+    id : TYPE ENUMERATION (ONE, TWO, THREE); -- bug SC0009
+    property_declaration : id APPLIES TO (system);
+    id : constant INTEGER => 256; -- bug SC0009
+END PROPERTY_SET_TC1; 

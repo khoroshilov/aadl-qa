@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N3)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">Associated with every package is a <i>package\nnamespace<\/i> that contains the names for all the elements defined within that\npackage.  This means that component types, feature group types, and defining\nentities declared in an annex library using an annex-specific sublanguage can\nbe declared with the same name in different packages. <\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "79cbe84a-69c9-4e73-97d6-23f06f8f4710"
+}

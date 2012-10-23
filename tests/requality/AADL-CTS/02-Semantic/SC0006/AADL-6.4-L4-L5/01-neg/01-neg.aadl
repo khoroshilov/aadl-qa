@@ -1,0 +1,69 @@
+
+    -- A BUS implementation is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE BUS_IMPLEMENTATION_TC1
+        PUBLIC
+            WITH simplePropSet;
+
+    
+
+           SUBPROGRAM simpleProg
+
+           END simpleProg;
+
+    
+            BUS T
+                FEATURES
+                    feature1 : OUT FEATURE;
+            feature2 : IN FEATURE;
+            feature3 : OUT FEATURE;
+            feature4 : IN FEATURE;
+                FLOWS
+                    flowSource : FLOW SOURCE feature1;
+            flowSource2 : FLOW SOURCE feature3;
+            END T;
+
+        VIRTUAL BUS simpleVirtBus
+        END simpleVirtBus;
+            
+            BUS IMPLEMENTATION T.I
+                SUBCOMPONENTS
+                    myVirtBusSubc : VIRTUAL BUS simpleVirtBus;
+                CALLS myCalls : { -- bug SC0006.
+                    subprogCall : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection : FEATURE feature1 -> feature2;
+                FLOWS -- bug SC0006.
+                    flowSource : FLOW SOURCE feature1;
+                MODES
+                    initMode : INITIAL MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T.I;
+            
+            BUS IMPLEMENTATION T.IExt
+                EXTENDS T.I
+                SUBCOMPONENTS
+                    myVirtBusSubc2 : VIRTUAL BUS simpleVirtBus;
+                CALLS myCalls2 : { -- bug SC0006.
+                    subprogCall2 : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection2 : FEATURE feature3 -> feature4;
+                FLOWS -- bug SC0006.
+                    flowSource2 : FLOW SOURCE feature3;
+                MODES
+                    mode2 : MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END T.IExt;
+    END BUS_IMPLEMENTATION_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (BUS);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (BUS);
+    END simplePropSet;
+

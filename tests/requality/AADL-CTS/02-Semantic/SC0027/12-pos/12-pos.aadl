@@ -1,0 +1,34 @@
+
+	-- An alias declaration imports all visible declarations of a package into the local namespace
+	-- of the containing package. The public section of the referenced package contains a component
+	-- implementaion which defining identifier is identical to the defining identifier of a component
+	-- implementation defined in the containing package. No bug SC0027.
+	PACKAGE TC12
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL; -- No bug SC0027
+	    PRIVATE    
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	END TC12;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

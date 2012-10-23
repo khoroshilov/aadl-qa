@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N7)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">When a component implementation <b>extends<\/b>\nanother component implementation, the local namespace of the extension is a\nsuperset of the local namespace of the ancestor.  That is, the local namespace\nof a component implementation inherits all the identifiers in the local\nnamespaces of its ancestors<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "d798a8f6-7761-4439-aada-906c0942e8d1"
+}

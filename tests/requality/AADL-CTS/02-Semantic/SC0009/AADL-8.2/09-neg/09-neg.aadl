@@ -1,0 +1,27 @@
+-- The identifiers of some declarations from a feature group type extension are identical to
+-- the identifiers of declarations from the extended feature group type. Bug SC0009.
+PACKAGE FEATURE_GROUP_TYPE_EXTENSION_TC4
+    PUBLIC
+        FEATURE GROUP f_group_declaration
+            PROTOTYPES
+                ID_1 : FEATURE;
+                feature_prototype : FEATURE;
+            FEATURES
+                feature_declaration : IN DATA PORT;
+                id_2 : IN DATA PORT;
+                in_feature : IN DATA PORT;
+                out_feature : OUT DATA PORT;            
+        END f_group_declaration;
+        
+        FEATURE GROUP f_group_extension
+            EXTENDS f_group_declaration
+            PROTOTYPES
+                feature_prototype_2 : FEATURE;
+                ID_2 : FEATURE; -- bug SC0009
+            FEATURES
+                feature_declaration_2 : IN DATA PORT;                
+                in_feature_2 : IN DATA PORT;
+                out_feature_2 : OUT DATA PORT;        
+                id_1 : IN DATA PORT; -- bug SC0009    
+        END f_group_extension;
+END FEATURE_GROUP_TYPE_EXTENSION_TC4; 

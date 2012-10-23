@@ -1,0 +1,36 @@
+
+	-- An alias declaration defines a short name which is identical to an identifier imported
+	-- by an alias declaration which renames all declarations of a package and to the short name
+	-- introduced by a package alias declaration. Bug SC0025.
+	PACKAGE TC5
+	    PUBLIC
+	        WITH pckgId::pckgId, pckgId::pckgId::pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL;        
+	        threadTypeId RENAMES THREAD pckgId::pckgId::pckgId::pckgId::threadTypeId; -- bug SC0025
+	        threadTypeId RENAMES PACKAGE pckgId::pckgId::pckgId::pckgId; -- bug SC0025
+	END TC5;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+	
+	PACKAGE pckgId::pckgId::pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;        
+	END pckgId::pckgId::pckgId::pckgId;
+	 
+

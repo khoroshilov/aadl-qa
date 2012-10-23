@@ -1,0 +1,38 @@
+-- A THREAD GROUP implementation is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE THREAD_GROUP_IMPLEMENTATION_TC2
+    PUBLIC
+        THREAD GROUP T                        
+        END T;
+        
+        THREAD GROUP IMPLEMENTATION T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.I;
+        
+        THREAD GROUP IMPLEMENTATION T.IExt
+            EXTENDS T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.IExt;
+END THREAD_GROUP_IMPLEMENTATION_TC2; 

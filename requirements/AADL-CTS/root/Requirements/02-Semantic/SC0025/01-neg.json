@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\r\n\t-- A package contains a component type and a feature group type declaration. Identifiers of these<br />\r\n\t-- declaratins are identical to the identifiers imported by alias declarations which do not define<br />\r\n\t-- short names for the declarations imported. Bug SC0025.<br />\r\n\tPACKAGE TC1<br />\r\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH pckgId::pckgId;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES THREAD pckgId::pckgId::threadTypeId;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES FEATURE GROUP pckgId::pckgId::featureGrTypeId;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId -- bug SC0025<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\r\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId -- bug SC0025<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\tEND TC1;<\/p>\r\n<p>\r\n\t&nbsp;<\/p>\r\n<p>\r\n\tPACKAGE pckgId::pckgId<br />\r\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadTypeId.Impl<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId.Impl;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;<br />\r\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBPROGRAM subprogramTypeId<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END subprogramTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\tEND pckgId::pckgId;<br />\r\n\t&nbsp;<\/p>\r\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "2424ddd2-4a73-4447-84a7-6554cf24e6f4"
+}

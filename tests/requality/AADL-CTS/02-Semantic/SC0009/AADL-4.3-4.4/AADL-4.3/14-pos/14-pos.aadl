@@ -1,0 +1,51 @@
+
+	-- A deep extension hierarchy of component types is represented. One of the component type extensions
+	-- extends a component type with the category which does not match the category of the extending
+	-- component type. No bug SC0009.
+	PACKAGE COMPONENT_TYPE_EXTENSION_TC9
+	    PUBLIC
+	        WITH DATA_TYPES;
+	        SYSTEM system_type_declaration            
+	            PROTOTYPES
+	                id_1 : DATA;                
+	            FEATURES
+	                id_2 : OUT DATA PORT;                                    
+	        END system_type_declaration;        
+	        
+	        THREAD thread_type_extension_1
+	            EXTENDS system_type_declaration            
+	            PROTOTYPES
+	                id_3 : DATA;                
+	            FEATURES
+	                id_4 : OUT DATA PORT;                                                                    
+	        END thread_type_extension_1;
+	        
+	        THREAD thread_type_extension_2
+	            EXTENDS thread_type_extension_1            
+	            PROTOTYPES
+	                id_5 : DATA;                
+	            FEATURES
+	                id_6 : OUT DATA PORT;                                                                    
+	        END thread_type_extension_2;
+	        
+	        THREAD thread_type_extension_3
+	            EXTENDS thread_type_extension_2            
+	            FEATURES
+	                id_1 : OUT DATA PORT; -- No bug SC0009                                                                    
+	        END thread_type_extension_3;
+	END COMPONENT_TYPE_EXTENSION_TC9;
+
+	 
+
+	PACKAGE DATA_TYPES
+	    PUBLIC
+	        DATA data_type_1
+	        END data_type_1;
+	        
+	        DATA data_type_2
+	        END data_type_2;
+	        
+	        SUBPROGRAM subprogram_type_1
+	        END subprogram_type_1;
+	END DATA_TYPES;
+

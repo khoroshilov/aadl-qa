@@ -1,0 +1,31 @@
+
+	-- Two aliases rename all declarations of the same package. Two public sections are declared
+	-- for the package containing the aliases.
+	-- The public section of the referenced package contains a component type declaration.
+	-- Bug SC0024 is not detected.
+	PACKAGE TC2
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        renames pckgId::pckgId::all; -- bug SC0024 is not detected        
+	    PRIVATE
+	        WITH pckgId::pckgId;
+	        renames pckgId::pckgId::all; -- bug SC0024 is not detected    
+	END TC2;
+	
+	PACKAGE TC2
+	    PUBLIC
+
+	        THREAD threadTypeId3
+	        END threadTypeId3;           
+	END TC2;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	END pckgId::pckgId;
+	
+	 
+

@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "It may contain flow specifications, a modes subclause, as well\nas property associations."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "037bb9cf-4329-4011-9047-1bdbbc313c6b"
+}

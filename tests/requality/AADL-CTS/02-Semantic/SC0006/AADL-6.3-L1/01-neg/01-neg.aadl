@@ -1,0 +1,39 @@
+
+    -- A MEMORY component type is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE MEMORY_TYPE_TC1
+        PUBLIC
+            WITH simplePropSet;
+            MEMORY T
+                FEATURES
+                    feature1 : IN FEATURE;    
+                    feature2 : OUT FEATURE;
+                FLOWS -- bug SC0006.
+                    flowPath : FLOW PATH feature1 -> feature2;
+                MODES
+                    initMode : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T;
+            
+            MEMORY TExt
+                EXTENDS T    
+                FEATURES
+                    feature3 : IN FEATURE;    
+                    feature4 : OUT FEATURE;
+                FLOWS  -- bug SC0006.
+                    flowPath2 : FLOW PATH feature3 -> feature4;
+                MODES
+                    initMode2 : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END TExt;
+    END MEMORY_TYPE_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (MEMORY);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (MEMORY);
+    END simplePropSet;
+

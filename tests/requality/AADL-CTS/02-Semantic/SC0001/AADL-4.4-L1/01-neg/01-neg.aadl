@@ -1,0 +1,21 @@
+
+	PACKAGE pack_id1::pack
+	PUBLIC
+	    abstract car
+	    end car;
+
+	
+	    abstract implementation car.generic
+	    end car.generic_X; -- bug SC0001
+	    
+	    system my_car extends car
+	    end my_car;
+
+	
+	    system implementation my_car.a_car
+	        extends car.generic
+	    end my_car.a_car_X; -- bug SC0001
+
+	
+	 END pack_id1::pack;
+

@@ -1,0 +1,105 @@
+
+	PACKAGE AbstractPack
+	    PUBLIC
+	        WITH CTP;
+	        abstractT RENAMES ABSTRACT CTP::abstractT;
+	        
+	        ABSTRACT IMPLEMENTATION abstractT.abstractImpl
+	            SUBCOMPONENTS
+	                abstractSubc : ABSTRACT CTP::abstractT;
+	                busSubc : BUS CTP::busT;
+	                dataSubc : DATA CTP::dataT;
+	                deviceSubc : DEVICE CTP::deviceT;
+	                memorySubc : MEMORY CTP::memoryT;
+	                processSubc : PROCESS CTP::processT;
+	                processorSubc : PROCESSOR CTP::processorT;
+	                subprogramSubc : SUBPROGRAM CTP::subprogramT;
+	                subprogramGroupSubc : SUBPROGRAM GROUP CTP::subprogramGroupT;
+	                systemSubc : SYSTEM CTP::systemT;
+	                threadSubc : THREAD CTP::threadT;
+	                threadGroupSubc : THREAD GROUP CTP::threadGroupT;
+	                virtualBusSubc : VIRTUAL BUS CTP::virtualBusT;
+	                virtualProcessorSubc : VIRTUAL PROCESSOR CTP::virtualProcessorT;
+	        END abstractT.abstractImpl;
+	        
+	        ABSTRACT IMPLEMENTATION abstractT.abstractImpl2            
+	        END abstractT.abstractImpl2;
+	        
+	        ABSTRACT IMPLEMENTATION abstractT.abstractImpl3
+	            SUBCOMPONENTS
+	                none;            
+	        END abstractT.abstractImpl3;
+	        
+	        ABSTRACT IMPLEMENTATION abstractT.abstractImplExt
+	            EXTENDS abstractT.abstractImpl
+	            SUBCOMPONENTS
+	                abstractSubc : REFINED TO ABSTRACT CTP::abstractT;
+	                busSubc : REFINED TO BUS CTP::busT;
+	                dataSubc : REFINED TO DATA CTP::dataT;
+	                deviceSubc : REFINED TO DEVICE CTP::deviceT;
+	                memorySubc : REFINED TO MEMORY CTP::memoryT;
+	                processSubc : REFINED TO PROCESS CTP::processT;
+	                processorSubc : REFINED TO PROCESSOR CTP::processorT;
+	                subprogramSubc : REFINED TO SUBPROGRAM CTP::subprogramT;
+	                subprogramGroupSubc : REFINED TO SUBPROGRAM GROUP CTP::subprogramGroupT;
+	                systemSubc : REFINED TO SYSTEM CTP::systemT;
+	                threadSubc : REFINED TO THREAD CTP::threadT;
+	                threadGroupSubc : REFINED TO THREAD GROUP CTP::threadGroupT;
+	                virtualBusSubc : REFINED TO VIRTUAL BUS CTP::virtualBusT;
+	                virtualProcessorSubc : REFINED TO VIRTUAL PROCESSOR CTP::virtualProcessorT;
+	        END abstractT.abstractImplExt;
+	        
+	        ABSTRACT IMPLEMENTATION abstractT.abstractImplExt2
+	            EXTENDS abstractT.abstractImpl
+	            SUBCOMPONENTS
+	                none;
+	        END abstractT.abstractImplExt2;
+	END AbstractPack;
+
+	 
+
+	PACKAGE CTP
+	    PUBLIC
+	        ABSTRACT abstractT
+	        END abstractT;
+	        
+	        BUS busT
+	        END busT;
+	        
+	        DATA dataT
+	        END dataT;
+	        
+	        DEVICE deviceT
+	        END deviceT;
+	        
+	        MEMORY memoryT
+	        END memoryT;
+	        
+	        PROCESS processT
+	        END processT;
+	        
+	        PROCESSOR processorT
+	        END processorT;
+	        
+	        SUBPROGRAM subprogramT
+	        END subprogramT;
+	        
+	        SUBPROGRAM GROUP subprogramGroupT
+	        END subprogramGroupT;
+	        
+	        SYSTEM systemT
+	        END systemT;
+	        
+	        THREAD threadT
+	        END threadT;
+	        
+	        THREAD GROUP threadGroupT
+	        END threadGroupT;
+	        
+	        VIRTUAL BUS virtualBusT
+	        END virtualBusT;
+	        
+	        VIRTUAL PROCESSOR virtualProcessorT
+	        END virtualProcessorT;
+	END CTP;
+

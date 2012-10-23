@@ -1,0 +1,46 @@
+
+	-- Two identical alias all declarations rename all publicly visible component types
+	-- and feature group types of a package. The containing package declares two identical
+	-- component types. The identifier of the component types is identical to the identifier
+	-- of a component type introduced into the local namespace of the containing package
+	-- by the package all alias declarations. Bug SC0027.
+	PACKAGE TC25
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL; -- Bug SC0027
+	        
+	        THREAD threadTypeId -- Bug SC0027
+	        END threadTypeId;
+	        
+	        THREAD threadTypeYYY
+	        END threadTypeYYY;
+	    PRIVATE
+	        RENAMES pckgId::pckgId::ALL; -- Bug SC0027
+	        
+	        THREAD threadTypeId -- Bug SC0027
+	        END threadTypeId;
+	        
+	        THREAD threadTypeXXX
+	        END threadTypeXXX;
+	END TC25;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

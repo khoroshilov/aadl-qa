@@ -1,0 +1,40 @@
+
+	-- An ABSTRACT implementation is declared with all subclauses specified.
+	-- The subclauses contain the none statement. No bug SC0006.
+	PACKAGE ABSTRACT_IMPLEMENTATION_TC2
+	    PUBLIC
+	        ABSTRACT T                        
+	        END T;
+	        
+	        ABSTRACT IMPLEMENTATION T.I
+	            SUBCOMPONENTS
+	                none;
+	            CALLS
+	                none;
+	            CONNECTIONS
+	                none;
+	            FLOWS
+	                none;
+	            MODES
+	                none;
+	            PROPERTIES
+	                none;
+	        END T.I;
+	        
+	        ABSTRACT IMPLEMENTATION T.IExt
+	            EXTENDS T.I
+	            SUBCOMPONENTS
+	                none;
+	            CALLS
+	                none;
+	            CONNECTIONS
+	                none;
+	            FLOWS
+	                none;
+	            MODES
+	                none;
+	            PROPERTIES
+	                none;
+	        END T.IExt;
+	END ABSTRACT_IMPLEMENTATION_TC2;
+

@@ -1,0 +1,31 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "#1) AADL-10.1-N1\r\n#2) AADL-4.3-N2\r\n#3) AADL-4.3-N4\r\n#4) AADL-4.3-N5\r\n#5) AADL-4.3-N6\r\n#6) AADL-8-N1\r\n#7) AADL-8.2-N4\r\n#8) AADL-8.4-N1\r\n#9) AADL-8.7-N1\r\n#10) AADL-8.6-N1\r\n"
+        },
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/a4e9a786-1e12-43ae-a6e6-542cd550fc9e",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/1a46953c-cd34-4e03-aaec-6ae5f9eede78",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/2752bb57-6fec-4abb-b0d3-f40b11dfff2c",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/e8b490d7-6b33-4b77-aaf1-00e326517a41",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/13a437ea-3ac6-4c42-9f83-811ffb80dff5",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/614d4ad2-53ff-4a9b-9234-08c8bc44b9c9",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/30ac97df-6ded-4c78-b15f-fa437c502b79",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/da197059-8637-4533-ab9d-1f3f02ff5ab0",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/6ddb443b-ba31-4eb3-b48e-baa930a5aa29",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/e3557a93-967f-4e68-a2ef-0be2386328db"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "26b098b6-5011-4f19-ae17-9695fd9ad81f"
+}

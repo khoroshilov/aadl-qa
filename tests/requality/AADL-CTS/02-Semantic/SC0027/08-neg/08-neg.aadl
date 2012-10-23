@@ -1,0 +1,32 @@
+
+	-- A package contains three alias declarations which introduce into the local namespace of the package
+	-- identical short names. Bug SC0027.
+	PACKAGE TC8
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        id RENAMES THREAD pckgId::pckgId::threadTypeId; -- bug SC0027
+	    PRIVATE    
+	        id RENAMES FEATURE GROUP pckgId::pckgId::fGrTypeId; -- bug SC0027
+	        id RENAMES PACKAGE pckgId::pckgId; -- bug SC0027
+	END TC8;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

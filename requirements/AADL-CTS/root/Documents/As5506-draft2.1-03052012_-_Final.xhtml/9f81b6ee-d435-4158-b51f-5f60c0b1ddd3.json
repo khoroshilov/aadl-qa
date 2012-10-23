@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Lucida Sans Typewriter&quot;;\">(5)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">   <\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">A package provides a way to organize component type declarations,\ncomponent implementation declarations, feature group types, and annex libraries\ninto related sets of declarations along with relevant property associations. \nIt provides a namespace for component types, feature group types, and annex\nlibraries with the package name acting as a qualifier. <\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "9f81b6ee-d435-4158-b51f-5f60c0b1ddd3"
+}

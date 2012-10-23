@@ -1,0 +1,27 @@
+-- A BUS component type is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE BUS_TYPE_TC2
+    PUBLIC
+        BUS T
+            FEATURES
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T;
+        
+        BUS TExt
+            EXTENDS T    
+            FEATURES
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END TExt;
+END BUS_TYPE_TC2; 

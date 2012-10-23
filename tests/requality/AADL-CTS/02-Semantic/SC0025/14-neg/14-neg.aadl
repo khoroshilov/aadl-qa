@@ -1,0 +1,31 @@
+
+	-- An alias declaration renames all public component types and feature group
+	-- types of a package. Another alias declaration renames a component type of the
+	-- same package. It does not declares a new identifier for the renamed component
+	-- type, therefore the identifier of the component type is introduced into the
+	-- namespace of the containing package.  Bug SC0025.
+	
+	PACKAGE TC14
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES THREAD pckgId::pckgId::threadTypeId; -- Bug SC0025
+	        RENAMES pckgId::pckgId::ALL; -- Bug SC0025        
+	END TC14;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+

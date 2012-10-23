@@ -1,0 +1,270 @@
+PACKAGE AbstractPack
+    PUBLIC
+        
+        DATA dataT
+        END dataT;
+        
+        DATA IMPLEMENTATION dataT.impl
+        END dataT.impl;
+        
+        DATA IMPLEMENTATION dataT.impl_Ext
+            EXTENDS dataT.impl
+        END dataT.impl_Ext;
+        
+        SUBPROGRAM subprogramT
+        END subprogramT;
+        
+        SUBPROGRAM subprogramT_Ext
+        END subprogramT_Ext;
+        
+        SUBPROGRAM GROUP subprogramGroupT
+        END subprogramGroupT;
+        
+        BUS busT
+        END busT;
+        
+        ABSTRACT abstractT
+        END abstractT;
+        
+        FEATURE GROUP emptyFeatureGrT
+        END emptyFeatureGrT;
+        
+        FEATURE GROUP inFeatureGrT
+            FEATURES
+                -- PORT
+                inDataPort : IN DATA PORT dataT;
+                inOutDataPort : IN OUT DATA PORT dataT;
+                
+                inEventDataPort : IN EVENT DATA PORT dataT;
+                inOutEventDataPort : IN OUT EVENT DATA PORT dataT;
+                
+                inEventPort : IN EVENT PORT;
+                inOutEventPort : IN OUT EVENT PORT;
+                
+                providesData : PROVIDES DATA ACCESS dataT {Access_Rights => read_only;};
+                requiresData : REQUIRES DATA ACCESS dataT {Access_Rights => read_only;};
+                
+                --PARAMETER
+                inParam : IN PARAMETER dataT;                
+                inOutParam: IN OUT PARAMETER dataT;
+                
+                --FEATURE
+                inFeature: IN FEATURE abstractT;
+        END inFeatureGrT;
+        
+        FEATURE GROUP outFeatureGrT
+            FEATURES
+                -- PORT
+                outDataPort : OUT DATA PORT dataT;
+                inOutDataPort : IN OUT DATA PORT dataT;
+                
+                outEventDataPort : OUT EVENT DATA PORT dataT;
+                inOutEventDataPort : IN OUT EVENT DATA PORT dataT;
+                
+                outEventPort : OUT EVENT PORT;
+                inOutEventPort : IN OUT EVENT PORT;
+                
+                providesData : PROVIDES DATA ACCESS dataT {Access_Rights => write_only;};
+                requiresData : REQUIRES DATA ACCESS dataT {Access_Rights => write_only;};
+                
+                --PARAMETER
+                outParam : OUT PARAMETER dataT;                
+                inOutParam: IN OUT PARAMETER dataT;
+                
+                --FEATURE
+                outFeature: OUT FEATURE abstractT;
+        END outFeatureGrT;
+        
+        FEATURE GROUP filledFeatureGrT
+            FEATURES
+                -- PORT
+                inDataPort : IN DATA PORT dataT;
+                outDataPort : OUT DATA PORT dataT;
+                inOutDataPort : IN OUT DATA PORT dataT;
+                
+                inEventDataPort : IN EVENT DATA PORT dataT;
+                outEventDataPort : OUT EVENT DATA PORT dataT;
+                inOutEventDataPort : IN OUT EVENT DATA PORT dataT;
+                
+                inEventPort : IN EVENT PORT;
+                outEventPort : OUT EVENT PORT;
+                inOutEventPort : IN OUT EVENT PORT;
+                
+                --ACCESS
+                providesSbpr : PROVIDES SUBPROGRAM ACCESS subprogramT;
+                requiresSbpr : REQUIRES SUBPROGRAM ACCESS subprogramT;
+                
+                providesSbprGroup : PROVIDES SUBPROGRAM GROUP ACCESS subprogramGroupT;
+                requiresSbprGroup : REQUIRES SUBPROGRAM GROUP ACCESS subprogramGroupT;
+                
+                providesData : PROVIDES DATA ACCESS dataT;
+                requiresData : REQUIRES DATA ACCESS dataT;
+                
+                providesBus : PROVIDES BUS ACCESS busT;
+                requiresBus : REQUIRES BUS ACCESS busT;
+                
+                --PARAMETER
+                inParam : IN PARAMETER dataT;
+                outParam: OUT PARAMETER dataT;
+                inOutParam: IN OUT PARAMETER dataT;
+                
+                --FEATURE
+                inFeature: IN FEATURE abstractT;
+                outFeature: OUT FEATURE abstractT;
+        END filledFeatureGrT;
+        
+        ABSTRACT abstractT_2
+            PROTOTYPES
+                dataImplProto : DATA dataT.impl_Ext;
+                subprogramProto : SUBPROGRAM subprogramT;
+                subprogramGroupProto : SUBPROGRAM GROUP subprogramGroupT;
+                busProto : BUS busT;
+                
+                inFeatureProto : IN FEATURE abstractT;
+                outFeatureProto : OUT FEATURE abstractT;
+                
+                dataImplFeatureProto: FEATURE dataT.impl_Ext;
+                subprogramFeatureProto: FEATURE subprogramT;                
+                subprogramGroupFeatureProto: FEATURE subprogramGroupT;
+                busFeatureProto: FEATURE busT;                
+                
+            FEATURES
+                -- PORT
+                inDataImplPort : IN DATA PORT dataT.impl_Ext;
+                outDataPort : OUT DATA PORT dataT;
+                inOutDataPort : IN OUT DATA PORT dataT;
+                
+                inEventDataPort : IN EVENT DATA PORT dataT;
+                outEventDataImplPort : OUT EVENT DATA PORT dataT.impl_Ext;
+                inOutEventDataPort : IN OUT EVENT DATA PORT dataT;
+                
+                inEventPort : IN EVENT PORT;
+                outEventPort : OUT EVENT PORT;
+                inOutEventPort : IN OUT EVENT PORT;
+                
+                --ACCESS
+                providesSbpr : PROVIDES SUBPROGRAM ACCESS subprogramT;
+                requiresSbpr : REQUIRES SUBPROGRAM ACCESS subprogramT;
+                
+                providesSbprGroup : PROVIDES SUBPROGRAM GROUP ACCESS subprogramGroupT;
+                requiresSbprGroup : REQUIRES SUBPROGRAM GROUP ACCESS subprogramGroupT;
+                
+                providesDataImpl : PROVIDES DATA ACCESS dataT.impl_Ext;
+                requiresData : REQUIRES DATA ACCESS dataT;
+                
+                providesBus : PROVIDES BUS ACCESS busT;
+                requiresBus : REQUIRES BUS ACCESS busT;
+                
+                --PARAMETER
+                inParam : IN PARAMETER dataT;
+                outParam: OUT PARAMETER dataT;
+                inOutParam: IN OUT PARAMETER dataT;
+                
+                --FEATURE
+                inFeature: IN FEATURE abstractT;
+                outFeature: OUT FEATURE abstractT;
+                
+                inFeatureNoRef: IN FEATURE;
+                outFeatureNoRef: OUT FEATURE;
+                
+                featureDataImpl: FEATURE dataT.impl_Ext;
+                featureSubprogram: FEATURE subprogramT;                
+                featureSubprogramGroup: FEATURE subprogramGroupT;
+                featureBus: FEATURE busT;
+                
+                featureDataImplProto : FEATURE dataImplProto;
+                featureSubprogramProto : FEATURE subprogramProto;
+                featureSubprogramGroupProto : FEATURE subprogramGroupProto;
+                featureBusProto : FEATURE busProto;
+                
+                featureInFeatureProto : IN FEATURE inFeatureProto;
+                featureOutFeatureProto : OUT FEATURE outFeatureProto;
+                
+                featureDataImplFeatureProto : FEATURE dataImplFeatureProto;
+                featureSubprogramFeatureProto : FEATURE    subprogramFeatureProto;                
+                featureSubprogramGroupFeatureProto : FEATURE subprogramGroupFeatureProto;
+                featureBusFeatureProto : FEATURE busFeatureProto;
+                
+                --FEATURE GROUP
+                emptyFeatureGroup: FEATURE GROUP emptyFeatureGroupT;
+                inFeatureGroup: IN FEATURE GROUP inFeatureGroupT;
+                outFeatureGroup: OUT FEATURE GROUP outFeatureGroupT;
+                filledFeatureGroup: FEATURE GROUP filledFeatureGroupT;
+                
+                emptyInverseFeatureGroup: FEATURE GROUP INVERSE OF emptyFeatureGroupT;
+                outInverseFeatureGroup: OUT FEATURE GROUP INVERSE OF inFeatureGroupT;
+                inInverseFeatureGroup: IN FEATURE GROUP INVERSE OF outFeatureGroupT;
+                filledInverseFeatureGroup: FEATURE GROUP INVERSE OF filledFeatureGroupT;
+        END abstractT_2;
+        
+        ABSTRACT abstractT_2_Ext
+            EXTENDS abstractT_2
+            FEATURES
+                -- PORT
+                inDataImplPort : REFINED TO IN DATA PORT dataT.impl_Ext;
+                outDataPort : REFINED TO OUT DATA PORT dataT;
+                inOutDataPort : REFINED TO IN OUT DATA PORT dataT;
+                
+                inEventDataPort : REFINED TO IN EVENT DATA PORT dataT;
+                outEventDataImplPort : REFINED TO OUT EVENT DATA PORT dataT.impl_Ext;
+                inOutEventDataPort : REFINED TO IN OUT EVENT DATA PORT dataT;
+                
+                inEventPort : REFINED TO IN EVENT PORT;
+                outEventPort : REFINED TO OUT EVENT PORT;
+                inOutEventPort : REFINED TO IN OUT EVENT PORT;
+                
+                --ACCESS
+                providesSbpr : REFINED TO PROVIDES SUBPROGRAM ACCESS subprogramT;
+                requiresSbpr : REFINED TO REQUIRES SUBPROGRAM ACCESS subprogramT;
+                
+                providesSbprGroup : REFINED TO PROVIDES SUBPROGRAM GROUP ACCESS subprogramGroupT;
+                requiresSbprGroup : REFINED TO REQUIRES SUBPROGRAM GROUP ACCESS subprogramGroupT;
+                
+                providesDataImpl : REFINED TO PROVIDES DATA ACCESS dataT.impl_Ext;
+                requiresData : REFINED TO REQUIRES DATA ACCESS dataT;
+                
+                providesBus : REFINED TO PROVIDES BUS ACCESS busT;
+                requiresBus : REFINED TO REQUIRES BUS ACCESS busT;
+                
+                --PARAMETER
+                inParam : REFINED TO IN PARAMETER dataT;
+                outParam: REFINED TO OUT PARAMETER dataT;
+                inOutParam: REFINED TO IN OUT PARAMETER dataT;
+                
+                --FEATURE
+                inFeature: REFINED TO IN DATA PORT dataT;
+                outFeature: REFINED TO OUT DATA PORT dataT;
+                inFeatureNoRef: REFINED TO IN FEATURE;
+                outFeatureNoRef: REFINED TO OUT FEATURE;
+                
+                featureDataImpl: REFINED TO FEATURE dataT.impl_Ext;
+                featureSubprogram: REFINED TO FEATURE subprogramT;                
+                featureSubprogramGroup: REFINED TO FEATURE subprogramGroupT;
+                featureBus: REFINED TO FEATURE busT;
+                
+                featureDataImplProto : REFINED TO FEATURE dataImplProto;
+                featureSubprogramProto : REFINED TO FEATURE subprogramProto;
+                featureSubprogramGroupProto : REFINED TO FEATURE subprogramGroupProto;
+                featureBusProto : REFINED TO FEATURE busProto;
+                
+                featureInFeatureProto : REFINED TO IN FEATURE inFeatureProto;
+                featureOutFeatureProto : REFINED TO OUT FEATURE outFeatureProto;
+                
+                featureDataImplFeatureProto : REFINED TO FEATURE dataImplFeatureProto;
+                featureSubprogramFeatureProto : REFINED TO FEATURE    subprogramFeatureProto;                
+                featureSubprogramGroupFeatureProto : REFINED TO FEATURE subprogramGroupFeatureProto;
+                featureBusFeatureProto : REFINED TO FEATURE busFeatureProto;
+                
+                --FEATURE GROUP
+                emptyFeatureGroup: REFINED TO FEATURE GROUP emptyFeatureGroupT;
+                inFeatureGroup: REFINED TO IN FEATURE GROUP inFeatureGroupT;
+                outFeatureGroup: REFINED TO OUT FEATURE GROUP outFeatureGroupT;
+                filledFeatureGroup: REFINED TO FEATURE GROUP filledFeatureGroupT;
+                
+                emptyInverseFeatureGroup: REFINED TO FEATURE GROUP INVERSE OF emptyFeatureGroupT;
+                outInverseFeatureGroup: REFINED TO OUT FEATURE GROUP INVERSE OF inFeatureGroupT;
+                inInverseFeatureGroup: REFINED TO IN FEATURE GROUP INVERSE OF outFeatureGroupT;
+                filledInverseFeatureGroup: REFINED TO FEATURE GROUP INVERSE OF filledFeatureGroupT;
+        END abstractT_2_Ext;
+END AbstractPack;   
+

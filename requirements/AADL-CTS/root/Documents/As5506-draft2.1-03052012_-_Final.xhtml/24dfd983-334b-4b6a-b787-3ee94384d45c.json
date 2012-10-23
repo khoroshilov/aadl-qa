@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "bus access connections, a modes subclause,\na flows subclause, and property associations."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "24dfd983-334b-4b6a-b787-3ee94384d45c"
+}

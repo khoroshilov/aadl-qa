@@ -1,0 +1,67 @@
+
+    -- A DEVICE implementation is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE DEVICE_IMPLEMENTATION_TC1
+        PUBLIC
+            WITH simplePropSet;
+
+    
+
+           SUBPROGRAM simpleProg
+
+           END simpleProg;
+
+        BUS simpleBus
+        END simpleBus;
+
+    
+            DEVICE T
+                FEATURES
+                    outDataPort : OUT DATA PORT;
+                    outEventPort : OUT EVENT PORT;
+                    inEventPort : IN EVENT PORT;
+                FLOWS
+                    flowSource : FLOW SOURCE outDataPort;            
+            END T;
+            
+            DEVICE IMPLEMENTATION T.I
+                SUBCOMPONENTS
+                    myBusSubc : BUS simpleBus;
+                CALLS myCalls : { -- bug SC0006.
+                    subprogCall : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection : PORT outEventPort -> inEventPort;
+                FLOWS
+                    flowSource : FLOW SOURCE outDataPort;
+                MODES
+                    initMode : INITIAL MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T.I;
+            
+            DEVICE IMPLEMENTATION T.IExt
+                EXTENDS T.I
+                SUBCOMPONENTS
+                    myBusSubc2 : BUS simpleBus;
+                CALLS myCalls2 : { -- bug SC0006.
+                    subprogCall2 : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection2 : PORT outEventPort -> inEventPort;
+                FLOWS
+                    flowSource2 : FLOW SOURCE outDataPort;
+                MODES
+                    mode2 : MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END T.IExt;
+    END DEVICE_IMPLEMENTATION_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (DEVICE);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (DEVICE);
+    END simplePropSet;
+

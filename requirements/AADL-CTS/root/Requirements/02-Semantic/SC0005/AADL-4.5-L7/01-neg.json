@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- Some dimensions of an array of subcomponents are specified, some arn&#39;t. Bug SC0005.<br />\n<br />\nPACKAGE TC1<br />\n&nbsp;&nbsp; &nbsp;PUBLIC<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROCESS myProcessT<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END myProcessT;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;DATA myDataT<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END myDataT;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD myThreadT<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END myThreadT;<br />\n&nbsp;&nbsp; &nbsp;PRIVATE<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH myPropSet;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;PROCESS IMPLEMENTATION myProcessT.myProcessImpl&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBCOMPONENTS<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;-- numeric dimension size<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;myDataSubc : data myDataT [2][][3]; -- bug SC0005<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;-- user defined property constant as dimension size<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;myDataSubc2 : data myDataT [ ][myPropSet::myPropConst][ ]; -- bug SC0005<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;-- predefined property constant as dimension size<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;myThreadSubc : thread myThreadT [5][myPropSet::myPropConst][3][]; -- bug SC0005<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;-- property as dimension size&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;myThreadSubc2 : thread myThreadT [myPropSet::dimension][][]; -- bug SC0005&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END myProcessT.myProcessImpl;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\nEND TC1;<br />\n<br />\nPROPERTY SET myPropSet IS<br />\n&nbsp;&nbsp; &nbsp;WITH pack;<br />\n&nbsp;&nbsp; &nbsp;dimension : AADLINTEGER =&gt; 4 APPLIES TO (subcomponent);<br />\n&nbsp;&nbsp; &nbsp;myPropConst : CONSTANT AADLINTEGER =&gt; 10;<br />\nEND myPropSet; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "df3e0b89-a8fe-47b9-9c0d-12151d378046"
+}

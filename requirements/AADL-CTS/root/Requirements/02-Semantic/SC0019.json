@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "The predeclared properties, property types, and property constants must be unique across all the predeclared property sets."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "fed80f9b-d11f-4ab3-8beb-ca0012c359e7"
+}

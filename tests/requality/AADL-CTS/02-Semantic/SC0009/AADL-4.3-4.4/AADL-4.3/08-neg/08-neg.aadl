@@ -1,0 +1,46 @@
+-- A component type extension declares prototypes, features and flows with the same
+-- defining identifier. The extended component type also declares prototypes, features
+-- and flows with the same defining identifier. Bug SC0009.
+PACKAGE COMPONENT_TYPE_EXTENSION_TC3
+    PUBLIC
+        THREAD thread_type_declaration            
+            PROTOTYPES
+                component_prototype : DATA;
+                id_1 : DATA;
+                ID_1 : FEATURE;
+                feature_prototype : FEATURE;
+                id_2 : DATA;                
+            FEATURES
+                feature_declaration : IN DATA PORT;
+                id_1 : IN DATA PORT;
+                in_feature : IN DATA PORT;
+                out_feature : OUT DATA PORT;
+            FLOWS
+                flow_source : FLOW SOURCE out_feature;
+                flow_sink : FLOW SINK in_feature;
+                id_1 : FLOW SOURCE out_feature;
+                ID_1 : FLOW SINK in_feature;
+                Id_2 : FLOW SOURCE out_feature;
+        END thread_type_declaration;
+        
+        THREAD thread_type_extension
+            EXTENDS thread_type_declaration            
+            PROTOTYPES
+                component_prototype_ext : DATA;
+                id_1_ext : DATA; -- bug SC0009
+                ID_1_ext : FEATURE; -- bug SC0009
+                feature_prototype_ext: FEATURE;
+                id_2_ext : DATA; -- bug SC0009                
+            FEATURES
+                feature_declaration_ext : IN DATA PORT;
+                id_1_ext : IN DATA PORT; -- bug SC0009
+                in_feature_ext : IN DATA PORT;
+                out_feature_ext : OUT DATA PORT;
+            FLOWS
+                flow_source_ext : FLOW SOURCE out_feature;
+                flow_sink_ext : FLOW SINK in_feature;
+                id_1_ext : FLOW SOURCE out_feature; -- bug SC0009
+                ID_1_ext : FLOW SINK in_feature; -- bug SC0009
+                Id_2_ext : FLOW SOURCE out_feature; -- bug SC0009
+        END thread_type_extension;
+END COMPONENT_TYPE_EXTENSION_TC3; 

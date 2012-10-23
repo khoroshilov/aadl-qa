@@ -1,0 +1,71 @@
+
+    -- A THREAD implementation is declared with all subclauses specified.
+    -- The subclauses contain declarations. No bug SC0006.
+    PACKAGE THREAD_IMPLEMENTATION_TC1
+        PUBLIC
+            WITH simplePropSet;
+            
+
+            SUBPROGRAM simpleProg
+
+            END simpleProg;
+
+            DATA simpleData
+
+            END simpleData;
+    
+
+           THREAD T
+                FEATURES
+                    outDataPort : OUT DATA PORT;
+                    outDataPort2 : OUT DATA PORT;
+                    outDataPort3 : OUT DATA PORT simpleData;
+                    inDataPort3 : IN DATA PORT simpleData;
+                    outDataPort4 : OUT DATA PORT simpleData;
+                    inDataPort4 : IN DATA PORT simpleData;
+                FLOWS
+                    flowSource : FLOW SOURCE outDataPort;            
+            flowSource2 : FLOW SOURCE outDataPort2;
+            END T;
+            
+            THREAD IMPLEMENTATION T.I
+                SUBCOMPONENTS
+                    myProgSubc : SUBPROGRAM simpleProg;
+                CALLS myCalls : {
+                    subprogCall : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection : PORT inDataPort3 -> outDataPort3;
+                FLOWS
+                    flowSource : FLOW SOURCE outDataPort;
+                MODES
+                    initMode : INITIAL MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T.I;
+            
+            THREAD IMPLEMENTATION T.IExt
+                EXTENDS T.I
+                SUBCOMPONENTS
+                    myProgSubc2 : SUBPROGRAM simpleProg;
+                CALLS myCalls2 : {
+                    subprogCall2 : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection2 : PORT inDataPort4 -> outDataPort4;
+                FLOWS
+                    flowSource2 : FLOW SOURCE outDataPort2;
+                MODES
+                    mode2 : MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END T.IExt;
+    END THREAD_IMPLEMENTATION_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (THREAD);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (THREAD);
+    END simplePropSet;
+

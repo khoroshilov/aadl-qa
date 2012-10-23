@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "In a component implementation extension, the component type of the component implementation being extended must be the same as or an ancestor of the component type of the component implementation extension."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "a7fbcff7-8362-4194-825e-556ad6c1cb90"
+}

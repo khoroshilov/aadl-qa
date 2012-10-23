@@ -1,0 +1,34 @@
+-- A deep extension hierarchy of feature group types is represented.
+-- One of the feature group type extensions extends a feature group type which does not exist.
+-- No bug SC0009.
+PACKAGE FEATURE_GROUP_TYPE_EXTENSION_TC8
+    PUBLIC
+        FEATURE GROUP f_group_declaration
+            FEATURES
+                id_1 : FEATURE;
+        END f_group_declaration;
+        
+        FEATURE GROUP f_group_extension_1_XXX
+            EXTENDS f_group_declaration
+            PROTOTYPES
+                id_2 : FEATURE;
+        END f_group_extension_1_XXX;
+        
+        FEATURE GROUP f_group_extension_2
+            EXTENDS f_group_extension_1
+            PROTOTYPES
+                id_3 : FEATURE;
+        END f_group_extension_2;
+        
+        FEATURE GROUP f_group_extension_3
+            EXTENDS f_group_extension_2
+            PROTOTYPES
+                id_4 : FEATURE;
+        END f_group_extension_3;
+        
+        FEATURE GROUP f_group_extension_4
+            EXTENDS f_group_extension_3
+            PROTOTYPES
+                id_1 : FEATURE; -- No bug SC0009
+        END f_group_extension_4;
+END FEATURE_GROUP_TYPE_EXTENSION_TC8; 

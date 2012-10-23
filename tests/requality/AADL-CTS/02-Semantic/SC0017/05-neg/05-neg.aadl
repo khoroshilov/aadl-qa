@@ -1,0 +1,38 @@
+-- A deep extension hierarchy of feature group types is declared. The hierarchy
+-- contains a circle of feature group type extensions.
+-- A feature group type from the hierarchy declares identifiers which are identical
+-- to the identifiers declared in ancestor feature group types. Bugs SC0017 and SC0009.
+PACKAGE FEATURE_GROUP_TYPE_TC2
+    PUBLIC
+        FEATURE GROUP f_group_declaration
+            FEATURES
+                id_1 : FEATURE;
+        END f_group_declaration;
+        
+        FEATURE GROUP f_group_extension_1 -- Bug SC0017
+            EXTENDS f_group_extension_3
+            PROTOTYPES
+                id_2 : FEATURE;
+        END f_group_extension_1;
+        
+        FEATURE GROUP f_group_extension_2 -- Bug SC0017
+            EXTENDS f_group_extension_1
+            PROTOTYPES
+                id_3 : FEATURE;
+        END f_group_extension_2;
+        
+        FEATURE GROUP f_group_extension_3 -- Bug SC0017
+            EXTENDS f_group_extension_2
+            PROTOTYPES
+                id_4 : FEATURE;
+        END f_group_extension_3;
+        
+        FEATURE GROUP f_group_extension_4
+            EXTENDS f_group_extension_3
+            PROTOTYPES
+                id_1 : FEATURE;
+                id_2 : FEATURE; -- Bug SC0009
+                id_3 : FEATURE; -- Bug SC0009
+                id_4 : FEATURE; -- Bug SC0009                
+        END f_group_extension_4;        
+END FEATURE_GROUP_TYPE_TC2; 

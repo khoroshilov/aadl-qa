@@ -1,0 +1,20 @@
+
+	-- The identifier of a package alias declaration is identical to the identifier of a predeclared property
+	-- set. This property set is listed in an import declaration. No bug SC0023.
+	PACKAGE TC10
+	    PUBLIC
+	        WITH pckgId, AADL_Project;
+	        AADL_Project renames package pckgId; -- no bug SC0023                                
+	END TC10;
+
+	 
+
+	PACKAGE pckgId
+	    PUBLIC
+
+	        THREAD myThr
+
+	        END myThr;
+	END pckgId;
+	 
+

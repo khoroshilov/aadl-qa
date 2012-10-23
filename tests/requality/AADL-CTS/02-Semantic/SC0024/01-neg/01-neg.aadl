@@ -1,0 +1,19 @@
+
+	-- Two aliases rename all declarations of the same package. The public section of the package
+	-- contains a component type declaration. Bug SC0024.
+	PACKAGE TC1
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        renames pckgId::pckgId::all; -- bug SC0024    
+	    PRIVATE
+	        WITH pckgId::pckgId;
+	        renames pckgId::pckgId::all; -- bug SC0024    
+	END TC1;
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	END pckgId::pckgId;
+	 
+

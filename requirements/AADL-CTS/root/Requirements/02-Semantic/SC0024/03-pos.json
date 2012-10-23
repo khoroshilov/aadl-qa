@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- Two aliases rename all declarations of the containing package.<br />\r\n-- The public section of the containing package contains a feature group declaration.<br />\r\n-- No bug SC0024.<br />\r\nPACKAGE TC3<br />\r\n&nbsp;&nbsp; &nbsp;PUBLIC<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;renames TC3::all; -- No bug SC0024. &nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;renames TC3::all; -- No bug SC0024.<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP fGrId<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END fGrId;&nbsp;&nbsp; &nbsp;<br />\r\nEND TC3; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "83207e95-09f2-491d-b5c5-5f782303255d"
+}

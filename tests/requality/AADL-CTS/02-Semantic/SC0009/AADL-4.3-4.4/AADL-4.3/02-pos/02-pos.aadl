@@ -1,0 +1,17 @@
+-- A component type declaration does not declare any prototypes, features and flows with the same
+-- defining identifier. No bug SC0009.
+PACKAGE COMPONENT_TYPE_DECLARATION_TC2
+    PUBLIC
+        THREAD thread_type
+            PROTOTYPES
+                component_prototype : DATA;
+                feature_prototype : FEATURE;                    
+            FEATURES
+                feature_declaration : IN DATA PORT;                
+                in_feature : IN DATA PORT;
+                out_feature : OUT DATA PORT;
+            FLOWS
+                flow_source : FLOW SOURCE out_feature;
+                flow_sink : FLOW SINK in_feature;                
+        END thread_type;
+END COMPONENT_TYPE_DECLARATION_TC2; 

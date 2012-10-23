@@ -1,0 +1,8 @@
+
+	-- The defining identifier of a user defined property set is not identical to the
+	-- defining identifiers of the predeclared property sets. No bug SC0016.
+	PROPERTY SET pSetId is -- No bug SC0016
+
+	  simpleProp : AADLINTEGER => 0 APPLIES TO (ABSTRACT);
+	END pSetId;
+

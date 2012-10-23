@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\tPACKAGE pack_id1::pack<br />\n\tPUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;abstract car<br />\n\t&nbsp;&nbsp; &nbsp;end car;<\/p>\n<p>\n\t<br />\n\t&nbsp;&nbsp; &nbsp;abstract implementation car.generic<br />\n\t&nbsp;&nbsp; &nbsp;end car.generic_X; -- bug SC0001<br />\n\t&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;system my_car extends car<br />\n\t&nbsp;&nbsp; &nbsp;end my_car;<\/p>\n<p>\n\t<br />\n\t&nbsp;&nbsp; &nbsp;system implementation my_car.a_car<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;extends car.generic<br />\n\t&nbsp;&nbsp; &nbsp;end my_car.a_car_X; -- bug SC0001<\/p>\n<p>\n\t<br />\n\t&nbsp;END pack_id1::pack;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "3b2bf5bd-4964-493a-8027-a2a7d5445ea8"
+}

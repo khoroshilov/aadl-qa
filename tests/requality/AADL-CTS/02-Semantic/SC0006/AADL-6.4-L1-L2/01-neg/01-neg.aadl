@@ -1,0 +1,39 @@
+
+    -- A BUS component type is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE BUS_TYPE_TC1
+        PUBLIC
+            WITH simplePropSet;
+            BUS T
+                FEATURES
+                    feature1 : IN FEATURE;    
+                    feature2 : OUT FEATURE;
+                FLOWS  -- bug SC0006.
+                    flowPath : FLOW PATH feature1 -> feature2;
+                MODES
+                    initMode : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T;
+            
+            BUS TExt
+                EXTENDS T    
+                FEATURES
+                    feature3 : IN FEATURE;    
+                    feature4 : OUT FEATURE;
+                FLOWS  -- bug SC0006.
+                    flowPath2 : FLOW PATH feature3 -> feature4;
+                MODES
+                    initMode2 : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END TExt;
+    END BUS_TYPE_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (BUS);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (BUS);
+    END simplePropSet;
+

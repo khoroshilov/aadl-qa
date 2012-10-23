@@ -1,0 +1,32 @@
+
+	-- A package contains a declaration which defining identifier is identical to the identifier
+	-- of a package alias declaration. Bug SC0027.
+	PACKAGE TC3
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        id RENAMES PACKAGE pckgId::pckgId; -- bug SC0027
+	    PRIVATE    
+	        FEATURE GROUP id -- bug SC0027
+	        END id;        
+	END TC3;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

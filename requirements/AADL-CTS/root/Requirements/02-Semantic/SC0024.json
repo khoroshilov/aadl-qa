@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "Multiple alias declarations which rename all component types and feature group types declared in the public section of the same package are not allowed unless the public section of the package does not contain any component types and feature group types."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "49f0255e-7bf6-45ad-ba7e-fd4f3c981c99"
+}

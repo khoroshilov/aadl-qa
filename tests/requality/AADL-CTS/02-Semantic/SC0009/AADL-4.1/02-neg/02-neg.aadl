@@ -1,0 +1,23 @@
+
+	-- Four property sets are declared. Two property sets have the same identifier.
+	-- The other two have different identifiers. Bug SC0009.
+	PROPERTY SET id1 IS
+
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (ABSTRACT);
+	END id1;
+	
+	PROPERTY SET id2 IS
+
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (ABSTRACT);
+	END id2;
+	
+	PROPERTY SET id3 IS -- Bug SC0009
+
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (ABSTRACT);
+	END id3;
+	
+	PROPERTY SET id3 IS -- Bug SC0009
+
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (ABSTRACT);
+	END id3;
+

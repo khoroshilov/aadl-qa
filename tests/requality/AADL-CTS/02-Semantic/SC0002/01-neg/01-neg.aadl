@@ -1,0 +1,70 @@
+
+	-- Two public or private sections are declared for the same package. Bug SC0002.
+	
+	PACKAGE pack
+	PUBLIC -- bug SC0002    
+
+	  THREAD myThr
+  END myThr;
+
+	
+	END pack;
+	
+	-- second public section declaration of the package
+	PACKAGE pack
+	PUBLIC -- bug SC0002
+
+	  THREAD myThr2
+  END myThr2;
+
+	
+	PRIVATE -- bug SC0002    
+
+	  THREAD myThr3
+  END myThr3;
+
+	
+	END pack;
+	
+	PACKAGE pack2
+	PUBLIC -- bug SC0002
+
+	  THREAD myThr4
+  END myThr4;
+
+	
+	PRIVATE -- bug SC0002    
+
+	  THREAD myThr5
+  END myThr5;
+
+	
+	END pack2;
+	
+	-- second private package declaration of the package
+	PACKAGE pack
+	PRIVATE -- bug SC0002    
+
+	  THREAD myThr6
+  END myThr6;
+
+	
+	END pack;
+	
+	PACKAGE pack2
+	PUBLIC -- bug SC0002
+
+	  THREAD myThr7
+  END myThr7;
+
+	
+	PRIVATE -- bug SC0002    
+
+	  THREAD myThr8
+  END myThr8;
+
+	
+	END pack2;
+	
+	 
+

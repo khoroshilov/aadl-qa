@@ -1,0 +1,37 @@
+
+	-- Identifier of a package alias from the public section is identical to the identifier
+	-- of a package imported in the private section. Bug SC0023.
+	PACKAGE TC3
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        pckgId renames package pckgId::pckgId; -- bug SC0023
+	    PRIVATE    
+	        WITH pckgId;
+	END TC3;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+
+	      
+
+	       THREAD myThr
+        END myThr;
+
+	
+	END pckgId::pckgId;
+
+	 
+
+	PACKAGE pckgId
+	    PUBLIC
+
+	      
+
+	       THREAD myThr2
+        END myThr2;
+
+	
+	END pckgId;
+

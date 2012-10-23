@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- Two public or private sections are declared for the same package. Bug SC0002.<br />\n\t<br />\n\tPACKAGE pack<br />\n\tPUBLIC -- bug SC0002&nbsp;&nbsp; &nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr<\/p>\n&nbsp; END myThr;\n<p>\n\t<br />\n\tEND pack;<br />\n\t<br />\n\t-- second public section declaration of the package<br />\n\tPACKAGE pack<br />\n\tPUBLIC -- bug SC0002<\/p>\n<p>\n\t&nbsp; THREAD myThr2<\/p>\n&nbsp; END myThr2;\n<p>\n\t<br />\n\tPRIVATE -- bug SC0002&nbsp;&nbsp; &nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr3<\/p>\n&nbsp; END myThr3;\n<p>\n\t<br />\n\tEND pack;<br />\n\t<br />\n\tPACKAGE pack2<br />\n\tPUBLIC -- bug SC0002<\/p>\n<p>\n\t&nbsp; THREAD myThr4<\/p>\n&nbsp; END myThr4;\n<p>\n\t<br />\n\tPRIVATE -- bug SC0002&nbsp;&nbsp; &nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr5<\/p>\n&nbsp; END myThr5;\n<p>\n\t<br />\n\tEND pack2;<br />\n\t<br />\n\t-- second private package declaration of the package<br />\n\tPACKAGE pack<br />\n\tPRIVATE -- bug SC0002&nbsp;&nbsp; &nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr6<\/p>\n&nbsp; END myThr6;\n<p>\n\t<br />\n\tEND pack;<br />\n\t<br />\n\tPACKAGE pack2<br />\n\tPUBLIC -- bug SC0002<\/p>\n<p>\n\t&nbsp; THREAD myThr7<\/p>\n&nbsp; END myThr7;\n<p>\n\t<br />\n\tPRIVATE -- bug SC0002&nbsp;&nbsp; &nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr8<\/p>\n&nbsp; END myThr8;\n<p>\n\t<br />\n\tEND pack2;<br />\n\t<br />\n\t&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "52a5d110-4c89-4f06-b579-0b01036c81be"
+}

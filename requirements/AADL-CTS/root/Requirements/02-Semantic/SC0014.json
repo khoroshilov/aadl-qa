@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "A feature with a feature prototype identifier and the prototype being referenced must both specify the same direction or no direction."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "73c847b6-132e-44c7-a638-e9d60dcb8c5d"
+}

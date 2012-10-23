@@ -1,0 +1,4 @@
+-- A enumeration type does not declare any identical enumeration literals. No bug SC0009.
+PROPERTY SET ENUMERATION_TC2 IS
+    enum_type : TYPE ENUMERATION (ONE, TWO, THREE); -- no bug SC0009        
+END ENUMERATION_TC2; 

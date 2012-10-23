@@ -1,0 +1,26 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "#1) AADL-11.1-N3\r\n#2) AADL-11.1.1-N1\r\n#3) AADL-11.1.2-N1\r\n#4) AADL-11.1.3-N1\r\n#5) AADL-4.1-N4\r\n\r\n"
+        },
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/92a04fa1-ca8f-4fd3-b9d0-8206b93befb2",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/86b2a470-0642-49b5-b34a-3117adf25c6a",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/03081922-5611-4032-82c9-5e2cb657576b",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/5d64f679-95bc-4e3e-9adf-3e8104ea3346",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/74f42ca0-c424-4bda-8eb8-51758869eef8"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "27eac0dd-b7cf-4d00-be4e-97717f13f379"
+}

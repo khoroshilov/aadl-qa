@@ -1,0 +1,3 @@
+-- The namespace of a property set is empty. No bug SC0009.
+PROPERTY SET PROPERTY_SET_TC2 IS
+END PROPERTY_SET_TC2; 

@@ -1,0 +1,38 @@
+-- A MEMORY implementation is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE MEMORY_IMPLEMENTATION_TC2
+    PUBLIC
+        MEMORY T                        
+        END T;
+        
+        MEMORY IMPLEMENTATION T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.I;
+        
+        MEMORY IMPLEMENTATION T.IExt
+            EXTENDS T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.IExt;
+END MEMORY_IMPLEMENTATION_TC2; 

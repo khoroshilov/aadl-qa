@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N2)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">Each component type has a local namespace for\ndefining identifiers of prototypes, features, modes, mode transitions, and flow\nspecifications. That is, defining prototype, defining feature, defining modes\nand mode transitions, and defining flow specification identifiers must be\nunique in the component type namespace.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "1a46953c-cd34-4e03-aaec-6ae5f9eede78"
+}

@@ -1,0 +1,40 @@
+
+	-- A DATA implementation is declared with all subclauses specified.
+	-- The subclauses contain the none statement. No bug SC0006.
+	PACKAGE DATA_IMPLEMENTATION_TC2
+	    PUBLIC
+	        DATA T                        
+	        END T;
+	        
+	        DATA IMPLEMENTATION T.I
+	            SUBCOMPONENTS
+	                none;
+	            CALLS
+	                none;
+	            CONNECTIONS
+	                none;
+	            FLOWS
+	                none;
+	            MODES
+	                none;
+	            PROPERTIES
+	                none;
+	        END T.I;
+	        
+	        DATA IMPLEMENTATION T.IExt
+	            EXTENDS T.I
+	            SUBCOMPONENTS
+	                none;
+	            CALLS
+	                none;
+	            CONNECTIONS
+	                none;
+	            FLOWS
+	                none;
+	            MODES
+	                none;
+	            PROPERTIES
+	                none;
+	        END T.IExt;
+	END DATA_IMPLEMENTATION_TC2;
+

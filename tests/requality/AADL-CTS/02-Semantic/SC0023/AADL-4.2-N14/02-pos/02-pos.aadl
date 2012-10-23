@@ -1,0 +1,29 @@
+
+	-- Identifier of a package alias is identical to the identifier of an imported property set.
+	-- No bug SC0023.
+	PACKAGE TC2
+	    PUBLIC
+	        WITH propSetId, pckgId::pckgId;
+	        propSetId renames package pckgId::pckgId; -- no bug SC0023
+	END TC2;
+
+	 
+
+	PROPERTY SET propSetId is
+
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (ABSTRACT);   
+	END propSetId;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+
+	      
+
+	       THREAD myThr
+        END myThr;
+
+	
+	END pckgId::pckgId;
+

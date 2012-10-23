@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- A enumeration type declares two identical enumeration literals. Bug SC0009.<br />\nPROPERTY SET ENUMERATION_TC1 IS<br />\n&nbsp;&nbsp; &nbsp;enum_type : TYPE ENUMERATION (ONE, TWO, ONE); -- bug SC0009&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\nEND ENUMERATION_TC1; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "ce88869a-c527-485a-8852-314bd3487681"
+}

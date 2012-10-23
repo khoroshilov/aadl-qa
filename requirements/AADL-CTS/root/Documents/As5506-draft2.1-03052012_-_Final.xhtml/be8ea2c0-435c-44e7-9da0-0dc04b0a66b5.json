@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">data<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">subprogram<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">subprogram group<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">thread<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">thread group<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"page-break-after: avoid;\"><span lang=\"EN-US\" style=\"font-family: Symbol;\">·<span style=\"font: 7pt &quot;Times New Roman&quot;;\">        \n  <\/span><\/span><span lang=\"EN-US\">abstract<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "be8ea2c0-435c-44e7-9da0-0dc04b0a66b5"
+}

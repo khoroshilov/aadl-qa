@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "A component implementation can be viewed as a\ncomponent variant with the same interface but with differing property values\nthat characterize the differences between implementations without exposing the\ninternals of their realization.  This can be achieved by placing the component\nimplementation declaration without subcomponents and connections in the public\nsection of an AADL package, and a component implementation declaration with\nsubcomponents and connections for the same component in the private section of\nan AADL package. "
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "eb70dbc0-8e64-4eb4-ab2f-40506c2c61f5"
+}

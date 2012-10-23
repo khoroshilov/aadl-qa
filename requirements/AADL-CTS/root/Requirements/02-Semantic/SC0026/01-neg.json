@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- An alias declaration renames all declarations of the containing package. The public section of<br />\r\n-- the containing package contains a component type declaration. Bug SC0026.<br />\r\nPACKAGE TC1<br />\r\n&nbsp;&nbsp; &nbsp;PUBLIC<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;renames TC1::all; -- bug SC0026<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadT<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadT;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n&nbsp;&nbsp; &nbsp;PRIVATE<br />\r\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;renames TC1::all; -- bug SC0026&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\nEND TC1; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "0ed84908-b6e8-45b4-bc27-f825399dd0f2"
+}

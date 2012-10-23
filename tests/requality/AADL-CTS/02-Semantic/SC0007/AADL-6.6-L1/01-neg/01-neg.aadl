@@ -1,0 +1,218 @@
+PACKAGE DevicePack
+    PUBLIC
+        
+                DATA dataT
+        END dataT;
+        
+        DATA IMPLEMENTATION dataT.impl
+        END dataT.impl;
+        
+        DATA IMPLEMENTATION dataT.impl_Ext
+            EXTENDS dataT.impl
+        END dataT.impl_Ext;
+        
+        SUBPROGRAM subprogramT
+        END subprogramT;
+        
+        SUBPROGRAM subprogramT_Ext
+        END subprogramT_Ext;
+        
+        SUBPROGRAM GROUP subprogramGroupT
+        END subprogramGroupT;
+        
+        BUS busT
+        END busT;
+        
+        ABSTRACT abstractT
+        END abstractT;
+        
+        FEATURE GROUP emptyFeatureGrT
+        END emptyFeatureGrT;
+        
+        FEATURE GROUP inFeatureGrT
+            FEATURES
+                -- PORT
+                inDataPort : IN DATA PORT dataT;
+                inOutDataPort : IN OUT DATA PORT dataT;
+
+                inEventDataPort : IN EVENT DATA PORT dataT;
+                inOutEventDataPort : IN OUT EVENT DATA PORT dataT;
+
+                inEventPort : IN EVENT PORT;
+                inOutEventPort : IN OUT EVENT PORT;
+
+                --FEATURE
+                inFeature: IN FEATURE;
+        END inFeatureGrT;
+
+        FEATURE GROUP outFeatureGrT
+            FEATURES
+                -- PORT
+                outDataPort : OUT DATA PORT dataT;
+                inOutDataPort : IN OUT DATA PORT dataT;
+
+                outEventDataPort : OUT EVENT DATA PORT dataT;
+                inOutEventDataPort : IN OUT EVENT DATA PORT dataT;
+
+                outEventPort : OUT EVENT PORT;
+                inOutEventPort : IN OUT EVENT PORT;
+
+                --FEATURE
+                outFeature: OUT FEATURE;
+        END outFeatureGrT;
+
+        FEATURE GROUP filledFeatureGrT
+            FEATURES
+                -- PORT
+                inDataPort : IN DATA PORT dataT;
+                outDataPort : OUT DATA PORT dataT;
+                inOutDataPort : IN OUT DATA PORT dataT;
+
+                inEventDataPort : IN EVENT DATA PORT dataT;
+                outEventDataPort : OUT EVENT DATA PORT dataT;
+                inOutEventDataPort : IN OUT EVENT DATA PORT dataT;
+
+                inEventPort : IN EVENT PORT;
+                outEventPort : OUT EVENT PORT;
+                inOutEventPort : IN OUT EVENT PORT;
+
+                --FEATURE
+                inFeature: IN FEATURE;
+                outFeature: OUT FEATURE;
+        END filledFeatureGrT;  
+        
+        DEVICE deviceT_2
+             PROTOTYPES
+                dataImplProto : DATA dataT.impl_Ext;
+                subprogramProto : SUBPROGRAM subprogramT;
+                subprogramGroupProto : SUBPROGRAM GROUP subprogramGroupT;
+                busProto : BUS busT;
+
+                inFeatureProto : IN FEATURE abstractT;
+                outFeatureProto : OUT FEATURE abstractT;
+
+                dataImplFeatureProto: FEATURE dataT.impl_Ext;
+                subprogramFeatureProto: FEATURE subprogramT;
+                subprogramGroupFeatureProto: FEATURE subprogramGroupT;
+                busFeatureProto: FEATURE busT;
+
+            FEATURES
+                -- PORT
+                inDataImplPort : IN DATA PORT dataT.impl_Ext; -- bug SC0007
+                outDataPort : OUT DATA PORT dataT; -- bug SC0007
+                inOutDataPort : IN OUT DATA PORT dataT; -- bug SC0007
+
+                inEventDataPort : IN EVENT DATA PORT dataT; -- bug SC0007
+                outEventDataImplPort : OUT EVENT DATA PORT dataT.impl_Ext;
+                inOutEventDataPort : IN OUT EVENT DATA PORT dataT; -- bug SC0007
+
+                inEventPort : IN EVENT PORT; -- bug SC0007
+                outEventPort : OUT EVENT PORT;
+                inOutEventPort : IN OUT EVENT PORT; -- bug SC0007
+
+                --ACCESS
+                providesSbpr : PROVIDES SUBPROGRAM ACCESS subprogramT; -- bug SC0007
+                requiresSbpr : REQUIRES SUBPROGRAM ACCESS subprogramT;
+
+                providesSbprGroup : PROVIDES SUBPROGRAM GROUP ACCESS subprogramGroupT; -- bug SC0007
+                requiresSbprGroup : REQUIRES SUBPROGRAM GROUP ACCESS subprogramGroupT;
+
+                providesDataImpl : PROVIDES DATA ACCESS dataT.impl_Ext; -- bug SC0007
+                requiresData : REQUIRES DATA ACCESS dataT;
+
+                providesBus : PROVIDES BUS ACCESS busT; -- bug SC0007
+                requiresBus : REQUIRES BUS ACCESS busT; -- bug SC0007
+
+                --PARAMETER
+                inParam : IN PARAMETER dataT;
+                outParam: OUT PARAMETER dataT;
+                inOutParam: IN OUT PARAMETER dataT;
+
+                --FEATURE
+        inFeature: IN FEATURE;
+                outFeature: OUT FEATURE;
+
+                inFeatureNoRef: IN FEATURE;
+                outFeatureNoRef: OUT FEATURE;
+
+                featureInFeatureProto : IN FEATURE inFeatureProto;
+                featureOutFeatureProto : OUT FEATURE outFeatureProto;
+
+                featureDataImplFeatureProto : FEATURE dataImplFeatureProto;
+                featureSubprogramFeatureProto : FEATURE subprogramFeatureProto;
+                featureSubprogramGroupFeatureProto : FEATURE subprogramGroupFeatureProto;
+                featureBusFeatureProto : FEATURE busFeatureProto;
+
+                --FEATURE GROUP
+                emptyFeatureGroup: FEATURE GROUP emptyFeatureGroupT;
+                inFeatureGroup: IN FEATURE GROUP inFeatureGroupT;
+                outFeatureGroup: OUT FEATURE GROUP outFeatureGroupT;
+                filledFeatureGroup: FEATURE GROUP filledFeatureGroupT;
+
+                emptyInverseFeatureGroup: FEATURE GROUP INVERSE OF emptyFeatureGroupT;
+                outInverseFeatureGroup: OUT FEATURE GROUP INVERSE OF inFeatureGroupT;
+                inInverseFeatureGroup: IN FEATURE GROUP INVERSE OF outFeatureGroupT;
+                filledInverseFeatureGroup: FEATURE GROUP INVERSE OF filledFeatureGroupT;
+        END deviceT_2;
+        
+        DEVICE deviceT_2_Ext
+            EXTENDS deviceT_2
+            FEATURES
+                -- PORT
+                inDataImplPort : REFINED TO IN DATA PORT dataT.impl_Ext; -- bug SC0007
+                outDataPort : REFINED TO OUT DATA PORT dataT; -- bug SC0007
+                inOutDataPort : REFINED TO IN OUT DATA PORT dataT; -- bug SC0007
+
+                inEventDataPort : REFINED TO IN EVENT DATA PORT dataT; -- bug SC0007
+                outEventDataImplPort : REFINED TO OUT EVENT DATA PORT dataT.impl_Ext;
+                inOutEventDataPort : REFINED TO IN OUT EVENT DATA PORT dataT; -- bug SC0007
+
+                inEventPort : REFINED TO IN EVENT PORT; -- bug SC0007
+                outEventPort : REFINED TO OUT EVENT PORT;
+                inOutEventPort : REFINED TO IN OUT EVENT PORT; -- bug SC0007
+
+                --ACCESS
+                providesSbpr : REFINED TO PROVIDES SUBPROGRAM ACCESS subprogramT; -- bug SC0007
+                requiresSbpr : REFINED TO REQUIRES SUBPROGRAM ACCESS subprogramT;
+
+                providesSbprGroup : REFINED TO PROVIDES SUBPROGRAM GROUP ACCESS subprogramGroupT; -- bug SC0007
+                requiresSbprGroup : REFINED TO REQUIRES SUBPROGRAM GROUP ACCESS subprogramGroupT;
+
+                providesDataImpl : REFINED TO PROVIDES DATA ACCESS dataT.impl_Ext; -- bug SC0007
+                requiresData : REFINED TO REQUIRES DATA ACCESS dataT;
+
+                providesBus : REFINED TO PROVIDES BUS ACCESS busT; -- bug SC0007
+                requiresBus : REFINED TO REQUIRES BUS ACCESS busT; -- bug SC0007
+
+                --PARAMETER
+                inParam : REFINED TO IN PARAMETER dataT;
+                outParam: REFINED TO OUT PARAMETER dataT;
+                inOutParam: REFINED TO IN OUT PARAMETER dataT;
+
+                --FEATURE
+                inFeature: REFINED TO IN DATA PORT dataT; -- bug SC0007
+                outFeature: REFINED TO OUT DATA PORT dataT; -- bug SC0007
+                inFeatureNoRef: IN FEATURE;
+                outFeatureNoRef: OUT FEATURE;
+
+                featureInFeatureProto : REFINED TO IN FEATURE inFeatureProto;
+                featureOutFeatureProto : REFINED TO OUT FEATURE outFeatureProto;
+
+                featureDataImplFeatureProto : REFINED TO FEATURE dataImplFeatureProto;
+                featureSubprogramFeatureProto : REFINED TO FEATURE    subprogramFeatureProto;
+                featureSubprogramGroupFeatureProto : REFINED TO FEATURE subprogramGroupFeatureProto;
+                featureBusFeatureProto : REFINED TO FEATURE busFeatureProto;
+
+                --FEATURE GROUP
+                emptyFeatureGroup: REFINED TO FEATURE GROUP emptyFeatureGroupT;
+                inFeatureGroup: REFINED TO IN FEATURE GROUP inFeatureGroupT;
+                outFeatureGroup: REFINED TO OUT FEATURE GROUP outFeatureGroupT;
+                filledFeatureGroup: REFINED TO FEATURE GROUP filledFeatureGroupT;
+
+                emptyInverseFeatureGroup: REFINED TO FEATURE GROUP INVERSE OF emptyFeatureGroupT;
+                outInverseFeatureGroup: REFINED TO OUT FEATURE GROUP INVERSE OF inFeatureGroupT;
+                inInverseFeatureGroup: REFINED TO IN FEATURE GROUP INVERSE OF outFeatureGroupT;
+        END deviceT_2_Ext;
+END DevicePack;   
+ 
+

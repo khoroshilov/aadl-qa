@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "The identifier of an alias declaration which renames a package must be unique among the names of the packages listed in the import declarations defined in the public and private sections of the package containing the alias declaration."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "2183248a-15f0-4f96-966a-34e158c382dc"
+}

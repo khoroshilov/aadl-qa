@@ -1,0 +1,27 @@
+ -- A MEMORY component type is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE MEMORY_TYPE_TC2
+    PUBLIC
+        MEMORY T
+            FEATURES
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T;
+        
+        MEMORY TExt
+            EXTENDS T    
+            FEATURES
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END TExt;
+END MEMORY_TYPE_TC2;

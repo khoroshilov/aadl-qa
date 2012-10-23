@@ -1,0 +1,44 @@
+-- The namespace of a component implementation extension contains several declarations
+-- with the same defining identifier. There are no refinement declarations among them. Bug SC0009.
+PACKAGE COMPONENT_IMPLEMENTATION_EXTENSION_TC1
+PRIVATE
+    THREAD threadT
+        FEATURES
+            inFeature : IN DATA PORT;
+            outFeature : OUT DATA PORT;
+            outFeature_2 : OUT DATA PORT;
+        FLOWS
+            flowSource : FLOW SOURCE outFeature;            
+            flowSink : FLOW SINK inFeature;
+            id : FLOW SOURCE outFeature_2;    
+    END threadT;
+    
+    THREAD IMPLEMENTATION threadT.implExt
+        EXTENDS threadT.impl
+        PROTOTYPES
+            componentPrototype : SUBPROGRAM;
+            id : SUBPROGRAM; -- bug SC0009
+        SUBCOMPONENTS
+            subcomp : SUBPROGRAM GROUP;
+            ID : SUBPROGRAM GROUP; -- bug SC0009
+        CALLS
+            callSequence : {call_1 : SUBPROGRAM subcomp; call_2 : SUBPROGRAM subcomp;}; -- bug SC0009
+            id : {call_1 : SUBPROGRAM subcomp; call_2 : SUBPROGRAM subcomp;}; -- bug SC009
+            callSequence_2 : {call_1 : SUBPROGRAM subcomp; id : SUBPROGRAM subcomp;}; -- bug SC0009
+        CONNECTIONS
+            port_connection : PORT inFeaute -> outFeature;
+            id : PORT inFeaute -> outFeature; -- bug SC0009
+        FLOWS
+            flowSource : FLOW SOURCE outFeature;
+            flowSink : FLOW SINK inFeature;    
+            id : FLOW SOURCE outFeature_2; -- bug SC0009
+        MODES
+            mode1 : INITIAL mode;
+            id -[inFeature]-> mode1;
+            id : mode; -- bug SC0009
+            modeTrans: mode3 -[inFeature]-> id; -- bug SC0009
+            mode3 : mode;
+            mode1 -[inFeature]-> id;
+            modeTrans: mode3 -[inFeature]-> mode1; -- bug SC0009
+    END threadT.implExt;
+END COMPONENT_IMPLEMENTATION_EXTENSION_TC1; 

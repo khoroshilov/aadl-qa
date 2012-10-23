@@ -1,0 +1,38 @@
+-- A BUS implementation is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE BUS_IMPLEMENTATION_TC2
+    PUBLIC
+        BUS T                        
+        END T;
+        
+        BUS IMPLEMENTATION T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.I;
+        
+        BUS IMPLEMENTATION T.IExt
+            EXTENDS T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.IExt;
+END BUS_IMPLEMENTATION_TC2; 

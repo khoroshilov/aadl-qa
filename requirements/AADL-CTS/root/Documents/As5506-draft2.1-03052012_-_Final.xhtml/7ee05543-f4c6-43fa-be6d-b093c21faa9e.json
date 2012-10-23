@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\"><span lang=\"EN-US\">Subprogram calls: yes<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\"><span lang=\"EN-US\">Connections: yes<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\"><span lang=\"EN-US\">Flows: yes<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\"><span lang=\"EN-US\">Modes: yes<\/span><\/p>\n  <p xmlns=\"http://www.w3.org/1999/xhtml\" class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\"><span lang=\"EN-US\">Properties: yes<\/span><\/p>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "7ee05543-f4c6-43fa-be6d-b093c21faa9e"
+}

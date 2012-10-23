@@ -1,0 +1,38 @@
+-- A VIRTUAL BUS implementation is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE VIRTUAL_BUS_IMPLEMENTATION_TC2
+    PUBLIC
+        VIRTUAL BUS T                        
+        END T;
+        
+        VIRTUAL BUS IMPLEMENTATION T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.I;
+        
+        VIRTUAL BUS IMPLEMENTATION T.IExt
+            EXTENDS T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.IExt;
+END VIRTUAL_BUS_IMPLEMENTATION_TC2; 

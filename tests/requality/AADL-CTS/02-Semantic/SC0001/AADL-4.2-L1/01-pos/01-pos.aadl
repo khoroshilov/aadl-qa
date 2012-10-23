@@ -1,0 +1,9 @@
+
+	PACKAGE pack_id::pack
+	PUBLIC
+
+	  THREAD myThr
+
+	  END myThr;
+	END pack_id::pack; -- no bug SC0001
+

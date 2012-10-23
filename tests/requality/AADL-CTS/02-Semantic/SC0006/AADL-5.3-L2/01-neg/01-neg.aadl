@@ -1,0 +1,74 @@
+
+    -- A SUBPROGRAM GROUP implementation is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE SUBPROGRAM_GROUP_IMPLEMENTATION_TC1
+        PUBLIC
+            WITH simplePropSet;
+
+    
+
+           SUBPROGRAM simpleProg
+
+           END simpleProg;
+
+        DATA simpleDataT
+            FEATURES
+                reqSubpFeature : REQUIRES SUBPROGRAM ACCESS simpleProg;
+                reqSubpFeature2 : REQUIRES SUBPROGRAM ACCESS simpleProg;
+        END simpleDataT;
+
+    
+            SUBPROGRAM GROUP T
+                FEATURES
+                    feature1 : OUT FEATURE;
+                    feature2 : OUT FEATURE;
+            reqSubpFeature : REQUIRES SUBPROGRAM ACCESS simpleProg;
+            reqSubpFeature2 : REQUIRES SUBPROGRAM ACCESS simpleProg;
+                FLOWS
+                    flowSource : FLOW SOURCE feature1;  
+            flowSource2 : FLOW SOURCE feature2;          
+            END T;
+            
+            SUBPROGRAM GROUP IMPLEMENTATION T.I
+                SUBCOMPONENTS
+                    myProgSubc : SUBPROGRAM simpleProg;
+            myDataSubc : DATA simpleDataT;
+                CALLS myCalls : { -- bug SC0006.
+                    subprogCall : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection : SUBPROGRAM ACCESS reqSubpFeature -> myDataSubc.reqSubpFeature;
+                FLOWS -- bug SC0006.
+                    flowSource : FLOW SOURCE feature1;
+                MODES  -- bug SC0006.
+                    initMode : INITIAL MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T.I;
+            
+            SUBPROGRAM GROUP IMPLEMENTATION T.IExt
+                EXTENDS T.I
+                SUBCOMPONENTS
+                    myProgSubc2 : SUBPROGRAM simpleProg;
+            myDataSubc2 : DATA simpleDataT;
+                CALLS myCalls2 : { -- bug SC0006.
+                    subprogCall2 : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection2 : SUBPROGRAM ACCESS reqSubpFeature2 -> myDataSubc2.reqSubpFeature2;
+                FLOWS -- bug SC0006.
+                    flowSource2 : FLOW SOURCE feature2;
+                MODES -- bug SC0006.
+                    mode2 : MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END T.IExt;
+    END SUBPROGRAM_GROUP_IMPLEMENTATION_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (SUBPROGRAM GROUP);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (SUBPROGRAM GROUP);
+    END simplePropSet;
+

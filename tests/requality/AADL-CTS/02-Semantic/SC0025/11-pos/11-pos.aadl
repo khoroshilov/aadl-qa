@@ -1,0 +1,51 @@
+
+	-- A package contains a component type and a feature group type declaration. Identifiers of these
+	-- declaratins are identical to the identifiers imported by alias declarations which do not define
+	-- short names for the declarations imported. Two private sections are defined for the package.
+	-- No bug SC0025.
+	
+	PACKAGE TC11
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES THREAD pckgId::pckgId::threadTypeId;
+	        RENAMES FEATURE GROUP pckgId::pckgId::featureGrTypeId;
+	        
+	        THREAD threadTypeId -- No bug SC0025
+	        END threadTypeId;
+	    PRIVATE
+	        FEATURE GROUP featureGrTypeId -- No bug SC0025
+	        END featureGrTypeId;                
+	END TC11;
+
+	PACKAGE TC11
+	    PRIVATE
+
+	       THREAD threadTypeId3
+	        END threadTypeId3;                   
+	END TC11;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+
+	         DATA myData
+
+	         END myData;
+	        
+	        FEATURE GROUP featureGrTypeId
+
+	            FEATURES
+
+	                myFeature : IN DATA PORT myData;
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+

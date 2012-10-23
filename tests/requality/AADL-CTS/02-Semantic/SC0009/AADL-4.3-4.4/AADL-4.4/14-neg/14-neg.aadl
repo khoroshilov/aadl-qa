@@ -1,0 +1,19 @@
+-- A component implementation declaration does not contain any
+-- unique identifiers, but contains non-unique. Bug SC0009.
+PACKAGE COMPONENT_IMPLEMENTATION_DECLARATION_TC14
+PRIVATE
+    THREAD threadT
+        FEATURES
+            inFeature : IN DATA PORT;
+            outFeature : OUT DATA PORT;
+            id_1 : FEATURE;
+    END threadT;
+    
+    THREAD IMPLEMENTATION threadT.impl        
+        SUBCOMPONENTS
+            id_1 : SUBPROGRAM; -- Bug SC0009        
+        CONNECTIONS
+            id_1 : PORT inFeaute -> outFeature; -- Bug SC0009            
+    END threadT.impl;
+    
+END COMPONENT_IMPLEMENTATION_DECLARATION_TC14; 

@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N3)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">The local namespace of a feature group type\nextension includes the defining identifiers in the local namespace of the feature\ngroup type being extended. This means, the defining identifiers of prototype, feature,\nor feature group declarations in a feature group type extension must not exist\nin the local namespace of the feature group type being extended.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "87ebb962-ed32-4f6f-b969-b14f79046591"
+}

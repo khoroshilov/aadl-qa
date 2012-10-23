@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- A record type declares two identical fields. Bug SC0009.<br />\nPROPERTY SET RECORD_TC1 IS<br />\n&nbsp;&nbsp; &nbsp;record_type : TYPE RECORD (<br />\n&nbsp;&nbsp; &nbsp;integer_field : INTEGER; -- bug SC0009&nbsp;&nbsp; &nbsp;<br />\n&nbsp;&nbsp; &nbsp;real_field : REAL;<br />\n&nbsp;&nbsp; &nbsp;integer_field : INTEGER;); -- bug SC0009&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\nEND RECORD_TC1; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "f8d950ca-4281-4769-9a75-46cd5854ab92"
+}

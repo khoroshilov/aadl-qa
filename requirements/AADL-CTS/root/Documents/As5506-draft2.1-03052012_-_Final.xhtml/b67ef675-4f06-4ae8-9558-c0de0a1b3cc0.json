@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N3)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">The local namespace of a subprogram group type\nextension includes the defining identifiers in the local namespace of the\nsubprogram group type being extended. This means, the defining identifiers of\nsubprogram or subprogram group declarations in a subprogram group type\nextension must not exist in the local namespace of the subprogram group type\nbeing extended.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "b67ef675-4f06-4ae8-9558-c0de0a1b3cc0"
+}

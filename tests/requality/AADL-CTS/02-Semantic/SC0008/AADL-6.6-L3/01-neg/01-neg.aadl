@@ -1,0 +1,105 @@
+
+	PACKAGE DevicePack
+	    PUBLIC
+	        WITH CTP;
+	        deviceT RENAMES DEVICE CTP::deviceT;
+	        
+	        DEVICE IMPLEMENTATION deviceT.deviceImpl
+	            SUBCOMPONENTS
+	                abstractSubc : ABSTRACT CTP::abstractT;
+	                busSubc : BUS CTP::busT;
+	                dataSubc : DATA CTP::dataT;
+	                deviceSubc : DEVICE CTP::deviceT; -- bug SC0008
+	                memorySubc : MEMORY CTP::memoryT; -- bug SC0008
+	                processSubc : PROCESS CTP::processT; -- bug SC0008
+	                processorSubc : PROCESSOR CTP::processorT; -- bug SC0008
+	                subprogramSubc : SUBPROGRAM CTP::subprogramT; -- bug SC0008
+	                subprogramGroupSubc : SUBPROGRAM GROUP CTP::subprogramGroupT; -- bug SC0008
+	                systemSubc : SYSTEM CTP::systemT; -- bug SC0008
+	                threadSubc : THREAD CTP::threadT; -- bug SC0008
+	                threadGroupSubc : THREAD GROUP CTP::threadGroupT; -- bug SC0008
+	                virtualBusSubc : VIRTUAL BUS CTP::virtualBusT;
+	                virtualProcessorSubc : VIRTUAL PROCESSOR CTP::virtualProcessorT; -- bug SC0008
+	        END deviceT.deviceImpl;
+	        
+	        DEVICE IMPLEMENTATION deviceT.deviceImpl2            
+	        END deviceT.deviceImpl2;
+	        
+	        DEVICE IMPLEMENTATION deviceT.deviceImpl3
+	            SUBCOMPONENTS
+	                none;            
+	        END deviceT.deviceImpl3;
+	        
+	        DEVICE IMPLEMENTATION deviceT.deviceImplExt
+	            EXTENDS deviceT.deviceImpl
+	            SUBCOMPONENTS
+	                abstractSubc : REFINED TO ABSTRACT CTP::abstractT;
+	                busSubc : REFINED TO BUS CTP::busT;
+	                dataSubc : REFINED TO DATA CTP::dataT;
+	                deviceSubc : REFINED TO DEVICE CTP::deviceT; -- bug SC0008
+	                memorySubc : REFINED TO MEMORY CTP::memoryT; -- bug SC0008
+	                processSubc : REFINED TO PROCESS CTP::processT; -- bug SC0008
+	                processorSubc : REFINED TO PROCESSOR CTP::processorT; -- bug SC0008
+	                subprogramSubc : REFINED TO SUBPROGRAM CTP::subprogramT; -- bug SC0008
+	                subprogramGroupSubc : REFINED TO SUBPROGRAM GROUP CTP::subprogramGroupT; -- bug SC0008
+	                systemSubc : REFINED TO SYSTEM CTP::systemT; -- bug SC0008
+	                threadSubc : REFINED TO THREAD CTP::threadT; -- bug SC0008
+	                threadGroupSubc : REFINED TO THREAD GROUP CTP::threadGroupT; -- bug SC0008
+	                virtualBusSubc : REFINED TO VIRTUAL BUS CTP::virtualBusT;
+	                virtualProcessorSubc : REFINED TO VIRTUAL PROCESSOR CTP::virtualProcessorT; -- bug SC0008
+	        END deviceT.deviceImplExt;
+	        
+	        DEVICE IMPLEMENTATION deviceT.deviceImplExt2
+	            EXTENDS deviceT.deviceImpl
+	            SUBCOMPONENTS
+	                none;
+	        END deviceT.deviceImplExt2;
+	END DevicePack;
+
+	 
+
+	PACKAGE CTP
+	    PUBLIC
+	        ABSTRACT abstractT
+	        END abstractT;
+	        
+	        BUS busT
+	        END busT;
+	        
+	        DATA dataT
+	        END dataT;
+	        
+	        DEVICE deviceT
+	        END deviceT;
+	        
+	        MEMORY memoryT
+	        END memoryT;
+	        
+	        PROCESS processT
+	        END processT;
+	        
+	        PROCESSOR processorT
+	        END processorT;
+	        
+	        SUBPROGRAM subprogramT
+	        END subprogramT;
+	        
+	        SUBPROGRAM GROUP subprogramGroupT
+	        END subprogramGroupT;
+	        
+	        SYSTEM systemT
+	        END systemT;
+	        
+	        THREAD threadT
+	        END threadT;
+	        
+	        THREAD GROUP threadGroupT
+	        END threadGroupT;
+	        
+	        VIRTUAL BUS virtualBusT
+	        END virtualBusT;
+	        
+	        VIRTUAL PROCESSOR virtualProcessorT
+	        END virtualProcessorT;
+	END CTP;
+

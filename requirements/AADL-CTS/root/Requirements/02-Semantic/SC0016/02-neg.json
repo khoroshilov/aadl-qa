@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- The defining identifier of a user defined property set is identical to the defining identifier<br />\n\t-- of a predeclared property set. Bug SC0016.<br />\n\tPROPERTY SET Memory_Properties is -- Bug SC0016<\/p>\n<p>\n\t&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND Memory_Properties;<br />\n\t<br />\n\t&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "e16d7971-cf3e-45d0-8e9d-cec245b87989"
+}

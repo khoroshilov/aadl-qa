@@ -1,0 +1,7 @@
+-- A record type declares two identical fields. Bug SC0009.
+PROPERTY SET RECORD_TC1 IS
+    record_type : TYPE RECORD (
+    integer_field : INTEGER; -- bug SC0009    
+    real_field : REAL;
+    integer_field : INTEGER;); -- bug SC0009        
+END RECORD_TC1; 

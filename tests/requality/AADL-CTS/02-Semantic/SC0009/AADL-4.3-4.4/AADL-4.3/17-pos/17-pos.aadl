@@ -1,0 +1,12 @@
+-- A component type extension does not contain any non-unique identifiers
+-- and extends a component type which does not exist. No bug SC0009.
+PACKAGE COMPONENT_TYPE_EXTENSION_TC12
+    PUBLIC
+        THREAD thread_type_extension
+            EXTENDS thread_type_declaration_XXX            
+            PROTOTYPES
+                id_1 : DATA;                
+            FEATURES
+                id_2 : OUT DATA PORT;                                                                    
+        END thread_type_extension;        
+END COMPONENT_TYPE_EXTENSION_TC12; 

@@ -1,0 +1,39 @@
+
+	-- A SYSTEM component type is declared with all subclauses specified.
+	-- The subclauses contain declarations. No bug SC0006.
+	PACKAGE SYSTEM_TYPE_TC1
+	    PUBLIC
+	        WITH simplePropSet;
+	        SYSTEM T
+	            FEATURES
+	                inDataPort : IN DATA PORT;    
+	                outDataPort : OUT DATA PORT;
+	            FLOWS
+	                flowPath : FLOW PATH inDataPort -> outDataPort;
+	            MODES
+	                initMode : INITIAL mode;
+	            PROPERTIES
+	                simplePropSet::simpleProp => 1;
+	        END T;
+	        
+	        SYSTEM TExt
+	            EXTENDS T    
+	            FEATURES
+	                inDataPort2 : IN DATA PORT;    
+	                outDataPort2 : OUT DATA PORT;
+	            FLOWS
+	                flowPath2 : FLOW PATH inDataPort2 -> outDataPort2;
+	            MODES
+	                initMode2 : INITIAL mode;
+	            PROPERTIES
+	                simplePropSet::simpleProp => 2;
+	        END TExt;
+	END SYSTEM_TYPE_TC1;
+
+	 
+
+	PROPERTY SET simplePropSet IS
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (SYSTEM);
+	    simpleProp2 : AADLINTEGER => 0 APPLIES TO (SYSTEM);
+	END simplePropSet;
+

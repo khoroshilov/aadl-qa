@@ -1,0 +1,38 @@
+
+	-- Two package all alias declarations are declared.
+	-- One of the referenced packages does not contain the public section. No bug SC0025.
+	PACKAGE TC13
+	    PUBLIC
+	        WITH pckgId::pckgId, noPublicSectionPckg;
+	        RENAMES pckgId::pckgId::ALL; -- No bug SC0025
+	        RENAMES noPublicSectionPckg::ALL; -- No bug SC0025
+	END TC13;
+
+	 
+
+	PACKAGE noPublicSectionPckg
+	    PRIVATE
+	        THREAD threadTypeId
+	        END threadTypeId;
+	    
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	END noPublicSectionPckg;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+

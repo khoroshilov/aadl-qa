@@ -1,0 +1,38 @@
+-- A PROCESSOR implementation is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE PROCESSOR_IMPLEMENTATION_TC2
+    PUBLIC
+        PROCESSOR T                        
+        END T;
+        
+        PROCESSOR IMPLEMENTATION T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.I;
+        
+        PROCESSOR IMPLEMENTATION T.IExt
+            EXTENDS T.I
+            SUBCOMPONENTS
+                none;
+            CALLS
+                none;
+            CONNECTIONS
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T.IExt;
+END PROCESSOR_IMPLEMENTATION_TC2; 

@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "The component category of a component classifier extension must be identical to the component category of the component classifier being extended or the component category of the component classifier being extended must be ABSTRACT."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "859fc68d-875b-4448-a527-04bd23a8ccba"
+}

@@ -1,0 +1,23 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "For each package there may be at most one public section declaration and one private section declaration.\r\n\r\n#1) AADL-4.2-L2\r\n#2) AADL-4.2-N2\r\n"
+        },
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/0a3bad98-ef26-4019-b2d8-ab7d357309db",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/a7f403e0-8108-44ea-a861-ddc5658fb98b"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "39775fe1-b7b2-4c90-9875-b50d3b7affe6"
+}

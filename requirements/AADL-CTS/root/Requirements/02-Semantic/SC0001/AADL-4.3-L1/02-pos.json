@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "PACKAGE pack_id1::pack<br />\nPUBLIC<br />\n&nbsp;&nbsp; &nbsp;abstract car<br />\n&nbsp;&nbsp; &nbsp;end car; -- no bug SC0001<br />\nEND pack_id1::pack; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "3a3e4eee-b4f7-47ae-9071-2185e57bc50f"
+}

@@ -1,0 +1,15 @@
+-- A feature group type is declared to be the inversion of another feature group type.
+-- Two features declared in different feature groups have the same defining identifier. No bug SC0009.
+PACKAGE FEATURE_GROUP_TYPE_DECLARATION_TC5
+    PUBLIC
+        FEATURE GROUP f_group_declaration
+            FEATURES
+                feature_declaration : IN DATA PORT;                                            
+        END f_group_declaration;
+        
+        FEATURE GROUP inversed_f_group_declaration
+            FEATURES
+                feature_declaration : OUT DATA PORT; -- No bug SC0009
+            INVERSE OF f_group_declaration                            
+        END inversed_f_group_declaration;
+END FEATURE_GROUP_TYPE_DECLARATION_TC5; 

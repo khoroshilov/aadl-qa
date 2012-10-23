@@ -1,0 +1,53 @@
+
+	-- A component implementation extension refines some declarations and declares
+	-- new declarations. The identifier of a new declaration is identical to the identifier
+	-- of one of the refined declarations. Bug SC0009.
+	PACKAGE COMPONENT_IMPLEMENTATION_EXTENSION_TC2
+	PRIVATE
+	    WITH DATA_TYPES;
+	    THREAD threadT
+	        FEATURES
+	            outFeature : OUT DATA PORT;
+	            inFeatue : IN DATA PORT;
+	            
+	            outFeature_2 : OUT DATA PORT;
+	            inFeatue_2 : IN DATA PORT;
+	    END threadT;
+	    
+	    THREAD IMPLEMENTATION threadT.impl
+	        PROTOTYPES
+	            id_1 : SUBPROGRAM;
+	        SUBCOMPONENTS
+	            id_2 : SUBPROGRAM;                    
+	        CONNECTIONS
+	            id_3 : PORT inFeaute -> outFeature;        
+	    END threadT.impl;
+	    
+	    THREAD IMPLEMENTATION threadT.implExt
+	        EXTENDS threadT.impl
+	        PROTOTYPES
+	            id_1 : REFINED TO SUBPROGRAM DATA_TYPES::subprogram_type_1; -- Bug SC0009
+	            id_2 : SUBPROGRAM GROUP; -- Bug SC0009
+	        SUBCOMPONENTS
+	            id_2 : REFINED TO SUBPROGRAM DATA_TYPES::subprogram_type_1; -- Bug SC0009
+	            id_3 : SUBPROGRAM GROUP; -- Bug SC0009                    
+	        CONNECTIONS
+	            id_3 : PORT inFeaute -> outFeature; -- Bug SC0009
+	            id_1 : PORT inFeaute_2 -> outFeature_2; -- Bug SC0009
+	    END threadT.implExt;
+	END COMPONENT_IMPLEMENTATION_EXTENSION_TC2;
+
+	 
+
+	PACKAGE DATA_TYPES
+	    PUBLIC
+	        DATA data_type_1
+	        END data_type_1;
+	        
+	        DATA data_type_2
+	        END data_type_2;
+	        
+	        SUBPROGRAM subprogram_type_1
+	        END subprogram_type_1;
+	END DATA_TYPES;
+

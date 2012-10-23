@@ -1,0 +1,34 @@
+
+	-- An alias declaration renames all declarations of a package and introduces into the local
+	-- namespace of the containing package three identifiers which conflict with short names introduced
+	-- into the package namespace by other three alias declarations. Bug SC0027.
+	PACKAGE TC10
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL; -- 3 bugs SC0027
+	    PRIVATE    
+	        threadTypeId RENAMES PACKAGE pckgId::pckgId;
+	        fGrTypeId RENAMES FEATURE GROUP pckgId::pckgId::fGrTypeId;    
+	        threadGrTypeId RENAMES PACKAGE pckgId::pckgId;
+	END TC10;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

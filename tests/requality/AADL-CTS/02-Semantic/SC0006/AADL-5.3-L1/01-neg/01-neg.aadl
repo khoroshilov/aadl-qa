@@ -1,0 +1,37 @@
+
+    -- A SUBPROGRAM GROUP component type is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE SUBPROGRAM_GROUP_TYPE_TC1
+        PUBLIC
+            WITH simplePropSet;
+            SUBPROGRAM GROUP T
+                FEATURES
+                    feature1 : OUT FEATURE;                        
+                FLOWS -- bug SC0006.
+                    flowSrc : FLOW SOURCE feature1;
+                MODES  -- bug SC0006.
+                    initMode : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T;
+            
+            SUBPROGRAM GROUP TExt
+                EXTENDS T    
+                FEATURES
+            feature2 : OUT FEATURE;
+                FLOWS  -- bug SC0006.
+                    flowSrc2 : FLOW SOURCE feature2;
+                MODES -- bug SC0006.
+                    initMode2 : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END TExt;
+    END SUBPROGRAM_GROUP_TYPE_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (SUBPROGRAM GROUP);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (SUBPROGRAM GROUP);
+    END simplePropSet;
+

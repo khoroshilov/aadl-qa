@@ -1,0 +1,27 @@
+
+	-- An alias declaration renames all declarations of a package which does not contain the public section.
+	-- No bug SC0025.
+	
+	PACKAGE TC12
+	    PUBLIC
+	        WITH noPublicSectionPckg;
+	        RENAMES noPublicSectionPckg::ALL;        
+	        
+	        THREAD threadTypeId
+	        END threadTypeId;
+	    PRIVATE
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;                
+	END TC12;
+
+	 
+
+	PACKAGE noPublicSectionPckg
+	    PRIVATE
+	        THREAD threadTypeId
+	        END threadTypeId;
+	    
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	END noPublicSectionPckg;
+

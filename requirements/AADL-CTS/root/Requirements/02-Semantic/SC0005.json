@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "If the size of an array dimension is specified it must be specified for all the dimensions."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "67e08d26-51c4-4eae-bebc-d850dc4aef82"
+}

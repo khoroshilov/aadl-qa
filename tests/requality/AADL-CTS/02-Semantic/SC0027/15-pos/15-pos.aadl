@@ -1,0 +1,35 @@
+
+	-- An alias declaration references a package for which two private sections are defined.
+	-- This alias declaration imports all declarations from the referenced package including
+	-- a declaration which defining identifier is identical to the defining identifier of a declaration
+	-- from the namespace of the containing package. No bug SC0027.
+	
+	PACKAGE TC15
+	    PUBLIC
+	        WITH badPckgId;
+	        RENAMES badPckgId::ALL; -- No bug SC0027
+	        
+	        THREAD threadTypeId
+	        END threadTypeId;        
+	END TC15;
+
+	 
+
+	-- Two private sections for the same package
+	PACKAGE badPckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	    PRIVATE    
+
+	        THREAD threadTypeId3
+	        END threadTypeId3;             
+	END badPckgId;
+	
+	PACKAGE badPckgId
+	    PRIVATE      
+
+	         THREAD threadTypeId5
+	        END threadTypeId5;      
+	END badPckgId;
+

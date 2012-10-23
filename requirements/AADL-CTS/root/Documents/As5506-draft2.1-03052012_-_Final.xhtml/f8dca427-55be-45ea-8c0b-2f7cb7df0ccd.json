@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N15)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">     <\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">The <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">alias_declaration\n<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">makes the publicly visible identifier of classifiers\ndeclared in another package accessible in the name space of the package\ncontaining the <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">alias_declaration<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">.   If the alias declaration for a classifier does not include a\ndefining identifier then the referenced classifier identifier is used as\ndefining identifier and this identifier must be unique in the namespace of the\npackage with the alias declaration.<\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "f8dca427-55be-45ea-8c0b-2f7cb7df0ccd"
+}

@@ -1,0 +1,17 @@
+
+	-- A feature group type declaration does not declare any prototypes and features with the same
+	-- defining identifier. No bug SC0009.
+	PACKAGE FEATURE_GROUP_TYPE_DECLARATION_TC2
+	    PUBLIC
+	        FEATURE GROUP f_group_declaration
+	            PROTOTYPES
+	                feature_prototype : FEATURE;
+
+	                component_prototype : DATA;
+	            FEATURES
+	                feature_declaration : IN DATA PORT;
+	                in_feature : IN DATA PORT;
+	                out_feature : OUT DATA PORT;            
+	        END f_group_declaration;
+	END FEATURE_GROUP_TYPE_DECLARATION_TC2;
+

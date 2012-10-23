@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- Packages do not contain duplicate package sections. No bug SC0002.<br />\n\t<br />\n\tPACKAGE pack3<br />\n\tPUBLIC&nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr<\/p>\n&nbsp; END myThr;\n<p>\n\t&nbsp;&nbsp;<br />\n\tPRIVATE<\/p>\n<p>\n\t&nbsp; THREAD myThr2<\/p>\n&nbsp; END myThr2;\n<p>\n\t<br />\n\tEND pack3;<br />\n\t<br />\n\t-- public &amp; private sections of the package are declared in two separate package declarations<br />\n\tPACKAGE pack4<br />\n\tPRIVATE<\/p>\n<p>\n\t&nbsp; THREAD myThr3<\/p>\n&nbsp; END myThr3;\n<p>\n\t<br />\n\tEND pack4;<br />\n\t<br />\n\t-- public &amp; private sections of the package are declared in two separate package declarations<br />\n\tPACKAGE pack4<br />\n\tPUBLIC&nbsp;&nbsp; &nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr4<\/p>\n&nbsp; END myThr4;\n<p>\n\t<br />\n\tEND pack4;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "c61107e7-7cca-4c1d-8ef2-efcc59eced26"
+}

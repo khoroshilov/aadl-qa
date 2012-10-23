@@ -1,0 +1,12 @@
+-- The name of a package alias is identical to the name of the containing package. Bug SC0028.
+PACKAGE TC1
+    PUBLIC
+        TC1 renames package pack2; -- bug SC0028                
+END TC1;
+
+PACKAGE pack2
+    PUBLIC
+        THREAD t
+    END t;
+END pack2;
+

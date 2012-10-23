@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\r\n\t-- An alias declaration renames all declarations of a package. The private section<br />\r\n\t-- of the referenced package contains a subprogram declaration which defining identifier<br />\r\n\t-- is identical to the defining identifiers of declarations from the namespace of the package<br />\r\n\t-- which contains the alias declaration. No bug SC0025.<br />\r\n\t<br />\r\n\tPACKAGE TC7<br />\r\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH pckgId::pckgId;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;RENAMES pckgId::pckgId::ALL;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBPROGRAM subprogramTypeId -- no bug SC0025<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END subprogramTypeId;<br />\r\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH pckgId::pckgId::pckgId::pckgId;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;subprogramTypeId RENAMES PACKAGE pckgId::pckgId; -- no bug SC0025<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;subprogramTypeId RENAMES THREAD pckgId::pckgId::pckgId::pckgId::threadTypeId; -- no bug SC0025<br />\r\n\tEND TC7;<\/p>\r\n<p>\r\n\t&nbsp;<\/p>\r\n<p>\r\n\tPACKAGE pckgId::pckgId<br />\r\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD IMPLEMENTATION threadTypeId.Impl<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId.Impl;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FEATURE GROUP featureGrTypeId<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END featureGrTypeId;<br />\r\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;SUBPROGRAM subprogramTypeId<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END subprogramTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\tEND pckgId::pckgId;<br />\r\n\t<br />\r\n\tPACKAGE pckgId::pckgId::pckgId::pckgId<br />\r\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\r\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\r\n\tEND pckgId::pckgId::pckgId::pckgId;<br />\r\n\t<br />\r\n\t<br />\r\n\t&nbsp;<\/p>\r\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "a31d95a9-b2d6-42d1-bdbc-6f2811dd7b7c"
+}

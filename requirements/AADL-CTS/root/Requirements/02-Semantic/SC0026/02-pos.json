@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "-- An alias declaration renames all declarations of the containing package. The public section of<br />\n-- the containing package does not contain any component type or feature group type declarations.<br />\n-- No bug SC0026.<br />\nPACKAGE TC2<br />\n&nbsp;&nbsp; &nbsp;PUBLIC<br />\n&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;renames TC2::all; -- no bug SC0026&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\nEND TC2; "
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "9346c090-e149-43f4-af2f-b8b72e03042f"
+}

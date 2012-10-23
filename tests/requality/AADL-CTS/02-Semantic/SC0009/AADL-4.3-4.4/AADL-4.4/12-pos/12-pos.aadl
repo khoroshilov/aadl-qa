@@ -1,0 +1,23 @@
+-- A component implementation implements a component type. The categories of both
+-- do not match. The component implementation declares some identifiers to be
+-- identical to the identifiers declared in the component type. No bug SC0009.
+PACKAGE COMPONENT_IMPLEMENTATION_DECLARATION_TC12
+PRIVATE
+    SYSTEM systemT
+        PROTOTYPES
+            id_2 : SUBPROGRAM;
+        FEATURES
+            inFeature : IN DATA PORT;
+            outFeature : OUT DATA PORT;                                
+        MODES
+            mode1 : INITIAL mode;
+            id_1 : mode;                
+    END systemT;
+    
+    THREAD IMPLEMENTATION systemT.impl        
+        SUBCOMPONENTS
+            id_1 : SUBPROGRAM; -- No bug SC0009        
+        CONNECTIONS
+            id_2 : PORT inFeaute -> outFeature; -- No bug SC0009            
+    END systemT.impl;
+END COMPONENT_IMPLEMENTATION_DECLARATION_TC12; 

@@ -1,0 +1,37 @@
+
+    -- A SUBPROGRAM component type is declared with all subclauses specified.
+    -- The subclauses contain declarations. No bug SC0006.
+    PACKAGE SUBPROGRAM_TYPE_TC1
+        PUBLIC
+            WITH simplePropSet;
+            SUBPROGRAM T
+                FEATURES
+                    outEventDataPort : OUT EVENT DATA PORT;
+                FLOWS
+                    flowSrc : FLOW SOURCE outEventDataPort;
+                MODES
+                    initMode : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T;
+            
+            SUBPROGRAM TExt
+                EXTENDS T    
+                FEATURES
+                    outEventDataPort2 : OUT EVENT DATA PORT;
+                FLOWS
+                    flowSrc2 : FLOW SOURCE outEventDataPort2;
+                MODES
+                    initMode2 : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END TExt;
+    END SUBPROGRAM_TYPE_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (SUBPROGRAM);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (SUBPROGRAM);
+    END simplePropSet;
+

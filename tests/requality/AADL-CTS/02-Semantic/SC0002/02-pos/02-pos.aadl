@@ -1,0 +1,38 @@
+
+	-- Packages do not contain duplicate package sections. No bug SC0002.
+	
+	PACKAGE pack3
+	PUBLIC 
+
+	  THREAD myThr
+  END myThr;
+
+	  
+	PRIVATE
+
+	  THREAD myThr2
+  END myThr2;
+
+	
+	END pack3;
+	
+	-- public  private sections of the package are declared in two separate package declarations
+	PACKAGE pack4
+	PRIVATE
+
+	  THREAD myThr3
+  END myThr3;
+
+	
+	END pack4;
+	
+	-- public  private sections of the package are declared in two separate package declarations
+	PACKAGE pack4
+	PUBLIC    
+
+	  THREAD myThr4
+  END myThr4;
+
+	
+	END pack4;
+

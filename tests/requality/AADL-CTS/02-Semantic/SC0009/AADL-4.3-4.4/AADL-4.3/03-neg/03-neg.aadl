@@ -1,0 +1,16 @@
+-- A component type declaration declares two flow specification declarations with the same defining
+-- identifier. The prototypes section of the component type contains none; statement. Bug SC0009.
+PACKAGE COMPONENT_TYPE_DECLARATION_TC3
+    PUBLIC
+        THREAD thread_type
+            PROTOTYPES
+                none;                    
+            FEATURES
+                feature_declaration : IN DATA PORT;                
+                in_feature : IN DATA PORT;
+                out_feature : OUT DATA PORT;
+            FLOWS
+                id : FLOW SOURCE out_feature; -- Bug SC0009
+                id : FLOW SINK in_feature; -- Bug SC0009                
+        END thread_type;
+END COMPONENT_TYPE_DECLARATION_TC3; 

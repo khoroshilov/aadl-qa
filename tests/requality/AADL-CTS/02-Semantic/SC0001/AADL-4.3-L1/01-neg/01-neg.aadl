@@ -1,0 +1,5 @@
+PACKAGE pack_id1::pack
+PUBLIC
+    abstract car
+    end car_X; -- bug SC0001
+END pack_id1::pack;

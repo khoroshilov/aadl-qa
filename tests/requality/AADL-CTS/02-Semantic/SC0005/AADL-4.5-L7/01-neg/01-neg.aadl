@@ -1,0 +1,32 @@
+-- Some dimensions of an array of subcomponents are specified, some arn&#39;t. Bug SC0005.
+
+PACKAGE TC1
+    PUBLIC
+        PROCESS myProcessT
+        END myProcessT;
+        
+        DATA myDataT
+        END myDataT;        
+        
+        THREAD myThreadT
+        END myThreadT;
+    PRIVATE
+        WITH myPropSet;    
+        PROCESS IMPLEMENTATION myProcessT.myProcessImpl            
+            SUBCOMPONENTS
+                -- numeric dimension size
+                myDataSubc : data myDataT [2][][3]; -- bug SC0005
+                -- user defined property constant as dimension size
+                myDataSubc2 : data myDataT [ ][myPropSet::myPropConst][ ]; -- bug SC0005
+                -- predefined property constant as dimension size
+                myThreadSubc : thread myThreadT [5][myPropSet::myPropConst][3][]; -- bug SC0005
+                -- property as dimension size    
+                myThreadSubc2 : thread myThreadT [myPropSet::dimension][][]; -- bug SC0005                
+        END myProcessT.myProcessImpl;        
+END TC1;
+
+PROPERTY SET myPropSet IS
+    WITH pack;
+    dimension : AADLINTEGER => 4 APPLIES TO (subcomponent);
+    myPropConst : CONSTANT AADLINTEGER => 10;
+END myPropSet; 

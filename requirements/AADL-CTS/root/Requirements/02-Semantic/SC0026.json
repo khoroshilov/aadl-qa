@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "An alias declaration may not rename all declarations of the containing package unless the public section of the package does not contain any component type or feature group type declarations."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "8a7b6f9a-ee54-4a1f-8d07-6c90cb114309"
+}

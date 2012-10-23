@@ -1,0 +1,27 @@
+-- A VIRTUAL_PROCESSOR component type is declared with all subclauses specified.
+-- The subclauses contain the none statement. No bug SC0006.
+PACKAGE VIRTUAL_PROCESSOR_TYPE_TC2
+    PUBLIC
+        VIRTUAL PROCESSOR T
+            FEATURES
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END T;
+        
+        VIRTUAL PROCESSOR TExt
+            EXTENDS T    
+            FEATURES
+                none;
+            FLOWS
+                none;
+            MODES
+                none;
+            PROPERTIES
+                none;
+        END TExt;
+END VIRTUAL_PROCESSOR_TYPE_TC2; 

@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- Two aliases rename all declarations of the same package. The package contains two private sections.<br />\n\t-- Bug SC0024 is not detected.<br />\n\tPACKAGE TC7<br />\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH badPckg;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;renames badPckg::all; -- bug SC0024 is not detected&nbsp;&nbsp; &nbsp;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;WITH badPckg;<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;renames badPckg::all; -- bug SC0024 is not detected&nbsp;&nbsp; &nbsp;<br />\n\tEND TC7;<\/p>\n<p>\n\tPACKAGE badPckg<\/p>\n<p>\n\t&nbsp;&nbsp; &nbsp;PUBLIC<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;THREAD threadTypeId<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId;<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE&nbsp;&nbsp;<\/p>\n<p>\n\t&nbsp; &nbsp; &nbsp; &nbsp; THREAD threadTypeId2<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId2;<br />\n\tEND badPckg;<br />\n\t<br />\n\tPACKAGE badPckg<br />\n\t&nbsp;&nbsp; &nbsp;PRIVATE&nbsp;&nbsp; &nbsp;<\/p>\n<p>\n\t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; THREAD threadTypeId3<br />\n\t&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;END threadTypeId3;<br />\n\tEND badPckg;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "3a2ad3eb-4501-4d30-b765-ae3c3dcee951"
+}

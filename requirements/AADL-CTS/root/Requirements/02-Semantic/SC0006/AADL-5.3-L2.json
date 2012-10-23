@@ -1,0 +1,19 @@
+{
+    "attributes": {
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/20329243-e602-47a0-ae79-500ed4e62fe8",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/5372483e-fdd0-43f5-b8a2-42c4e631fe04",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/3f755464-bcf9-4e4b-87e2-a7522a9abbf9"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "17622aba-9a63-4fe7-b5dd-289a449f3e00"
+}

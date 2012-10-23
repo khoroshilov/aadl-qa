@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "a subprogram calls subclause, a connections\nsubclause, a flows subclause, a modes subclause, and property associations."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "d7731a17-5a61-43de-890f-fb96c89a5f58"
+}

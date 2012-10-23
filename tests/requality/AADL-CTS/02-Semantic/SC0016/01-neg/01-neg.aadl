@@ -1,0 +1,28 @@
+
+	-- The defining identifier of a package is identical to the defining identifier of a predeclared
+	-- property set. Bug SC0016.
+	PACKAGE Modeling_Properties -- Bug SC0016
+	PUBLIC
+PRIVATE
+
+	END Modeling_Properties;
+	
+	PACKAGE Timing_Properties -- Bug SC0016
+	PUBLIC
+
+	 
+
+	  THREAD myThr3
+  END myThr3;
+
+	
+	PRIVATE
+
+	 
+
+	  THREAD myThr4
+  END myThr4
+
+	
+	END Timing_Properties;
+

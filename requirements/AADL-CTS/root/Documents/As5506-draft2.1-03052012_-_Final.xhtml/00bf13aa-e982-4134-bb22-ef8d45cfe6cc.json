@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<a xmlns=\"http://www.w3.org/1999/xhtml\" name=\"_Ref166314763\"><span lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N14)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">    \n<\/span><\/span><span lang=\"EN-US\">The defining identifier of an <\/span><\/a><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">alias_declaration<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\"> must be unique in the namespace of the package containing the <\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Courier New&quot;;\">alias_declaration<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">.<\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\"> <\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "00bf13aa-e982-4134-bb22-ef8d45cfe6cc"
+}

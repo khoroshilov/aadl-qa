@@ -1,0 +1,32 @@
+
+	-- A package contains only component type and feature group type alias declarations
+	-- which do not explicitly declare a new identifier for the referenced declaration.
+	-- Three alias declarations are the same, i.e. reference the same declaration.
+	-- Bug SC0025.
+	PACKAGE TC16
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES THREAD pckgId::pckgId::threadTypeId; -- Bug SC0025
+	        RENAMES THREAD pckgId::pckgId::featureGrTypeId; -- No bug SC0025
+	        RENAMES THREAD pckgId::pckgId::threadTypeId; -- Bug SC0025
+	    PRIVATE    
+	        RENAMES THREAD pckgId::pckgId::threadTypeId; -- Bug SC0025        
+	END TC16;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+

@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "Package and property set defining identifiers must differ from the defining identifiers of the predeclared property sets."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "5144ff0e-beb9-4bab-b90b-1426a300f885"
+}

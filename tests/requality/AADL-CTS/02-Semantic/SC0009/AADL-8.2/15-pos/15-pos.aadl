@@ -1,0 +1,23 @@
+
+	-- A feature group type extension does not contain any non-unique identifiers.
+	-- The extended feature group type does not contain any identifiers. No bug SC0009.
+	PACKAGE FEATURE_GROUP_TYPE_EXTENSION_TC10
+	    PUBLIC
+	        FEATURE GROUP f_group_declaration            
+	        END f_group_declaration;
+
+	 
+
+	         DATA simpleDataT
+
+	         END simpleDataT;
+	            
+	        FEATURE GROUP f_group_extension
+	            EXTENDS f_group_declaration
+	            PROTOTYPES
+	                id_1 : DATA;
+	            FEATURES
+	                id_2 : IN DATA PORT simpleDataT;    
+	        END f_group_extension;
+	END FEATURE_GROUP_TYPE_EXTENSION_TC10;
+

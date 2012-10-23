@@ -1,0 +1,24 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\" xmlns=\"http://www.w3.org/1999/xhtml\">(L3)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <\/span><\/span><span lang=\"EN-US\" xmlns=\"http://www.w3.org/1999/xhtml\">A process implementation can contain a connections subclause, a flows subclause, a modes subclause, and a properties subclause.<\/span><br />\n<p class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span lang=\"EN-US\">Subprogram calls: no<\/span><\/p>\n<p class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span lang=\"EN-US\">Connections: yes<\/span><\/p>\n<p class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span lang=\"EN-US\">Flows: yes<\/span><\/p>\n<p class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span lang=\"EN-US\">Modes: yes<\/span><\/p>\n<p class=\"table-indent\" style=\"margin-left: 0cm; text-indent: 0cm; page-break-after: avoid;\" xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<span lang=\"EN-US\">Properties: yes<\/span><\/p>\n<br />\nSubcomponents:"
+        },
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/66fb6358-f53c-4825-a214-2c5e94b04126",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/4107f1c3-6535-46c2-a242-dd451778309e",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/c6fecb46-009f-4793-a250-02878892dbe5"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "92b999be-e8e5-4cfa-a1a3-144195d1333a"
+}

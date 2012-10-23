@@ -1,0 +1,8 @@
+-- The identifier of a package alias is identical to an identifier listed in an import declaration.
+-- The identifier listed in the import declaration is not a package or a property set identifier.
+-- No bug SC0023.
+PACKAGE TC9
+    PUBLIC
+        WITH AAA, BBB, XXX, YYY, ZZZ;
+        XXX renames package YYY; -- no bug SC0023                                
+END TC9; 

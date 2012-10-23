@@ -1,0 +1,27 @@
+-- Two flow implementations are declared to belong to the same mode. No bug SC0009.
+PACKAGE COMPONENT_IMPLEMENTATION_EXTENSION_TC4
+PRIVATE
+    THREAD threadT
+        FEATURES
+            inFeature : IN DATA PORT;
+            outFeature : OUT DATA PORT;            
+        FLOWS
+            flowSource : FLOW SOURCE outFeature IN MODES (mode1, mode2);
+            flowSink : FLOW SINK inFeature IN MODES (mode2);
+        MODES
+            mode1 : INITIAL mode;
+            mode2 : mode;
+            mode3 : mode;        
+    END threadT;
+    
+    THREAD IMPLEMENTATION threadT.impl
+    END threadT.impl;
+    
+    THREAD IMPLEMENTATION threadT.implExt
+        EXTENDS threadT.impl
+        FLOWS
+            flowSource : FLOW SOURCE outFeature IN MODES (mode1); -- No bug SC0009            
+            flowSource : FLOW SOURCE outFeature IN MODES (mode2, mode3, mode1); -- No bug SC0009
+            flowSink : FLOW SINK inFeature IN MODES (mode2);
+    END threadT.implExt;
+END COMPONENT_IMPLEMENTATION_EXTENSION_TC4; 

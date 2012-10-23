@@ -1,0 +1,66 @@
+
+    -- A VIRTUAL BUS implementation is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE VIRTUAL_BUS_IMPLEMENTATION_TC1
+        PUBLIC
+            WITH simplePropSet;
+
+          
+
+           SUBPROGRAM simpleProg
+
+           END simpleProg;
+
+
+            VIRTUAL BUS T
+                FEATURES
+                    feature1 : OUT FEATURE;
+            feature2 : IN FEATURE;
+                    feature3 : OUT FEATURE;
+            feature4 : IN FEATURE;            
+                FLOWS
+                    flowSource : FLOW SOURCE feature1;
+            flowSource2 : FLOW SOURCE feature3;           
+            END T;
+            
+            VIRTUAL BUS IMPLEMENTATION T.I
+                SUBCOMPONENTS
+                    myVirtBusSubc : VIRTUAL BUS T;
+                CALLS myCalls : { -- bug SC0006.
+                    subprogCall : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS  -- bug SC0006.
+                    myConnection : FEATURE feature1 -> feature2;
+                FLOWS -- bug SC0006.
+                    flowSource : FLOW SOURCE feature1;
+                MODES
+                    initMode : INITIAL MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T.I;
+            
+            VIRTUAL BUS IMPLEMENTATION T.IExt
+                EXTENDS T.I
+                SUBCOMPONENTS
+                    myVirtBusSubc2 : VIRTUAL BUS T;
+                CALLS myCalls2 : { -- bug SC0006.
+                    subprogCall2 : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS -- bug SC0006.
+                    myConnection2 : FEATURE feature3 -> feature4;
+                FLOWS -- bug SC0006.
+                    flowSource2 : FLOW SOURCE feature3;
+                MODES
+                    mode2 : MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END T.IExt;
+    END VIRTUAL_BUS_IMPLEMENTATION_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (VIRTUAL BUS);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (VIRTUAL BUS);
+    END simplePropSet;
+

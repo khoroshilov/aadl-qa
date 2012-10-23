@@ -1,0 +1,5 @@
+-- The name of a package alias is not identical to the name of the containing package. No bug SC0028.
+PACKAGE TC2
+    PUBLIC
+        TC2XXX renames package TC2; -- no bug SC0028                
+END TC2; 

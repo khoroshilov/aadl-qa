@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "--&nbsp; A units type declares two identical unit literals. Bug SC0009.<br />\nPROPERTY SET UNITS_LIST_TC1 IS<br />\n&nbsp;&nbsp; &nbsp;units_type : TYPE UNITS (MM, SM =&gt; MM * 10, MM =&gt; SM * 100); -- bug SC0009&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />\nEND UNITS_LIST_TC1;<br />\n<br />\n&nbsp;"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "c7f68a30-a3fa-4c3f-bbdd-8e5753b3e78b"
+}

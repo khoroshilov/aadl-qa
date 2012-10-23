@@ -1,0 +1,8 @@
+-- A package declares two declarations which have the same defining identifier. Bug SC0027.
+PACKAGE TC1
+    PUBLIC
+        THREAD id -- bug SC0027
+        END id;
+        FEATURE GROUP id -- bug SC0027
+        END id;           
+END TC1; 

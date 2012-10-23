@@ -1,0 +1,24 @@
+-- Two flow implementations with the same name are declared. One of them belongs to modes.
+-- The other one does not belong to any modes. No bug SC0009.  
+PACKAGE COMPONENT_IMPLEMENTATION_DECLARATION_TC5
+PRIVATE
+    THREAD threadT
+        FEATURES
+            inFeature : IN DATA PORT;
+            outFeature : OUT DATA PORT;            
+        FLOWS
+            flowSource : FLOW SOURCE outFeature IN MODES (mode1, mode2);
+            flowSink : FLOW SINK inFeature IN MODES (mode2);
+        MODES
+            mode1 : INITIAL mode;
+            mode2 : mode;
+            mode3 : mode;        
+    END threadT;
+    
+    THREAD IMPLEMENTATION threadT.impl
+        FLOWS
+            flowSource : FLOW SOURCE outFeature IN MODES (mode1); -- No bug SC0009            
+            flowSource : FLOW SOURCE outFeature; -- No bug SC0009
+            flowSink : FLOW SINK inFeature IN MODES (mode2);
+    END threadT.impl;
+END COMPONENT_IMPLEMENTATION_DECLARATION_TC5; 

@@ -1,0 +1,43 @@
+
+	-- Identifier of a package alias is identical to the identifier of an imported package. Bug SC0023.
+	PACKAGE TC1
+	    PUBLIC
+	        WITH pckgId, pckgId2, pckgId::pckgId;
+	        pckgId renames package pckgId::pckgId; -- bug SC0023
+	        pckgId2 renames package pckgId::pckgId::pckgId; -- bug SC0023
+	        id1 renames package pckgId::pckgId;
+	        id2 renames package pckgId::pckgId::pckgId;                        
+	END TC1;
+
+	 
+
+	PACKAGE pckgId
+	    PUBLIC
+
+	       THREAD myThr1
+
+	        END myThr1;
+	END pckgId;
+	
+	PACKAGE pckgId2
+	    PUBLIC
+
+	 
+
+	       THREAD myThr2
+        END myThr2;
+
+	
+	END pckgId2;
+	
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+
+	 
+
+	       THREAD myThr3
+        END myThr3;
+
+	
+	END pckgId::pckgId;
+

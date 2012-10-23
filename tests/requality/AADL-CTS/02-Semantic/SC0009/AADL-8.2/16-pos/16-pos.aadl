@@ -1,0 +1,12 @@
+-- A feature group type extension does not contain any non-unique identifiers
+-- and extends a feature group type which does not exist. No bug SC0009.
+PACKAGE FEATURE_GROUP_TYPE_EXTENSION_TC11
+    PUBLIC
+        FEATURE GROUP f_group_extension
+            EXTENDS f_group_declaration_XXX
+            PROTOTYPES
+                id_1 : FEATURE;
+            FEATURES
+                id_2 : FEATURE;    
+        END f_group_extension;
+END FEATURE_GROUP_TYPE_EXTENSION_TC11; 

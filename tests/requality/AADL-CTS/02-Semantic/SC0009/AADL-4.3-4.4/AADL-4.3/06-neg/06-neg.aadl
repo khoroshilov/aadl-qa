@@ -1,0 +1,35 @@
+-- A component type extension declares prototypes, features and flows with the same
+-- defining identifier. Bug SC0009.
+PACKAGE COMPONENT_TYPE_EXTENSION_TC1
+    PUBLIC
+        THREAD thread_type_declaration
+        END thread_type_declaration;
+        
+        THREAD thread_type_extension
+            EXTENDS thread_type_declaration
+            PROTOTYPES
+                component_prototype : DATA;
+                id_1 : DATA; -- bug SC0009
+                ID_1 : FEATURE; -- bug SC0009
+                feature_prototype : FEATURE;
+                id_2 : DATA; -- bug SC0009                
+            FEATURES
+                feature_declaration : IN DATA PORT;
+                id_1 : IN DATA PORT; -- bug SC0009
+                in_feature : IN DATA PORT;
+                out_feature : OUT DATA PORT;
+            FLOWS
+                flow_source : FLOW SOURCE out_feature;
+                flow_sink : FLOW SINK in_feature;
+                id_1 : FLOW SOURCE out_feature; -- bug SC0009
+                ID_1 : FLOW SINK in_feature; -- bug SC0009
+                Id_2 : FLOW SOURCE out_feature; -- bug SC0009
+            MODES
+                id_1 : INITIAL mode; -- bug SC0009
+                modeTrans : id1 -[inFeature]-> mode3; -- bug SC0009
+                id1 -[inFeature]-> mode1;
+                mode3 : mode;
+                modeTrans : mode1 -[inFeature]-> mode3; -- bug SC0009
+                id_2 : mode; -- bug SC0009    
+        END thread_type_extension;
+END COMPONENT_TYPE_EXTENSION_TC1; 

@@ -1,0 +1,35 @@
+-- All dimensions of an array of subcomponents are specified or all unspecified.  No bug SC0005.
+PACKAGE TC2
+    PUBLIC
+        PROCESS myProcessT
+            FEATURES
+                featureArr : IN DATA PORT [];            
+        END myProcessT;
+        
+        DATA myDataT
+        END myDataT;        
+        
+        THREAD myThreadT
+            FEATURES
+                featureArr : IN DATA PORT [3];
+        END myThreadT;
+    PRIVATE
+        WITH myPropSet;    
+        PROCESS IMPLEMENTATION myProcessT.myProcessImpl            
+            SUBCOMPONENTS
+                -- all dimension sizes are specified using allowed identifier types and a numeric value
+                myDataSubc : data myDataT [myPropSet::myPropConst][4][myPropSet::dimension];
+                -- all dimension sizes aren&#39;t specified
+                myThreadSubc : thread myThreadT [][][];
+                -- specified size of a single dimension                                 
+                myThreadSubc2 : thread myThreadT [4];
+                -- unspecified size of a single dimension
+                myDataSubc2 : data myDataT [];
+        END myProcessT.myProcessImpl;        
+END TC2;
+
+PROPERTY SET myPropSet IS
+    WITH pack;
+    dimension : AADLINTEGER => 4 APPLIES TO (subcomponent);
+    myPropConst : CONSTANT AADLINTEGER => 10;
+END myPropSet; 

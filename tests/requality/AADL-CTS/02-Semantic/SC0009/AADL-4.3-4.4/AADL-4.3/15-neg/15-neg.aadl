@@ -1,0 +1,19 @@
+-- A component type extension does not contain any unique defining identifiers, but
+-- contains some non-unique. Bug SC0009.
+PACKAGE COMPONENT_TYPE_EXTENSION_TC10
+    PUBLIC
+        THREAD thread_type_declaration            
+            PROTOTYPES
+                id_1 : DATA;                
+            FEATURES
+                id_2 : OUT DATA PORT;                                    
+        END thread_type_declaration;        
+        
+        THREAD thread_type_extension
+            EXTENDS thread_type_declaration            
+            PROTOTYPES
+                id_1 : DATA; -- Bug SC0009                
+            FEATURES
+                id_1 : OUT DATA PORT; -- Bug SC0009                                                                    
+        END thread_type_extension;        
+END COMPONENT_TYPE_EXTENSION_TC10; 

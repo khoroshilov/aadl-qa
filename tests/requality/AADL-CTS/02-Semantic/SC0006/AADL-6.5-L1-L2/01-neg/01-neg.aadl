@@ -1,0 +1,37 @@
+
+    -- A VIRTUAL BUS component type is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE VIRTUAL_BUS_TYPE_TC1
+        PUBLIC
+            WITH simplePropSet;
+            VIRTUAL BUS T
+                FEATURES -- bug SC0006.
+                    feature1 : OUT FEATURE;            
+                FLOWS  -- bug SC0006.
+                    flowSrc : FLOW SOURCE feature1;            
+                MODES
+                    initMode : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T;
+            
+            VIRTUAL BUS TExt
+                EXTENDS T    
+                FEATURES -- bug SC0006.
+            feature2 : OUT FEATURE;
+                FLOWS  -- bug SC0006.
+            flowSrc2 : FLOW SOURCE feature2;
+                MODES
+                    initMode2 : INITIAL mode;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END TExt;
+    END VIRTUAL_BUS_TYPE_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (VIRTUAL BUS);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (VIRTUAL BUS);
+    END simplePropSet;
+

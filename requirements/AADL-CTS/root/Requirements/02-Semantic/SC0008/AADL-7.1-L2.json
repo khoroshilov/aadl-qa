@@ -1,0 +1,18 @@
+{
+    "attributes": {
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/a7a306c5-0ead-476c-b090-50fd20dbc1de",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/bbe06b03-424e-4c8b-8a1d-0ee0bdb07504"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "cfa8e004-d2f6-4a7b-bba3-184f9e8b2bcc"
+}

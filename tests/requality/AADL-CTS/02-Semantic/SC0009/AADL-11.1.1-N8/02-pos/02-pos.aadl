@@ -1,0 +1,7 @@
+-- A record type does not declare any identical fields. No bug SC0009.
+PROPERTY SET RECORD_TC2 IS
+    record_type : TYPE RECORD (
+    integer_field : INTEGER;
+    real_field : REAL;
+    integer_field_2 : INTEGER;); -- No bug SC0009        
+END RECORD_TC2; 

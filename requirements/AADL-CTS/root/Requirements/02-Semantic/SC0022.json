@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "A component implementation extension implements a component type extension. The namespace of an ancestor component type from the extension hierarchy of the component type extension contains an identifier identical to an identifier from the namespace of an ancestor component implementation from the extension hierarchy of the component implementation extension. The ancestor component implementation does not implement the ancestor component type."
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "46e4a0ed-c7cb-4453-910f-fded703365cd"
+}

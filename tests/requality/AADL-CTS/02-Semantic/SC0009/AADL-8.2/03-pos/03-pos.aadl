@@ -1,0 +1,10 @@
+-- The features and prototypes sections of a feature group type declaration contain none; statement. No bug SC0009.
+PACKAGE FEATURE_GROUP_TYPE_DECLARATION_TC3
+    PUBLIC
+        FEATURE GROUP f_group_declaration
+            PROTOTYPES
+                none;
+            FEATURES
+                none;            
+        END f_group_declaration;
+END FEATURE_GROUP_TYPE_DECLARATION_TC3; 

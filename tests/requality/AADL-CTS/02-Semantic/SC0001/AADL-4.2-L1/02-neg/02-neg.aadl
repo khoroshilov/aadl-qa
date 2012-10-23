@@ -1,0 +1,4 @@
+
+	PACKAGE pack_id2::pack
+	PUBLIC
+END pack_id1::pack; -- bug SC0001

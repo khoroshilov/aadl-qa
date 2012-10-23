@@ -1,0 +1,9 @@
+-- An alias declaration renames all declarations of the containing package.
+-- The public section of the package contains a component type. No bug SC0027.
+PACKAGE TC14
+    PUBLIC
+        RENAMES TC14::ALL; -- No bug SC0027
+        
+        THREAD threadTypeId
+        END threadTypeId;
+END TC14; 

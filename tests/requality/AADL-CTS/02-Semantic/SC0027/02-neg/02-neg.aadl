@@ -1,0 +1,10 @@
+-- The public section of a package contains an identifier which is identical to an identifier
+-- declared in the private section of the package. Bug SC0027.
+PACKAGE TC2
+    PUBLIC
+        THREAD id -- bug SC0027
+        END id;
+    PRIVATE    
+        FEATURE GROUP id -- bug SC0027
+        END id;        
+END TC2; 

@@ -1,0 +1,39 @@
+
+	-- A VIRTUAL_PROCESSOR component type is declared with all subclauses specified.
+	-- The subclauses contain declarations. No bug SC0006.
+	PACKAGE VIRTUAL_PROCESSOR_TYPE_TC1
+	    PUBLIC
+	        WITH simplePropSet;
+	        VIRTUAL PROCESSOR T
+	            FEATURES
+	                inDataPort : IN DATA PORT;    
+	                outDataPort : OUT DATA PORT;
+	            FLOWS
+	                flowPath : FLOW PATH inDataPort -> outDataPort;
+	            MODES
+	                initMode : INITIAL mode;
+	            PROPERTIES
+	                simplePropSet::simpleProp => 1;
+	        END T;
+	        
+	        VIRTUAL PROCESSOR TExt
+	            EXTENDS T    
+	            FEATURES
+	                inDataPort2 : IN DATA PORT;    
+	                outDataPort2 : OUT DATA PORT;
+	            FLOWS
+	                flowPath2 : FLOW PATH inDataPort2 -> outDataPort2;
+	            MODES
+	                initMode2 : INITIAL mode;
+	            PROPERTIES
+	                simplePropSet::simpleProp => 2;
+	        END TExt;
+	END VIRTUAL_PROCESSOR_TYPE_TC1;
+
+	 
+
+	PROPERTY SET simplePropSet IS
+	    simpleProp : AADLINTEGER => 0 APPLIES TO (VIRTUAL PROCESSOR);
+	    simpleProp2 : AADLINTEGER => 0 APPLIES TO (VIRTUAL PROCESSOR);
+	END simplePropSet;
+

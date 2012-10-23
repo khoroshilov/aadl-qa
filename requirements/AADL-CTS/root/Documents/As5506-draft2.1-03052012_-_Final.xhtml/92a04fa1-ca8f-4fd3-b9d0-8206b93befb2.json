@@ -1,0 +1,15 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\" style=\"font-family: &quot;Helvetica-Narrow&quot;,&quot;sans-serif&quot;;\">(N3)<span style=\"font: 7pt &quot;Times New Roman&quot;;\">       \n<\/span><\/span><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\">Associated with every property set is a <\/span><i xmlns=\"http://www.w3.org/1999/xhtml\"><span lang=\"EN-US\">property set namespace<\/span><\/i><span xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"EN-US\"> that contains the\ndefining identifiers for all property types, property definitions, and property\nconstants declared within that property set.  This means that property types, properties,\nand property constants with the same identifier can be declared in different\nproperty sets.  <\/span>"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Location"
+        }
+    },
+    "uuid": "92a04fa1-ca8f-4fd3-b9d0-8206b93befb2"
+}

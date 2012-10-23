@@ -1,0 +1,7 @@
+PACKAGE pack_id1::pack
+PUBLIC
+    feature group GPSbasic_socket
+    end GPSbasic_socket_X; -- bug SC0001    
+    feature group GPSextended_socket extends GPSbasic_socket
+    end GPSextended_socket_X; -- bug SC0001
+END pack_id1::pack; 

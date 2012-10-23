@@ -1,0 +1,38 @@
+-- A deep extension hierarchy of component types is represented.
+-- The hierarchy contains a circle of component type extensions.
+-- A component type extension from the hierarchy declares identifiers identical to identifiers
+-- declared in ancestor component types.
+-- Bugs SC0017 and SC0009.
+PACKAGE COMPONENT_TYPE_TC2
+    PUBLIC
+        THREAD thread_type_declaration                        
+            PROTOTYPES
+                id_1 : DATA;                
+            FEATURES
+                id_2 : OUT DATA PORT;                                    
+        END thread_type_declaration;        
+        
+        THREAD thread_type_extension_1 -- Bug SC0017
+            EXTENDS thread_type_extension_2            
+            PROTOTYPES
+                id_3 : DATA;                
+            FEATURES
+                id_4 : OUT DATA PORT;                                                                    
+        END thread_type_extension_1;
+        
+        THREAD thread_type_extension_2 -- Bug SC0017
+            EXTENDS thread_type_extension_1            
+            PROTOTYPES
+                id_5 : DATA;                
+            FEATURES
+                id_6 : OUT DATA PORT;                                                                    
+        END thread_type_extension_2;
+        
+        THREAD thread_type_extension_3
+            EXTENDS thread_type_extension_2            
+            FEATURES
+                id_1 : OUT DATA PORT;                                                                    
+                id_4 : OUT DATA PORT; -- Bug SC0009
+                id_5 : OUT DATA PORT; -- Bug SC0009
+        END thread_type_extension_3;
+END COMPONENT_TYPE_TC2; 

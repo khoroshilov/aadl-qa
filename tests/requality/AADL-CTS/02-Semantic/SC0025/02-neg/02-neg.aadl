@@ -1,0 +1,30 @@
+
+	-- Package contains a declaration which defining identifier is identical to the defining identifier
+	-- of a component type imported by an alias declaration which renames all declarations of a package.
+	-- Bug SC0025.
+	PACKAGE TC2
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL;
+	        
+	        THREAD threadTypeId -- bug SC0025
+	        END threadTypeId;            
+	END TC2;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP featureGrTypeId
+	        END featureGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;        
+	END pckgId::pckgId;
+

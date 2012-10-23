@@ -1,0 +1,16 @@
+
+	-- As predeclared property sets are checked, no specification is needed.
+	PACKAGE DUMMY_PACKAGE
+	PUBLIC
+
+	   THREAD myThr
+  END myThr;
+
+	PRIVATE
+
+	  THREAD myThr2
+  END myThr2;
+
+	
+	END DUMMY_PACKAGE;
+

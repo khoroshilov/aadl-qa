@@ -1,0 +1,30 @@
+{
+    "attributes": {
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- The defining identifier of a user defined property set is not identical to the<br />\n\t-- defining identifiers of the predeclared property sets. No bug SC0016.<br />\n\tPROPERTY SET pSetId is -- No bug SC0016<\/p>\n<p>\n\t&nbsp; simpleProp : AADLINTEGER =&gt; 0 APPLIES TO (ABSTRACT);<br />\n\tEND pSetId;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "b44bbc9a-107d-48be-bcde-d5bd8050ae8a"
+}

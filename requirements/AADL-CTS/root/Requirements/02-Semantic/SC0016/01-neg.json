@@ -1,0 +1,35 @@
+{
+    "attributes": {
+        "EXPECTED_RESULT": {
+            "key": "EXPECTED_RESULT",
+            "type": "STRING",
+            "value": "INVALID"
+        },
+        "_author": {
+            "key": "_author",
+            "type": "STRING",
+            "value": "gerlits"
+        },
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "<p>\n\t-- The defining identifier of a package is identical to the defining identifier of a predeclared<br />\n\t-- property set. Bug SC0016.<br />\n\tPACKAGE Modeling_Properties -- Bug SC0016<br />\n\tPUBLIC<\/p>\nPRIVATE<br />\n<p>\n\tEND Modeling_Properties;<br />\n\t<br />\n\tPACKAGE Timing_Properties -- Bug SC0016<br />\n\tPUBLIC<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr3<\/p>\n&nbsp; END myThr3;\n<p>\n\t<br />\n\tPRIVATE<\/p>\n<p>\n\t&nbsp;<\/p>\n<p>\n\t&nbsp; THREAD myThr4<\/p>\n&nbsp; END myThr4\n<p>\n\t<br />\n\tEND Timing_Properties;<\/p>\n"
+        },
+        "_expectedResults": {
+            "key": "_expectedResults",
+            "type": "STRING",
+            "value": ""
+        },
+        "_status": {
+            "key": "_status",
+            "type": "STRING",
+            "value": "complete"
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "TestPurpose"
+        }
+    },
+    "uuid": "9bf47947-9fdd-4edc-b605-0ba97191c304"
+}

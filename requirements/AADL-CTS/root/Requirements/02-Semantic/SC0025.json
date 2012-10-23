@@ -1,0 +1,31 @@
+{
+    "attributes": {
+        "_description": {
+            "key": "_description",
+            "type": "STRING",
+            "value": "The identifier conflicts with identifiers of component types or feature group types declared in the public sections of the specified packages. Those identifiers are introduced into the local namespace of the containing package by alias declarations declared in the containing package. These alias declarations do not explicitly declare local names for the referenced declarations.\r\n\r\n#1) AADL-4.1-N3\r\n#2) AADL-4.2-N14\r\n#3) AADL-4.2-N15\r\n#4) AADL-4.2-N16\r\n#5) AADL-4.2-N17\r\n#6) AADL-4.2-N3\r\n#7) AADL-4.2-S5\r\n#8) AADL-4.3-N1\r\n#9) AADL-5.3-N1\r\n#10) AADL-8.2-N1"
+        },
+        "_locations": {
+            "key": "_locations",
+            "type": "LIST",
+            "value": [
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/69d16513-f2d7-4b9c-9ff7-7ce423008094",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/00bf13aa-e982-4134-bb22-ef8d45cfe6cc",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/f8dca427-55be-45ea-8c0b-2f7cb7df0ccd",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/1abb93b3-4d16-414c-a91d-fab263b9adb5",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/e2dba0b6-aef6-493a-aef6-8d2531ba6563",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/79cbe84a-69c9-4e73-97d6-23f06f8f4710",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/9f81b6ee-d435-4158-b51f-5f60c0b1ddd3",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/84ccd78b-e880-4002-93e6-5d97d1c233d9",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/27afcd3a-cf7f-42a3-af8c-532584c30c20",
+                "/Documents/As5506-draft2.1-03052012_-_Final.xhtml/2645b8c8-18a7-4e80-836c-eb505b541906"
+            ]
+        },
+        "_type": {
+            "key": "_type",
+            "type": "STRING",
+            "value": "Requirement"
+        }
+    },
+    "uuid": "36af0964-80bf-4aa8-8af8-c98ce98fa0ed"
+}

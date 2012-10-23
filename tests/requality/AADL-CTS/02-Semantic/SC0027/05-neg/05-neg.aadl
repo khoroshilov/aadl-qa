@@ -1,0 +1,33 @@
+
+	-- An identifier introduced by an alias declaration which renames all declarations of a package
+	-- is identical to the identifier of a declaration from the package containing the alias declaration.
+	-- Bug SC0027.
+	PACKAGE TC5
+	    PUBLIC
+	        WITH pckgId::pckgId;
+	        RENAMES pckgId::pckgId::ALL; -- bug SC0027
+	    PRIVATE    
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;        
+	END TC5;
+
+	 
+
+	PACKAGE pckgId::pckgId
+	    PUBLIC
+	        THREAD threadTypeId
+	        END threadTypeId;
+	        
+	        THREAD IMPLEMENTATION threadTypeId.Impl
+	        END threadTypeId.Impl;
+	        
+	        FEATURE GROUP fGrTypeId
+	        END fGrTypeId;
+	        
+	        THREAD GROUP threadGrTypeId
+	        END threadGrTypeId;
+	    PRIVATE
+	        SUBPROGRAM subprogramTypeId
+	        END subprogramTypeId;
+	END pckgId::pckgId;
+

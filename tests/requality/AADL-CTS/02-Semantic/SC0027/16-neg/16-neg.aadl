@@ -1,0 +1,13 @@
+-- Two component implementations are declared with the same defining identifier and in different
+-- package sections. Bug SC0027.
+PACKAGE TC16
+    PUBLIC
+        THREAD threadTypeId
+        END threadTypeId;
+        
+        THREAD IMPLEMENTATION threadTypeId.Impl -- bug SC0027
+        END threadTypeId.Impl;            
+    PRIVATE
+        THREAD IMPLEMENTATION threadTypeId.Impl -- bug SC0027
+        END threadTypeId.Impl;            
+END TC16; 

@@ -1,0 +1,44 @@
+-- There is a cycle in an extension hierarchy of component types. A component implementation
+-- implements a component type from the hierarchy and declares identifiers which are identical
+-- to identifiers declared in the implemented component type and its ancestors. Bug SC0017 and SC0009.
+PACKAGE COMPONENT_IMPLEMENTATION_DECLARATION_TC1
+    PUBLIC
+        THREAD thread_type_declaration                        
+            PROTOTYPES
+                id_1 : DATA;                
+            FEATURES
+                id_2 : OUT DATA PORT;                                    
+        END thread_type_declaration;        
+        
+        THREAD thread_type_extension_1 -- Bug SC0017.
+            EXTENDS thread_type_extension_3            
+            PROTOTYPES
+                id_3 : DATA;                
+            FEATURES
+                id_4 : OUT DATA PORT;                                                                    
+        END thread_type_extension_1;
+        
+        THREAD thread_type_extension_2 -- Bug SC0017.
+            EXTENDS thread_type_extension_1            
+            PROTOTYPES
+                id_5 : DATA;                
+            FEATURES
+                id_6 : OUT DATA PORT;                                                                    
+        END thread_type_extension_2;
+        
+        THREAD thread_type_extension_3 -- Bug SC0017.
+            EXTENDS thread_type_extension_2            
+            FEATURES
+                id_7 : OUT DATA PORT;
+        END thread_type_extension_3;
+        
+        THREAD IMPLEMENTATION thread_type_extension_3.impl
+            SUBCOMPONENTS
+                id_1 : SUBPROGRAM;
+                id_4 : SUBPROGRAM; -- bug SC0009
+                id_6 : SUBPROGRAM; -- bug SC0009
+                id_7 : SUBPROGRAM; -- bug SC0009
+        END thread_type_extension_3.impl;
+END COMPONENT_IMPLEMENTATION_DECLARATION_TC1;
+
+ 

@@ -1,0 +1,74 @@
+
+    -- A MEMORY implementation is declared with all subclauses specified.
+    -- The subclauses contain declarations. Bug SC0006.
+    PACKAGE MEMORY_IMPLEMENTATION_TC1
+        PUBLIC
+            WITH simplePropSet;
+
+    
+
+           SUBPROGRAM simpleProg
+
+           END simpleProg;
+
+        BUS simpleBus
+        END simpleBus;
+
+        MEMORY simpleMem
+            FEATURES
+            reqBus : REQUIRES BUS ACCESS simpleBus;
+        END simpleMem;
+
+    
+            MEMORY T
+                FEATURES
+                    feature1 : OUT FEATURE;
+                    feature2 : OUT FEATURE;
+            reqBus : REQUIRES BUS ACCESS simpleBus;
+            reqBus2 : REQUIRES BUS ACCESS simpleBus;
+                FLOWS
+                    flowSource : FLOW SOURCE feature1;            
+            flowSource2 : FLOW SOURCE feature2;
+            END T;
+            
+            MEMORY IMPLEMENTATION T.I
+                SUBCOMPONENTS
+                    myMemSubc : MEMORY simpleMem;
+                CALLS myCalls : { -- bug SC0006.
+                    subprogCall : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection : BUS ACCESS reqBus -> myMemSubc.reqBus;
+                FLOWS -- bug SC0006.
+                    flowSource : FLOW SOURCE feature1;
+                MODES
+                    initMode : INITIAL MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 1;
+            END T.I;
+            
+            MEMORY IMPLEMENTATION T.IExt
+                EXTENDS T.I
+                SUBCOMPONENTS
+                    myMemSubc2 : MEMORY simpleMem;
+                CALLS myCalls2 : { -- bug SC0006.
+                    subprogCall2 : SUBPROGRAM simpleProg;
+                };
+                CONNECTIONS
+                    myConnection2 : BUS ACCESS reqBus2 -> myMemSubc2.reqBus;
+                FLOWS -- bug SC0006.
+                    flowSource2 : FLOW SOURCE feature2;
+                MODES
+                    mode2 : MODE;
+                PROPERTIES
+                    simplePropSet::simpleProp => 2;
+            END T.IExt;
+    END MEMORY_IMPLEMENTATION_TC1;
+
+    
+
+    PROPERTY SET simplePropSet IS
+        simpleProp : AADLINTEGER => 0 APPLIES TO (MEMORY);
+        simpleProp2 : AADLINTEGER => 0 APPLIES TO (MEMORY);
+    END simplePropSet;
+
