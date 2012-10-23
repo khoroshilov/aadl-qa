@@ -27,9 +27,11 @@
         <#assign qid  = node.getQualifiedId()>
         <#assign desc = node.description>
 ---id:   ${qid}
-        <#list locationsList as location>
+        <#if locationsList?has_content>
+          <#list locationsList as location>
 --location:  ${location}
-        </#list>
+          </#list>
+        </#if>
         <#local attributes = node.getAttributeKeys()/>
         <#list attributes as attr>
           <#if (attr[0] != '_')>
