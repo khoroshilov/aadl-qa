@@ -13132,7 +13132,7 @@ END TC2;
 		<br />
 		&nbsp; -- a controller to be realized as dual redundant system<br />
 		<code><b><span lang="EN-US">&nbsp; process</span></b></code><span lang="EN-US">&nbsp;controller&nbsp;<b>extends</b>&nbsp;flowComponent ( dt =&gt;&nbsp;<b>data&nbsp;</b>signal.unit16,</span><br />
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incoming =&gt;&nbsp;<b>event data port</b>&nbsp;signal.unit16 )<br />
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;incoming =&gt;&nbsp;<b>in event data port</b>&nbsp;signal.unit16 )<br />
 		<b><span lang="EN-US">&nbsp; &nbsp; end&nbsp;</span></b><span lang="EN-US">controller;</span><br />
 		<br />
 		&nbsp; -- the dual redundant controller system interface<br />
@@ -13147,6 +13147,8 @@ END TC2;
 		<code><b><span lang="EN-US">&nbsp;end&nbsp;</span></b></code><span lang="EN-US">DualRedundantController.PrimaryBackup;</span><br />
 		<b><span lang="EN-US">end&nbsp;</span></b><span lang="EN-US">PrototypeExample;</span></p>
 </div>
+<p>
+	&nbsp;</p>
 
 ---id:   /Requirements/04-Examples/10_1/FlowSpecificationExample
 --location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/d2ddee68-a668-4e45-b9ae-5e0626f42554

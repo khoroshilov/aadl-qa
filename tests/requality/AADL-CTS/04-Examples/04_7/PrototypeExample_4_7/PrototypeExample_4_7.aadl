@@ -37,7 +37,7 @@
 		
 		  -- a controller to be realized as dual redundant system
 		  process controller extends flowComponent ( dt => data signal.unit16,
-		                               incoming => event data port signal.unit16 )
+		                               incoming => in event data port signal.unit16 )
 		    end controller;
 		
 		  -- the dual redundant controller system interface
@@ -52,4 +52,6 @@
 		 end DualRedundantController.PrimaryBackup;
 		end PrototypeExample;
 
+
+	 
 
