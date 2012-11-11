@@ -532,8 +532,14 @@ sub generate_reqcoverage {
 #  foreach my $req (keys %req_failed) {
 #    print $file "--REQ: $req\n$req_failed{$req}";
 #  }
-  require YAML;
-  print $file YAML::Dump(%reqcoverage);
+  eval {
+    require YAML;
+    print $file YAML::Dump(%reqcoverage);
+  };
+  if ($@)
+  {
+    print "WARNING: Perl::YAML is not found, requirements coverage will not be available.\n";
+  }
   close($file);
 }
 

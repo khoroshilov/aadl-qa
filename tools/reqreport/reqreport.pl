@@ -1,6 +1,5 @@
 #!/usr/bin/perl -w
 
-use YAML;
 use FindBin;
 
 my $REQPROJECT = shift;
@@ -38,7 +37,14 @@ sub load_reqcoverage($) {
   open(FILE, "<", $REQCOVERAGE) or die "can't open reqcoverage file: $!";
   my $content = do { local $/; <FILE> };
   close(FILE);
-  %reqcoverage = Load($content);
+  eval {
+    require YAML;
+    %reqcoverage = YAML::Load($content);
+  };
+  if ($@)
+  {
+    print "WARNING: Perl::YAML is not found, requirements coverage will not be available.\n";
+  }
 }
 
 #----------------------------------------------------------------------
@@ -272,6 +278,7 @@ ENDSCRIPT
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body onload="javascript: onLoad();">
 
@@ -292,10 +299,10 @@ function onLoad() {
     if (req2doc[req]) {
       document.location = req2doc[req] + "#" + req;
     } else {
-      msg.innerText = "Requirement '" + req + "' not found";
+      msg.innerHTML = "Requirement '" + req + "' not found";
     }
   } else {
-    msg.innerText = "No requirement selected";
+    msg.innerHTML = "No requirement selected";
   }
 }
 
