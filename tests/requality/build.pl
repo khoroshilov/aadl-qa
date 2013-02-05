@@ -35,7 +35,7 @@ my $reqbase    = "$FindBin::Bin/../../requirements/AADL-CTS/reqdb.txt";
   }
   my $code = system("$aadlgen $reqproject $gensrc");
   if ($code != 0) {
-    exit($code);
+    exit(($code>>8)?$code>>8:1);
   }
   system("mv $gensrc/reqdb.txt $reqbase");
   
