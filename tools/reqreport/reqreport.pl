@@ -229,12 +229,15 @@ my $req2doc_init = "";
     my $reqcss = ".requality_text_covered {background:#A0FFA0;} .requality_text_failed {background:#FFA0A0}";
 
     system("cp -rf $REQPROJECT/root/Documents/${htmlfile}_resources/* $OUTDIR/");
-    system("sed -e 's!\\(/\\* Font Definitions \\*/\\)!$reqcss \\1!' $OUTDIR/${htmlfile} >$OUTDIR/$htmlfile.new && mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
-    system("sed -e \"s/<body/<body onclick=\\\"javascript:if \\(typeof\\(onBodyClick\\)!='undefined'\\) onBodyClick\\(\\);\\\"/\" $OUTDIR/${htmlfile} >$OUTDIR/$htmlfile.new && mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
-    system("sed -e '/<body/ {\n r $OUTDIR/script.tmp\n }' $OUTDIR/${htmlfile} >$OUTDIR/$htmlfile.new && mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
+    system("sed -e 's!\\(/\\* Font Definitions \\*/\\)!$reqcss \\1!' ".
+               "-e \"s/<body/<body onclick=\\\"javascript:if \\(typeof\\(onBodyClick\\)!='undefined'\\) onBodyClick\\(\\);\\\"/\" ".
+               "-e '/<body/ {\n r $OUTDIR/script.tmp\n }' $OUTDIR/${htmlfile} >$OUTDIR/$htmlfile.new &&".
+          " mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
   }
   system("cp -rf $FindBin::Bin/images $OUTDIR/");
   # Update status of locations
+  my %sed_scripts = ();
+  my %init_script_body = ();
   foreach my $req (keys %{ $reqcoverage{'covered'} }) {
     my $failed;
     my $class = "covered";
@@ -242,6 +245,8 @@ my $req2doc_init = "";
     $reqf =~ s/\//\\\//g;
     if (defined($reqcoverage{'failed'}->{$req})) {
       $failed = $reqcoverage{'failed'}->{$req};
+      $failed =~ s/'/\\'/g;
+      $failed =~ s/\n/<br\/>/g;
       $class = "failed";
     }
 #print "Process: $req [$class]\n";
@@ -252,25 +257,44 @@ my $req2doc_init = "";
         my $locid = $2;
         $req2doc_init = $req2doc_init."req2doc['$req'] = \"$htmlfile\";\n";
 
-        system("sed -e 's/requality_text id_$locid/requality_text_$class id_$locid/g' $OUTDIR/$htmlfile >$OUTDIR/$htmlfile.new && mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
+        if (!defined($sed_scripts{$htmlfile})) {
+          $sed_scripts{$htmlfile} = "";
+        }
+
+        $sed_scripts{$htmlfile} = $sed_scripts{$htmlfile}."s/requality_text id_$locid/requality_text_$class id_$locid/g\n";
         if (defined($failed)) {
-          system("sed -e \"s/\\(<a name=\\\"$locid\\\" id=\\\"id_$locid\\\" class=\\\"requality_id\\\">\\)/\\1 <a name=\\\"$reqf\\\"><\\/a><a href=\\\"#"."$locid\\\" onclick=\\\"javascript:show_hide_tooltip\\(this, '$reqf', event\\); return false;\\\"><img src=\\\"images\\/question.png\\\" width=\\\"16\\\" height=\\\"16\\\" alt=\\\"?\\\" \\/><\\/a>/\" $OUTDIR/$htmlfile >$OUTDIR/$htmlfile.new && mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
-          $failed =~ s/'/\\'/g;
-          $failed =~ s/\n/<br\/>/g;
-          my $init_script = <<ENDSCRIPT;
-<script type="text/javascript" language="javascript"> 
-// <![CDATA[
-error_texts['$req'] = '<pre>$failed</pre>';
-// ]]>
-</script>
-ENDSCRIPT
-          open(FILE, ">", "$OUTDIR/script.tmp");
-          print FILE "$init_script";
-          close(FILE);
-          system("sed -e '/<!-- SCRIPT PLACEHOLDER -->/ {\n r $OUTDIR/script.tmp\n }' $OUTDIR/${htmlfile} >$OUTDIR/$htmlfile.new && mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
+          $sed_scripts{$htmlfile} = $sed_scripts{$htmlfile}."s/\\(<a name=\\\"$locid\\\" id=\\\"id_$locid\\\" class=\\\"requality_id\\\">\\)/\\1 <a name=\\\"$reqf\\\"><\\/a><a href=\\\"#"."$locid\\\" onclick=\\\"javascript:show_hide_tooltip\\(this, '$reqf', event\\); return false;\\\"><img src=\\\"images\\/question.png\\\" width=\\\"16\\\" height=\\\"16\\\" alt=\\\"?\\\" \\/><\\/a>/\n";
+          if (!defined($init_script_body{$htmlfile})) {
+            $init_script_body{$htmlfile} = "error_texts['$req'] = '<pre>$failed</pre>';\n";
+          } else {
+            $init_script_body{$htmlfile} = $init_script_body{$htmlfile}."error_texts['$req'] = '<pre>$failed</pre>';\n";
+          }
         }
       }
     }
+  }
+  # Execute sed scripts
+  foreach my $htmlfile (keys %sed_scripts) {
+#print "Process[sed_scripts]: $htmlfile \n";
+    open(FILE, ">", "$OUTDIR/script.tmp");
+    print FILE "$sed_scripts{$htmlfile}";
+    close(FILE);
+    system("sed -f $OUTDIR/script.tmp $OUTDIR/${htmlfile} >$OUTDIR/$htmlfile.new && mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
+  }
+  # Add init script bodies
+  foreach my $htmlfile (keys %init_script_body) {
+#print "Process[init_script_body]: $htmlfile \n";
+    my $init_script = <<ENDSCRIPT;
+<script type="text/javascript" language="javascript"> 
+// <![CDATA[
+$init_script_body{$htmlfile}
+// ]]>
+</script>
+ENDSCRIPT
+    open(FILE, ">", "$OUTDIR/script.tmp");
+    print FILE "$init_script";
+    close(FILE);
+    system("sed -e '/<!-- SCRIPT PLACEHOLDER -->/ {\n r $OUTDIR/script.tmp\n }' $OUTDIR/${htmlfile} >$OUTDIR/$htmlfile.new && mv $OUTDIR/$htmlfile.new $OUTDIR/$htmlfile");
   }
   system("rm -f $OUTDIR/script.tmp");
 
