@@ -22,8 +22,18 @@
 use strict;
 use Switch;
 use FindBin;
+use Getopt::Long;
+
 
 #----------------------------------------------------------------------
+my $no_statistics  = 0;
+my $no_reqcoverage = 0;
+my $no_reqreport   = 0;
+GetOptions(
+           "no-statistics"  => \$no_statistics,
+           "no-reqcoverage" => \$no_reqcoverage,
+           "no-reqreport"   => \$no_reqreport
+          );
 my $CMD       = shift;
 
 
@@ -58,7 +68,11 @@ my @test_suites_list = ();
 # Run all tests for the tools given
 sub tests_run() {
   my $tools = join(" --tool ",@ARGV);
-  system("$manager --src $src --logdir $logdir --reportdir $reportdir --reqproject $reqproject --tool $tools");
+  my $options = "";
+  $options = $options." --no-statistics" if ($no_statistics);
+  $options = $options." --no-reqcoverage" if ($no_reqcoverage);
+  $options = $options." --no-reqreport" if ($no_reqreport);
+  system("$manager $options --src $src --logdir $logdir --reportdir $reportdir --reqproject $reqproject --tool $tools");
 }
 
 #----------------------------------------------------------------------
@@ -76,10 +90,15 @@ sub print_supported_tools() {
 #----------------------------------------------------------------------
 sub print_usage() {
   print <<USAGE;
-  aadl-qa.pl run <tools> - Run all tests for <tools> and generate report
-  aadl-qa.pl gensrc      - Generate AADL tests from other sources
-  aadl-qa.pl clean       - Remove all generates files
-  aadl-qa.pl --help      - Print this message
+  aadl-qa.pl run [opts] <tools> - Run all tests for <tools> and generate report
+  aadl-qa.pl gensrc             - Generate AADL tests from other sources
+  aadl-qa.pl clean              - Remove all generates files
+  aadl-qa.pl --help             - Print this message
+
+  'run' optins:
+    --no-statistics             - Do not generate statistics data
+    --no-reqcoverage            - Do not generate reqcoverage data
+    --no-reqreport              - Do not generate reqcoverage report
   
   The list of tools supported:  
 USAGE

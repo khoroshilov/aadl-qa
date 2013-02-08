@@ -40,13 +40,19 @@ my @TOOLS;
 my $REQPROJECT;
 my $keep_journals = 1;
 my $list_tools_only = 0;
-GetOptions("src=s"        => \@SRCDIRS,
-           "logdir=s"     => \$LOGDIR,
-           "reportdir=s"  => \$REPORTDIR,
-           "tool=s"       => \@TOOLS,
-           "reqproject=s" => \$REQPROJECT,
-           "clean"        => sub {$keep_journals=0;},
-           "list-tools"   => \$list_tools_only
+my $no_statistics  = 0;
+my $no_reqcoverage = 0;
+my $no_reqreport   = 0;
+GetOptions("src=s"          => \@SRCDIRS,
+           "logdir=s"       => \$LOGDIR,
+           "reportdir=s"    => \$REPORTDIR,
+           "tool=s"         => \@TOOLS,
+           "reqproject=s"   => \$REQPROJECT,
+           "clean"          => sub {$keep_journals=0;},
+           "list-tools"     => \$list_tools_only,
+           "no-statistics"  => \$no_statistics,
+           "no-reqcoverage" => \$no_reqcoverage,
+           "no-reqreport"   => \$no_reqreport
           );
 
 
@@ -301,6 +307,9 @@ $ENV{'AADLRUN'} = sprintf "%04d%02d%02d-%02d%02d%02d", $year+1900, $month+1, $da
 # Load required staff
 my %args = ( "reqproject" => $REQPROJECT
            );
+$args{'no-statistics'} = 1 if ($no_statistics);
+$args{'no-reqcoverage'} = 1 if ($no_reqcoverage);
+$args{'no-reqreport'} = 1 if ($no_reqreport or $no_reqcoverage);
 my $reporter = load_reporter(%args);
 my %all_test_suites = ();
 foreach my $src (@SRCDIRS) {

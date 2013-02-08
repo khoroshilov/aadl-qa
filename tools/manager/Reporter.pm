@@ -122,8 +122,9 @@ sub to_html {
 
 #----------------------------------------------------------------------
 my $msgbox_id = 0;
-sub print_failure($$$)
+sub print_failure($$$$)
 {
+    my $self = shift;
     my $tool_adapter = shift;
     my $test_case  = shift;
     my $result = shift;
@@ -167,7 +168,9 @@ sub print_failure($$$)
     report("\n</div>\n");
     if (defined($test_case->{'manifest'}->{"REQ"})) {
       my $req = $test_case->{'manifest'}->{"REQ"};
-      report("Reference to the specification: <a href='specification.html#"."$req'>$req</a>\n");
+      if (!defined($self->{'no-reqreport'})) {
+        report("Reference to the specification: <a href='specification.html#"."$req'>$req</a>\n");
+      }
     }
     report("</div>");
     report("</td>");
@@ -227,7 +230,7 @@ sub process_test_case_result {
     incr_stats(\%stats_tests_passed,\@test_groups);
   } else {
     incr_stats(\%stats_tests_failed,\@test_groups);
-    print_failure($tool_adapter,$test_case,$result);
+    $self->print_failure($tool_adapter,$test_case,$result);
   }
   $self->count_reqcoverage($tool_adapter,$test_case,$result);
 }
@@ -575,9 +578,9 @@ sub generate_report {
   $self->print_header();
   $self->print_body();
   $self->print_footer();
-  $self->generate_statistics($REPORTDIR);
-  $self->generate_reqcoverage($REPORTDIR);
-  $self->generate_reqreport($REPORTDIR);
+  $self->generate_statistics($REPORTDIR) unless (defined($self->{'no-statistics'}));
+  $self->generate_reqcoverage($REPORTDIR) unless (defined($self->{'no-reqcoverage'}));
+  $self->generate_reqreport($REPORTDIR) unless (defined($self->{'no-reqreport'}));
   $self->print_summary();
 }
 
