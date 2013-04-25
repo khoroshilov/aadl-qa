@@ -8018,10 +8018,10 @@ END SystemPack;&nbsp; &nbsp;<br />
 --attr[EXPECTED_RESULT]: INVALID
 -- The namespace of a property set declares two identical identifiers. Bug SC0009.<br />
 PROPERTY SET PROPERTY_SET_TC1 IS<br />
-&nbsp;&nbsp; &nbsp;enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);<br />
-&nbsp;&nbsp; &nbsp;id : TYPE ENUMERATION (ONE, TWO, THREE); -- bug SC0009<br />
-&nbsp;&nbsp; &nbsp;property_declaration : id APPLIES TO (system);<br />
-&nbsp;&nbsp; &nbsp;id : constant INTEGER =&gt; 256; -- bug SC0009<br />
+    enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);<br />
+    id : TYPE ENUMERATION (ONE, TWO, THREE); -- bug SC0009<br />
+    property_declaration : aadlinteger APPLIES TO (system);<br />
+    id : constant aadlinteger =&gt; 256; -- bug SC0009<br />
 END PROPERTY_SET_TC1; 
 ---id:   /Requirements/02-Semantic/SC0009/AADL-11.1/02-pos
 --location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/92a04fa1-ca8f-4fd3-b9d0-8206b93befb2
@@ -8040,9 +8040,9 @@ END PROPERTY_SET_TC2;
 --location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/74f42ca0-c424-4bda-8eb8-51758869eef8
 -- The namespace of a property set does not declare any identical identifiers. No bug SC0009.<br />
 PROPERTY SET PROPERTY_SET_TC3 IS<br />
-&nbsp;&nbsp; &nbsp;enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);<br />
-&nbsp;&nbsp; &nbsp;property_declaration : id APPLIES TO (system);<br />
-&nbsp;&nbsp; &nbsp;property_constant : constant INTEGER =&gt; 256;<br />
+    enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);<br />
+    property_declaration : PROPERTY_SET_TC3::enumeration_type APPLIES TO (system);<br />
+    property_constant : constant aadlinteger =&gt; 256;<br />
 END PROPERTY_SET_TC3; 
 ---id:   /Requirements/02-Semantic/SC0009/AADL-11.1.1-N3/01-neg
 --location:  /Documents/As5506-draft2.1-03052012_-_Final.xhtml/8af7ea9d-daf6-4857-9b01-fb305741e666

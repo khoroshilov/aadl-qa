@@ -1,6 +1,6 @@
 -- The namespace of a property set does not declare any identical identifiers. No bug SC0009.
 PROPERTY SET PROPERTY_SET_TC3 IS
     enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);
-    property_declaration : id APPLIES TO (system);
-    property_constant : constant INTEGER => 256;
+    property_declaration : PROPERTY_SET_TC3::enumeration_type APPLIES TO (system);
+    property_constant : constant aadlinteger => 256;
 END PROPERTY_SET_TC3; 

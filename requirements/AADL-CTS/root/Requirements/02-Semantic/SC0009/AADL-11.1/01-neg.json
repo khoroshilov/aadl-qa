@@ -13,12 +13,7 @@
         "_description": {
             "key": "_description",
             "type": "STRING",
-            "value": "-- The namespace of a property set declares two identical identifiers. Bug SC0009.<br />\nPROPERTY SET PROPERTY_SET_TC1 IS<br />\n&nbsp;&nbsp; &nbsp;enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);<br />\n&nbsp;&nbsp; &nbsp;id : TYPE ENUMERATION (ONE, TWO, THREE); -- bug SC0009<br />\n&nbsp;&nbsp; &nbsp;property_declaration : id APPLIES TO (system);<br />\n&nbsp;&nbsp; &nbsp;id : constant INTEGER =&gt; 256; -- bug SC0009<br />\nEND PROPERTY_SET_TC1; "
-        },
-        "_expectedResults": {
-            "key": "_expectedResults",
-            "type": "STRING",
-            "value": ""
+            "value": "-- The namespace of a property set declares two identical identifiers. Bug SC0009.<br />\nPROPERTY SET PROPERTY_SET_TC1 IS<br />\n    enumeration_type : TYPE ENUMERATION (ONE, TWO, THREE);<br />\n    id : TYPE ENUMERATION (ONE, TWO, THREE); -- bug SC0009<br />\n    property_declaration : aadlinteger APPLIES TO (system);<br />\n    id : constant aadlinteger =&gt; 256; -- bug SC0009<br />\nEND PROPERTY_SET_TC1; "
         },
         "_status": {
             "key": "_status",
