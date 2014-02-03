@@ -29,8 +29,10 @@ use Getopt::Long;
 my $no_statistics  = 0;
 my $no_reqcoverage = 0;
 my $no_reqreport   = 0;
+my $testslist      = "";
 GetOptions(
            "no-statistics"  => \$no_statistics,
+           "tests=s"        => \$testslist,
            "no-reqcoverage" => \$no_reqcoverage,
            "no-reqreport"   => \$no_reqreport
           );
@@ -72,7 +74,10 @@ sub tests_run() {
   $options = $options." --no-statistics" if ($no_statistics);
   $options = $options." --no-reqcoverage" if ($no_reqcoverage);
   $options = $options." --no-reqreport" if ($no_reqreport);
-  system("$manager $options --src $src --logdir $logdir --reportdir $reportdir --reqproject $reqproject --tool $tools");
+#  print "OPTIONS $options \n";
+#    print "TOOLS $tools \n";
+
+  system("$manager $options --tests $testslist --src $src --logdir $logdir --reportdir $reportdir --reqproject $reqproject --tool $tools");
 }
 
 #----------------------------------------------------------------------

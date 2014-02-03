@@ -79,6 +79,7 @@ sub prepare_run {
   my ($self,$test_case) = @_;
   # Calculate all aadl files required
   my $aadlfiles = "$test_case->{'path'}/*.aadl";
+  
   $aadlfiles = prepend_common_aadlfiles($test_case->{'manifest'},$test_case->{'path'},$aadlfiles);
   my $parent = $test_case->{'parent'};
   while(defined($parent)) {
@@ -86,6 +87,7 @@ sub prepare_run {
     $parent= $parent->{'parent'};
   }
   $self->{'aadlfiles'} = $aadlfiles;
+  $self->{'path'} = $test_case->{'path'};
   # Prepare logdir
   $test_case->{'LOGDIR'} = "$ENV{'AADLLOGDIR'}/$ENV{'AADLRUN'}/$self->{'tool'}/$test_case->{'fullname'}";
   system("mkdir -p $test_case->{'LOGDIR'}");

@@ -38,6 +38,7 @@ my $LOGDIR;
 my $REPORTDIR;
 my @TOOLS;
 my $REQPROJECT;
+my $testslist = "";
 my $keep_journals = 1;
 my $list_tools_only = 0;
 my $no_statistics  = 0;
@@ -50,6 +51,7 @@ GetOptions("src=s"          => \@SRCDIRS,
            "reqproject=s"   => \$REQPROJECT,
            "clean"          => sub {$keep_journals=0;},
            "list-tools"     => \$list_tools_only,
+           "tests=s"        => \$testslist,
            "no-statistics"  => \$no_statistics,
            "no-reqcoverage" => \$no_reqcoverage,
            "no-reqreport"   => \$no_reqreport
@@ -140,6 +142,36 @@ sub load_reporter {
 }
 
 #----------------------------------------------------------------------
+sub is_included
+{
+  my $testname;
+  my @tests;
+  my $test;
+  
+  $testname = shift;
+  
+  if (length ($testslist) == 0)
+  {
+    return 1;
+  }
+  
+#  print "testlists $testslist\n";
+  
+  @tests = split (',', $testslist);
+  
+  foreach $test (@tests)
+  {
+#    print "TEST $test\n";
+    if ($testname =~ m/.*$test/)
+    {
+      return 1;
+    }
+  }
+  
+  return 0;
+}
+
+#----------------------------------------------------------------------
 sub load_test_cases($$) {
   my $tspath = shift(@_);
   my $parent = shift(@_);
@@ -154,17 +186,25 @@ sub load_test_cases($$) {
     print STDERR "[WARNING] Incorrect PATH when loading test cases: '$tspath'\n";
   }
   my %test_cases = ();
-  foreach my $tcmanifest ( @test_cases_list ) {
+  foreach my $tcmanifest ( @test_cases_list )
+  {
     $tcmanifest =~ m/$tspath(.*)\/MANIFEST.TC/;
+    
+    
     my $test_case = $1;
-    my $test_case_desc = {
-                name       => $test_case,
-                fullname   => "$parent->{'name'}$test_case",
-                manifest   => load_config($tcmanifest),
-                path       => "$tspath$test_case",
-                parent     => $parent
-            };
-    $test_cases{$test_case} = $test_case_desc;
+    
+    
+    if (is_included ($test_case) == 1)
+    {
+      my $test_case_desc = {
+		  name       => $test_case,
+		  fullname   => "$parent->{'name'}$test_case",
+		  manifest   => load_config($tcmanifest),
+		  path       => "$tspath$test_case",
+		  parent     => $parent
+	      };
+      $test_cases{$test_case} = $test_case_desc;
+    }
   }
   return \%test_cases;
 }

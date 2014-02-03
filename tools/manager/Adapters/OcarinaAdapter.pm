@@ -45,7 +45,6 @@ sub do_run {
 
 
   $expected = "";
-
   $instance_option = "";
   $instance_name = "";
 

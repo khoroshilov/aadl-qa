@@ -42,7 +42,7 @@ sub do_run {
   my $firstpassed = 0;
   my $line;
   my $retcode = 0;
-  
+
   $tool = `which ramses.sh`;
   chomp ($tool);
   if ( ! -f $tool)
@@ -55,6 +55,7 @@ sub do_run {
   if ( defined ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'}) and 
      ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'} eq "NO"))
   {
+    print "[Osate] Pass test " . $test_case->{'name'} . "because it relies on ocarina\n";
     $result{'RESULT'} = "VALID";
     return \%result; 
   }
@@ -84,13 +85,13 @@ sub do_run {
   open CMD, "$cmd 2>&1 |";
   while ($line = <CMD>)
   {
-  
+      print $line;
 	$result{'LOG'} .= $line;
-	if ($line =~ /Exit on parse error/)
+	if ($line =~ /.*Exit on parse error.*/)
 	{
 	  $retcode = 0;
 	}
-	if ($line =~ /parsing has SUCCEEDED/)
+	if ($line =~ /.*parsing has SUCCEEDED.*/)
 	{
 	  $retcode = 1;
 	}
@@ -105,7 +106,16 @@ sub do_run {
    {
      $result{'RESULT'} = "INVALID";
    }
- 
+    $expected = $test_case->{'manifest'}{'EXPECTED_RESULT'};
+
+  if ($expected eq  $result{'RESULT'})
+  {
+      print "- OK\n";
+  }
+  else
+  {
+      print "- ERROR (result=".$result{'RESULT'}." ; expected=".$expected.")\n";
+  }
   return \%result;
 }
 
