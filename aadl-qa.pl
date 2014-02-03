@@ -74,10 +74,11 @@ sub tests_run() {
   $options = $options." --no-statistics" if ($no_statistics);
   $options = $options." --no-reqcoverage" if ($no_reqcoverage);
   $options = $options." --no-reqreport" if ($no_reqreport);
+  $options = $options." --tests $testslist" if (length ($testslist) > 0 );
 #  print "OPTIONS $options \n";
 #    print "TOOLS $tools \n";
 
-  system("$manager $options --tests $testslist --src $src --logdir $logdir --reportdir $reportdir --reqproject $reqproject --tool $tools");
+  system("$manager $options --src $src --logdir $logdir --reportdir $reportdir --reqproject $reqproject --tool $tools");
 }
 
 #----------------------------------------------------------------------

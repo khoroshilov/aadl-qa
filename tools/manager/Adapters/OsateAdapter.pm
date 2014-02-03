@@ -80,12 +80,13 @@ sub do_run {
   }
   close MYDIR;
   
+  print "[OSATE] Processing " . $test_case->{'name'} . " " ;
+  
   $cmd = "(cd $tooldir && ./ramses.sh --parse -m " . $aadlfiles . ")"; 
  
   open CMD, "$cmd 2>&1 |";
   while ($line = <CMD>)
   {
-      print $line;
 	$result{'LOG'} .= $line;
 	if ($line =~ /.*Exit on parse error.*/)
 	{

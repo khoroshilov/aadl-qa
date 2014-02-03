@@ -150,7 +150,7 @@ sub is_included
   
   $testname = shift;
   
-  if (length ($testslist) == 0)
+  if (length ($testslist) <= 0)
   {
     return 1;
   }
@@ -192,8 +192,6 @@ sub load_test_cases($$) {
     
     
     my $test_case = $1;
-    
-    
     if (is_included ($test_case) == 1)
     {
       my $test_case_desc = {
