@@ -73,8 +73,6 @@ sub do_run {
   {
     if ($f =~ /aadl$/)
     {
-      continue if ($f eq ".");
-      continue if ($f eq "..");
       $aadlfiles .= "," if ($firstpassed == 1);
       $aadlfiles .= "" . $test_case->{'path'} . "/" . $f;
       $firstpassed = 1;
