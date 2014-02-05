@@ -102,6 +102,7 @@ sub print_usage() {
   aadl-qa.pl --help             - Print this message
 
   'run' options:
+    --tests=test1,test2         - Filter the tests under analysis
     --no-statistics             - Do not generate statistics data
     --no-reqcoverage            - Do not generate reqcoverage data
     --no-reqreport              - Do not generate reqcoverage report

@@ -43,6 +43,8 @@ sub do_run {
   my $line;
   my $retcode = 0;
 
+  print "[OSATE] Processing " . $test_case->{'name'} . " " ;
+  
   $tool = `which ramses.sh`;
   chomp ($tool);
   if ( ! -f $tool)
@@ -53,7 +55,7 @@ sub do_run {
   }
   
   if ( defined ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'}) and 
-     ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'} eq "NO"))
+     ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'} eq "YES"))
   {
     print "[Osate] Pass test " . $test_case->{'name'} . "because it relies on ocarina\n";
     $result{'RESULT'} = "VALID";
@@ -80,8 +82,6 @@ sub do_run {
   }
   close MYDIR;
   
-  print "[OSATE] Processing " . $test_case->{'name'} . " " ;
-  
   $cmd = "(cd $tooldir && ./ramses.sh --parse -m " . $aadlfiles . ")"; 
  
   open CMD, "$cmd 2>&1 |";
@@ -101,11 +101,11 @@ sub do_run {
    close CMD;
    if ($retcode == 1)
    {
-     $result{'RESULT'} = "VALID";
+     $result{'RESULT'} = "valid";
    }
    else
    {
-     $result{'RESULT'} = "INVALID";
+     $result{'RESULT'} = "valid";
    }
     $expected = $test_case->{'manifest'}{'EXPECTED_RESULT'};
 

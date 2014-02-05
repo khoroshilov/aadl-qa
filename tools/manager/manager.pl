@@ -162,7 +162,7 @@ sub is_included
   foreach $test (@tests)
   {
 #    print "TEST $test\n";
-    if ($testname =~ m/.*$test/)
+    if ($testname =~ m/.*$test.*/)
     {
       return 1;
     }
