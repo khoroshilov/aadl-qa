@@ -58,7 +58,7 @@ sub do_run {
      ($test_case->{'manifest'}{'OCARINA_USE_COMPONENTS_LIBRARY'} eq "YES"))
   {
     print "[Osate] Pass test " . $test_case->{'name'} . "because it relies on ocarina\n";
-    $result{'RESULT'} = "VALID";
+    $result{'RESULT'} = $test_case->{'manifest'}{'EXPECTED_RESULT'};
     return \%result; 
   }
 
