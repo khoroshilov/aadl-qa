@@ -41,7 +41,7 @@ sub do_run {
   my $aadlfiles;
   my $firstpassed = 0;
   my $line;
-  my $retcode = 0;
+  my $retcode = 2;
 
   print "[OSATE] Processing " . $test_case->{'name'} . " " ;
   
@@ -83,9 +83,13 @@ sub do_run {
   $cmd = "(cd $tooldir && ./ramses.sh --parse -m " . $aadlfiles . ")"; 
  
   open CMD, "$cmd 2>&1 |";
-  while ($line = <CMD>)
+  while ( ($line = <CMD>) && ($retcode == 2))
   {
 	$result{'LOG'} .= $line;
+	if ($line =~ /.*Model has errors.*/)
+	{
+	  $retcode = 0;
+	}
 	if ($line =~ /.*Exit on parse error.*/)
 	{
 	  $retcode = 0;
@@ -103,8 +107,9 @@ sub do_run {
    }
    else
    {
-     $result{'RESULT'} = "valid";
+     $result{'RESULT'} = "invalid";
    }
+   print "RESULT " . $result{'RESULT'} . "\n";
     $expected = $test_case->{'manifest'}{'EXPECTED_RESULT'};
 
   if ($expected eq  $result{'RESULT'})
