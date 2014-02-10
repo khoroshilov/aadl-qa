@@ -44,7 +44,7 @@ sub do_run {
   my $retcode = 2;
 
   print "[OSATE] Processing " . $test_case->{'name'} . " " ;
-  
+  $result{'RESULT'} = "INVALID";
   $tool = `which ramses.sh`;
   chomp ($tool);
   if ( ! -f $tool)
@@ -103,16 +103,13 @@ sub do_run {
    close CMD;
    if ($retcode == 1)
    {
-     $result{'RESULT'} = "valid";
+      $result{'RESULT'} = "VALID";
    }
-   else
-   {
-     $result{'RESULT'} = "invalid";
-   }
-   print "RESULT " . $result{'RESULT'} . "\n";
-    $expected = $test_case->{'manifest'}{'EXPECTED_RESULT'};
-
-  if ($expected eq  $result{'RESULT'})
+   
+   $expected = $test_case->{'manifest'}{'EXPECTED_RESULT'}; 
+  $expected =~ tr/a-z/A-Z/;
+   
+  if ( $result{'RESULT'} eq $expected)
   {
       print "- OK\n";
   }
