@@ -95,6 +95,10 @@ sub do_run {
 	{
 	  $retcode = 0;
 	}
+	if ($line =~ /.*Error.*/)
+	{
+	  $retcode = 0;
+	}
 	if ($line =~ /.*Task Parse.*is done.*/)
 	{
 	  $retcode = 1;
