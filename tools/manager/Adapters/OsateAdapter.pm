@@ -80,21 +80,22 @@ sub do_run {
   }
   close MYDIR;
   
-  $cmd = "(cd $tooldir && ./ramses.sh --parse -m " . $aadlfiles . ")"; 
+  $cmd = "(cd $tooldir && ./ramses.sh --parse -l all -m " . $aadlfiles . ")"; 
+#print STDERR $cmd."\n";
  
   open CMD, "$cmd 2>&1 |";
   while ( ($line = <CMD>) && ($retcode == 2))
   {
 	$result{'LOG'} .= $line;
-	if ($line =~ /.*Model has errors.*/)
+	if ($line =~ /.*Syntaxe Error.*/)
 	{
 	  $retcode = 0;
 	}
-	if ($line =~ /.*Exit on parse error.*/)
+	if ($line =~ /.*Fatal Error.*/)
 	{
 	  $retcode = 0;
 	}
-	if ($line =~ /.*parsing has SUCCEEDED.*/)
+	if ($line =~ /.*Task Parse.*is done.*/)
 	{
 	  $retcode = 1;
 	}
